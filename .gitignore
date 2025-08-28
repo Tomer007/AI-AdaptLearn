@@ -1,0 +1,56 @@
+# OS / Editor artifacts
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Python bytecode / build
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Logs
+logs/
+*.log
+
+# Caches and test artifacts
+.pytest_cache/
+.mypy_cache/
+.cache/
+.coverage
+coverage/
+coverage.xml
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Node / Web build outputs
+node_modules/
+.npm/
+.parcel-cache/
+.turbo/
+.next/
+*.tsbuildinfo
+
+# Environment files
+.env
+.env.*
+
+# Misc
+*.bak
+*~
+

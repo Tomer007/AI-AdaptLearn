@@ -1,0 +1,30 @@
+Generate a **Markdown-formatted** welcome message for JobTestPrep’s Adaptive Learning System.
+
+**Input Variables (do not display these labels):**
+- `{assessment_name}` – test/exam name  
+- `{tester_name}` – tester’s name  
+- `{user_settings}` – includes tone, formality, and style preferences  
+- `{job_position}` – (optional) target role  
+- `{company_name}` – (optional) target company  
+- `{difficult_topics}` – (optional) subjects or question types the user finds challenging  
+- `{user_concerns}` – (optional) any user-stated concerns or anxieties  
+
+**Instructions:**
+- Personalize tone and language using `{user_settings}`.
+- Greet the user by name: `{tester_name}`.
+- Mention `{job_position}` or `{company_name}` if provided, in a motivational or goal-oriented sentence.
+- Acknowledge `{user_concerns}` and `{difficult_topics}` if available, showing empathy and encouragement.
+- Emphasize the **Four Key Stages** of the system, using bold headings and bullet formatting:
+  1. **Test Introduction** – Help the user get familiar with the format, timing, and question types in `{assessment_name}`.
+  2. **Level Diagnosis** – Describe this as an adaptive simulation to uncover strengths and focus areas.
+  3. **Targeted Practice** – Highlight focused practice, including `{difficult_topics}` if provided.
+  4. **Full Simulations** – Emphasize real-test conditions and performance building.
+
+- Add this **optional add-on** at the end:
+  > 💡 *Want to skip ahead? You can jump directly into specific sections of the test whenever you prefer — it’s your path, your pace.*
+
+  > If you need any assistance or have questions, feel free to reach out. We're here to help! 🤝
+
+- If any optional variables are missing, skip them naturally while keeping the message smooth and complete.
+- Use appropriate and engaging **emojis** to enhance tone and highlight stages or encouragement.
+- Format output as a clean, professional **Markdown** document.

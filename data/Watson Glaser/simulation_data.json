@@ -1,0 +1,2144 @@
+{
+  "metadata": {
+    "total_questions": 122,
+    "name": "Watson-Glaser Simulation Questions"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "test_code": "",
+      "question_id": "ced73e4a-2ade-4cbc-89bc-24526a65491f",
+      "question_code": "wg4_04a",
+      "subject": "Interpretation",
+      "question_instructions": "",
+      "question_content": "The recycling company does not disapprove of bribing as a way to bring in more clients.",
+      "question_stimuli": "In a certain recycling company that generously rewarded workers for each new client they brought in, it was found that 15 percent of the workers brought in three or more new clients last year. Among workers who had brought in three or more new clients last year, 25 percent bribed clients to get their business.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion does not follow",
+      "explanation": "Conclusion does not follow.The passage does not provide you with enough information to reach this conclusion, as it says nothing about it. It might sound reasonable, seeing how many workers felt comfortable enough to do it, but that does not mean anything as far as the company’s ethics. It is possible that the bribers’ employers did not even know such bribing was happening, or that they did know, and disapproved.",
+      "difficulty_level": "4"
+    },
+    {
+      "id": 2,
+      "test_code": "",
+      "question_id": "72785a72-bc50-481b-8d86-c3d814e9586f",
+      "question_code": "wg4_04b",
+      "subject": "Interpretation",
+      "question_instructions": "",
+      "question_content": "The generous reward offered by the recycling company for each new client brought in did not prevent 85 percent of the workers from bringing in fewer than three new clients last year.",
+      "question_stimuli": "In a certain recycling company that generously rewarded workers for each new client they brought in, it was found that 15 percent of the workers brought in three or more new clients last year. Among workers who had brought in three or more new clients last year, 25 percent bribed clients to get their business.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion follows",
+      "explanation": "Conclusion follows.If 15 percent of the employees had brought three or more new clients, then it follows that the other 85 percent had brought less than three new clients.",
+      "difficulty_level": "5"
+    },
+    {
+      "id": 3,
+      "test_code": "",
+      "question_id": "3a2c05cf-cecb-4852-abac-c2635829d498",
+      "question_code": "wg4_04d",
+      "subject": "Interpretation",
+      "question_instructions": "",
+      "question_content": "For every worker who brought in three or more new clients last year, more than five workers did not.",
+      "question_stimuli": "In a certain recycling company that generously rewarded workers for each new client they brought in, it was found that 15 percent of the workers brought in three or more new clients last year. Among workers who had brought in three or more new clients last year, 25 percent bribed clients to get their business.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion follows",
+      "explanation": "Conclusion follows.This statement mathematically follows from the text.15% brought in three or more new clients.Therefore, 85% brought in fewer than three new clients. 85/15 = 5.67; hence, there are more than 5 people on average who brought in fewer than three new clients for every worker who brought at least three.",
+      "difficulty_level": "5"
+    },
+    {
+      "id": 4,
+      "test_code": "",
+      "question_id": "eefbe923-e738-4d5f-a19e-de67e6a558bb",
+      "question_code": "wg4_05a",
+      "subject": "Interpretation",
+      "question_instructions": "",
+      "question_content": "My baby’s difficulty is mostly physiological—her grandparents give her chocolates to eat and the sugar in them makes her hyperactive.",
+      "question_stimuli": "I have a nine-month-old baby at home, and she usually agrees to be put to bed, where she falls asleep promptly. But every time her grandparents visit in the evening, she cries when I put her to bed, and she continues to cry for an hour.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion does not follow",
+      "explanation": "Conclusion does not follow.The passage does not offer or imply a reason for the problem, except the grandparent's presence. Therefore, the conclusion does not follow.",
+      "difficulty_level": "4"
+    },
+    {
+      "id": 5,
+      "test_code": "",
+      "question_id": "6a8db395-e210-44e1-adf3-995d363a17e3",
+      "question_code": "wg4_05b",
+      "subject": "Interpretation",
+      "question_instructions": "Choose whether the conclusion follows the text below.",
+      "question_content": "My baby reacts to some changes in routine by refusing to go to sleep quietly.",
+      "question_stimuli": "I have a nine-month-old baby at home, and she usually agrees to be put to bed, where she falls asleep promptly. But every time her grandparents visit in the evening, she cries when I put her to bed, and she continues to cry for an hour.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion does not follow",
+      "explanation": "Conclusion does not follow.This is a generalisation which the passage does not imply. It may be the case, but there could also be many other reasons why the baby will not fall asleep easily. For example, whenever the grandparents visit, the house is noisier, so the baby cannot sleep. It is not possible to conclude beyond a reasonable doubt what the reason for the baby’s problem is.",
+      "difficulty_level": "6"
+    },
+    {
+      "id": 6,
+      "test_code": "",
+      "question_id": "4793f372-45b5-454f-ab0a-9f5eeb2d963f",
+      "question_code": "wg4_05d",
+      "subject": "Interpretation",
+      "question_instructions": "",
+      "question_content": "The baby has trouble sleeping only when her grandparents are present.",
+      "question_stimuli": "I have a nine-month-old baby at home, and she usually agrees to be put to bed, where she falls asleep promptly. But every time her grandparents visit in the evening, she cries when I put her to bed, and she continues to cry for an hour.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion does not follow",
+      "explanation": "Conclusion does not follow. The passage does not give any information about whether or not the grandparents are present, or have already left when the baby is being put to bed. It only mentions that she cries for an hour on evenings that they have visited.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 7,
+      "test_code": "",
+      "question_id": "b89e422d-2bd3-42eb-96ec-921707af0c2c",
+      "question_code": "wg4_02a",
+      "subject": "Interpretation",
+      "question_instructions": "",
+      "question_content": "The 2008 Beijing Olympics awarded no less than 294 medals during the Games.",
+      "question_stimuli": "When the Summer Olympic Games took place in Beijing, China, in 2008, they had the largest television audience in Olympic history. In addition, an unprecedented 86 countries won at least one medal during the Games. Chinese athletes won the most gold medals, with 51 and 100 medals altogether, while the United States had the most total medals with 110.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion follows",
+      "explanation": "Conclusion follows.A simple calculation would confirm the above conclusion: China = 100 medals. USA = 110 medals. A total of 86 countries won at least one medal. Except China and USA, 84 countries won at least one medal. The calculation should be:China's no. of medals + USA's no. of medals + no. of other countries that participated.This is 100 + 110 + 84, which equals 294. Therefore, the conclusion follows.",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 8,
+      "test_code": "",
+      "question_id": "4b9ee484-2fc7-4d15-9489-e17f4d8a26f4",
+      "question_code": "wg4_02b",
+      "subject": "Interpretation",
+      "question_instructions": "",
+      "question_content": "Fewer than half of the medals won by the United States at the 2008 Beijing Olympics were gold.",
+      "question_stimuli": "When the Summer Olympic Games took place in Beijing, China, in 2008, they had the largest television audience in Olympic history. In addition, an unprecedented 86 countries won at least one medal during the Games. Chinese athletes won the most gold medals, with 51 and 100 medals altogether, while the United States had the most total medals with 110.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion follows",
+      "explanation": "Conclusion follows.A simple quantitative comparison would confirm the above conclusion. If China, with 51, leads in gold medals, then the number of gold medals won by the USA must be 50 at most. 50 is about 45% of 110 (total number of medals won by the USA), which is less than half. Therefore, the conclusion follows. Note that even if the number of gold medals won by USA was zero, the conclusion still follows, since zero is fewer than 50.",
+      "difficulty_level": "4"
+    },
+    {
+      "id": 9,
+      "test_code": "",
+      "question_id": "a39c60c5-0367-4469-b0c3-382f878ce29b",
+      "question_code": "wg4_02c",
+      "subject": "Interpretation",
+      "question_instructions": "",
+      "question_content": "The television audience tuned in in record-breaking numbers to watch their countries win medals.",
+      "question_stimuli": "When the Summer Olympic Games took place in Beijing, China, in 2008, they had the largest television audience in Olympic history. In addition, an unprecedented 86 countries won at least one medal during the Games. Chinese athletes won the most gold medals, with 51 and 100 medals altogether, while the United States had the most total medals with 110.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion does not follow",
+      "explanation": "Conclusion does not follow.We cannot draw this conclusion beyond reasonable doubt as there are many other reasonable reasons for why a record number of viewers tuned in to watch the Olympics besides the fact that they wanted to watch their countries win, and the passage does not point at that reason above the others. For example, the record-breaking number of viewers could have been due to TV rights given to many more stations around the world, or the fact that a record-breaking number of countries participated in the Olympics.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 10,
+      "test_code": "",
+      "question_id": "0abc988b-30d0-4963-9de1-e3c6c88a9d08",
+      "question_code": "wg4_03a",
+      "subject": "Interpretation",
+      "question_instructions": "",
+      "question_content": "Without the participation in the research study, Emma’s mood would not have improved.",
+      "question_stimuli": "Emma had a prestigious job with a generous salary, a warm relationship with her husband, and close friends, yet in general, she was unhappy. Then, Emma saw a notice for volunteers in a research study on compassion and happiness. Emma participated in the study, in which participants received a sum of money to spend on others. At the end of the study, Emma felt happier.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion does not follow",
+      "explanation": "Conclusion does not follow.The passage tells us that participating in the study improved Emma's mood. That does not exclude the possibility that other things could have improved Emma's mood. Therefore, the conclusion does not follow.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 11,
+      "test_code": "",
+      "question_id": "16da269d-7b95-442c-a758-93b36f49d55d",
+      "question_code": "wg4_03b",
+      "subject": "Interpretation",
+      "question_instructions": "",
+      "question_content": "Emma’s mood improved because others now had money too, like her—her sense of justice was restored.",
+      "question_stimuli": "Emma had a prestigious job with a generous salary, a warm relationship with her husband, and close friends, yet in general, she was unhappy. Then, Emma saw a notice for volunteers in a research study on compassion and happiness. Emma participated in the study, in which participants received a sum of money to spend on others. At the end of the study, Emma felt happier.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion does not follow",
+      "explanation": "Conclusion does not follow.The feeling Emma experienced after participating in the study cannot be easily generalised to other situations for several reasons: first, her mood could have been affected by something else (for example, it distracted her from her unhappiness, gave her an opportunity to do something exciting and break routine). Second, the effect may be momentary rather than long-lasting. In sum, the text does not give you enough information to make such a conclusion, and therefore the conclusion does not follow.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 12,
+      "test_code": "",
+      "question_id": "e1360571-d640-4231-9f07-9f9de86161ff",
+      "question_code": "wg4_03c",
+      "subject": "Interpretation",
+      "question_instructions": "",
+      "question_content": "The research study suggests that giving to others, more than financial security and satisfying relationships, brings happiness to people.",
+      "question_stimuli": "Emma had a prestigious job with a generous salary, a warm relationship with her husband, and close friends, yet in general, she was unhappy. Then, Emma saw a notice for volunteers in a research study on compassion and happiness. Emma participated in the study, in which participants received a sum of money to spend on others. At the end of the study, Emma felt happier.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion does not follow",
+      "explanation": "Conclusion does not follow.It very well may be that this is what the research Emma participated in attempted to prove, but this conclusion does not follow beyond a reasonable doubt. It cannot be concluded beyond a reasonable doubt from the information above what the aim of the test was, and whether it had anything to do with financial security or relationships.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 13,
+      "test_code": "",
+      "question_id": "621f87ee-6da2-414c-ad57-ac9b5b3b7991",
+      "question_code": "WG_Ip_1a",
+      "subject": "Interpretation",
+      "question_instructions": "",
+      "question_content": "Children need science to be presented in a unique format if they are to be encouraged to read it.",
+      "question_stimuli": "Young Scientists is a monthly magazine aimed at 12 to 16 year olds. Presented in the same format as other scientific publications, it contains lighter information and research written to engage young readers to be interested in science. Young Scientists is read by over 10 million children a month, and has recently won the Best Monthly Publication award.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion does not follow",
+      "explanation": "Conclusion does not follow. The passage notes that the format of Young Science magazine is the same as other scientific publications, therefore we can conclude that its format is not unique.",
+      "difficulty_level": "4"
+    },
+    {
+      "id": 14,
+      "test_code": "",
+      "question_id": "73f3082a-877c-4b9a-b53f-56b022590fec",
+      "question_code": "WG_Ip_1b",
+      "subject": "Interpretation",
+      "question_instructions": "",
+      "question_content": "Young Scientists is helping to improve literacy in children.",
+      "question_stimuli": "Young Scientists is a monthly magazine aimed at 12 to 16 year olds. Presented in the same format as other scientific publications, it contains lighter information and research written to engage young readers to be interested in science. Young Scientists is read by over 10 million children a month, and has recently won the Best Monthly Publication award.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion follows",
+      "explanation": "Conclusion does follow. Literacy - the ability to read, write, speak and listen in a way that lets us communicate effectively and make sense of the world. The passage notes that Young Scientists helps engage younger readers in science. Furthermore, the passage states several advantages that the magazine has. The fact that the magazine is so successful and popular helps us understand that all who read it are simultaneously increasing their literacy skills, even if that is not the main objective of the magazine.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 15,
+      "test_code": "",
+      "question_id": "b00438aa-2751-4755-99f0-f24731dcab73",
+      "question_code": "WG_Ip_1c",
+      "subject": "Interpretation",
+      "question_instructions": "",
+      "question_content": "Young Scientists is the best way to expose children to science.",
+      "question_stimuli": "Young Scientists is a monthly magazine aimed at 12 to 16 year olds. Presented in the same format as other scientific publications, it contains lighter information and research written to engage young readers to be interested in science. Young Scientists is read by over 10 million children a month, and has recently won the Best Monthly Publication award.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion does not follow",
+      "explanation": "Conclusion does not follow. The writer of the passage speaks highly of Young Science, however, he does not compare the magazine to any other method. Therefore, we cannot conclude beyond a reasonable doubt that the Young Scientists magazine is the best way to expose children to science.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 16,
+      "test_code": "",
+      "question_id": "22b78d59-4395-4404-8c10-8f367f102768",
+      "question_code": "WG_Ip_2a",
+      "subject": "Interpretation",
+      "question_instructions": "",
+      "question_content": "Development over time allows different animals to share common features.",
+      "question_stimuli": "Hyenas, also referred to as \"strong-jaws\", are carnivorous land mammals. The hyena has a close genetic relationship to cats, but over time hyenas have developed numerous anatomical and behavioural features that are present among large wild dogs, such as wolves and dingos.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion follows",
+      "explanation": "Conclusion does follow. The text states that the hyena has changed its physical and behavioural attributes from being more similar to cats to being more similar to dogs. Hence, that is a specific instance of what the conclusion states.",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 17,
+      "test_code": "",
+      "question_id": "7f2af5b7-14c0-4e2c-a346-120916adc1b1",
+      "question_code": "WG_Ip_2b",
+      "subject": "Interpretation",
+      "question_instructions": "",
+      "question_content": "Hyenas are referred to as \"strong-jaws\" because of their carnivorous diets.",
+      "question_stimuli": "Hyenas, also referred to as \"strong-jaws\", are carnivorous land mammals. The hyena has a close genetic relationship to cats, but over time hyenas have developed numerous anatomical and behavioural features that are present among large wild dogs, such as wolves and dingos.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion does not follow",
+      "explanation": "Conclusion does not follow. Although the hyena's nickname is mentioned along with its diet, it cannot be concluded beyond a reasonable doubt that the two are connected. If that was the case then we would call every carnivore \"strong-jaw\", as hyenas are not the only carnivore in the animal kingdom.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 18,
+      "test_code": "",
+      "question_id": "43b1d8ed-d889-4dcf-8a50-62c87550ee40",
+      "question_code": "WG_Ip_2c",
+      "subject": "Interpretation",
+      "question_instructions": "",
+      "question_content": "Hyenas and cats show anatomical similarities.",
+      "question_stimuli": "Hyenas, also referred to as \"strong-jaws\", are carnivorous land mammals. The hyena has a close genetic relationship to cats, but over time hyenas have developed numerous anatomical and behavioural features that are present among large wild dogs, such as wolves and dingos.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion follows",
+      "explanation": "Conclusion does follow. It is noted in the passage that the hyenas are genetically related to cats. Therefore, we can conclude that there are some anatomical features that they must share, even if over time the hyena has become more similar to dogs.",
+      "difficulty_level": "4"
+    },
+    {
+      "id": 19,
+      "test_code": "",
+      "question_id": "91cb6654-ddcc-40c2-9066-4ca590daf0e1",
+      "question_code": "wg1_02a",
+      "subject": "Inference",
+      "question_instructions": "Choose whether the statement is true or false to varing degrees according to the text below.",
+      "question_content": "Nowadays, occupational psychologists use cognitive ability tests more often than in the past.",
+      "question_stimuli": "A new study proves that scores on cognitive ability tests, which include critical thinking tests, are strongly related to success in both civilian and military jobs, and predict outcomes in all jobs. The added value of these tests, the authors conclude, is that they predict both what an individual can do right now, as well the extent to which an individual is likely to learn and develop.",
+      "answers": {
+        "answer_1": "True",
+        "answer_2": "Probably True",
+        "answer_3": "Insufficient Data",
+        "answer_4": "Probably False",
+        "answer_5": "False"
+      },
+      "correct_answer": "Insufficient Data",
+      "explanation": "The passage presents information about a new possible utility for cognitive ability tests in the occupational consultancy area. Yet, we lack information about the extent of past and present use of these tests; hence, it is impossible to determine and even to assume whether the statement is correct or not. Therefore, the correct answer is 'Insufficient Data'.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 20,
+      "test_code": "",
+      "question_id": "063d63b3-b3fc-45b9-9431-739a610622c9",
+      "question_code": "wg1_02d",
+      "subject": "Inference",
+      "question_instructions": "",
+      "question_content": "Some work places in the civilian and military sectors use cognitive ability tests to predict applicants’ future success on the job.",
+      "question_stimuli": "A new study proves that scores on cognitive ability tests, which include critical thinking tests, are strongly related to success in both civilian and military jobs, and predict outcomes in all jobs. The added value of these tests, the authors conclude, is that they predict both what an individual can do right now, as well the extent to which an individual is likely to learn and develop.",
+      "answers": {
+        "answer_1": "True",
+        "answer_2": "Probably True",
+        "answer_3": "Insufficient Data",
+        "answer_4": "Probably False",
+        "answer_5": "False"
+      },
+      "correct_answer": "Probably True",
+      "explanation": "The correct answer is 'Probably True.'The passage mentions that 'cognitive ability tests...are strongly related to success in both civilian and military jobs', so it is very tempting to choose 'True.' However, it is not explicitly said in the text that these tests are used in workplaces. The study could be an academic one that observed participants who were later followed in their career. Hence, it is very probable, yet not certain, that these tests are used in these sectors de facto.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 21,
+      "test_code": "",
+      "question_id": "700d565d-3d66-4c3a-a2e0-d261461d8886",
+      "question_code": "wg1_02e",
+      "subject": "Inference",
+      "question_instructions": "",
+      "question_content": "The tests can predict future performance by evaluating learning and thinking skills, but they cannot predict how employees will perform until they acquire these skills.",
+      "question_stimuli": "A new study proves that scores on cognitive ability tests, which include critical thinking tests, are strongly related to success in both civilian and military jobs, and predict outcomes in all jobs. The added value of these tests, the authors conclude, is that they predict both what an individual can do right now, as well the extent to which an individual is likely to learn and develop.",
+      "answers": {
+        "answer_1": "True",
+        "answer_2": "Probably True",
+        "answer_3": "Insufficient Data",
+        "answer_4": "Probably False",
+        "answer_5": "False"
+      },
+      "correct_answer": "False",
+      "explanation": "The correct answer is 'False.'The passage specifically mentions that the test can 'predict both what an individual can do right now, as well the extent to which an individual is likely to learn and develop'; hence, the tests can tell how the employees will perform even before they acquire some other skills.",
+      "difficulty_level": "5"
+    },
+    {
+      "id": 22,
+      "test_code": "",
+      "question_id": "59ad6b0b-95ba-433e-a7d6-66ef67b3c488",
+      "question_code": "wg1_11b",
+      "subject": "Inference",
+      "question_instructions": "",
+      "question_content": "Tony saw the report prior to banning it.",
+      "question_stimuli": "David, an analyst at a known financial services firm, wrote a summary report on the performance of the company in one of their recent client projects. Just a few hours after submitting it, Tony, a senior manager in David's department, banned it from being presented at the board of directors meeting, which was scheduled for the next day.",
+      "answers": {
+        "answer_1": "True",
+        "answer_2": "Probably True",
+        "answer_3": "Insufficient Data",
+        "answer_4": "Probably False",
+        "answer_5": "False"
+      },
+      "correct_answer": "Probably True",
+      "explanation": "The answer is 'Probably True'.While it is possible that Tony banned the report without actually seeing it, for example, because he guessed what David wrote would be unflattering to him, or because he previously banned David from writing it in the first place. However, it is far more likely that Tony in fact read the report, and decided to ban it because of its content.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 23,
+      "test_code": "",
+      "question_id": "e789a213-b8ca-433b-aa13-960899029e0e",
+      "question_code": "wg1_11c",
+      "subject": "Inference",
+      "question_instructions": "",
+      "question_content": "The report was positive and showed the performance of the company in the project in a good light.",
+      "question_stimuli": "David, an analyst at a known financial services firm, wrote a summary report on the performance of the company in one of their recent client projects. Just a few hours after submitting it, Tony, a senior manager in David's department, banned it from being presented at the board of directors meeting, which was scheduled for the next day.",
+      "answers": {
+        "answer_1": "True",
+        "answer_2": "Probably True",
+        "answer_3": "Insufficient Data",
+        "answer_4": "Probably False",
+        "answer_5": "False"
+      },
+      "correct_answer": "Insufficient Data",
+      "explanation": "The answer is 'Insufficient data'.The text does not say whether David's report was positive or not, nor the reason why Tony banned it from being presented at the board. It is possible that the quality of the report itself was insufficient or that it lacked data.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 24,
+      "test_code": "",
+      "question_id": "be1ffda6-ec79-4f8b-b5e9-6b1a2dc41182",
+      "question_code": "wg1_01a",
+      "subject": "Inference",
+      "question_instructions": "Choose whether the statement is true or false to varing degrees according to the text below.",
+      "question_content": "Today, a majority of the employees in the US are virtual employees.",
+      "question_stimuli": "Virtual employees, or employees who work from home via computer, are an increasing trend. In the US, the number of virtual employees has increased 39% in the last two years and 74% in the last five years. Employing virtual workers reduces costs and makes it possible to use talented workers no matter where they are located globally. Yet, running a workplace with virtual employees might entail miscommunication and less camaraderie, and can be more time-consuming than face-to-face interaction.",
+      "answers": {
+        "answer_1": "True",
+        "answer_2": "Probably True",
+        "answer_3": "Insufficient Data",
+        "answer_4": "Probably False",
+        "answer_5": "False"
+      },
+      "correct_answer": "Probably False",
+      "explanation": "The correct answer is 'Probably False'.The passage describes an increasing trend of virtual employment hiring. Yet, it is not specified how prevalent has this trend become in comparison to the entire work force. There is no confirmation or contradiction of the statement, and the first tendency may be to choose 'insufficient data'. However, in this section of the test, you are allowed to use common sense to choose the right answer. By applying logic to the answer choices, you can surmise that there are many jobs which cannot be done virtually, and that despite the increasing popularity of this trend, it is unlikely that a majority of employees in the US are virtual.Therefore, the correct answer is 'Probably False'.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 25,
+      "test_code": "",
+      "question_id": "93d1e17e-dabd-4652-95e3-443a2af97af2",
+      "question_code": "wg1_01b",
+      "subject": "Inference",
+      "question_instructions": "",
+      "question_content": "Last year's annual rate of increase in the number of virtual workers was greater than the annual rate of increase in the number of virtual workers five years ago.",
+      "question_stimuli": "Virtual employees, or employees who work from home via computer, are an increasing trend. In the US, the number of virtual employees has increased 39% in the last two years and 74% in the last five years. Employing virtual workers reduces costs and makes it possible to use talented workers no matter where they are located globally. Yet, running a workplace with virtual employees might entail miscommunication and less camaraderie, and can be more time-consuming than face-to-face interaction.",
+      "answers": {
+        "answer_1": "True",
+        "answer_2": "Probably True",
+        "answer_3": "Insufficient Data",
+        "answer_4": "Probably False",
+        "answer_5": "False"
+      },
+      "correct_answer": "Probably True",
+      "explanation": "The correct answer is 'Probably True'.The first sentence states that virtual employment is an increasing trend in the workforce, but it does not state that the rate of increase has grown. Nevertheless, the number grew 39% over the last two years, more than half of the general 74% increase in the last five years, suggesting that the increase is probably on the rise as well. However, since the text does not provide strict evidence for this, we can only mark 'Probably True'.",
+      "difficulty_level": "4"
+    },
+    {
+      "id": 26,
+      "test_code": "",
+      "question_id": "cff4f136-b45b-4140-94cc-7b25490b5487",
+      "question_code": "wg1_01c",
+      "subject": "Inference",
+      "question_instructions": "",
+      "question_content": "The marked advantage of virtual employee hiring is the ability to benefit from the output of unsociable employees without involving them in face-to-face interactions.",
+      "question_stimuli": "Virtual employees, or employees who work from home via computer, are an increasing trend. In the US, the number of virtual employees has increased 39% in the last two years and 74% in the last five years. Employing virtual workers reduces costs and makes it possible to use talented workers no matter where they are located globally. Yet, running a workplace with virtual employees might entail miscommunication and less camaraderie, and can be more time-consuming than face-to-face interaction.",
+      "answers": {
+        "answer_1": "True",
+        "answer_2": "Probably True",
+        "answer_3": "Insufficient Data",
+        "answer_4": "Probably False",
+        "answer_5": "False"
+      },
+      "correct_answer": "False",
+      "explanation": "The correct answer is 'False'.Pay attention to the choice of words. The use of the phrase 'The marked' in the beginning of the statement implies that the presented claim is the most significant one. It may be one of the advantages of virtual employee hiring, but for it to be the marked advantage, it would have to be mentioned in the text. However, it was not. Other advantages are explicitly detailed in the passage: 'Employing virtual workers reduces costs and makes it possible to use talented workers no matter where they are located globally'.",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 27,
+      "test_code": "",
+      "question_id": "7035576a-e3ca-4e24-ba09-577fadc105e3",
+      "question_code": "wg1_10a",
+      "subject": "Inference",
+      "question_instructions": "",
+      "question_content": "The law that levied import taxes on vegetables but not on fruit was a reasonable and just law.",
+      "question_stimuli": "The Tariff Act of 1883 declared a 10 percent duty on all vegetables entering the country, but allowed fruit to enter duty free. The New York Customs Collector saw an opportunity to increase revenue and declared the tomato to be a vegetable. Angry importers sued but, in Nix v. Hedden Justice Horace Gray ruled: 'Although botanists consider the tomato a fruit, tomatoes are eaten as a principal part of a meal, like squash or peas, so it is the court’s decision that the tomato is a vegetable as a matter of law'.",
+      "answers": {
+        "answer_1": "True",
+        "answer_2": "Probably True",
+        "answer_3": "Insufficient Data",
+        "answer_4": "Probably False",
+        "answer_5": "False"
+      },
+      "correct_answer": "Insufficient Data",
+      "explanation": "The correct answer is 'Insufficient Data.'This law is generally presented in the first sentence of the passage. From that point onward the passage focuses on the case of the tomato. Since there are neither direct nor implicit references to the law itself, we cannot base an evaluation whether that law was reasonable or just.",
+      "difficulty_level": "8"
+    },
+    {
+      "id": 28,
+      "test_code": "",
+      "question_id": "e5068768-c8a4-4340-a031-65af79b367f3",
+      "question_code": "wg1_10d",
+      "subject": "Inference",
+      "question_instructions": "",
+      "question_content": "The party that instigated the lawsuit Nix v. Hedden was as motivated by money as the official tax collecting agency.",
+      "question_stimuli": "The Tariff Act of 1883 declared a 10 percent duty on all vegetables entering the country, but allowed fruit to enter duty free. The New York Customs Collector saw an opportunity to increase revenue and declared the tomato to be a vegetable. Angry importers sued but, in Nix v. Hedden Justice Horace Gray ruled: 'Although botanists consider the tomato a fruit, tomatoes are eaten as a principal part of a meal, like squash or peas, so it is the court’s decision that the tomato is a vegetable as a matter of law'.",
+      "answers": {
+        "answer_1": "True",
+        "answer_2": "Probably True",
+        "answer_3": "Insufficient Data",
+        "answer_4": "Probably False",
+        "answer_5": "False"
+      },
+      "correct_answer": "Probably True",
+      "explanation": "The correct answer is 'Probably True'.The members of that party were 'angry importers'. The importers are those who lose money from additional taxation. Although it is not explicitly mentioned in the text, you can still use your common knowledge to infer that it is probable that their motive was to revoke the new regulation in order to avoid paying additional taxes, rather than defending the status of the tomato as a fruit. However, we cannot choose 'True' as this is not mentioned explicitly in the passage.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 29,
+      "test_code": "",
+      "question_id": "d619f1f4-7656-4f90-928c-ed0f3f512a53",
+      "question_code": "WG_In_1a",
+      "subject": "Inference",
+      "question_instructions": "",
+      "question_content": "The owner has a more significant interest in the team winning, rather than the fans.",
+      "question_stimuli": "There is a never-ending argument regarding where the budget of a football team should come from. The owner is usually wealthy and would not hurt financially from investing in the team, but he is a businessman and his interest is to turn a profit. The fans benefit personally on a mental and social level when their team performs well, but ticket earnings usually cannot cover a team's budget, and fans are reluctant to invest their money despite the positive outcome it may lead to.",
+      "answers": {
+        "answer_1": "True",
+        "answer_2": "Probably True",
+        "answer_3": "Insufficient Data",
+        "answer_4": "Probably False",
+        "answer_5": "False"
+      },
+      "correct_answer": "Probably False",
+      "explanation": "The correct anwer is \"Probably False\". The passage mentions that the fans benefit when the team performs well. However, the team's performance is not mentioned when describing the owner. It is noted that the owner wants to profit from the team, but it’s possible that this profit could come from sponsorships, selling players, or media attention. To connect profit with winning in this passage would be a leap that includes the use of general knowledge of football. Therefore, the answer is \"Probably False\".",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 30,
+      "test_code": "",
+      "question_id": "a1489cf2-4fa3-481e-8385-0a3c2897c203",
+      "question_code": "WG_In_1b",
+      "subject": "Inference",
+      "question_instructions": "",
+      "question_content": "The fans cannot afford to invest more of their money into the team besides purchasing tickets and merchandise.",
+      "question_stimuli": "There is a never-ending argument regarding where the budget of a football team should come from. The owner is usually wealthy and would not hurt financially from investing in the team, but he is a businessman and his interest is to turn a profit. The fans benefit personally on a mental and social level when their team performs well, but ticket earnings usually cannot cover a team's budget, and fans are reluctant to invest their money despite the positive outcome it may lead to.",
+      "answers": {
+        "answer_1": "True",
+        "answer_2": "Probably True",
+        "answer_3": "Insufficient Data",
+        "answer_4": "Probably False",
+        "answer_5": "False"
+      },
+      "correct_answer": "Insufficient Data",
+      "explanation": "The correct anwer is \"Insufficient Data\". The passage mentions ticket sales as how fans help finance their team. It is also written that fans are reluctant to invest their own money into the team. However, there can be many reasons for that reluctance, and it does not have to be related to their financial abilities. Furthermore, it is common knowledge that all kinds of different people from various socio-economic statuses support football clubs. To assume that all of them cannot afford to invest is a false generalisation, so the answer is \"Insufficient Data\".",
+      "difficulty_level": "5"
+    },
+    {
+      "id": 31,
+      "test_code": "",
+      "question_id": "e7cec00f-13dc-417f-9007-f7e5f4597cba",
+      "question_code": "WG_In_1c",
+      "subject": "Inference",
+      "question_instructions": "",
+      "question_content": "A team's budget is comprised of earnings from sales and investment from the owner.",
+      "question_stimuli": "There is a never-ending argument regarding where the budget of a football team should come from. The owner is usually wealthy and would not hurt financially from investing in the team, but he is a businessman and his interest is to turn a profit. The fans benefit personally on a mental and social level when their team performs well, but ticket earnings usually cannot cover a team's budget, and fans are reluctant to invest their money despite the positive outcome it may lead to.",
+      "answers": {
+        "answer_1": "True",
+        "answer_2": "Probably True",
+        "answer_3": "Insufficient Data",
+        "answer_4": "Probably False",
+        "answer_5": "False"
+      },
+      "correct_answer": "True",
+      "explanation": "The correct anwer is \"True\". Both earnings from sales and investment by the owner are listed in the passage as possible sources for a team's budget. Therefore, the answer is \"True\". It is possible that there are other sources of income for the team’s budget, but the inference does not state that sales and investment are the only source of income for the team, therefore the answer is not \"Probably True\". Note: Even if you have personal knowledge regarding additional income sources of football teams, you cannot use it to help answer this question, as it is a piece of knowledge acquired through a specific interest, education, and/or profession. Other people may not think of this inference because they lack the background/knowledge to arrive at the same conclusion.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 32,
+      "test_code": "",
+      "question_id": "089aa020-0819-4111-aeee-73a31cf1a053",
+      "question_code": "WG_In_2a",
+      "subject": "Inference",
+      "question_instructions": "",
+      "question_content": "Yan Solberg is an opponent of inclusion in the military.",
+      "question_stimuli": "The Swiss military has recently become all-inclusive. That means that all people can join the military, and there are even tailored positions for people with disabilities. Proponents argue that it is a \"win-win\" situation, as including disabled people is advantageous for both disabled and non-disabled personnel. Opponents of an inclusive military argue that while it may be morally attractive, the army's objective is to be as strong as possible, and shifting its focus to inclusion will hurt that objective. Reporter Yan Solberg has also predicted that due to the logistical difficulties regarding inclusion, there will be a financial toll on the military, which will lead to a decrease in military resources and can consequentially weaken the army.",
+      "answers": {
+        "answer_1": "True",
+        "answer_2": "Probably True",
+        "answer_3": "Insufficient Data",
+        "answer_4": "Probably False",
+        "answer_5": "False"
+      },
+      "correct_answer": "Probably True",
+      "explanation": "The correct anwer is \"Probably True\". The text mentions that the opponents argue that the army will be weakened due to inclusion. Although Yan Solberg's argument relies on the same basis, being a reporter means that he could be speaking objectively and from a well-informed background. Summing up those details, we do not have enough information to say that the statement is true, but we do see significant similarities between Solberg and the opponents. Therefore, the answer is \"Probably True\".",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 33,
+      "test_code": "",
+      "question_id": "70b9290f-b9fa-489c-a558-be097ae2f6c1",
+      "question_code": "WG_In_2b",
+      "subject": "Inference",
+      "question_instructions": "",
+      "question_content": "The opponents of inclusion have only bad things to say about it.",
+      "question_stimuli": "The Swiss military has recently become all-inclusive. That means that all people can join the military, and there are even tailored positions for people with disabilities. Proponents argue that it is a \"win-win\" situation, as including disabled people is advantageous for both disabled and non-disabled personnel. Opponents of an inclusive military argue that while it may be morally attractive, the army's objective is to be as strong as possible, and shifting its focus to inclusion will hurt that objective. Reporter Yan Solberg has also predicted that due to the logistical difficulties regarding inclusion, there will be a financial toll on the military, which will lead to a decrease in military resources and can consequentially weaken the army.",
+      "answers": {
+        "answer_1": "True",
+        "answer_2": "Probably True",
+        "answer_3": "Insufficient Data",
+        "answer_4": "Probably False",
+        "answer_5": "False"
+      },
+      "correct_answer": "False",
+      "explanation": "The correct anwer is \"False\". It is written in the passage that opponents believe that inclusion is \"morally attractive\". That is a positive statement, so the answer is \"False\".",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 34,
+      "test_code": "",
+      "question_id": "2e0340bc-342d-433a-8f2b-3f6ba72aaab3",
+      "question_code": "wg5_03b",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "Yes—people are their most creative and original when they are freed from obligatory tasks and strict deadlines, which this free time will allow them to be. Creative and original thinking yields the most lucrative products and processes.",
+      "question_stimuli": "Should a company grant its employees some free time to spend in any manner they choose?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Strong argument",
+      "explanation": "Strong argument. This is a strong and solid argument.It presents a linked correlation between the subject in question (granting employees free time), and the benefit to the company (lucrative products and processes). The argument draws uses following process: granting employees free time (which means people are freed from obligatory tasks and strict deadlines) leads to people being more creative and original, which in turn leads to yielding the most lucrative products and processes.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 35,
+      "test_code": "",
+      "question_id": "48a0d7c9-bc0e-4ab4-a0d0-e0b41fcbcf83",
+      "question_code": "wg5_03c",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "Yes—all work and no play means that employees will not be well rounded, and therefore they will not be the kind of employee the company wants to produce, or be proud of.",
+      "question_stimuli": "Should a company grant its employees some free time to spend in any manner they choose?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Weak argument",
+      "explanation": "Weak argument.This is a weak argument. Its weakness is derived from its reference to unimportant aspects. The main goal of any company is business success rather than being proud of its employees. Thus, this argument is of minor importance.",
+      "difficulty_level": "5"
+    },
+    {
+      "id": 36,
+      "test_code": "",
+      "question_id": "39f76009-3ad4-43eb-9be8-b7e0f14a430f",
+      "question_code": "wg5_04a",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "No; a strong government recycling ministry would ban free plastic bags at stores which would be very inconvenient for the public.",
+      "question_stimuli": "Would a strong government recycling ministry promote the general welfare of the people in this country?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Weak argument",
+      "explanation": "Weak argument.This argument refers to a minor side effect of the main topic, an inconvenience, rather than to more significant aspects of welfare. A strong argument would refer specifically to the pros and cons of a strong government recycling ministry in relation to general welfare.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 37,
+      "test_code": "",
+      "question_id": "ab430aa3-6b2b-4c33-b744-3fca4fd2a3fe",
+      "question_code": "wg5_04b",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "Yes; keeping the environment clean and ensuring that all waste is disposed of or reutilized in the best possible way raises the quality of living of the people, and a strong government recycling ministry would do that.",
+      "question_stimuli": "Would a strong government recycling ministry promote the general welfare of the people in this country?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Strong argument",
+      "explanation": "Strong argument.Quality of living is an aspect of general welfare. Therefore, this argument is both relevant and important.",
+      "difficulty_level": "5"
+    },
+    {
+      "id": 38,
+      "test_code": "",
+      "question_id": "f0d7d62a-9585-46f9-b84d-4dc2ea3cc56f",
+      "question_code": "wg5_05a",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "No—it is not the responsibility of the business community to provide work for people with disabilities.",
+      "question_stimuli": "Should the business community initiate programs to hire people with disabilities at its own expenses?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Weak argument",
+      "explanation": "Weak argument.The argument lacks content. So what if is not the responsibility of the business community? Why should or should not the business community do what the passage suggests despite the fact it is not its responsibility? If the passage went on to saying, for example, that doing so would be highly expensive and that the businesses' goal is to be profitable, then it would be a strong argument. As it stands, it does not give any reasoning to its argument, making it weak.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 39,
+      "test_code": "",
+      "question_id": "36b0de39-29b7-43d2-a0cf-e7d8f482d8a3",
+      "question_code": "wg5_05b",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "No; the overriding aim of a business is to increase its profit, and providing hiring programs for the disabled and at the expense of the business is not the job of a business.",
+      "question_stimuli": "Should the business community initiate programs to hire people with disabilities at its own expenses?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Strong argument",
+      "explanation": "Strong argument.The argument gives an important and relevant answer to the question. If initiating these programs would come at the expense of the business’s profit, then that is a weighty reason not to initiate them.",
+      "difficulty_level": "6"
+    },
+    {
+      "id": 40,
+      "test_code": "",
+      "question_id": "e2d5b729-aa31-4262-bc08-6405dd5730ff",
+      "question_code": "wg5_15a",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "No; these software solutions pose a great challenge to civil liberties and digital freedom in our age.",
+      "question_stimuli": "Should the government use software solutions, designed to track online behaviors on social networks, in order to prevent threats to national security?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Weak argument",
+      "explanation": "Weak argument.This argument may seem strong, but it does not relate directly to the specific question presented above. The question does not focus on whether or not it is recommended to use these technologies in general, but should they be used for a certain goal—protecting national security. Although the argument offers a strong case as to why the government should not, in general, use the technologies mentioned in the statement, it neglects to address the aspect of protecting national security. A strong argument for this question would be one that argues that protecting civil liberties is a more valuable goal than protecting national security. Note that this is a very tricky argument because it both appeals to our personal values and judgment as well as being a strong argument in general. Normal 0 false false false EN-US X-NONE HE",
+      "difficulty_level": "4"
+    },
+    {
+      "id": 41,
+      "test_code": "",
+      "question_id": "e9c6dfb9-27bb-4773-96a5-468f45ea1a76",
+      "question_code": "wg5_15b",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "Yes—data mining from public websites for law enforcement purposes is legal and can provide intelligence on terrorist and criminal organizations.",
+      "question_stimuli": "Should the government use software solutions, designed to track online behaviors on social networks, in order to prevent threats to national security?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Strong argument",
+      "explanation": "Strong argument.This argument strongly relates to the main issue described in the statement. It refers to software solutions, using the term \"data mining\", and argues that using them is legal and moreover, is efficient in achieving the government goals (preventing threats to national security). Normal 0 false false false EN-US X-NONE HE",
+      "difficulty_level": "10"
+    },
+    {
+      "id": 42,
+      "test_code": "",
+      "question_id": "fabc2357-fe7c-40ce-94e8-2e7989cd7815",
+      "question_code": "wg5_16a",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "No; in today’s economy, consumers prefer purchasing cheaper products over high-quality expensive product.",
+      "question_stimuli": "Should a company maintain its high-quality standard of products, even if the result is higher prices for the customers?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Strong argument",
+      "explanation": "Strong argument.The argument targets the negative consequence of maintaining high-quality products as described in the statement (i.e. higher prices of products), which is both relevant and important. Normal 0 false false false EN-US X-NONE HE",
+      "difficulty_level": "8"
+    },
+    {
+      "id": 43,
+      "test_code": "",
+      "question_id": "91c6794b-7a0f-44a9-8e7a-f78e6bad0b42",
+      "question_code": "wg5_16b",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "Yes; low-quality products harm a company’s reputation and lead to a decrease in company sales.",
+      "question_stimuli": "Should a company maintain its high-quality standard of products, even if the result is higher prices for the customers?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Strong argument",
+      "explanation": "Strong argument. This argument is both relevant to the question and of some significance. It is a logical understanding that the entire issue regards the company's profits and whether high prices will deter customers from buying the company's products despite the better quality. Therefore, the argument regards the issue directly despite not explicitly mentioning the customer. Normal 0 false false false EN-US X-NONE HE",
+      "difficulty_level": "7"
+    },
+    {
+      "id": 44,
+      "test_code": "",
+      "question_id": "8ec8e602-fe1f-4fbb-89ee-fd0f34f8d103",
+      "question_code": "wg5_18a",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "No; the future employee will find out about it, his trust in his employer and in the company will be compromised and he will no longer be an asset to the company.",
+      "question_stimuli": "Should employers look at the Facebook and Twitter profiles of candidates to find out more information about them as part of recruitment and selection decision making?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Strong argument",
+      "explanation": "Strong argument.This is an important and relevant argument. The employer’s objective in using Facebook and Twitter information is to reduce the chances of employing an unsuitable candidate who will probably cause more damage than good. However, if by doing so, the employer actually exposes the company to ungrateful, non-productive employees, then he really should not be doing this in the first place. Note that it may seem implausible that all employees will find out about their employer checking them out on Facebook and Twitter, however we must remember that every argument given in this section is deemed true (even if we may strongly think otherwise), and we must judge the argument accordingly. Normal 0 false false false EN-US X-NONE HE",
+      "difficulty_level": "5"
+    },
+    {
+      "id": 45,
+      "test_code": "",
+      "question_id": "5da999f0-1d14-400b-8b16-c9899f2f480c",
+      "question_code": "wg5_18b",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "No; social networks are a scene where one feels liberated and not bound by codes of social conducts, therefore they cannot be used to objectively examine a candidate's competencies.",
+      "question_stimuli": "Should employers look at the Facebook and Twitter profiles of candidates to find out more information about them as part of recruitment and selection decision making?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Strong argument",
+      "explanation": "Strong argument.This is an important and relevant argument implying that social networks, as a source of information about candidates, are inaccurate and misleading. Employers might obtain skewed information about certain candidates as professionals and as a result miss out on good employees. Normal 0 false false false EN-US X-NONE HE",
+      "difficulty_level": "4"
+    },
+    {
+      "id": 46,
+      "test_code": "",
+      "question_id": "2fa5a8ad-f764-4708-ba93-711f4519b9c5",
+      "question_code": "wg5_01a",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "Yes, because native-born parents can often afford to give their children private tuition.",
+      "question_stimuli": "When grading tests, should teachers consider that some of their students have native-born parents and other students have immigrant parents?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Weak argument",
+      "explanation": "Weak argument.The argument does not make the connection between private tuition and success in school, which is necessary for the argument to be strong. Without it, it may be important, but it is not directly related to the question.",
+      "difficulty_level": "5"
+    },
+    {
+      "id": 47,
+      "test_code": "",
+      "question_id": "13c6b563-04d6-411f-b608-bb814620b089",
+      "question_code": "wg5_01c",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "Yes, because most students with immigrant parents are bilingual, and thus have better cognitive skills.",
+      "question_stimuli": "When grading tests, should teachers consider that some of their students have native-born parents and other students have immigrant parents?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Weak argument",
+      "explanation": "Weak argument.Even if you regard the argument as true, it does not really answer the question. The fact that these students have better cognitive skills does not necessarily mean they should be graded any differently. The argument seems to be making a claim of an uneven playing field, but you should not make that assumption yourself.",
+      "difficulty_level": "4"
+    },
+    {
+      "id": 48,
+      "test_code": "",
+      "question_id": "5b48e520-2851-4781-a2d7-9ca417e9a4d1",
+      "question_code": "wg5_02b",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "Decide whether the argument is strong or weak.",
+      "question_content": "No—such a change would no longer enable poor people to purchase tobacco, alcohol, or fast food.",
+      "question_stimuli": "Should the US government welfare program exchange the current system of food stamps, which act like cash, for a list of approved foods?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Weak argument",
+      "explanation": "Weak argument.This is of minor importance, especially for the government whose interest is to enhance welfare rather than drinking and smoking habits.",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 49,
+      "test_code": "",
+      "question_id": "56223d96-51cf-4450-b358-57867e215137",
+      "question_code": "wg5_02d",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "No—such a change would seriously undermine poor people's sense of personal responsibility and autonomy.",
+      "question_stimuli": "Should the US government welfare program exchange the current system of food stamps, which act like cash, for a list of approved foods?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Strong argument",
+      "explanation": "Strong argument.Welfare has a broad sense and scope that goes beyond nutrition (it includes fortune, happiness, well-being and prosperity). Therefore, people's sense of personal responsibility and autonomy are important aspects of general welfare, which makes the weakening of those aspects important and relevant to the government.",
+      "difficulty_level": "8"
+    },
+    {
+      "id": 50,
+      "test_code": "",
+      "question_id": "60a3a34d-86f2-444c-b9b7-1b22fd4a097c",
+      "question_code": "wg5_15c",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "Yes—people are aware of the dangers when choosing to share information about themselves on social networks.",
+      "question_stimuli": "Should the government use software solutions, designed to track online behaviors on social networks, in order to prevent threats to national security?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Weak argument",
+      "explanation": "Weak argument.The argument is not directly related to the issue raised in the question. It answers a (probably) moral question that was not even mentioned in the question, and does not answer the actual question. Similarly to two questions ago, it does not pose the ethical question in the context of the question that was asked. Therefore, it is a weak argument. Normal 0 false false false EN-US X-NONE HE",
+      "difficulty_level": "4"
+    },
+    {
+      "id": 51,
+      "test_code": "",
+      "question_id": "dd68ccf6-6516-45af-b570-ab3d2b9a9950",
+      "question_code": "wg5_15d",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "No—these software solutions are inaccurate and lead to false accusations.",
+      "question_stimuli": "Should the government use software solutions, designed to track online behaviors on social networks, in order to prevent threats to national security?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Strong argument",
+      "explanation": "Strong argument.If you regard this argument as true, as you are required to do, you can see this is a relevant, important argument. If these software solutions are not reliable, what is the point of using them? Normal 0 false false false EN-US X-NONE HE",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 52,
+      "test_code": "",
+      "question_id": "126f7186-29f6-4ee7-86c0-30fa790b68f3",
+      "question_code": "wg5_16c",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "Yes; maintaining a standard of product quality is important for companies to stay popular.",
+      "question_stimuli": "Should a company maintain its high-quality standard of products, even if the result is higher prices for the customers?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Weak argument",
+      "explanation": "Weak argument.The argument touched on the subject of product quality, but did not relate at all to prices or effects on customers. As such, the argument is weak. Normal 0 false false false EN-US X-NONE HE",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 53,
+      "test_code": "",
+      "question_id": "7e32d65f-c217-467b-964c-669e951dafdc",
+      "question_code": "wg5_16d",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "No; the expected revenue from selling high-quality products is lower than the money invested in development, even after an increase in prices.",
+      "question_stimuli": "Should a company maintain its high-quality standard of products, even if the result is higher prices for the customers?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Strong argument",
+      "explanation": "Strong argument.The argument offers a sound reason to refuse the maintenance of high quality products. It states that the company will be at a financial loss should it choose to carry out this idea. This is a weighty, relevant argument, and it is strong. Normal 0 false false false EN-US X-NONE HE",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 54,
+      "test_code": "",
+      "question_id": "65c50c71-84ce-4204-b339-a385f832429a",
+      "question_code": "wg5_18c",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "No, it is unethical for an employer to intrude the private lives of his candidates.",
+      "question_stimuli": "Should employers look at the Facebook and Twitter profiles of candidates to find out more information about them as part of recruitment and selection decision making?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Weak argument",
+      "explanation": "Weak argument.Although you may strongly agree with this argument, you must examine it objectively. Even if it is true, there is no explanation as to what consequences this act might have, or why the fact that it is unethical matters. It may be that doing something unethical is worth it the goal is to find a good and reliable employee. The argument does not relate to this part of the question. Normal 0 false false false EN-US X-NONE HE",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 55,
+      "test_code": "",
+      "question_id": "f417e750-cabd-45c1-a0dc-001603b098cd",
+      "question_code": "wg5_18d",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "No, since it will discriminate between those who are active on social networks and those who are not.",
+      "question_stimuli": "Should employers look at the Facebook and Twitter profiles of candidates to find out more information about them as part of recruitment and selection decision making?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Weak argument",
+      "explanation": "Weak argument.This argument might be relevant, yet it touches upon a trivial aspect of the subject. Even if regarded as true, this argument is not weighty enough to answer the question presented. If social media is considered a valid and helpful tool with which to find suitable workers, the fact that some candidates are not on active on social media should not dissuade employers from using it. Normal 0 false false false EN-US X-NONE HE",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 56,
+      "test_code": "",
+      "question_id": "297b396f-3284-4277-a528-4166d17a8eac",
+      "question_code": "wg5_17f",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "No; it is best to fill all energy demands locally.",
+      "question_stimuli": "Should the government close ageing and polluting power stations even if the result is more energy imports?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Weak argument",
+      "explanation": "Weak argument.This argument is not related to the dilemma presented in the statement. All the argument does is state that it is best to provide local solutions to the energy problem, yet it does not provide any reference to the means of achieving this aim. In other words, the argument is a superficial statement, one that might be important but is trivial to the dilemma in question. Normal 0 false false false EN-US X-NONE HE",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 57,
+      "test_code": "",
+      "question_id": "97663662-478d-45aa-9cae-9048334abf29",
+      "question_code": "wg5_17g",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "No; an important goal of the government should be to deliver fair energy prices to households living in poverty.",
+      "question_stimuli": "Should the government close ageing and polluting power stations even if the result is more energy imports?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Weak argument",
+      "explanation": "Weak argument.This argument is quite tricky. It relates to the dilemma presented in the statement, while addressing an important consequence of closing local power plants—a rise in prices. However, the consequence of closing local power plants described in the statement is more energy imports. Although some may assume that imported energy costs more than local energy, this connection is not presented in the argument, and therefore we are not to reach it on our own. Because the relation between imported energy and prices of imported energy is unclear, the argument is deemed irrelevant. Normal 0 false false false EN-US X-NONE HE",
+      "difficulty_level": "4"
+    },
+    {
+      "id": 58,
+      "test_code": "",
+      "question_id": "e9e18ce3-5785-4e3e-b187-6a4503c63f5a",
+      "question_code": "WG_Ar_1a",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "Yes; those who argue in favour of lower safety standards are concerned mainly with their personal profits.",
+      "question_stimuli": "Should high standards of automobile safety be maintained, even if it results in higher prices for the average consumer?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Weak argument",
+      "explanation": "Weak argument. The argument does not center on the same subject of the question – which are safety and consumer prices. The argument is kind of a slogan, with no practical applications.",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 59,
+      "test_code": "",
+      "question_id": "9b8615a3-a370-4d66-bce3-a6e00f5d43ea",
+      "question_code": "WG_Ar_1b",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "Yes; lowering safety standards in automobiles will endanger lives.",
+      "question_stimuli": "Should high standards of automobile safety be maintained, even if it results in higher prices for the average consumer?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Strong argument",
+      "explanation": "Strong argument. The argument is important as it addresses the question at hand directly, and focuses on the main aspect of it – safety.",
+      "difficulty_level": "4"
+    },
+    {
+      "id": 60,
+      "test_code": "",
+      "question_id": "f2b5beae-4574-42a8-a887-e08b133e6ef2",
+      "question_code": "WG_Ar_2a",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "No; most countries don't have the proper infrastructure for mass recycling, and that will lead to an overflow of recyclable trash in the street, which would worsen pollution.",
+      "question_stimuli": "Would the environment benefit if there was a cash incentive for recycling?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Strong argument",
+      "explanation": "Strong argument. The argument addresses the question directly and focuses on the main subject, which is the environment. Furthermore, it provides logical reasons and practical implications. *Note: Even if you don't agree with the argument, you must regard to it as true and judge it only based on its importance and relevance.",
+      "difficulty_level": "5"
+    },
+    {
+      "id": 61,
+      "test_code": "",
+      "question_id": "2d07ec9d-c580-461b-83e1-1e379fb4b0cc",
+      "question_code": "WG_Ar_2b",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "No; people should be able to choose how to dispose of their garbage, based on convenience and their personal beliefs.",
+      "question_stimuli": "Would the environment benefit if there was a cash incentive for recycling?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Weak argument",
+      "explanation": "Weak argument. The argument doesn't address the issue at all. The question regards a monetary incentive, and at no point says that people will have no choice or say about how they dispose of their garbage.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 62,
+      "test_code": "",
+      "question_id": "6f2ca494-de04-4090-9c53-9b3f85978651",
+      "question_code": "WG_Ar_3a",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "No; many people in need of financial aid will not understand why they are not receiving any support from their government.",
+      "question_stimuli": "Should financial assistance from the government only be implemented for the homeless?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Weak argument",
+      "explanation": "Weak argument. The argument does address the subject at hand – the advantages and disadvantages of financial aid, but is of little importance and contains no practical reasoning. Because of that the argument is weak.",
+      "difficulty_level": "7"
+    },
+    {
+      "id": 63,
+      "test_code": "",
+      "question_id": "eb3c69eb-a53f-4eda-a774-3664e987d8c1",
+      "question_code": "WG_Ar_3b",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "Yes; it will help clarify where priorities lie.",
+      "question_stimuli": "Should financial assistance from the government only be implemented for the homeless?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Weak argument",
+      "explanation": "Weak argument. The reasoning provided in the argument is trivial and does not address the heart of the question – who should be eligible for financial aid?",
+      "difficulty_level": "7"
+    },
+    {
+      "id": 64,
+      "test_code": "",
+      "question_id": "1aab240d-9751-4001-a825-6d01eefce5df",
+      "question_code": "WG_Ar_4a",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "Yes; fewer operations mean fewer medical expenses.",
+      "question_stimuli": "Should alcoholics have a lower priority in receiving a liver transplant?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Weak argument",
+      "explanation": "Weak argument. The argument does not address the heart of the subject, and its reasoning is illogical. Prioritizing transplants would not lead to fewer operations, but just operations for different people undergoing them. The number of livers available for transplant will not change.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 65,
+      "test_code": "",
+      "question_id": "9a5ad32d-dd65-486a-9cc8-5e7463a9a4ec",
+      "question_code": "WG_Ar_4b",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "No; Alcoholics also donate organs.",
+      "question_stimuli": "Should alcoholics have a lower priority in receiving a liver transplant?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Weak argument",
+      "explanation": "Weak argument. The argument provides no practical applications and relies on \"cheap morals\". There is no actual reason given in the argument as to why alcoholics should not be prioritized lower when awaiting transplants.",
+      "difficulty_level": "4"
+    },
+    {
+      "id": 66,
+      "test_code": "",
+      "question_id": "d7e92f62-e81f-443f-82e5-713eb9571cd8",
+      "question_code": "WG_Ar_5a",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "Yes; in the future wide knowledge and a profound understanding of the humanities will be essential.",
+      "question_stimuli": "Would children benefit if schools emphasize art and literature subjects?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Strong argument",
+      "explanation": "Strong argument. The argument addresses the subject directly and focuses on the main aspects of the discussion. There is good and logical reasoning as to why children would benefit from the mentioned emphasis. *Note: Even if you don't agree with the argument (for example: if you believe that math or grammar is more important), you should regard it as true and judge it only based on its importance and relevance.",
+      "difficulty_level": "5"
+    },
+    {
+      "id": 67,
+      "test_code": "",
+      "question_id": "1aca563b-9bd3-4cb3-9c02-82cd767faff2",
+      "question_code": "WG_Ar_5b",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "No; children dislike art and literature, and would therefore lose focus and patience when studying.",
+      "question_stimuli": "Would children benefit if schools emphasize art and literature subjects?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Strong argument",
+      "explanation": "Strong argument. Unlike the former argument, which focused on the difference between subjects, this one addresses a different but equally relevant point – the practical applications and results of emphasizing art & literature. This argument provides a reason as to why even if it is the right decision, the practical gain will be lost, as children can only concentrate on subjects that don't interest them for a limited amount of time.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 68,
+      "test_code": "",
+      "question_id": "2e863801-d3d1-43be-a753-89a8c2fb49d8",
+      "question_code": "WG_Ar_6a",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "No; having a lot of managers will take a financial toll on the company and diminish its resources, which will eventually lead to less productivity and profit.",
+      "question_stimuli": "Do factories benefit if they have a majority of managers rather than floor workers?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Strong argument",
+      "explanation": "Strong argument. This argument is a perfect specimen of a strong argument. It focuses on the subject, gives solid reasoning, and addresses an important aspect of the discussion.",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 69,
+      "test_code": "",
+      "question_id": "acc127b9-c191-4b29-a71b-84ada8ed53b7",
+      "question_code": "WG_Ar_6b",
+      "subject": "Evaluation of Arguments",
+      "question_instructions": "",
+      "question_content": "No; it is not uncommon for managers to be poached by competitors, which will lead to frequent changes in personnel and reduced effectiveness.",
+      "question_stimuli": "Do factories benefit if they have a majority of managers rather than floor workers?",
+      "answers": {
+        "answer_1": "Strong argument",
+        "answer_2": "Weak argument"
+      },
+      "correct_answer": "Strong argument",
+      "explanation": "Strong argument. The argument, much like the former, addresses a major aspect of the subject and provides logical reasoning.",
+      "difficulty_level": "6"
+    },
+    {
+      "id": 70,
+      "test_code": "",
+      "question_id": "ce1983ff-43fc-466c-b466-ac7f3b6c0d1a",
+      "question_code": "wgd027a",
+      "subject": "Deduction",
+      "question_instructions": "",
+      "question_content": "Neither its location nor the nature of the mayor's wish are favourable for building a nuclear plant in West Harbour.",
+      "question_stimuli": "Solar and Nuclear power plants are relatively environmentally friendly, whereas fossil-fuel and biomass-fuelled power stations greatly endanger the environment. Nuclear and fossil-fuelled power plants require proximity to an ocean; solar and biomass-fuelled power plants could be placed in dry inland areas. West Harbour is a small city in the midland; the mayor of which would like to build an environmentally friendly power plant.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion does not follow",
+      "explanation": "Conclusion does not follow.Environmentally friendly = A, needs ocean = B. According to the premises, A + B → nuclear, A + ~B → solar, ~A + B → fossil fuels, ~A + ~B → biomass fuelled.You may find it more convenient to summarise the passage's content in a table form. This way, each statement can be analysed more quickly. Note it is crucial to create complementary groups (with vs. without, friendly vs. damaging etc.) so each item can be exclusively associated with a single group. Environmentally friendly Environmentally damaging Needs ocean nuclear energy - A+B fossil fuels - ~A+B Does not need ocean Solar - A+~B biomass fuelled - ~A+~B West Harbour's location (midland) is not favourable for a nuclear power-plant, as it requires proximity to an ocean (B). Yet, nuclear energy is environmentally friendly (A), which complies with the mayor's wish. Because the statement used the words “Neither – Nor”, the statement would only be true if both conditions were not met.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 71,
+      "test_code": "",
+      "question_id": "539fc39f-559c-443e-8912-c4a4ecffa4e4",
+      "question_code": "wgd027b",
+      "subject": "Deduction",
+      "question_instructions": "",
+      "question_content": "Given the city's location and his preferences, the mayor of West Harbour will probably establish a solar power-plant over nuclear, fossil-fuel, and biomass-fuelled power plants.",
+      "question_stimuli": "Solar and Nuclear power plants are relatively environmentally friendly, whereas fossil-fuel and biomass-fuelled power stations greatly endanger the environment. Nuclear and fossil-fuelled power plants require proximity to an ocean; solar and biomass-fuelled power plants could be placed in dry inland areas. West Harbour is a small city in the midland; the mayor of which would like to build an environmentally friendly power plant.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion follows",
+      "explanation": "Conclusion follows.Environmentally friendly = A, needs ocean = B. According to the premises, A + B → nuclear, A + ~B → solar, ~A + B → fossil fuels, ~A + ~B → biomass fuelled.You may find it more convenient to summarise the passage's content in a table form. This way, each statement can be analysed more quickly. Note it is crucial to create complementary groups (with vs. without, friendly vs. damaging etc.) so each item can be exclusively associated with a single group. Environmentally friendly Environmentally damaging Needs ocean nuclear energy - A+B fossil fuels - ~A+B Does not need ocean Solar - A+~B biomass fuelled - ~A+~B The conclusion can be easily inferred from the chart. You know West Harbour is in midland, and the mayor wants to build an environmentally friendly power plant. This means the needed criteria are 1. Does not need ocean and 2. Environmentally friendly. The only power plant that fits is the solar one.",
+      "difficulty_level": "6"
+    },
+    {
+      "id": 72,
+      "test_code": "",
+      "question_id": "61f31695-1ae6-4bd6-80a3-11ad29c6952c",
+      "question_code": "wgd027c",
+      "subject": "Deduction",
+      "question_instructions": "",
+      "question_content": "West Harbour's location is neither favourable for building a fossil-fuelled nor a biomass fuelled power plant.",
+      "question_stimuli": "Solar and Nuclear power plants are relatively environmentally friendly, whereas fossil-fuel and biomass-fuelled power stations greatly endanger the environment. Nuclear and fossil-fuelled power plants require proximity to an ocean; solar and biomass-fuelled power plants could be placed in dry inland areas. West Harbour is a small city in the midland; the mayor of which would like to build an environmentally friendly power plant.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion does not follow",
+      "explanation": "Conclusion does not follow.Environmentally friendly = A, needs ocean = B. According to the premises, A + B → nuclear, A + ~B → solar, ~A + B → fossil fuels, ~A + ~B → biomass fuelled.You may find it more convenient to summarise the passage's content in a table form. This way, each statement can be analysed more quickly. Note it is crucial to create complementary groups (with vs. without, friendly vs. damaging etc.) so each item can be exclusively associated with a single group. Environmentally friendly Environmentally damaging Needs ocean nuclear energy - A+B fossil fuels - ~A+B Does not need ocean Solar - A+~B biomass fuelled - ~A+~B While West-Harbour's location would be insufficient for a fossil fuelled power plant, it could be sufficient for a biomass fuelled power plant. The conclusion does not follow (the conclusion used the phrased “neither-nor”, which means both power plants must be insufficient.)",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 73,
+      "test_code": "",
+      "question_id": "723d0de0-a09d-4d97-99d2-e9d955730164",
+      "question_code": "wgd014a",
+      "subject": "Deduction",
+      "question_instructions": "",
+      "question_content": "Ergfort has some millionaires.",
+      "question_stimuli": "No millionaire who lives in a city has less than two cars. Nonetheless, some but not all the inhabitants of Ergfort city have two cars or more.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion does not follow",
+      "explanation": "Conclusion does not follow.Millionaire = A, lives in a city = B, has less than two cars = C.According to the premises, (no A + B -> C), which equals (A + B -> ~C), and (BErgfort + ~C)*some but not all.The conclusion states (A + BErgfort)*some.The premises say nothing about whether the inhabitants of Ergfort city include millionaires. The fact that some of its inhabitants have more than two cars does not necessarily mean they are millionaires. Remember that (A + B -> C) does not equal (C + B -> A).",
+      "difficulty_level": "4"
+    },
+    {
+      "id": 74,
+      "test_code": "",
+      "question_id": "ae37537f-b81c-40e4-a906-1195907ae372",
+      "question_code": "wgd014c",
+      "subject": "Deduction",
+      "question_instructions": "",
+      "question_content": "Some inhabitants of Ergfort are not millionaires.",
+      "question_stimuli": "No millionaire who lives in a city has less than two cars. Nonetheless, some but not all the inhabitants of Ergfort city have two cars or more.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion follows",
+      "explanation": "Conclusion follows.Millionaire = A, lives in a city = B, has less than two cars = C.According to the premises, (no A + B -> C), which equals (A + B -> ~C), and (BErgfort + ~C)*some but not all.The conclusion states (BErgfort + ~A)*some.You know that every millionaire who lives in a city has at least two cars. You also know some but not all of the inhabitants of Ergfort have at least two cars, so some have less than two cars. The people who live in Ergfort city and have less than two cars must not be millionaires.",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 75,
+      "test_code": "",
+      "question_id": "546ffcc6-a4a3-4d92-aade-bc2c4bb5e5eb",
+      "question_code": "wgd010a",
+      "subject": "Deduction",
+      "question_instructions": "",
+      "question_content": "People with knowledge in physics use scientific knowledge to develop technical solutions.",
+      "question_stimuli": "Most engineers have knowledge in physics. All engineers who possess knowledge in physics apply scientific knowledge to develop technical solutions.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion does not follow",
+      "explanation": "Conclusion does not follow.Engineers = A, knowledge in physics = B, apply scientific knowledge to develop technical solutions = C, people = D.According to the premises, (A + B)*most, and ((A + B) -> C). This means (A + B + C)*most. The conclusion states (D + B -> C).The conclusion is an example of a generalisation you must not make. You know all engineers who possess knowledge in physics apply scientific knowledge to develop technical solutions, but that does not mean all people who possess knowledge in physics apply scientific knowledge to develop technical solutions.See the Venn diagram for clarity.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 76,
+      "test_code": "",
+      "question_id": "67265bd0-b7f7-4d26-9651-3af6bffac02d",
+      "question_code": "wgd010c",
+      "subject": "Deduction",
+      "question_instructions": "",
+      "question_content": "Some engineers who do not have knowledge in physics do not apply scientific knowledge to develop technical solutions",
+      "question_stimuli": "Most engineers have knowledge in physics. All engineers who possess knowledge in physics apply scientific knowledge to develop technical solutions.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion does not follow",
+      "explanation": "Conclusion does not follow.Engineers = A, knowledge in physics = B, apply scientific knowledge to develop technical solutions = C.According to the premises, (A + B)*most, and ((A + B) -> C). This means (A + B + C)*most. The conclusion states (A + ~B + ~C)*some.The premises say nothing about the group of engineers without knowledge in physics, so you cannot infer their existence.",
+      "difficulty_level": "6"
+    },
+    {
+      "id": 77,
+      "test_code": "",
+      "question_id": "c9e8a152-6560-42de-9c90-52876be141b6",
+      "question_code": "wgd010d",
+      "subject": "Deduction",
+      "question_instructions": "",
+      "question_content": "Most engineers develop technical solutions.",
+      "question_stimuli": "Most engineers have knowledge in physics. All engineers who possess knowledge in physics apply scientific knowledge to develop technical solutions.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion follows",
+      "explanation": "Conclusion follows.Engineers = A, knowledge in physics = B, apply scientific knowledge to develop technical solutions = C.According to the premises, (A + B)*most, and ((A + B) -> C). This means (A + B + C)*most. The conclusion states (A + C)*most.This conclusion can be inferred from the combination of the two premises: If most A are B, and all B are C, then most A are C.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 78,
+      "test_code": "",
+      "question_id": "95ecc572-8b87-4e50-bd00-c6dd20e80481",
+      "question_code": "wgd034a",
+      "subject": "Deduction",
+      "question_instructions": "",
+      "question_content": "At least 378 workers work every day in the company.",
+      "question_stimuli": "There are 20 machines in company A that are operated 24/7 by workers who work in 8 hour-shifts a day. Each machine in the company is operated by 6 to 12 workers at a time.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion follows",
+      "explanation": "Conclusion Follows.According to the premises, (compA + 20 machines + workers)*;Each machine in the company is operated by 6 to 12 workers at a time.1. machine --> 6 to 12 workers.When a range is given as data, both limits must appear at least once (both must exist), so:2. (machine+6 workers)*;3. (machine+12 workers)*The conclusion states (378 daily workers)*.You are asked about the minimum possible number of workers, so that is what you need to calculate. At least one machine must be operated by 12 workers (remember – both ends of the range must exist; otherwise, the premises would be contradicted). The rest could be operated by the minimal number of 6 workers. 19*6*3 + 1*12*3 = 378 (number of machines*number of workers*number of shifts a day). The correct minimal number of workers per day is therefore 378.Note: To emphasize the comment about range, here is another example: If a shopping mall is open 8 to 12 hours a day every week, at least one day a week it must be open 8 hours, and at least one day a week it must be open 12 hours. Otherwise, the range would be different. This is why, when calculating the minimum numbers of workers in the question, you cannot assume all 20 machines are operated by six workers, because then the premise would not mention a range. If there is a range – both limits must appear at least once.",
+      "difficulty_level": "5"
+    },
+    {
+      "id": 79,
+      "test_code": "",
+      "question_id": "d4feca9c-6c24-48fa-ae14-2c225307450f",
+      "question_code": "wgd034c",
+      "subject": "Deduction",
+      "question_instructions": "",
+      "question_content": "Two of company A's machines are operated simultaneously by 18 workers.",
+      "question_stimuli": "There are 20 machines in company A that are operated 24/7 by workers who work in 8 hour-shifts a day. Each machine in the company is operated by 6 to 12 workers at a time.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion follows",
+      "explanation": "Conclusion Follows.According to the premises, (compA + 20 machines + workers)*;Each machine in the company is operated by 6 to 12 workers at a time.1. machine --> 6 to 12 workers.When a range is given as data, both limits must appear at least once (both must exist), so:2. (machine+6 workers)*;3. (machine+12 workers)*The conclusion states (company A + 2 machines + 18 workers)*. According to the premises, there are 6 - 12 workers who operate each machine; the limits of this range that exist (6 and 12) make the statement true (6 + 12 = 18).Note that the statement does not say that \"any\" two of company A's machines are operated together by 18 workers. Rather, the statement assumes that there must be at least one pair of machines operated together by 18 workers. Since there must be at least one machine operated by exactly 6 workers and there must be at least one machine operated by exactly 12 workers, there must be at least one pair of machines operated by 18 workers.",
+      "difficulty_level": "7"
+    },
+    {
+      "id": 80,
+      "test_code": "",
+      "question_id": "d26d8af0-1014-4a31-a72e-dd6f0b906d1b",
+      "question_code": "WG_De_1a",
+      "subject": "Deduction",
+      "question_instructions": "",
+      "question_content": "On average, more newborn babies were being delivered earlier in the pregnancy in the past rather than today.",
+      "question_stimuli": "Over half of all newborn babies do not reach the predicted due date. Although the average number of newborns being carried to term has increased over the years, some newborns still don’t get close to their due date.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion follows",
+      "explanation": "Conclusion does follow. According to the statement the number of babies reaching their due date increases with time. Therefore, we can conclude that, on average, in the past more babies were delivered earlier in the pregnancy, as today the number of babies reaching their due date is higher.",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 81,
+      "test_code": "",
+      "question_id": "636a1251-a3ab-40ae-83c3-fa2cf214dd2c",
+      "question_code": "WG_De_1b",
+      "subject": "Deduction",
+      "question_instructions": "",
+      "question_content": "Some newborns 10 years ago were carried longer than some newborns today.",
+      "question_stimuli": "Over half of all newborn babies do not reach the predicted due date. Although the average number of newborns being carried to term has increased over the years, some newborns still don’t get close to their due date.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion follows",
+      "explanation": "Conclusion does follow. Although the number of babies being carried to term is increasing with time, it is stated that today there still are babies who do not even get close to their due date. Therefore, we can conclude that there is at least one baby 10 years ago who was closer to the due date than at least one baby today. *Note: Remember that 'some' can mean at least one and up to all.Whenever we have a conclusion with 'some', we need to think of the extreme cases – what if it is only one? What if it’s all? If even just one of the cases is possible, then the conclusion follows\\doesn't follow accordingly.",
+      "difficulty_level": "5"
+    },
+    {
+      "id": 82,
+      "test_code": "",
+      "question_id": "99cc27c1-d306-4e09-a67e-61452b7835b3",
+      "question_code": "WG_De_1c",
+      "subject": "Deduction",
+      "question_instructions": "",
+      "question_content": "Improving the ability of a newborn to be carried to term has been dependent on new technologies.",
+      "question_stimuli": "Over half of all newborn babies do not reach the predicted due date. Although the average number of newborns being carried to term has increased over the years, some newborns still don’t get close to their due date.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion does not follow",
+      "explanation": "Conclusion does not follow. Although it is stated that the number of babies being carried to term has increased over time, we cannot conclude that there is a direct connection to technology. It is possible that changes in lifestyle or medication is the reason for increase and not technology.",
+      "difficulty_level": "10"
+    },
+    {
+      "id": 83,
+      "test_code": "",
+      "question_id": "f073d091-26e8-4b1f-8242-0c857245c77a",
+      "question_code": "WG_De_2a",
+      "subject": "Deduction",
+      "question_instructions": "",
+      "question_content": "Many of our tables are likely to collapse under light loads.",
+      "question_stimuli": "Without screws a table will likely collapse under even light loads. We have many tables that do not have screws, but are bought anyway.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion follows",
+      "explanation": "Conclusion does follow. Tables without screws -> collapse under light loads = A -> B Our tables=A*many In other words, if we have many tables that are without screws, and we know that tables without screws are likely to collapse under light loads, then we can conclude that many of our tables will likely collapse under light loads.",
+      "difficulty_level": "8"
+    },
+    {
+      "id": 84,
+      "test_code": "",
+      "question_id": "7a6af208-9135-47a7-82d9-b814a171497f",
+      "question_code": "WG_De_2b",
+      "subject": "Deduction",
+      "question_instructions": "",
+      "question_content": "If a table collapses under a light load, then that table is screwless.",
+      "question_stimuli": "Without screws a table will likely collapse under even light loads. We have many tables that do not have screws, but are bought anyway.",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correct_answer": "Conclusion does not follow",
+      "explanation": "Conclusion does not follow. Tables without screws -> collapse under light loads = A -> B Our tables=A*many The conclusion is a transposition of the original statement. According to the NOT triangle rule, if only one of the operations is used then the meaning of the statement is changed.",
+      "difficulty_level": "5"
+    },
+    {
+      "id": 85,
+      "test_code": "",
+      "question_id": "559fd778-254e-4c90-ba8b-5557b67523a8",
+      "question_code": "wg2_18a",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:Normally, we eat out at least once a week.",
+      "question_stimuli": "We must save money for our vacation. We should not eat out once a week.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Made",
+      "explanation": "The correct answer is assumption made.This is assumed because if we are going to refrain from eating out once a week in order to save money for our holiday then, necessarily, we must normally eat out at least once a week.Therefore, the correct answer is assumption made.",
+      "difficulty_level": "7"
+    },
+    {
+      "id": 86,
+      "test_code": "",
+      "question_id": "9490a181-e25c-4c39-a1b2-4d21a0154114",
+      "question_code": "wg2_18b",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:This holiday will be more expensive than our previous holiday.",
+      "question_stimuli": "We must save money for our vacation. We should not eat out once a week.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Not Made",
+      "explanation": "The correct answer is assumption not made.This assumption is not made because the statement is only about saving money for this holiday. No information is provided about how expensive any previous holiday might have been.Therefore, the correct answer is assumption not made.",
+      "difficulty_level": "5"
+    },
+    {
+      "id": 87,
+      "test_code": "",
+      "question_id": "e70cc6c5-3e6c-4992-b643-fc3c50c5406c",
+      "question_code": "wg2_06a",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:In deciding on how to navigate a career, it is fundamental to avoid workplace instability.",
+      "question_stimuli": "'A career at DX Electronics is the best choice—it is the most stable workplace.'",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Made",
+      "explanation": "Assumption made.This statement is merely a rephrasing of the original. Its logical meaning is almost identical, except for dropping the company name. Therefore, the assumption can be made.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 88,
+      "test_code": "",
+      "question_id": "fd4ec92d-9b24-41f3-a33c-9a76fd3fda57",
+      "question_code": "wg2_06b",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:Workplace stability implies long-term contracts.",
+      "question_stimuli": "'A career at DX Electronics is the best choice—it is the most stable workplace.'",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Not Made",
+      "explanation": "Assumption not made.Long-term contracts are only one possible characteristic of workplace stability. Low dismissal rates, for example, could also be a factor that determines workplace stability. As we cannot take for granted that long-term contracts are the only factor that determines workplace stability, the assumption cannot be made.",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 89,
+      "test_code": "",
+      "question_id": "4bc144af-6784-426d-bf0d-ea05cc6cbf64",
+      "question_code": "wg2_12b",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:The number of highly trained employees is declining.",
+      "question_stimuli": "We forecast that completion of the development of supercomputers will be followed by a shortage of people who know how to make use of all this computing power.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Not Made",
+      "explanation": "Assumption not made.Regarding the scenario of the completion of the development of supercomputer, it is expected to be followed by a shortage of highly trained employees. However, the actual assumption is that we probably don't have enough resources to train employees for such a mission. It doesn't imply that the number of highly trained employees for today's mission is deficient or declining.",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 90,
+      "test_code": "",
+      "question_id": "3534704c-e190-4393-bd1b-b2cbff397b07",
+      "question_code": "wg2_12d",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:Supercomputers bring about a threat of unemployment.",
+      "question_stimuli": "We forecast that completion of the development of supercomputers will be followed by a shortage of people who know how to make use of all this computing power.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Not Made",
+      "explanation": "Assumption not made.Firstly, this is more a conclusion rather than an assumption. Secondly, although the sentence presents a problem related to the availability of workers, it is not a problem of unemployment, but one of insufficient training.",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 91,
+      "test_code": "",
+      "question_id": "798c5c78-dd2e-4631-af56-a0ecbe4a4ce8",
+      "question_code": "wg2_15b",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:We can't help but forsake longstanding proven traditions.",
+      "question_stimuli": "We are bound to step into a life of moral vagabondage, abandoning longstanding proven traditions. We no longer rely on our inner faith, but instead roam about, searching for the light.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Made",
+      "explanation": "Assumption is made.The speaker uses the expression 'We are bound...' This expression implies that we have no other option but to do what is specified in the first sentence. This is exactly the proposed assumption—'We can't help but...'",
+      "difficulty_level": "4"
+    },
+    {
+      "id": 92,
+      "test_code": "",
+      "question_id": "0ccddeaa-c5ab-44ff-8e42-2a34f889f3cf",
+      "question_code": "wg2_15c",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:We no longer listen to our inner voice and follow important customs like people used to.",
+      "question_stimuli": "We are bound to step into a life of moral vagabondage, abandoning longstanding proven traditions. We no longer rely on our inner faith, but instead roam about, searching for the light.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Made",
+      "explanation": "Assumption is made.From both sentences it can be concluded that the speaker assumes that longstanding traditions and listening to our inner voices are both important actions that we no longer perform. These actions, if followed, would enable us to live moral life. Thus, the speaker assumes that we do not listen to these voices, and advocates a return to listening to them. In addition, the use of the terms 'vagabondage' and 'roaming about' implies the contemporary disoriented moral search of people.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 93,
+      "test_code": "",
+      "question_id": "efdafd7d-6dab-4309-a9bd-0af8385c9f24",
+      "question_code": "wg2_16a",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:There is junk food to eat.",
+      "question_stimuli": "I can help myself lose weight by not eating junk food.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Made",
+      "explanation": "The correct answer is assumption made.This is assumed in the statement because if not eating junk food can help lose weight there must, necessarily, be junk food that can be eaten.Therefore, the correct answer is assumption made.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 94,
+      "test_code": "",
+      "question_id": "4446ddfe-b133-4f74-b8e7-11a5b2b057c1",
+      "question_code": "wg2_16b",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:Eating junk food will not help me lose weight.",
+      "question_stimuli": "I can help myself lose weight by not eating junk food.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Made",
+      "explanation": "The correct answer is assumption made.This is assumed because if I can help myself lose weight by not eating junk food then, necessarily, eating junk food will not help me lose weight.Therefore, the correct answer is assumption made.",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 95,
+      "test_code": "",
+      "question_id": "6cc0808f-4083-4302-ac76-2206f6c1b571",
+      "question_code": "wg2_17a",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:There is a housing shortage now.",
+      "question_stimuli": "In another ten years, the global population will double and cause an even more severe housing shortage.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Made",
+      "explanation": "The correct answer is assumption made.This is assumed because if there will be an even more severe housing shortage in ten years then, necessarily, there is a less severe housing shortage now.Therefore, the correct answer is assumption made.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 96,
+      "test_code": "",
+      "question_id": "c6e53ffa-1148-41e0-8459-7182f3c71373",
+      "question_code": "wg2_17b",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:The global population now is half of what it will be one decade from now.",
+      "question_stimuli": "In another ten years, the global population will double and cause an even more severe housing shortage.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Made",
+      "explanation": "The correct answer is assumption made.This is assumed because if the global population will double in ten years then, necessarily, the global population is now one half of what it will be in one decade.Therefore, the correct answer is assumption made.",
+      "difficulty_level": "6"
+    },
+    {
+      "id": 97,
+      "test_code": "",
+      "question_id": "8d47b92b-45ef-4fc9-8b8f-3b14211b52e4",
+      "question_code": "wg2_05a",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:Upcoming elections are inevitable.",
+      "question_stimuli": "If the upcoming elections are inevitable, we'd better merge with another party now while we still have the advantage.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Not Made",
+      "explanation": "Assumption is not made.This statement appears in the passage as a condition, which means the author of the text believes that two options are possible: Upcoming elections are indeed inevitable; upcoming elections are avoidable.The author may think that elections are about to take place, but the second option cannot be ruled out completely.",
+      "difficulty_level": "5"
+    },
+    {
+      "id": 98,
+      "test_code": "",
+      "question_id": "878c5d0c-b8d3-4854-a32e-0edefbe81956",
+      "question_code": "wg2_05b",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:If we merge now, it will likely benefit us more than if we merge later.",
+      "question_stimuli": "If the upcoming elections are inevitable, we'd better merge with another party now while we still have the advantage.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Made",
+      "explanation": "Assumption is made.If the passage indicates that it is better for the party to merge now rather than later, it must be based on the assumption that the timing of this move is important, and that making it now rather than later will benefit the party.",
+      "difficulty_level": "5"
+    },
+    {
+      "id": 99,
+      "test_code": "",
+      "question_id": "d608ee35-ea5f-4f59-af1d-34165beea277",
+      "question_code": "wg2_14a",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:If I don't install a satellite-based modem, I will have restricted access to the internet.",
+      "question_stimuli": "I am flying to China next week. I want to be sure to avoid website blocking due to internet censorship policies, so I better ask our IT team to install a satellite-based modem on my laptop.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Not Made",
+      "explanation": "Assumption is not made.Indeed, it is more likely that internet access problems will occur, but the speaker does not necessarily assume he or she will definitely have restricted access to the internet, only that he or she might. Thus, the above assumption is not made.",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 100,
+      "test_code": "",
+      "question_id": "c9a71f74-efc6-4e4b-8095-a58a0f7523b4",
+      "question_code": "wg2_14b",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:Internet censorship is more common in China than it is in my place of residence.",
+      "question_stimuli": "I am flying to China next week. I want to be sure to avoid website blocking due to internet censorship policies, so I better ask our IT team to install a satellite-based modem on my laptop.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Made",
+      "explanation": "Assumption is made.If I don't have a satellite-based modem installed on a regular basis, and the goal of installing one is to avoid website blocking, then it is implied that normally, in my place of residence, there are no such problems.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 101,
+      "test_code": "",
+      "question_id": "5da62c81-c1c2-4e23-a34b-6187a134c0e7",
+      "question_code": "wg2_19a",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:The bedroom does not need to be cleaned.",
+      "question_stimuli": "Many rooms in the house need to be cleaned. I will start with the kitchen and you work on the dining room.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Not Made",
+      "explanation": "The correct answer is assumption not made.This assumption is not made because the statement makes no mention of which rooms in the house need cleaning other than the kitchen and dining room.Therefore, the correct answer is assumption not made.",
+      "difficulty_level": "6"
+    },
+    {
+      "id": 102,
+      "test_code": "",
+      "question_id": "9848b369-1712-4e02-a10c-e5783f8081e4",
+      "question_code": "wg2_19b",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:There is at least one other room in the house that needs to be cleaned in addition to the kitchen and dining room.",
+      "question_stimuli": "Many rooms in the house need to be cleaned. I will start with the kitchen and you work on the dining room.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Made",
+      "explanation": "The correct answer is assumption made.This is assumed because if many rooms need to be cleaned, and I am starting in the kitchen and you are starting in the dining room then, necessarily, there must be at least one additional room that needs to be cleaned.Therefore, the correct answer is assumption made.",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 103,
+      "test_code": "",
+      "question_id": "15831a16-0b96-4433-950b-a31a9ed7f069",
+      "question_code": "wg2_20a",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:All successful businesses cheated and stole.",
+      "question_stimuli": "The only way to succeed in business is to cheat and steal.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Made",
+      "explanation": "The correct answer is assumption made.This is assumed because if the only way to succeed in business is to cheat and steal then, necessarily, any successful business must have cheated and stole.Therefore, the correct answer is assumption made.",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 104,
+      "test_code": "",
+      "question_id": "9780facc-043a-4c9c-9420-b6ec80be9988",
+      "question_code": "wg2_20b",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:Any business that did not cheat and steal was, ultimately, not successful.",
+      "question_stimuli": "The only way to succeed in business is to cheat and steal.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Made",
+      "explanation": "The correct answer is assumption made.This is assumed because if the only way to succeed in business is to cheat and steal then, necessarily, any business that does not cheat and steal will not succeed.Therefore, the correct answer is assumption made.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 105,
+      "test_code": "",
+      "question_id": "b27fd43c-394e-429f-9ef4-6995f66aac36",
+      "question_code": "wg2_21a",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:There are non-organic foods.",
+      "question_stimuli": "Organic food is a healthier food alternative.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Made",
+      "explanation": "The correct answer is assumption made.This is assumed because if organic food is a healthier food alternative then, necessarily, there must be less healthy, non-organic, food choices.Therefore, the correct answer is assumption made.",
+      "difficulty_level": "4"
+    },
+    {
+      "id": 106,
+      "test_code": "",
+      "question_id": "980ce23e-c08d-4125-b577-a5c2d920d8cf",
+      "question_code": "wg2_21b",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:Non-organic food is less healthy than organic food.",
+      "question_stimuli": "Organic food is a healthier food alternative.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Made",
+      "explanation": "The correct answer is assumption made.This is assumed because if organic food is a healthier food alternative then, necessarily, non-organic food is less healthy than organic food.Therefore, the correct answer is assumption made.",
+      "difficulty_level": "8"
+    },
+    {
+      "id": 107,
+      "test_code": "",
+      "question_id": "69b6bd97-4ab8-4cb5-9511-39e9f59e80fd",
+      "question_code": "wg2_22a",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:I would have free time today to run more errands if I did not have to go to the dry cleaner.",
+      "question_stimuli": "I have no free time to run more errands today. I already must go to the supermarket, the dry cleaner, and pick up the kids from school.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Made",
+      "explanation": "The correct answer is assumption made.This is assumed because if I don’t have any free time to run more errands today and one of the reasons is because I have to go to the dry cleaner then, necessarily, if I did not have to go to the dry cleaner I would have free time to run more errands today.Therefore, the correct answer is assumption made.",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 108,
+      "test_code": "",
+      "question_id": "d1a2f74f-0683-407e-b060-ead389c0cf7f",
+      "question_code": "wg2_22b",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption:I will have free time to run more errands tomorrow.",
+      "question_stimuli": "I have no free time to run more errands today. I already must go to the supermarket, the dry cleaner, and pick up the kids from school.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Not Made",
+      "explanation": "The correct answer is assumption not made.This assumption is not assumed because the statement only mentions not having any free time today. No information is provided about having, or not having, any free time to run more errands tomorrow.Therefore, the correct answer is assumption not made.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 109,
+      "test_code": "",
+      "question_id": "262cf168-844b-4e5a-bdc2-2c91a7b78233",
+      "question_code": "WG_As_1a",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption: Design is the following step after development.",
+      "question_stimuli": "Several concepts help define the relationship between development and design.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Not Made",
+      "explanation": "Assumption is not made. Premise: There is a relationship between development and design.Conclusion: Some concepts can help define that relationship. In this case the premise and conclusion can make sense on their own, and we must see if the assumption can strengthen the connection between them.The fact that design and development are adjacent in the process is irrelevant to the statement. We can use the negative test to be sure: \"Design is not the following step after development\". This assumption doesn't affect the statement either, so it doesn't follow.",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 110,
+      "test_code": "",
+      "question_id": "2148415e-53c7-40d3-a0c6-2d48b6dce577",
+      "question_code": "WG_As_1b",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption: Concepts can aid in defining relationships.",
+      "question_stimuli": "Several concepts help define the relationship between development and design.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Made",
+      "explanation": "Assumption is made. Premise: There is a relationship between development and design.Conclusion: Some concepts can help define that relationship. Let us explain using the negative test: \"Concepts cannot aid in defining relationships. This assumption contradicts the original statement, therefore, the original assumption is essential for the statement to be true. Hence, the assumption is made.",
+      "difficulty_level": "7"
+    },
+    {
+      "id": 111,
+      "test_code": "",
+      "question_id": "b7706751-d1ff-4da0-9522-423d58a35b84",
+      "question_code": "WG_As_2a",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption: Completing business school is what makes a good manager.",
+      "question_stimuli": "Restaurants only hire managers with experience because it reduces the time and money needed to train them, but that reduces the pool of possible applicants.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Not Made",
+      "explanation": "Assumption is not made. The assumption does not strengthen the statement. For the statement to be more accurate, a reasonable assumption would be that experience is what helps in making good managers. The statement doesn't mention business school at all. *Note: Even if it is common knowledge that business school will most likely help managers gain skills and improve, in this section you must not use common knowledge!",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 112,
+      "test_code": "",
+      "question_id": "a4a2e806-d39d-4dcb-9626-7b465153f79f",
+      "question_code": "WG_As_2b",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption: Having more options is less important than efficiency in training new employees.",
+      "question_stimuli": "Restaurants only hire managers with experience because it reduces the time and money needed to train them, but that reduces the pool of possible applicants.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Made",
+      "explanation": "Assumption is made. Premise: Restaurants only hire managers with experienceConclusion: It reduces time and costs, but dwindles the pool of possible applicants. The statement presents a dilemma that restaurants deal with in their hiring process. This assumption helps settle the dilemma and rationalize the choice that the restaurants make. Negative test: \"Having more options available is more important than efficiency in training new employees.\"Now this statement doesn't make any sense, therefore, we can reach a solid conclusion that the original assumption is made.",
+      "difficulty_level": "4"
+    },
+    {
+      "id": 113,
+      "test_code": "",
+      "question_id": "fb1e6a8b-0e5c-404c-934b-3832db87fe2a",
+      "question_code": "WG_As_3a",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption: Current education is not good.",
+      "question_stimuli": "With no investment in education, mankind's future is doomed.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Not Made",
+      "explanation": "Assumption is not made. Although it is stated that there is a need to invest in education, it cannot be assumed that current education is not already good. It is possible that the speaker noted that investment is needed in general to keep up with the times, and that there is nothing wrong with today's education.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 114,
+      "test_code": "",
+      "question_id": "450134e8-008f-4e72-b97c-052291dfbb49",
+      "question_code": "WG_As_3b",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption: Better education will make people smarter.",
+      "question_stimuli": "With no investment in education, mankind's future is doomed.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Not Made",
+      "explanation": "Assumption is not made. This assumption is tricky, but if we remember that we cannot use common knowledge in this section it becomes more apparent. Although it is common knowledge that education improves intelligence, the speaker does not mention intelligence once. The speaker says that an improvement in education is needed for the continuation of mankind. Humanity's survival doesn't seem to be connected to improved intelligence, and this is a leap nonetheless.",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 115,
+      "test_code": "",
+      "question_id": "ba5792b2-7587-4d47-8597-22984cccf0f5",
+      "question_code": "WG_As_4a",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption: Athletes have won medals as early as their first competitions.",
+      "question_stimuli": "Young athletes gain motivation when they see their fellow athletes win medals.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Not Made",
+      "explanation": "Assumption is not made. This assumption is not related to the statement. Although the statement mentions young athletes and winning medals, the connection between them is not strengthened by the assumption.",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 116,
+      "test_code": "",
+      "question_id": "f65ed5a6-fd18-456e-9867-bfe4f4c1cd8b",
+      "question_code": "WG_As_4b",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption: Young athletes seek motivation from their peers.",
+      "question_stimuli": "Young athletes gain motivation when they see their fellow athletes win medals.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Made",
+      "explanation": "Assumption is made. Premise: Athletes win medals.Conclusion: Young athletes gain motivation from seeing others win. This assumption connects the premise and the conclusion of the statement. For athletes to gain motivation from seeing other athletes win medals, we must assume that one of the sources of motivation for athletes is their peers. Negative test: Athletes do not seek motivation from their peers. The negative assumption makes the statement invalid. Therefore, the original assumption is necessary.",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 117,
+      "test_code": "",
+      "question_id": "666a1d72-03bc-45ec-9d03-026fa0e56e57",
+      "question_code": "WG_As_5a",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption: Some business seats are not the best.",
+      "question_stimuli": "People should not expect to be upgraded to first-class seats, rather than business, if they are unwilling to pay for it.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Made",
+      "explanation": "Assumption is made. The original statements state that first-class is an upgrade in comparison to business. We can thus assume that there are business seats that are not as good as first-class. I.E., they are not the best.",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 118,
+      "test_code": "",
+      "question_id": "35218942-7cee-43e0-896b-0daad09a0ab2",
+      "question_code": "WG_As_5b",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption: People have unrealistic expectations.",
+      "question_stimuli": "People should not expect to be upgraded to first-class seats, rather than business, if they are unwilling to pay for it.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Made",
+      "explanation": "Assumption is made. Premise: First-class is better and costs more than business.Conclusion: People should not expect to be upgraded if they don't pay. The hidden assumption is the missing piece of information needed for the speaker's statement to make sense. If people don’t have unrealistic expectations, then there would be no reason for anyone to comment that people expect things (being upgraded) despite not having a reason to (not paying).",
+      "difficulty_level": "3"
+    },
+    {
+      "id": 119,
+      "test_code": "",
+      "question_id": "c8c351e4-748d-48ab-8f7b-07f6948f169a",
+      "question_code": "WG_As_6a",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption: Food consumption is not equal to the need for food.",
+      "question_stimuli": "There is not enough food in the world to eradicate world hunger.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Made",
+      "explanation": "Assumption is made. Premise: There is not enough food in the world.Conclusion: World hunger needs to be eradicated. This assumption is derived from the statement. If there is not enough food to eradicate world hunger, then there is a clear assumption that the supply of food (consumption) is unequal to the demand (need) of food.",
+      "difficulty_level": "5"
+    },
+    {
+      "id": 120,
+      "test_code": "",
+      "question_id": "02cd69b1-f165-4b59-b5d1-05deda1ad478",
+      "question_code": "WG_As_6b",
+      "subject": "Assumptions",
+      "question_instructions": "",
+      "question_content": "Proposed Assumption: People should not expect all food to be tasty.",
+      "question_stimuli": "There is not enough food in the world to eradicate world hunger.",
+      "answers": {
+        "answer_1": "Assumption Made",
+        "answer_2": "Assumption Not Made"
+      },
+      "correct_answer": "Assumption Not Made",
+      "explanation": "Assumption is not made. Although it is a possible assumption from the statement that if there is not enough food, then it is more than reasonable that not all food will taste good. However, that assumption is not connected to the statement directly, and is a leap that we cannot make as the speaker did not mention taste at all.",
+      "difficulty_level": "4"
+    },
+    {
+      "id": 121,
+      "test_code": "",
+      "question_id": "",
+      "question_code": "",
+      "subject": "",
+      "question_instructions": "",
+      "question_content": "",
+      "question_stimuli": "",
+      "answers": {},
+      "correct_answer": "",
+      "explanation": "",
+      "difficulty_level": "2"
+    },
+    {
+      "id": 122,
+      "test_code": "",
+      "question_id": "",
+      "question_code": "",
+      "subject": "",
+      "question_instructions": "",
+      "question_content": "",
+      "question_stimuli": "",
+      "answers": {},
+      "correct_answer": "",
+      "explanation": "",
+      "difficulty_level": "5"
+    }
+  ],
+  "statistics": {
+    "by_test_code": {
+      "": 122
+    },
+    "by_subject": {
+      "Interpretation": 18,
+      "Inference": 15,
+      "Evaluation of Arguments": 36,
+      "Deduction": 15,
+      "Assumptions": 36,
+      "": 2
+    },
+    "by_difficulty": {
+      "4": 18,
+      "5": 18,
+      "6": 7,
+      "3": 39,
+      "2": 27,
+      "8": 5,
+      "10": 2,
+      "7": 6
+    }
+  }
+}

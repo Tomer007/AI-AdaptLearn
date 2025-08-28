@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adaptive Learning Settings</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a0a0a;
+      color: #ffffff;
+      display: flex;
+      height: 100vh;
+      line-height: 1.6;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+      gap: 20px;
+    }
+
+    .left-panel {
+      width: 300px;
+      flex-shrink: 0;
+      transition: width 0.3s ease;
+    }
+
+    .left-panel.collapsed {
+      width: 60px;
+    }
+
+    .right-panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: margin-left 0.3s ease;
+    }
+
+    .settings-bar {
+      width: 300px;
+      background-color: #1a1a1a;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      min-height: 200px;
+      position: relative;
+    }
+
+    .settings-header {
+      background-color: #2a2a2a;
+      padding: 15px 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease;
+      border-bottom: 1px solid #3a3a3a;
+    }
+
+    .settings-bar.collapsed .settings-header {
+      padding: 10px 5px;
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+      align-items: center;
+    }
+
+    .settings-bar.collapsed .settings-title {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 40px;
+      text-align: center;
+    }
+
+    .settings-bar.collapsed .settings-toggle {
+      font-size: 10px;
+    }
+
+    .settings-header:hover {
+      background-color: #333;
+    }
+
+    .settings-title {
+      color: #ffffff;
+      font-weight: 300;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .settings-toggle {
+      color: #6200ea;
+      font-size: 10px;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+
+    .settings-bar.collapsed {
+      width: 60px;
+      padding: 10px;
+      align-items: center;
+    }
+
+
+
+    .settings-content {
+      padding: 20px;
+    }
+
+    .settings-bar label {
+      font-size: 14px;
+      color: #ffffff;
+      margin: 10px 0 5px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .settings-bar input, .settings-bar select {
+      width: 100%;
+      padding: 12px;
+      margin: 5px 0 15px;
+      background-color: #2a2a2a;
+      border: 2px solid #3a3a3a;
+      color: #ffffff;
+      border-radius: 8px;
+      box-sizing: border-box;
+      height: 44px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .settings-bar input:focus, .settings-bar select:focus {
+      outline: none;
+      border-color: #6200ea;
+      background-color: #333;
+      box-shadow: 0 0 0 3px rgba(98, 0, 234, 0.1);
+    }
+
+    .settings-bar input[type="text"], .settings-bar input[type="date"] {
+      color: #ffffff;
+    }
+
+    /* Resizable textarea for Additional Notes */
+    .settings-bar textarea {
+      width: 100%;
+      height: 44px;
+      padding: 12px;
+      margin: 5px 0 15px;
+      background-color: #2a2a2a;
+      border: 2px solid #3a3a3a;
+      color: #ffffff;
+      border-radius: 8px;
+      resize: vertical; /* Makes the textarea resizable */
+      box-sizing: border-box;
+      min-height: 44px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      font-family: inherit;
+    }
+
+    .settings-bar textarea:focus {
+      outline: none;
+      border-color: #6200ea;
+      background-color: #333;
+      box-shadow: 0 0 0 3px rgba(98, 0, 234, 0.1);
+    }
+
+    .settings-bar button {
+      background-color: #6200ea;
+      color: #ffffff;
+      border: none;
+      padding: 12px;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    .settings-bar button:hover {
+      background-color: #3700b3;
+    }
+
+    .settings-content {
+      display: none; /* Initially collapsed */
+      transition: all 0.3s ease;
+    }
+
+
+
+    .chat-section {
+      flex: 1;
+      background-color: #121212;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Tabs styling for chat section */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid #333;
+      margin-bottom: 10px;
+    }
+
+    .tab {
+      background-color: #1e1e1e;
+      color: #ffffff;
+      border: 1px solid #333;
+      border-bottom: none;
+      padding: 8px 12px;
+      border-radius: 8px 8px 0 0;
+      cursor: pointer;
+      font-size: 13px;
+      transition: background-color 0.2s ease;
+    }
+
+    .tab:hover {
+      background-color: #2a2a2a;
+    }
+
+    .tab.active {
+      background-color: #2a2a2a;
+      color: #ffffff;
+      border-color: #6200ea;
+    }
+
+    .tab-contents {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 0; /* allow children to flex properly */
+    }
+
+    .tab-content {
+      display: none;
+      flex: 1;
+      min-height: 0;
+      flex-direction: column;
+    }
+
+    .tab-content.active {
+      display: flex;
+    }
+
+    .chat-box {
+      background-color: #1e1e1e;
+      border-radius: 8px;
+      padding: 20px;
+      height: 100%;
+      overflow-y: auto;
+      flex-grow: 1;
+    }
+
+    .chat-message {
+        color: #ffffff;
+      font-weight: 100;
+      margin-bottom: 15px;
+      padding: 8px 0;
+      line-height: 1.2;
+    }
+
+    .user-msg {
+      color: #ffffff;
+      font-weight: normal;
+      margin-bottom: 15px;
+      padding: 8px 0;
+      line-height: 1.4;
+    }
+
+    .user-bubble {
+      background-color: #1e3a8a;
+      color: #ffffff;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 300;
+      margin-right: 8px;
+      display: inline-block;
+    }
+
+    .ai-name-bubble {
+      background-color: #6200ea;
+      color: #ffffff;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 300;
+      margin-right: 8px;
+      display: inline-block;
+    }
+
+    /* Change the color to white for system-msg */
+    .system-msg {
+      color: #ffffff;
+      font-weight: normal;
+      margin-bottom: 15px;
+      padding: 8px 0;
+    }
+
+    .system-msg .ai-name-bubble {
+      margin-bottom: 5px;
+    }
+
+    .system-msg div {
+      margin-top: 5px;
+      line-height: 1.4;
+    }
+
+    /* Welcome message pinned at top-right inside chat box */
+    #welcome-message {
+      text-align: left;
+      position: sticky;
+      top: 0;
+      background-color: #1e1e1e;
+      padding-bottom: 8px;
+      z-index: 1;
+    }
+
+    /* Bidirectional text support */
+    [dir="rtl"] {
+      direction: rtl;
+      text-align: right;
+    }
+    [dir="ltr"] {
+      direction: ltr;
+      text-align: left;
+    }
+
+    .input-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .input-section input {
+      width: 80%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #444;
+      background-color: #333;
+      color: #ffffff;
+    }
+
+    .input-section button {
+      width: 18%;
+      background-color: #6200ea;
+      color: #ffffff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+
+    .input-section button:hover {
+      background-color: #3700b3;
+    }
+
+    /* Settings tags styling */
+    .settings-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 0;
+      padding: 15px;
+      background-color: #1a1a1a;
+      border-radius: 0 0 8px 8px;
+      border: 1px solid #2a2a2a;
+      border-top: none;
+    }
+
+    .settings-tags .tag {
+      margin-bottom: 8px;
+    }
+
+    .settings-tags .assessment-tag {
+      margin-bottom: 8px;
+    }
+
+    .tag {
+      background-color: #6200ea;
+      color: #ffffff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      display: inline-block;
+      white-space: nowrap;
+      box-shadow: 0 2px 8px rgba(98, 0, 234, 0.3);
+      border: 1px solid #3700b3;
+    }
+
+    /* Enhanced question header styling */
+    .q-tag { display:inline-block; background:#1d1d1d; border:1px solid #2f2f2f; padding:10px 12px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,.25); }
+    .q-domain { font-size:13px; font-weight:600; letter-spacing:0.4px; color:#ffffff; }
+    .q-meta { margin-top:4px; display:flex; gap:8px; align-items:center; font-size:12px; color:#cfcfcf; }
+    .badge { background:#2a2a2a; color:#e0e0e0; border:1px solid #3a3a3a; padding:2px 8px; border-radius:9999px; font-size:11px; }
+    .q-header { cursor: pointer; }
+    .q-card.collapsed { opacity: 0.95; }
+
+    /* AI Chat Section Styling */
+    .ai-chat-section {
+      margin-top: 20px;
+      background-color: #1e1e1e;
+      border-radius: 8px;
+      padding: 15px;
+      border: 1px solid #333;
+    }
+
+    .ai-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #333;
+    }
+
+    
+    .ai-input-container {
+      display: flex;
+      gap: 10px;
+    }
+
+    .ai-input-container input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #444;
+      background-color: #333;
+      color: #ffffff;
+    }
+
+    .ai-input-container button {
+      background-color: #6200ea;
+      color: #ffffff;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .ai-input-container button:hover {
+      background-color: #3700b3;
+    }
+
+    /* Suggestion tags under AI input */
+    .suggestion-tags {
+      margin-top: 8px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .suggestion-tag {
+      background-color: #2a2a2a;
+      color: #ffffff;
+      border: 1px solid #444;
+      border-radius: 16px;
+      padding: 6px 10px;
+      font-size: 12px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .suggestion-tag:hover {
+      background-color: #333;
+      border-color: #6200ea;
+    }
+
+    /* Metadata Card Styling */
+    .metadata-card {
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      margin: 6px 0;
+      border: 1px solid #2a2a2a;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+    }
+
+    .metadata-header {
+      background-color: #222;
+      padding: 10px 14px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease;
+      border-bottom: 1px solid #2f2f2f;
+    }
+
+    .metadata-header:hover {
+      background-color: #333;
+    }
+
+    .metadata-title {
+      color: #ffffff;
+      font-weight: 300;
+      font-size: 14px;
+    }
+
+    .metadata-toggle {
+      color: #6200ea;
+      font-size: 10px;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+
+    .metadata-content {
+      padding: 12px;
+      background-color: #1a1a1a;
+      transition: all 0.3s ease;
+    }
+
+    /* Make tags inside Assessment Profile slightly smaller */
+    .metadata-card .tag {
+      font-size: 12px;
+      padding: 6px 12px;
+    }
+
+    .metadata-content.collapsed {
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    .metadata-section {
+      margin-bottom: 20px;
+    }
+
+    .metadata-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 300;
+      margin: 0 0 15px 0;
+      text-transform: none;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid #3a3a3a;
+      padding-bottom: 8px;
+      display: block;
+      background-color: #2a2a2a;
+      padding: 12px 15px;
+      border-radius: 8px 8px 0 0;
+      margin-bottom: 0;
+    }
+
+    .assessment-info {
+        display: flex;
+      flex-direction: row;
+      gap: 8px;
+      margin-top: 10px;
+      align-items: flex-start;
+    }
+
+    .assessment-tag {
+      background-color: #6200ea;
+      color: #ffffff;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    /* Scores Section Styling */
+    .scores-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 0;
+      padding: 15px;
+      background-color: #1a1a1a;
+      border-radius: 0 0 8px 8px;
+      border: 1px solid #2a2a2a;
+      border-top: none;
+    }
+
+    /* Standard Color Classes */
+    .text-white {
+      color: #ffffff;
+    }
+
+    .text-purple {
+      color: #6200ea;
+    }
+
+    .text-red {
+      color: #ff0000;
+    }
+
+    .text-yellow {
+      color: #ffff00;
+    }
+
+    .text-green {
+      color: #00ff00;
+    }
+
+    .bg-purple {
+      background-color: #6200ea;
+    }
+
+    .bg-red {
+      background-color: #ff0000;
+    }
+
+    .bg-yellow {
+      background-color: #ffff00;
+    }
+
+    .bg-green {
+      background-color: #00ff00;
+    }
+    .q-meta { font-size: 12px; }
+
+    /* Make the top continue button green */
+    #continue-btn { background-color: #1db954; border-color: #1db954; }
+    #continue-btn:hover { background-color: #17a54a; }
+
+    /* Button states */
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    #submit-settings {
+      transition: all 0.3s ease;
+    }
+
+    #submit-settings:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Notification styles */
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      max-width: 400px;
+      animation: slideIn 0.3s ease-out;
+    }
+
+    .notification-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      font-weight: 500;
+    }
+
+    .notification-success {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    .notification-error {
+      background-color: #f44336;
+      color: white;
+    }
+
+    .notification-info {
+      background-color: #2196f3;
+      color: white;
+    }
+
+    .notification-close {
+      background: none;
+      border: none;
+      color: inherit;
+      font-size: 20px;
+      cursor: pointer;
+      margin-left: 15px;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .notification-close:hover {
+      opacity: 0.8;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    /* Diagnostic specific */
+    .q-card { border: 1px solid #333; border-radius: 10px; padding: 12px; margin-bottom: 12px; background:#181818; }
+    .choice { border:1px solid #444; border-radius:8px; padding:8px; margin:6px 0; cursor:pointer; }
+    .choice:hover { border-color:#6200ea; background:#222; }
+    .choice.correct { border-color:#1db954; }
+    .choice.wrong { border-color:#e53935; }
+    .hint { color:#ffd54f; font-size:14px; margin-top:6px; }
+    .explanation { color:#9ccc65; font-size:13px; margin-top:8px; }
+    .progress-wrap { margin:8px 0 16px; }
+    .progress-bar {
+      position: relative;
+      height: 16px;
+      background: linear-gradient(180deg, #2a2a2a, #1f1f1f);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #3a3a3a;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,.45);
+    }
+    .progress-bar > div {
+      position: relative;
+      z-index: 0;
+      height: 100%;
+      background: linear-gradient(90deg, #7c4dff, #6200ea);
+      box-shadow: 0 0 12px rgba(124,77,255,.55);
+      width: 0%;
+      transition: width .35s ease;
+    }
+    .progress-pct {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      background: rgba(0,0,0,0.45);
+      padding: 2px 8px;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.6);
+      text-shadow: 0 1px 2px rgba(0,0,0,.9);
+      pointer-events: none;
+    }
+    /* Disabled grey style for Start Intro button */
+    #start-intro-btn:disabled { background-color:#555 !important; border-color:#555 !important; color:#ddd; }
+    /* Disabled grey style for Continue and Summary buttons */
+    #continue-btn:disabled { background-color:#555 !important; border-color:#555 !important; color:#ddd; }
+    #summary-btn:disabled { background-color:#555 !important; border-color:#555 !important; color:#ddd; }
+    .diag-loader { display:none; align-items:center; gap:8px; margin-top:10px; color:#bbb; }
+    .spinner { width:16px; height:16px; border:2px solid #444; border-top-color:#6200ea; border-radius:50%; animation: spin .8s linear infinite; }
+    @keyframes spin { from { transform: rotate(0deg);} to { transform: rotate(360deg);} }
+    /* Overlay for Diagnostic loading */
+    #tab-diagnostic .chat-box { position: relative; }
+    .diag-overlay { position:absolute; inset:0; background:rgba(0,0,0,.55); display:none; align-items:center; justify-content:center; z-index: 20; }
+    .diag-overlay .overlay-inner { display:flex; align-items:center; gap:10px; padding:12px 16px; background:#1a1a1a; border:1px solid #333; border-radius:10px; box-shadow:0 4px 16px rgba(0,0,0,.4); }
+    .diag-ellipsis::after { content: '…'; animation: dots 1.2s steps(4, end) infinite; }
+    @keyframes dots { 0%, 20% { content:''; } 40% { content:'.'; } 60% { content:'..'; } 80%, 100% { content:'...'; } }
+  </style>
+</head>
+<body>
+
+    <div class="container">
+    <!-- Left Side: Settings Bar -->
+    <div class="left-panel">
+      <div class="settings-bar">
+        <div class="settings-header" onclick="toggleCollapse()">
+          <span class="settings-title">Settings</span>
+          <span class="settings-toggle" id="settings-toggle">▼</span>
+        </div>
+        <div class="settings-content">
+
+        <label for="tester-name">Name of Tester</label>
+        <input type="text" id="tester-name" placeholder="Enter Tester's Name" value="Tomer">
+
+          <label for="pack-name">Pack Name</label>
+          <select id="pack-name">
+            <option value="Watson Glaser" selected>Watson Glaser</option>
+            <option value="EEI Practice Test">EEI Practice Test</option>
+            <option value="POSS Practice Test">POSS Practice Test</option>
+            <option value="Hogan Practice Test">Hogan Practice Test</option>
+          </select>
+          
+          <label for="assessment-date">Date for the Assessment</label>
+          <input type="date" id="assessment-date">
+
+          <label for="q-position">Which position are you aiming for?</label>
+          <input type="text" id="q-position" placeholder="e.g., Analyst, Operator, Manager">
+
+          <label for="q-company">Which company/organization?</label>
+          <input type="text" id="q-company" placeholder="e.g., Company name">
+
+          <label for="q-difficult">Is there a topic from the training material above that you find difficult?</label>
+          <input type="text" id="q-difficult" placeholder="e.g., Logic, Verbal, Numerical, Abstract">
+
+          <label for="q-request">Do you have any question or request before we begin?</label>
+          <input type="text" id="q-request" placeholder="Your question or request">
+
+          <button id="submit-settings">Let's start!</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side: Content Area -->
+    <div class="right-panel">
+      <!-- Top Right: Learning Settings Metadata Card -->
+      <div class="metadata-card" id="metadata-card" style="display: none;">
+        <div class="metadata-header" onclick="toggleMetadata()">
+          <span class="metadata-title">Assessment Profile</span>
+          <span class="metadata-toggle" id="metadata-toggle">▼</span>
+        </div>
+        <div class="metadata-content" id="metadata-content">
+          <div class="metadata-section">
+            <div class="settings-tags" id="settings-tags-container">
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <!-- Bottom Right: Chat Section -->
+      <div class="chat-section">
+        <div class="tabs">
+          <button class="tab active" data-tab="overview" onclick="switchTab('overview')">Overview</button>
+          <button class="tab" data-tab="diagnostic" onclick="switchTab('diagnostic')">Diagnostic</button>
+          <button class="tab" data-tab="practice" onclick="switchTab('practice')">Practice</button>
+          <button class="tab" data-tab="simulate" onclick="switchTab('simulate')">Simulate</button>
+        </div>
+
+        <div class="tab-contents">
+          <!-- Overview Tab Content -->
+          <div class="tab-content active" id="tab-overview">
+            <div class="chat-box" id="chat-box">
+              <div class="chat-message system-msg" id="welcome-message"></div>
+            </div>
+            <div class="ai-chat-section" id="ai-chat-section" style="display: none;">
+              <div class="ai-input-container">
+                <input type="text" id="ai-chat-input" placeholder="Ask JobTestPrep AI anything...">
+                <button onclick="sendAIMessage()">Send</button>
+              </div>
+              <div class="suggestion-tags" id="suggestion-tags" style="display:none; margin-top:8px; gap:8px; flex-wrap:wrap;">
+                <span class="suggestion-tag" onclick="askSuggestion('Tell me about the Watson-Glaser test — what is it designed to measure?')">Tell me about the Watson-Glaser test — what is it designed to measure?</span>
+                <span class="suggestion-tag" onclick="askSuggestion('How many sections are in the Watson-Glaser test?')">How many sections are in the Watson-Glaser test?</span>
+                <span class="suggestion-tag" onclick="askSuggestion('How long do you have to answer 40 questions?')">How long do you have to answer 40 questions?</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Diagnostic Tab Content -->
+          <div class="tab-content" id="tab-diagnostic">
+            <div class="chat-box">
+              <div class="chat-message system-msg">
+                <div class="progress-wrap" id="diag-progress-wrap">
+                  <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span id="diag-progress-title">Warm-up progress</span>
+                    <span id="diag-progress-label">0/3</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div id="diag-progress-bar"></div>
+                    <div id="diag-progress-pct" class="progress-pct">0%</div>
+                  </div>
+                </div>
+                <button id="start-intro-btn" class="tag" onclick="loadDiagnostic()">Warm-Up Questions</button>
+                <div id="diag-loader" class="diag-loader"><div class="spinner"></div><span>Preparing questions...</span></div>
+                <button id="continue-btn" class="tag" style="display:none; margin-left:8px;" onclick="continueToDeepen()">Level Up Questions</button>
+                <button id="summary-btn" class="tag" style="display:none; margin-left:8px;" onclick="requestSummary()">Results & Insights</button>
+              </div>
+              <div id="diag-summary" style="margin:12px 0; display:block;"></div>
+              <div id="diag-overlay" class="diag-overlay" aria-hidden="true">
+                <div class="overlay-inner">
+                  <div class="spinner" style="width:20px;height:20px;border-width:3px;"></div>
+                  <span>Preparing questions<span class="diag-ellipsis"></span></span>
+                </div>
+              </div>
+              <div id="diagnostic-questions"></div>
+            </div>
+          </div>
+
+          <!-- Practice Tab Content -->
+          <div class="tab-content" id="tab-practice">
+            <div class="chat-box">
+              <div class="chat-message system-msg">
+                Focused practice content will appear here.
+              </div>
+            </div>
+          </div>
+
+          <!-- Simulate Tab Content -->
+          <div class="tab-content" id="tab-simulate">
+            <div class="chat-box">
+              <div class="chat-message system-msg">
+                Full-length simulations will appear here.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Set default date to 2 weeks from today and initialize collapsed state
+    window.addEventListener('DOMContentLoaded', function() {
+      const today = new Date();
+      const twoWeeksFromNow = new Date(today.getTime() + (14 * 24 * 60 * 60 * 1000));
+      const dateString = twoWeeksFromNow.toISOString().split('T')[0];
+      document.getElementById('assessment-date').value = dateString;
+      
+      // Update welcome message with default tester name and pack name
+      const defaultTesterName = document.getElementById('tester-name').value;
+      const defaultPackName = document.getElementById('pack-name').value;
+      
+      // Initialize settings bar as collapsed
+      const settingsBar = document.querySelector('.settings-bar');
+      const leftPanel = document.querySelector('.left-panel');
+      const settingsContent = document.querySelector('.settings-content');
+      const settingsToggle = document.getElementById('settings-toggle');
+      
+      settingsContent.style.display = 'none';
+      settingsToggle.textContent = '▶';
+      settingsBar.classList.add('collapsed');
+      leftPanel.classList.add('collapsed');
+
+      // Pressing Enter anywhere in settings triggers "Let's start!"
+      if (settingsContent) {
+        settingsContent.addEventListener('keydown', function(event) {
+          if (event.key === 'Enter') {
+            event.preventDefault();
+            const submitBtn = document.getElementById('submit-settings');
+            if (submitBtn && !submitBtn.disabled) {
+              submitBtn.click();
+            }
+          }
+        });
+      }
+
+      // Enter in chat input triggers Send
+      const aiInputInit = document.getElementById('ai-chat-input');
+      if (aiInputInit) {
+        aiInputInit.addEventListener('keydown', function(event) {
+          if (event.key === 'Enter') {
+            event.preventDefault();
+            sendAIMessage();
+          }
+        });
+      }
+    });
+    
+    // Minimal Markdown renderer for headings, bold, lists, line breaks
+    function renderMarkdown(md) {
+      if (!md) return '';
+      let text = md.trim();
+      // Remove surrounding triple backticks if present
+      text = text.replace(/^```[a-zA-Z]*\s*/,'').replace(/\s*```$/,'');
+      // Replace Windows newlines
+      text = text.replace(/\r\n/g, '\n');
+      // Escape basic HTML
+      text = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      // Headings: #, ##, ###
+      text = text.replace(/^###\s+(.+)$/gm, '<h4>$1</h4>');
+      text = text.replace(/^##\s+(.+)$/gm, '<h3>$1</h3>');
+      text = text.replace(/^#\s+(.+)$/gm, '<h2>$1</h2>');
+      // Bold **text**
+      text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+      // Ordered list items
+      text = text.replace(/(?:^|\n)(\d+)\.\s+(.+)(?=\n|$)/g, function(_, num, item){
+        return `\n<li>${item}</li>`;
+      });
+      // Wrap consecutive <li> into <ol>
+      text = text.replace(/(<li>[\s\S]*?<\/li>)/g, function(m){ return m; });
+      text = text.replace(/(?:\n)?((?:<li>.*?<\/li>\n?)+)/gs, '<ol>$1</ol>');
+      // Unordered list items starting with -
+      text = text.replace(/(?:^|\n)-\s+(.+)(?=\n|$)/g, function(_, item){
+        return `\n<ul><li>${item}</li></ul>`;
+      });
+      // Merge adjacent ULs
+      text = text.replace(/<\/ul>\n<ul>/g, '');
+      // Convert remaining newlines to <br>
+      text = text.replace(/\n/g, '<br>');
+      return text;
+    }
+    document.getElementById('submit-settings').addEventListener('click', async () => {
+      const packName = document.getElementById('pack-name').value;
+      const testerName = document.getElementById('tester-name').value;
+      const assessmentDate = document.getElementById('assessment-date').value;
+      const qPosition = document.getElementById('q-position').value;
+      const qCompany = document.getElementById('q-company').value;
+      const qDifficult = document.getElementById('q-difficult').value;
+      const qRequest = document.getElementById('q-request').value;
+
+      if (packName  && testerName && assessmentDate) {
+        // Show loading state
+        const submitButton = document.getElementById('submit-settings');
+        const originalText = submitButton.textContent;
+        submitButton.textContent = 'Start Assessment';
+        submitButton.disabled = true;
+
+        try {
+          // Prepare data for API
+          const userSettings = {
+            pack_name: packName,
+            tester_name: testerName,
+            assessment_date: assessmentDate,
+            duration: 60 // Default duration
+          };
+
+          // Debug: log what we're sending
+          console.log('Sending user settings:', userSettings);
+
+          // No settings API call; capture locally with English fallback markdown
+          const englishFallbackMd = `# Welcome to the Adaptive Learning System\n\nWelcome to JobTestPrep's AI-powered Adaptive Learning system for preparing for the ${packName}.\n\nOur smart virtual tutor will guide you through a personalized preparation journey. The four key stages are:\n\n1. **Familiarize with the test**\nInitial understanding of the structure and question types.\n\n2. **Diagnostic**\nAdaptive initial simulation to tailor a plan to your level.\n\n3. **Focused practice**\nLearn and practice your weak areas to improve performance.\n\n4. **Full simulations**\nPractice in the real test format to aim for a score in the top 15%.\n\nIn addition to the personalized path, you can jump directly to specific sections of the test.`;
+          let result = { welcome_message: englishFallbackMd };
+          
+          // Show success message
+          showNotification('Settings captured successfully!', 'success');
+          
+          // Request AI welcome message from backend agent
+          try {
+            const welcomeRes = await fetch('/api/chat/welcome', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                settings: {
+                  ...userSettings,
+                  session_id: generateSessionId(),
+                  position: qPosition || null,
+                  company: qCompany || null,
+                  difficult_topic: qDifficult || null,
+                  user_concerns: qRequest || null
+                },
+                history: []
+              })
+            });
+            if (welcomeRes.ok) {
+              const welcomeData = await welcomeRes.json();
+              console.log('Welcome data:', welcomeData);
+              if (welcomeData && welcomeData.welcome_message) {
+                result = { welcome_message: welcomeData.welcome_message };
+              }
+            }
+          } catch (e) {
+            console.warn('Welcome agent call failed, using default welcome_message');
+          }
+          
+          // Store user data in localStorage for future sessions
+          localStorage.setItem('testerName', testerName);
+          localStorage.setItem('lastSavedSettings', JSON.stringify(userSettings));
+          
+          // Update UI with response data
+          const chatBox = document.getElementById('chat-box');
+          
+          // Clear existing settings messages (guard if chatBox exists)
+          if (chatBox) {
+            const existingSettings = chatBox.querySelectorAll('.chat-message.system-msg');
+            existingSettings.forEach(msg => {
+              if (msg.textContent.includes('Learning Settings:')) {
+                msg.remove();
+              }
+            });
+          }
+          
+          // Create tags view for settings
+          const assessmentDateObj = new Date(assessmentDate);
+          const today = new Date();
+          const timeDiff = assessmentDateObj.getTime() - today.getTime();
+          const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+          
+          const daysText = daysDiff > 0 ? `${daysDiff} days until assessment` : 
+                          daysDiff === 0 ? 'Assessment is today' : 
+                          `${Math.abs(daysDiff)} days since assessment`;
+          
+          // Show metadata card and populate it
+          document.getElementById('metadata-card').style.display = 'block';
+          
+          // Populate consolidated Learning Settings & Assessment Timeline section
+          const consolidatedHTML = `
+            <div>
+              <span class="tag">Pack Name: ${packName}</span>
+              <span class="tag">Assessment Date: ${assessmentDate}</span>
+              <span class="tag">${daysText}</span>
+            </div>
+          `;
+          
+          document.getElementById('settings-tags-container').innerHTML = consolidatedHTML;
+          
+          
+          // Add system message with welcome at top-right (render Markdown)
+          setTimeout(() => {
+            if (chatBox) {
+              const md = (result && result.welcome_message) ? result.welcome_message : englishFallbackMd;
+              // Simple markdown renderer for basic bold, numbered lists, and headings
+              const html = renderMarkdown(md);
+              const welcomeEl = document.getElementById('welcome-message');
+              if (welcomeEl) {
+                welcomeEl.innerHTML = `<div dir="auto" class="md-content">${html}</div>`;
+              } else {
+                chatBox.innerHTML = `
+                  <div class="chat-message system-msg" id="welcome-message" dir="auto">
+                    <div class="md-content">${html}</div>
+                  </div>
+                ` + chatBox.innerHTML;
+              }
+              // Keep scroll at top to show welcome
+              chatBox.scrollTop = 0;
+            }
+          }, 500);
+          
+          document.getElementById('ai-chat-section').style.display = 'block';
+          // Ensure suggestion tags visible on Overview
+          const sugg = document.getElementById('suggestion-tags');
+          if (sugg && document.querySelector('.tab.active')?.dataset.tab === 'overview') {
+            sugg.style.display = 'flex';
+          }
+          
+          // Add Enter key support for AI chat input
+          const aiChatInput = document.getElementById('ai-chat-input');
+          aiChatInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+              sendAIMessage();
+            }
+          });
+
+        } catch (error) {
+          console.error('Error saving settings:', error);
+          showNotification('Error saving settings. Please try again.', 'error');
+        } finally {
+          // Restore button state
+          submitButton.textContent = originalText;
+          submitButton.disabled = false;
+        }
+      } else {
+        // Check which fields are missing and show specific message
+        const missingFields = [];
+        if (!packName) missingFields.push('Pack Name');
+        if (!testerName) missingFields.push('Tester Name:');
+        if (!assessmentDate) missingFields.push('Assessment Date');
+        
+        const missingFieldsText = missingFields.join(', ');
+        showNotification(`Please fill out the following required fields: ${missingFieldsText}`, 'error');
+      }
+    });
+
+    // Diagnostic logic
+    let diagState = { loaded:false, attempts:{}, correct:{}, completed:{}, first:{}, total:0, done:0, questions:{}, stage:'INTRO' };
+
+    
+
+    async function loadDiagnostic() {
+      const container = document.getElementById('diagnostic-questions');
+      const btn = document.getElementById('start-intro-btn');
+      const loader = document.getElementById('diag-loader');
+      const overlay = document.getElementById('diag-overlay');
+      const continueBtn = document.getElementById('continue-btn');
+      const titleEl = document.getElementById('diag-progress-title');
+      const progWrap = document.getElementById('diag-progress-wrap');
+      container.innerHTML = '';
+      diagState = { loaded:true, attempts:{}, correct:{}, completed:{}, first:{}, total:0, done:0, questions:{}, stage:'INTRO' };
+      if (continueBtn) continueBtn.style.display = 'none';
+      const summaryBtn = document.getElementById('summary-btn');
+      if (summaryBtn) summaryBtn.style.display = 'none';
+      updateDiagProgress();
+      if (titleEl) titleEl.textContent = 'Warm-up progress';
+      if (progWrap) progWrap.style.display = 'block';
+      if (btn) { btn.disabled = true; btn.textContent = 'Loading...'; }
+      if (loader) loader.style.display = 'flex';
+      if (overlay) overlay.style.display = 'flex';
+      try {
+        const res = await fetch('/api/chat/intro', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action:'select_intro', payload:{} })
+        });
+        if (!res.ok) { showNotification('Failed to load diagnostic', 'error'); return; }
+        const data = await res.json();
+        // Support both shapes: { selection: { ... } } and { ... } directly
+        const selection = (data && typeof data === 'object' && data.selection && typeof data.selection === 'object')
+          ? data.selection
+          : (data && typeof data === 'object' ? data : {});
+        const all = Object.values(selection).reduce((acc, arr) => acc.concat(arr || []), []);
+        // Update total based on how many questions were loaded
+        diagState.total = all.length || 0;
+        updateDiagProgress();
+        all.forEach(renderQuestionCard);
+      } catch (e) {
+        showNotification('Network error while loading diagnostic', 'error');
+      } finally {
+        if (loader) loader.style.display = 'none';
+        if (overlay) overlay.style.display = 'none';
+        if (btn) { btn.disabled = false; btn.textContent = 'Start Intro Assessment'; }
+      }
+    }
+
+    function computeTargetsFromIntro() {
+      // For each domain, set target based on intro result (first attempt only): first-correct => +2, else same
+      const targets = {};
+      Object.keys(diagState.questions || {}).forEach(qid => {
+        const meta = diagState.questions[qid] || {};
+        const domain = (meta.domain || '').toString();
+        if (!domain) return;
+        const base = parseInt(meta.difficulty || 5, 10);
+        const correct = diagState.first[qid] === 'correct';
+        const target = correct ? Math.min(10, (isNaN(base) ? 5 : base) + 2) : Math.max(1, (isNaN(base) ? 5 : base));
+        // Keep the highest target if multiple questions per domain (future-proof)
+        if (targets[domain] == null) targets[domain] = target;
+        else targets[domain] = Math.max(targets[domain], target);
+      });
+      return targets;
+    }
+
+    async function continueToDeepen() {
+      const container = document.getElementById('diagnostic-questions');
+      const overlay = document.getElementById('diag-overlay');
+      const loader = document.getElementById('diag-loader');
+      const continueBtn = document.getElementById('continue-btn');
+      const startBtn = document.getElementById('start-intro-btn');
+      const titleEl = document.getElementById('diag-progress-title');
+      const chatBox = document.querySelector('#tab-diagnostic .chat-box');
+      const progWrap = document.getElementById('diag-progress-wrap');
+      if (continueBtn) { continueBtn.style.display = 'inline-block'; continueBtn.disabled = true; }
+      if (startBtn) { startBtn.disabled = true; startBtn.style.display = 'inline-block'; }
+      if (titleEl) titleEl.textContent = 'Deepen progress';
+      if (chatBox) chatBox.scrollTop = 0;
+      diagState.stage = 'DEEPEN';
+      if (progWrap) progWrap.style.display = 'block';
+      if (overlay) overlay.style.display = 'flex';
+      if (loader) loader.style.display = 'flex';
+      try {
+        const target_difficulty = computeTargetsFromIntro();
+        const res = await fetch('/api/chat/intro', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action:'select_deepen', payload:{ target_difficulty } })
+        });
+        if (!res.ok) { showNotification('Failed to load deepen selection', 'error'); return; }
+        const data = await res.json();
+        const selection = (data && typeof data === 'object' && data.selection && typeof data.selection === 'object')
+          ? data.selection
+          : (data && typeof data === 'object' ? data : {});
+        const all = Object.values(selection).reduce((acc, arr) => acc.concat(arr || []), []);
+        // Refresh and present only deepen questions
+        container.innerHTML = '';
+        diagState.attempts = {};
+        diagState.correct = {};
+        diagState.completed = {};
+        diagState.first = {};
+        diagState.done = 0;
+        diagState.total = all.length || 0;
+        diagState.questions = {};
+        updateDiagProgress();
+        all.forEach(renderQuestionCard);
+        showNotification('Deepen phase loaded. Aim a bit higher now!', 'info');
+      } catch (e) {
+        showNotification('Network error while loading deepen selection', 'error');
+      } finally {
+        if (overlay) overlay.style.display = 'none';
+        if (loader) loader.style.display = 'none';
+      }
+    }
+
+    function renderQuestionCard(q) {
+      const container = document.getElementById('diagnostic-questions');
+      const card = document.createElement('div');
+      card.className = 'q-card';
+      card.id = `q-${q.id}`;
+      const answerBadge = (typeof q.correct_index === 'number' && q.correct_index >= 0)
+        ? `<span class=\"badge\">Answer ${q.correct_index + 1}</span>`
+        : '';
+      const titleHTML = `
+        <div class="q-tag">
+          <div class="q-domain">${q.domain.toUpperCase()}</div>
+          <div class="q-meta">
+            <span class="badge">ID #${q.id}</span>
+            <span class="badge">Diff ${q.difficulty}</span>
+            ${answerBadge}
+          </div>
+        </div>`;
+      const stim = q.stimuli ? `<div style="font-size:16px;color:#bbb;margin-bottom:6px;">${q.stimuli}</div>` : '';
+      card.innerHTML = `
+        <div class="q-header" onclick="toggleQuestionBody('${q.id}')">${titleHTML}</div>
+        <div class="q-body" id="q-body-${q.id}">
+          ${stim}
+          <div style="margin:6px 0 10px;">${q.stem}</div>
+          <div id="choices-${q.id}"></div>
+          <div class="hint" id="hint-${q.id}" style="display:none;"></div>
+          <div class="explanation" id="exp-${q.id}" style="display:none;"></div>
+        </div>
+      `;
+      container.appendChild(card);
+
+      // Track per-question metadata for next-phase targeting
+      diagState.questions[q.id] = { domain: q.domain, difficulty: q.difficulty };
+
+      const choicesWrap = document.getElementById(`choices-${q.id}`);
+      (q.choices || []).forEach(ch => {
+        const div = document.createElement('div');
+        div.className = 'choice';
+        div.textContent = ch;
+        div.onclick = () => handleChoice(q, div, ch);
+        choicesWrap.appendChild(div);
+      });
+    }
+
+    async function handleChoice(q, elem, chosen) {
+      const qid = q.id;
+      const key = qid;
+      const attempts = diagState.attempts[key] || 0;
+
+      // Record first attempt outcome for scoring (only once)
+      const isFirstAttempt = attempts === 0 && diagState.first[key] == null;
+
+      // Check answer
+      const check = await fetch('/api/chat/intro', {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ action:'check', payload:{ qid, chosen } })
+      });
+      const { is_correct, correct } = await check.json();
+
+      if (isFirstAttempt) {
+        diagState.first[key] = is_correct ? 'correct' : 'wrong';
+      }
+
+      if (is_correct) {
+        markChoice(elem, true);
+        diagState.correct[key] = true;
+        // On correct answer, fetch and show explanation
+        try {
+          const expRes = await fetch('/api/chat/intro', {
+            method:'POST', headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({ action:'explain', payload:{ stem:q.stem, choices:q.choices, correct, first_attempt: attempts, second_attempt: attempts, tags:[] } })
+          });
+          if (expRes.ok) {
+            const { explanation, misconception } = await expRes.json();
+            const expEl = document.getElementById(`exp-${qid}`);
+            if (expEl) {
+              expEl.style.display='block';
+              expEl.innerHTML = `${renderMarkdown(explanation)}${misconception ? `<br><em>${misconception}</em>` : ''}`;
+            }
+          }
+        } catch (e) {}
+        finalizeQuestion(qid);
+        return;
+      }
+
+      // first wrong -> request hint
+      if (attempts === 0) {
+        diagState.attempts[key] = 1;
+        const hintRes = await fetch('/api/chat/intro', {
+          method:'POST', headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({ action:'hint', payload:{ stem:q.stem, choices:q.choices, chosen, tags:[] } })
+        });
+        const { hint } = await hintRes.json();
+        const hintEl = document.getElementById(`hint-${qid}`);
+        if (hintEl) { hintEl.style.display='block'; hintEl.textContent = `Hint: ${hint}`; }
+        markChoice(elem, false);
+        return;
+      }
+
+      // second wrong -> show explanation
+      diagState.attempts[key] = 2;
+      const expRes = await fetch('/api/chat/intro', {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ action:'explain', payload:{ stem:q.stem, choices:q.choices, correct, first_attempt:0, second_attempt:1, tags:[] } })
+      });
+      const { explanation, misconception } = await expRes.json();
+      const expEl = document.getElementById(`exp-${qid}`);
+      if (expEl) {
+        expEl.style.display='block';
+        expEl.innerHTML = `${renderMarkdown(explanation)}<br><em>${misconception}</em>`;
+      }
+      markChoice(elem, false);
+      finalizeQuestion(qid);
+    }
+
+    function markChoice(elem, isCorrect) {
+      if (isCorrect) {
+        elem.classList.add('correct');
+        // Lock entire question when correct
+        Array.from(elem.parentElement.children).forEach(c => (c.onclick = null));
+      } else {
+        elem.classList.add('wrong');
+        // Disable only the selected wrong option; keep others clickable for re-try
+        elem.onclick = null;
+      }
+    }
+
+    function finalizeQuestion(qid) {
+      // Count completion only when answered correctly
+      if (!diagState.completed[qid] && diagState.correct[qid]) {
+        diagState.completed[qid] = true;
+        diagState.done += 1;
+        updateDiagProgress();
+        // Collapse the question body after correct answer
+        const body = document.getElementById(`q-body-${qid}`);
+        const card = document.getElementById(`q-${qid}`);
+        if (body) body.style.display = 'none';
+        if (card) card.classList.add('collapsed');
+      }
+      // If all done, reveal continue/summary by stage and disable Start Intro
+      const continueBtn = document.getElementById('continue-btn');
+      const summaryBtn = document.getElementById('summary-btn');
+      const startBtn = document.getElementById('start-intro-btn');
+      if (diagState.done >= diagState.total) {
+        if (startBtn) startBtn.disabled = true;
+        if (diagState.stage === 'INTRO') {
+          if (continueBtn) { continueBtn.style.display = 'inline-block'; continueBtn.disabled = false; }
+        } else if (diagState.stage === 'DEEPEN') {
+          if (summaryBtn) { summaryBtn.style.display = 'inline-block'; summaryBtn.disabled = false; }
+          if (continueBtn) continueBtn.disabled = true;
+        }
+      }
+    }
+
+    function toggleQuestionBody(qid) {
+      const body = document.getElementById(`q-body-${qid}`);
+      const card = document.getElementById(`q-${qid}`);
+      if (!body) return;
+      const isHidden = body.style.display === 'none';
+      body.style.display = isHidden ? 'block' : 'none';
+      if (card) {
+        if (isHidden) card.classList.remove('collapsed');
+        else card.classList.add('collapsed');
+      }
+    }
+
+    async function requestSummary() {
+      const overlay = document.getElementById('diag-overlay');
+      const loader = document.getElementById('diag-loader');
+      const summaryBtn = document.getElementById('summary-btn');
+      const summaryEl = document.getElementById('diag-summary');
+      if (summaryBtn) summaryBtn.disabled = true;
+      if (overlay) overlay.style.display = 'flex';
+      if (loader) loader.style.display = 'flex';
+      try {
+        // Build naive per_section stats from correctness
+        const per_section = {};
+        Object.keys(diagState.questions || {}).forEach(qid => {
+          const domain = (diagState.questions[qid]?.domain || '').toString();
+          if (!domain) return;
+          if (!per_section[domain]) per_section[domain] = { correct_first_try: 0, total: 0 };
+          per_section[domain].total += 1;
+          if (diagState.first[qid] === 'correct') per_section[domain].correct_first_try += 1;
+        });
+        const res = await fetch('/api/chat/intro', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action:'summary', payload:{ per_section, overall_percentile: 50, lang: 'en' } })
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (summaryEl) {
+            summaryEl.innerHTML = `<div class=\"q-card\"><div class=\"section-title\">Summary & Diagnosis</div><div style=\"padding:10px;\">${renderMarkdown(data.message || '')}</div></div>`;
+            summaryEl.style.display = 'block';
+            summaryEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            console.log('summaryEl.innerHTML', summaryEl.innerHTML);
+          }
+          const progWrap = document.getElementById('diag-progress-wrap');
+          if (progWrap) progWrap.style.display = 'none';
+        } else {
+          showNotification('Failed to generate summary', 'error');
+        }
+      } catch (e) {
+        showNotification('Network error while generating summary', 'error');
+      } finally {
+        if (overlay) overlay.style.display = 'none';
+        if (loader) loader.style.display = 'none';
+        if (summaryBtn) summaryBtn.disabled = false;
+      }
+    }
+
+    function updateDiagProgress() {
+      const bar = document.getElementById('diag-progress-bar');
+      const lbl = document.getElementById('diag-progress-label');
+      const pctLbl = document.getElementById('diag-progress-pct');
+      const pct = diagState.total ? Math.round(100 * (diagState.done / diagState.total)) : 0;
+      if (bar) bar.style.width = pct + '%';
+      if (lbl) lbl.textContent = `${diagState.done}/${diagState.total}`;
+      if (pctLbl) pctLbl.textContent = pct + '%';
+      // Debug: print current diagnostic state
+      try { console.log('diagState:', diagState); } catch (_) {}
+    }
+
+    
+    function toggleCollapse() {
+      const settingsBar = document.querySelector('.settings-bar');
+      const leftPanel = document.querySelector('.left-panel');
+      const settingsContent = document.querySelector('.settings-content');
+      const settingsToggle = document.getElementById('settings-toggle');
+      
+      if (settingsBar.classList.contains('collapsed')) {
+        // Expand: show all content
+        settingsContent.style.display = 'block';
+        settingsToggle.textContent = '▼';
+        settingsBar.classList.remove('collapsed');
+        leftPanel.classList.remove('collapsed');
+      } else {
+        // Collapse: minimize the tab
+        settingsContent.style.display = 'none';
+        settingsToggle.textContent = '▶';
+        settingsBar.classList.add('collapsed');
+        leftPanel.classList.add('collapsed');
+      }
+    }
+
+    async function sendAIMessage() {
+      const input = document.getElementById('ai-chat-input');
+      const message = input.value;
+      if (message) {
+        const chatBox = document.getElementById('chat-box');
+        if (!chatBox) return;
+        const testerName = document.getElementById('tester-name').value || 'User';
+        console.log("sssss");
+        // Append user message at bottom
+        const userHtml = `<div class="chat-message user-msg"><span class="user-bubble">${testerName}</span><div dir="auto">${message}</div></div>`;
+        chatBox.insertAdjacentHTML('beforeend', userHtml);
+        input.value = '';
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+        // Call backend echo Q&A
+        let aiReply = '';
+        try {
+          const res = await fetch('/api/chat/assessment-qa', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+              message, 
+              session_id: generateSessionId(),
+              settings: {
+                tester_name: testerName,
+                pack_name: document.getElementById('pack-name').value,
+                assessment_date: document.getElementById('assessment-date').value,
+                duration: 60,
+                position: document.getElementById('q-position').value || null,
+                company: document.getElementById('q-company').value || null,
+                difficult_topic: document.getElementById('q-difficult').value || null,
+                user_concerns: document.getElementById('q-request').value || null
+              }
+            })
+          });
+          if (res.ok) {
+            const data = await res.json();
+            aiReply = data.reply || message;
+          } else {
+            aiReply = message; // echo on failure
+          }
+        } catch (e) {
+          aiReply = message; // echo on network error
+        }
+        console.log(aiReply); 
+        // Append AI response message at bottom
+        const formattedReply = renderMarkdown(aiReply);
+        console.log('Formatted reply:', formattedReply); // Debug log
+        
+        const aiMessage = `
+          <div class="chat-message system-msg">
+            <span class="ai-name-bubble">JobTestPrep AI:</span>
+            <div dir="auto" class="markdown-content">${formattedReply}</div>
+          </div>
+        `;
+        
+        chatBox.insertAdjacentHTML('beforeend', aiMessage);
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
+    }
+
+
+    // Quick ask from suggestion tag
+    function askSuggestion(text) {
+      const input = document.getElementById('ai-chat-input');
+      input.value = text;
+      sendAIMessage();
+    }
+    function generateSessionId() {
+      return 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    }
+
+    function toggleMetadata() {
+      const metadataContent = document.getElementById('metadata-content');
+      const metadataToggle = document.getElementById('metadata-toggle');
+      
+      if (metadataContent.classList.contains('collapsed')) {
+        metadataContent.classList.remove('collapsed');
+        metadataToggle.textContent = '▼';
+        metadataToggle.style.transform = 'rotate(0deg)';
+      } else {
+        metadataContent.classList.add('collapsed');
+        metadataToggle.textContent = '▶';
+        metadataToggle.style.transform = 'rotate(-90deg)';
+      }
+    }
+
+    // Tabs switching logic for chat section
+    function switchTab(tabName) {
+      const tabs = document.querySelectorAll('.tab');
+      tabs.forEach(t => {
+        if (t.dataset.tab === tabName) {
+          t.classList.add('active');
+        } else {
+          t.classList.remove('active');
+        }
+      });
+
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(c => c.classList.remove('active'));
+      const activeContent = document.getElementById(`tab-${tabName}`);
+      if (activeContent) {
+        activeContent.classList.add('active');
+      }
+
+      // Show suggestion tags only on Overview tab
+      const sugg = document.getElementById('suggestion-tags');
+      if (sugg) {
+        sugg.style.display = tabName === 'overview' ? 'flex' : 'none';
+      }
+    }
+
+    // Update metadata card with user settings
+    function updateMetadataCard(userSettings) {
+      // Show metadata card
+      document.getElementById('metadata-card').style.display = 'block';
+      
+      // Calculate days until assessment
+      let daysText = '';
+      if (userSettings.assessment_date) {
+        const assessmentDateObj = new Date(userSettings.assessment_date);
+        const today = new Date();
+        const timeDiff = assessmentDateObj.getTime() - today.getTime();
+        const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+        
+        daysText = daysDiff > 0 ? `${daysDiff} days until assessment` : 
+                   daysDiff === 0 ? 'Assessment is today' : 
+                   `${Math.abs(daysDiff)} days since assessment`;
+      }
+      
+      // Populate consolidated Learning Settings & Assessment Timeline section
+      const consolidatedHTML = `
+        <div>
+          <span class="tag">Pack Name: ${userSettings.pack_name || 'Not set'}</span>
+          ${daysText ? `<span class=\"tag\">${daysText}</span>` : ''}
+          <span class="tag">Assessment Date: ${userSettings.assessment_date || 'Not set'}</span>
+        </div>
+      `;
+      
+      document.getElementById('settings-tags-container').innerHTML = consolidatedHTML;
+    }
+
+    // Notification system
+    function showNotification(message, type = 'info') {
+      // Remove existing notifications
+      const existingNotifications = document.querySelectorAll('.notification');
+      existingNotifications.forEach(notification => notification.remove());
+      
+      // Create notification element
+      const notification = document.createElement('div');
+      notification.className = `notification notification-${type}`;
+      notification.innerHTML = `
+        <div class="notification-content">
+          <span class="notification-message">${message}</span>
+          <button class="notification-close" onclick="this.parentElement.parentElement.remove()">×</button>
+        </div>
+      `;
+      
+      // Add to body
+      document.body.appendChild(notification);
+      
+      // Auto-remove after 5 seconds
+      setTimeout(() => {
+        if (notification.parentElement) {
+          notification.remove();
+        }
+      }, 5000);
+    }
+  </script>
+
+</body>
+</html>
