@@ -6,6 +6,10 @@ from app.services.agents import WelcomeAgent
 from app.services.agents.qa.qa_agent import QAAgent
 from app.services.agents import IntroAgent
 from app.utils.question_bank import get_question_bank
+from app.utils.question_stats import update_question_stat
+import os
+import json
+from app.services.agents.qstats.qstats_agent import QStatsAgent
 
 router = APIRouter(prefix="/api/chat", tags=["chat"])
 
@@ -59,6 +63,23 @@ async def process_qa_data(
             status_code=500,
             detail=f"Error processing Q&A data: {str(e)}"
         )
+
+
+# -------- Question Stats Q&A Endpoint --------
+class QStatsQARequest(BaseModel):
+    message: str = Field(..., description="User question about the stats")
+    qid: Optional[str] = Field(None, description="Optional target question id")
+    stats: Dict[str, Any] = Field(..., description="Full question stats JSON (as loaded by FE)")
+
+
+@router.post("/qstats-qa")
+async def qstats_qa_endpoint(req: QStatsQARequest) -> Dict[str, Any]:
+    try:
+        agent = QStatsAgent()
+        reply = agent.answer(message=req.message, stats=req.stats)
+        return {"reply": reply}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error processing stats Q&A: {str(e)}")
 
 
 @router.post("/welcome", response_model=WelcomeResponse)
@@ -153,10 +174,64 @@ async def intro_endpoint(req: IntroRequest) -> Dict[str, Any]:
             return {"explanation": explanation, "misconception": misconception}
 
         if action == "summary":
-            per_section = data.get("per_section", {})
+            # Prefer computing stats from saved user data file
+            tester_name = str(data.get("tester_name") or "Tomer").strip()
             overall_percentile = int(data.get("overall_percentile", 50))
             lang = data.get("lang", "en")
-            message = agent.summary(per_section=per_section, overall_percentile=overall_percentile, lang=lang)
+
+            file_per_section: Dict[str, Dict[str, Any]] = {}
+            per_question_details: List[Dict[str, Any]] = []
+
+            try:
+                safe_name = tester_name.replace("/", "_").replace("\\", "_").replace(" ", "_") or "Unknown"
+                file_path = os.path.join("data", "Watson Glaser", f"{safe_name}_{assessment_date}.json")
+                entries: List[Dict[str, Any]] = []
+                if os.path.exists(file_path):
+                    with open(file_path, "r", encoding="utf-8") as f:
+                        entries = json.load(f) or []
+                        if not isinstance(entries, list):
+                            entries = []
+                # Group by qid, pick earliest attempt as first-try
+                by_qid: Dict[str, Dict[str, Any]] = {}
+                for e in entries:
+                    qid = str(e.get("qid"))
+                    ts = e.get("timestamp") or ""
+                    try:
+                        t = datetime.fromisoformat(ts)
+                    except Exception:
+                        t = datetime.min
+                    if qid not in by_qid or t < by_qid[qid]["_t"]:
+                        by_qid[qid] = {**e, "_t": t}
+                # Sort by earliest time
+                sorted_firsts = sorted(by_qid.values(), key=lambda x: x.get("_t", datetime.min))
+                # Build per-section and per-question
+                for idx, rec in enumerate(sorted_firsts, start=1):
+                    section = str(rec.get("domain") or "").strip()
+                    is_correct = bool(rec.get("is_correct"))
+                    if section not in file_per_section:
+                        file_per_section[section] = {"correct_first_try": 0, "total": 0, "total_time_sec": 0}
+                    file_per_section[section]["total"] += 1
+                    if is_correct:
+                        file_per_section[section]["correct_first_try"] += 1
+                    per_question_details.append({
+                        "question_number": idx,
+                        "section": section,
+                        "user_answer": rec.get("chosen"),
+                        "correct_answer": rec.get("correct"),
+                        "is_correct": is_correct,
+                        "duration_seconds": rec.get("duration_seconds"),  # may be None if not tracked server-side
+                    })
+            except Exception:
+                # Fallback to client-provided data if file read fails
+                file_per_section = data.get("per_section", {})
+                per_question_details = data.get("records") or []
+
+            message = agent.summary(
+                per_section=file_per_section,
+                overall_percentile=overall_percentile,
+                lang=lang,
+                records=per_question_details,
+            )
             return {"message": message}
 
         if action == "feedback_classify":
@@ -167,6 +242,9 @@ async def intro_endpoint(req: IntroRequest) -> Dict[str, Any]:
         if action == "check":
             qid = data.get("qid")
             chosen = str(data.get("chosen", "")).strip()
+            tester_name = str(data.get("tester_name") or "Unknown").strip()
+            attempt = int(data.get("attempt", 0))
+            assessment_date = str(data.get("assessment_date") or datetime.now().date().isoformat()).strip()
             if not qid:
                 raise HTTPException(status_code=400, detail="Missing qid")
             qb = get_question_bank()
@@ -175,6 +253,69 @@ async def intro_endpoint(req: IntroRequest) -> Dict[str, Any]:
             except Exception:
                 raise HTTPException(status_code=404, detail="Question not found")
             is_correct = chosen == str(q.correct).strip()
+            # Save the first attempt for each question. If it's incorrect, save with is_correct=false.
+            # File name: {tester_name}_answers.json
+            try:
+                record_dir = os.path.join("data", "Watson Glaser")
+                os.makedirs(record_dir, exist_ok=True)
+                safe_name = tester_name.replace("/", "_").replace("\\", "_").replace(" ", "_") or "Unknown"
+                file_path = os.path.join(record_dir, f"{safe_name}_answers.json")
+                if attempt == 0:
+                    payload = {
+                        "qid": str(qid),
+                        "is_correct": bool(is_correct),
+                        "domain": getattr(getattr(q, "domain", None), "value", str(getattr(q, "domain", ""))),
+                        "difficulty": getattr(q, "difficulty", None),
+                        "is_from_bank": True,
+                    }
+                    # Append to file object with metadata { metadata:{question_bank}, answers:[...] }
+                    file_obj: Dict[str, Any] = {"metadata": {"question_bank": "Watson Glaser"}, "answers": []}
+                    if os.path.exists(file_path):
+                        try:
+                            with open(file_path, "r", encoding="utf-8") as f:
+                                loaded = json.load(f)
+                                if isinstance(loaded, dict) and isinstance(loaded.get("answers"), list):
+                                    file_obj = loaded
+                                elif isinstance(loaded, list):
+                                    file_obj["answers"] = loaded
+                                else:
+                                    # keep default structure
+                                    pass
+                        except Exception:
+                            pass
+                    # ensure metadata present
+                    meta = file_obj.get("metadata") or {}
+                    if "question_bank" not in meta:
+                        meta["question_bank"] = "Watson Glaser"
+                    file_obj["metadata"] = meta
+                    # append answer (enforce unique qid; first attempt wins)
+                    answers_list = file_obj.get("answers") or []
+                    if not any(str(x.get("qid")) == payload["qid"] for x in answers_list):
+                        answers_list.append(payload)
+                    file_obj["answers"] = answers_list
+                    with open(file_path, "w", encoding="utf-8") as f:
+                        json.dump(file_obj, f, ensure_ascii=False, indent=2)
+            except Exception:
+                # Non-fatal: saving should not block answering
+                pass
+
+            # Update bank-level question statistics (all attempts)
+            try:
+                update_question_stat(
+                    question_bank="Watson Glaser",
+                    qid=str(qid),
+                    domain=getattr(getattr(q, "domain", None), "value", str(getattr(q, "domain", ""))),
+                    difficulty=int(getattr(q, "difficulty", 0) or 0),
+                    is_correct=bool(is_correct),
+                    attempt_index=int(attempt),
+                    latency_ms=None,
+                    hint_used=False,
+                    stem=getattr(q, "stem", None),
+                    topics=[getattr(getattr(q, "domain", None), "value", str(getattr(q, "domain", "")))],
+                )
+            except Exception:
+                pass
+
             return {"is_correct": is_correct, "correct": q.correct}
 
         raise HTTPException(status_code=400, detail="Unknown action")

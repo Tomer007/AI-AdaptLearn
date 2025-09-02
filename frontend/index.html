@@ -9,8 +9,8 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0a0a0a;
-      color: #ffffff;
+      background-color: #e6f0ff;
+      color: #0a0a0a;
       display: flex;
       height: 100vh;
       line-height: 1.6;
@@ -29,7 +29,7 @@
     }
 
     .left-panel.collapsed {
-      width: 60px;
+      width: 50px;
     }
 
     .right-panel {
@@ -42,27 +42,28 @@
 
     .settings-bar {
       width: 300px;
-      background-color: #1a1a1a;
+      background-color: #ffffff;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
       border-radius: 12px;
       transition: all 0.3s ease;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e5ecf6;
       min-height: 200px;
       position: relative;
     }
 
     .settings-header {
-      background-color: #2a2a2a;
+      background-color: #eef5ff;
       padding: 15px 20px;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
       transition: background-color 0.3s ease;
-      border-bottom: 1px solid #3a3a3a;
+      border-bottom: 1px solid #e0e8f5;
     }
 
     .settings-bar.collapsed .settings-header {
@@ -88,51 +89,37 @@
       font-size: 10px;
     }
 
-    .settings-header:hover {
-      background-color: #333;
-    }
+    .settings-header:hover { background-color: #e6f0ff; }
 
-    .settings-title {
-      color: #ffffff;
-      font-weight: 300;
-      font-size: 16px;
-      text-align: center;
-    }
+    .settings-title { color: #0a0a0a; font-weight: 400; font-size: 16px; text-align: center; }
 
     .settings-toggle {
-      color: #6200ea;
+      color: blue;
       font-size: 10px;
       font-weight: bold;
       transition: transform 0.3s ease;
     }
 
     .settings-bar.collapsed {
-      width: 60px;
+      width: 55px;
       padding: 10px;
       align-items: center;
     }
-
 
 
     .settings-content {
       padding: 20px;
     }
 
-    .settings-bar label {
-      font-size: 14px;
-      color: #ffffff;
-      margin: 10px 0 5px;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-    }
+    .settings-bar label { font-size: 14px; color: #0a0a0a; margin: 10px 0 5px; font-weight: 500; letter-spacing: 0.5px; }
 
     .settings-bar input, .settings-bar select {
       width: 100%;
       padding: 12px;
       margin: 5px 0 15px;
-      background-color: #2a2a2a;
-      border: 2px solid #3a3a3a;
-      color: #ffffff;
+      background-color: #ffffff;
+      border: 2px solid #e1e9f6;
+      color: #0a0a0a;
       border-radius: 8px;
       box-sizing: border-box;
       height: 44px;
@@ -140,16 +127,9 @@
       transition: all 0.3s ease;
     }
 
-    .settings-bar input:focus, .settings-bar select:focus {
-      outline: none;
-      border-color: #6200ea;
-      background-color: #333;
-      box-shadow: 0 0 0 3px rgba(98, 0, 234, 0.1);
-    }
+    .settings-bar input:focus, .settings-bar select:focus { outline: none; border-color: #1976d2; background-color: #f0f7ff; box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.15); }
 
-    .settings-bar input[type="text"], .settings-bar input[type="date"] {
-      color: #ffffff;
-    }
+    .settings-bar input[type="text"], .settings-bar input[type="date"] { color: #0a0a0a; }
 
     /* Resizable textarea for Additional Notes */
     .settings-bar textarea {
@@ -157,9 +137,9 @@
       height: 44px;
       padding: 12px;
       margin: 5px 0 15px;
-      background-color: #2a2a2a;
-      border: 2px solid #3a3a3a;
-      color: #ffffff;
+      background-color: #ffffff;
+      border: 2px solid #e1e9f6;
+      color: #0a0a0a;
       border-radius: 8px;
       resize: vertical; /* Makes the textarea resizable */
       box-sizing: border-box;
@@ -169,15 +149,10 @@
       font-family: inherit;
     }
 
-    .settings-bar textarea:focus {
-      outline: none;
-      border-color: #6200ea;
-      background-color: #333;
-      box-shadow: 0 0 0 3px rgba(98, 0, 234, 0.1);
-    }
+    .settings-bar textarea:focus { outline: none; border-color: #1976d2; background-color: #f0f7ff; box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.15); }
 
     .settings-bar button {
-      background-color: #6200ea;
+      background-color: #1976d2;
       color: #ffffff;
       border: none;
       padding: 12px;
@@ -187,9 +162,7 @@
       margin-top: 10px;
     }
 
-    .settings-bar button:hover {
-      background-color: #3700b3;
-    }
+    .settings-bar button:hover { background-color: #1565c0; }
 
     .settings-content {
       display: none; /* Initially collapsed */
@@ -198,64 +171,26 @@
 
 
 
-    .chat-section {
-      flex: 1;
-      background-color: #121212;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-    }
+    .chat-section { flex: 1; background-color: #f5f8ff; padding: 20px; display: flex; flex-direction: column; }
 
     /* Tabs styling for chat section */
-    .tabs {
-      display: flex;
-      gap: 8px;
-      border-bottom: 1px solid #333;
-      margin-bottom: 10px;
-    }
+    .tabs { display: flex; gap: 8px; border-bottom: 1px solid #d6e1f3; margin-bottom: 10px; }
 
-    .tab {
-      background-color: #1e1e1e;
-      color: #ffffff;
-      border: 1px solid #333;
-      border-bottom: none;
-      padding: 8px 12px;
-      border-radius: 8px 8px 0 0;
-      cursor: pointer;
-      font-size: 13px;
-      transition: background-color 0.2s ease;
-    }
+    .tab { background-color: #eef5ff; color: #0a0a0a; border: 1px solid #d6e1f3; border-bottom: none; padding: 8px 12px; border-radius: 8px 8px 0 0; cursor: pointer; font-size: 13px; transition: background-color 0.2s ease; }
 
-    .tab:hover {
-      background-color: #2a2a2a;
-    }
+    .tab:hover { background-color: #e6f0ff; }
 
-    .tab.active {
-      background-color: #2a2a2a;
-      color: #ffffff;
-      border-color: #6200ea;
-    }
+    .tab.active { background-color: #e6f0ff; color: #0a0a0a; border-color: #1976d2; }
 
-    .tab-contents {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      min-height: 0; /* allow children to flex properly */
-    }
+    .tab-contents { flex: 1; display: flex; flex-direction: column; min-height: 0; }
 
-    .tab-content {
-      display: none;
-      flex: 1;
-      min-height: 0;
-      flex-direction: column;
-    }
+    .tab-content { display: none; flex: 1; min-height: 0; flex-direction: column; background:#ffffff; border:1px solid #e1e9f6; border-top:none; border-radius: 0 8px 8px 8px; padding: 10px; }
 
     .tab-content.active {
       display: flex;
     }
 
     .chat-box {
-      background-color: #1e1e1e;
       border-radius: 8px;
       padding: 20px;
       height: 100%;
@@ -263,8 +198,52 @@
       flex-grow: 1;
     }
 
+    /* Question Stats cards */
+    .qstat-card { background:#ffffff; border:1px solid #e1e9f6; border-radius:10px; margin:10px 0; overflow:hidden; box-shadow:0 2px 8px rgba(25,118,210,.08); }
+    .qstat-header { display:flex; flex-wrap:wrap; gap:8px; padding:10px; border-top:1px solid #e1e9f6; background:#f7faff; }
+    .qstat-body { padding:10px; }
+    .qstat-stem { color:#0a0a0a; margin-bottom:8px; }
+    .qstat-chat { padding:8px; background:#fbfdff; border:1px dashed #d6e1f3; border-radius:6px; max-height:240px; overflow:auto; margin-bottom:8px; }
+    .qstat-input { display:flex; gap:8px; }
+    .qstat-input input { flex:1; padding:10px; border-radius:5px; border:1px solid #c5d3ea; background-color:#ffffff; color:#0a0a0a; }
+    .qstat-input button { background:#1565c0; color:#ffffff; border:none; padding:8px 12px; border-radius:5px; cursor:pointer; }
+    /* Pretty collapsible summary */
+    details.qstat-card > summary { cursor:pointer; list-style:none; }
+    details.qstat-card > summary::marker { content:""; }
+    details.qstat-card > summary::-webkit-details-marker { display:none; }
+    .qstat-summary { padding:10px 12px; margin:0; background:#eef5ff; color:#0a0a0a; display:flex; align-items:center; gap:10px; font-weight:600; }
+    .qstat-summary .qid-pill { background:#ffffff; border:1px solid #e1e9f6; padding:2px 10px; border-radius:999px; }
+    .qstat-summary .chev { margin-left:auto; font-weight:700; opacity:.9; }
+    details.qstat-card[open] > summary { border-bottom:1px solid #e1e9f6; }
+    .qstat-global { background:#ffffff; border:1px solid #e1e9f6; border-radius:10px; padding:0; margin-bottom:8px; overflow:hidden; box-shadow:0 2px 8px rgba(25,118,210,.08); }
+    .qstat-global-header { display:flex; flex-direction:column; gap:2px; padding:10px 12px; background:linear-gradient(90deg,#1976d2,#1565c0); }
+    .qstat-global-title { font-weight:600; }
+    .qstat-global-sub { font-size:12px; opacity:.9; }
+    .qstat-global-body { padding:10px 12px; }
+    .qstat-global .qstat-chat { margin-top:8px; }
+    .qstat-metrics { display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap:8px; margin-top:8px; }
+    .qstat-metric { background:#f7fbff; border:1px solid #e1e9f6; border-radius:6px; padding:8px; }
+    .qstat-metric .label { font-size:12px; color:#3a4757; margin-bottom:4px; }
+    .qstat-metric .value { font-weight:600; color:#0a0a0a; }
+
+    #qstats-info, #qstats-info * { color: #0a0a0a; }
+    #tab-qstats, #tab-qstats * { color: #0a0a0a !important; }
+    #qstats-info { padding: 0; }
+    #qstats-content { padding: 12px 14px; background:#ffffff; border:1px solid #e1e9f6; border-radius:8px; margin-top:6px; }
+    #tab-qstats .qstat-header .badge { color:#ffffff !important; }
+    #tab-qstats .qstat-input button { color:#ffffff !important; }
+    #tab-qstats .qstat-summary { color:#0a0a0a  }
+    #tab-qstats .qstat-global-header, #tab-qstats .qstat-global-header * { color:#ffffff !important; }
+    #tab-qstats .user-bubble { color:#ffffff !important; }
+    /* Ensure the prequestion suggestion tags in Question Stats remain white text */
+    #tab-qstats #qstats-suggestions .suggestion-tag { color:#ffffff !important; }
+    #tab-qstats .qstat-chat .system-msg, #tab-qstats .qstat-chat .system-msg * { color: #0a0a0a !important; }
+    #tab-qstats .qstat-chat .system-msg .markdown-content, 
+    #tab-qstats .qstat-chat .system-msg .markdown-content * { color: #0a0a0a !important; }
+    #tab-qstats .ai-name-bubble { color:#ffffff !important; }
+
     .chat-message {
-        color: #ffffff;
+      color: RED;
       font-weight: 100;
       margin-bottom: 15px;
       padding: 8px 0;
@@ -272,7 +251,7 @@
     }
 
     .user-msg {
-      color: #ffffff;
+      color: #0a0a0a;
       font-weight: normal;
       margin-bottom: 15px;
       padding: 8px 0;
@@ -291,7 +270,7 @@
     }
 
     .ai-name-bubble {
-      background-color: #6200ea;
+      background-color: #1565c0;
       color: #ffffff;
       padding: 4px 8px;
       border-radius: 12px;
@@ -320,10 +299,11 @@
 
     /* Welcome message pinned at top-right inside chat box */
     #welcome-message {
+      color: black;
       text-align: left;
       position: sticky;
       top: 0;
-      background-color: #1e1e1e;
+      background-color: #ffffff;
       padding-bottom: 8px;
       z-index: 1;
     }
@@ -348,14 +328,14 @@
       width: 80%;
       padding: 10px;
       border-radius: 5px;
-      border: 1px solid #444;
-      background-color: #333;
-      color: #ffffff;
+      border: 1px solid #c5d3ea;
+      background-color: #ffffff;
+      color: #0a0a0a;
     }
 
     .input-section button {
       width: 18%;
-      background-color: #6200ea;
+      background-color: #3700b3;
       color: #ffffff;
       border: none;
       padding: 10px;
@@ -364,9 +344,7 @@
       border-radius: 5px;
     }
 
-    .input-section button:hover {
-      background-color: #3700b3;
-    }
+    .input-section button:hover { background-color: #1565c0; }
 
     /* Settings tags styling */
     .settings-tags {
@@ -375,9 +353,9 @@
       gap: 10px;
       margin-top: 0;
       padding: 15px;
-      background-color: #1a1a1a;
+      background-color: #ffffff;
       border-radius: 0 0 8px 8px;
-      border: 1px solid #2a2a2a;
+      border: 1px solid #e1e9f6;
       border-top: none;
     }
 
@@ -389,34 +367,23 @@
       margin-bottom: 8px;
     }
 
-    .tag {
-      background-color: #6200ea;
-      color: #ffffff;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 500;
-      display: inline-block;
-      white-space: nowrap;
-      box-shadow: 0 2px 8px rgba(98, 0, 234, 0.3);
-      border: 1px solid #3700b3;
-    }
+    .tag { background-color: #1976d2; color: #ffffff; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; display: inline-block; white-space: nowrap; box-shadow: 0 2px 8px rgba(25, 118, 210, 0.25); border: 1px solid #1565c0; }
 
     /* Enhanced question header styling */
-    .q-tag { display:inline-block; background:#1d1d1d; border:1px solid #2f2f2f; padding:10px 12px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,.25); }
-    .q-domain { font-size:13px; font-weight:600; letter-spacing:0.4px; color:#ffffff; }
-    .q-meta { margin-top:4px; display:flex; gap:8px; align-items:center; font-size:12px; color:#cfcfcf; }
-    .badge { background:#2a2a2a; color:#e0e0e0; border:1px solid #3a3a3a; padding:2px 8px; border-radius:9999px; font-size:11px; }
+    .q-tag { display:inline-block; background:#eef5ff; border:1px solid #d6e1f3; padding:10px 12px; border-radius:12px; box-shadow:0 2px 8px rgba(25,118,210,.15); }
+    .q-domain { font-size:13px; font-weight:600; letter-spacing:0.4px; color:#0a0a0a; }
+    .q-meta { margin-top:4px; display:flex; gap:8px; align-items:center; font-size:12px; color:#3a4757; }
+    .badge { background:#1976d2; color:#ffffff; border:1px solid #1565c0; padding:2px 8px; border-radius:9999px; font-size:11px; }
     .q-header { cursor: pointer; }
     .q-card.collapsed { opacity: 0.95; }
 
     /* AI Chat Section Styling */
     .ai-chat-section {
       margin-top: 20px;
-      background-color: #1e1e1e;
+      background-color: #ffffff;
       border-radius: 8px;
       padding: 15px;
-      border: 1px solid #333;
+      border: 1px solid #e1e9f6;
     }
 
     .ai-header {
@@ -425,26 +392,18 @@
       align-items: center;
       margin-bottom: 15px;
       padding-bottom: 10px;
-      border-bottom: 1px solid #333;
+      border-bottom: 1px solid #e1e9f6;
     }
-
-    
+ 
     .ai-input-container {
       display: flex;
       gap: 10px;
     }
 
-    .ai-input-container input {
-      flex: 1;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #444;
-      background-color: #333;
-      color: #ffffff;
-    }
+    .ai-input-container input { flex: 1; padding: 10px; border-radius: 5px; border: 1px solid #c5d3ea; background-color: #ffffff; color: #0a0a0a; }
 
     .ai-input-container button {
-      background-color: #6200ea;
+      background-color: #1565c0;
       color: #ffffff;
       border: none;
       padding: 10px 15px;
@@ -454,9 +413,7 @@
       transition: background-color 0.3s;
     }
 
-    .ai-input-container button:hover {
-      background-color: #3700b3;
-    }
+    .ai-input-container button:hover { background-color: #1565c0; }
 
     /* Suggestion tags under AI input */
     .suggestion-tags {
@@ -465,70 +422,40 @@
       gap: 8px;
       flex-wrap: wrap;
     }
-    .suggestion-tag {
-      background-color: #2a2a2a;
-      color: #ffffff;
-      border: 1px solid #444;
-      border-radius: 16px;
-      padding: 6px 10px;
-      font-size: 12px;
-      cursor: pointer;
-      user-select: none;
-    }
-    .suggestion-tag:hover {
-      background-color: #333;
-      border-color: #6200ea;
-    }
+    .suggestion-tag { background-color: #1976d2; color: #ffffff; border: 1px solid #1565c0; border-radius: 16px; padding: 6px 10px; font-size: 12px; cursor: pointer; user-select: none; }
+    .suggestion-tag:hover { background-color: #1565c0; border-color: #1565c0; }
 
     /* Metadata Card Styling */
     .metadata-card {
-      background-color: #1a1a1a;
+      background-color: #ffffff;
       border-radius: 8px;
       margin: 6px 0;
-      border: 1px solid #2a2a2a;
+      border: 1px solid #e1e9f6;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
       overflow: hidden;
     }
 
     .metadata-header {
-      background-color: #222;
+      background-color: #ffffff;
       padding: 10px 14px;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
       transition: background-color 0.3s ease;
-      border-bottom: 1px solid #2f2f2f;
+      border-bottom: 1px solid #e1e9f6;
     }
 
-    .metadata-header:hover {
-      background-color: #333;
-    }
+    .metadata-header:hover { background-color: #e6f0ff; }
 
-    .metadata-title {
-      color: #ffffff;
-      font-weight: 300;
-      font-size: 14px;
-    }
+    .metadata-title { color: #0a0a0a; font-weight: 400; font-size: 14px; }
 
-    .metadata-toggle {
-      color: #6200ea;
-      font-size: 10px;
-      font-weight: bold;
-      transition: transform 0.3s ease;
-    }
+    .metadata-toggle { color: #1565c0; font-size: 10px; font-weight: bold; transition: transform 0.3s ease; }
 
-    .metadata-content {
-      padding: 12px;
-      background-color: #1a1a1a;
-      transition: all 0.3s ease;
-    }
+    .metadata-content { padding: 12px; background-color: #ffffff; transition: all 0.3s ease; }
 
     /* Make tags inside Assessment Profile slightly smaller */
-    .metadata-card .tag {
-      font-size: 12px;
-      padding: 6px 12px;
-    }
+    .metadata-card .tag { font-size: 12px; padding: 6px 12px; background-color: #1565c0; border-color: #1565c0; }
 
     .metadata-content.collapsed {
       padding: 0;
@@ -544,21 +471,36 @@
       margin-bottom: 0;
     }
 
-    .section-title {
-      color: #ffffff;
-      font-size: 14px;
-      font-weight: 300;
-      margin: 0 0 15px 0;
-      text-transform: none;
-      letter-spacing: 0.5px;
-      border-bottom: 1px solid #3a3a3a;
-      padding-bottom: 8px;
-      display: block;
-      background-color: #2a2a2a;
-      padding: 12px 15px;
-      border-radius: 8px 8px 0 0;
-      margin-bottom: 0;
+    /* Markdown table styling for Summary & Diagnosis */
+    .md-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0 12px 0;
+      font-size: 13px;
+      background-color: #ffffff;
+      border: 1px solid #e1e9f6;
+      border-radius: 6px;
+      overflow: hidden;
     }
+    .md-table th, .md-table td {
+      border: 1px solid #e1e9f6;
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+      color: #0a0a0a;
+    }
+    .md-table thead th {
+      background-color: #eef5ff;
+      color: #0a0a0a;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    .md-table tbody tr:nth-child(even) { background-color: #f8fbff; }
+    .md-table tbody tr:hover { background-color: #e6f0ff; }
+
+    .section-title { color: #0a0a0a; font-size: 14px; font-weight: 400; margin: 0 0 15px 0; text-transform: none; letter-spacing: 0.5px; border-bottom: 1px solid #e1e9f6; padding-bottom: 8px; display: block; background-color: #eef5ff; padding: 12px 15px; border-radius: 8px 8px 0 0; margin-bottom: 0; }
 
     .assessment-info {
         display: flex;
@@ -568,29 +510,10 @@
       align-items: flex-start;
     }
 
-    .assessment-tag {
-      background-color: #6200ea;
-      color: #ffffff;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 500;
-      display: inline-block;
-      white-space: nowrap;
-    }
+    .assessment-tag { background-color: #1976d2; color: #ffffff; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; display: inline-block; white-space: nowrap; }
 
     /* Scores Section Styling */
-    .scores-info {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 0;
-      padding: 15px;
-      background-color: #1a1a1a;
-      border-radius: 0 0 8px 8px;
-      border: 1px solid #2a2a2a;
-      border-top: none;
-    }
+    .scores-info { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 0; padding: 15px; background-color: #ffffff; border-radius: 0 0 8px 8px; border: 1px solid #e1e9f6; border-top: none; }
 
     /* Standard Color Classes */
     .text-white {
@@ -630,9 +553,9 @@
     }
     .q-meta { font-size: 12px; }
 
-    /* Make the top continue button green */
-    #continue-btn { background-color: #1db954; border-color: #1db954; }
-    #continue-btn:hover { background-color: #17a54a; }
+    /* Make the top continue button blue */
+    #continue-btn { background-color: #1976d2; border-color: #1976d2; }
+    #continue-btn:hover { background-color: #1565c0; }
 
     /* Button states */
     button:disabled {
@@ -711,29 +634,32 @@
     }
 
     /* Diagnostic specific */
-    .q-card { border: 1px solid #333; border-radius: 10px; padding: 12px; margin-bottom: 12px; background:#181818; }
-    .choice { border:1px solid #444; border-radius:8px; padding:8px; margin:6px 0; cursor:pointer; }
-    .choice:hover { border-color:#6200ea; background:#222; }
+    .q-card { border: 1px solid #e1e9f6; border-radius: 10px; padding: 12px; margin-bottom: 12px; background:#ffffff; }
+    .choice { border:1px solid #c5d3ea; border-radius:8px; padding:8px; margin:6px 0; cursor:pointer; background:#ffffff; color:#0a0a0a; }
+    .choice:hover { border-color:#1565c0; background:#f0f7ff; }
     .choice.correct { border-color:#1db954; }
     .choice.wrong { border-color:#e53935; }
-    .hint { color:#ffd54f; font-size:14px; margin-top:6px; }
-    .explanation { color:#9ccc65; font-size:13px; margin-top:8px; }
+    .hint { color:#ffffff; background:#1565c0; border:1px solid #0d47a1; padding:8px; border-radius:6px; font-size:14px; margin-top:8px; font-weight:500; }
+    .explanation { color:#ffffff; background:#1976d2; border:1px solid #115293; padding:10px; border-radius:6px; font-size:14px; margin-top:10px; }
+    .explanation * { color:#ffffff; }
     .progress-wrap { margin:8px 0 16px; }
     .progress-bar {
       position: relative;
       height: 16px;
-      background: linear-gradient(180deg, #2a2a2a, #1f1f1f);
+      background: #eef5ff;
       border-radius: 10px;
       overflow: hidden;
-      border: 1px solid #3a3a3a;
-      box-shadow: inset 0 2px 6px rgba(0,0,0,.45);
+      border: 1px solid #d6e1f3;
+      box-shadow: inset 0 2px 6px rgba(25,118,210,.15);
     }
+    /* Force progress texts to black on white theme */
+    #diag-progress-title, #diag-progress-label { color: #0a0a0a; }
     .progress-bar > div {
       position: relative;
       z-index: 0;
       height: 100%;
-      background: linear-gradient(90deg, #7c4dff, #6200ea);
-      box-shadow: 0 0 12px rgba(124,77,255,.55);
+      background: linear-gradient(90deg, #64b5f6, #1976d2);
+      box-shadow: 0 0 12px rgba(25,118,210,.45);
       width: 0%;
       transition: width .35s ease;
     }
@@ -745,12 +671,12 @@
       z-index: 2;
       font-size: 13px;
       font-weight: 700;
-      color: #ffffff;
-      background: rgba(0,0,0,0.45);
+      color: #0a0a0a;
+      background: rgba(255,255,255,0.9);
       padding: 2px 8px;
       border-radius: 10px;
-      box-shadow: 0 1px 3px rgba(0,0,0,.6);
-      text-shadow: 0 1px 2px rgba(0,0,0,.9);
+      box-shadow: 0 1px 3px rgba(25,118,210,.15);
+      text-shadow: none;
       pointer-events: none;
     }
     /* Disabled grey style for Start Intro button */
@@ -759,12 +685,12 @@
     #continue-btn:disabled { background-color:#555 !important; border-color:#555 !important; color:#ddd; }
     #summary-btn:disabled { background-color:#555 !important; border-color:#555 !important; color:#ddd; }
     .diag-loader { display:none; align-items:center; gap:8px; margin-top:10px; color:#bbb; }
-    .spinner { width:16px; height:16px; border:2px solid #444; border-top-color:#6200ea; border-radius:50%; animation: spin .8s linear infinite; }
+    .spinner { width:16px; height:16px; border:2px solid #c5d3ea; border-top-color:#1976d2; border-radius:50%; animation: spin .8s linear infinite; }
     @keyframes spin { from { transform: rotate(0deg);} to { transform: rotate(360deg);} }
     /* Overlay for Diagnostic loading */
     #tab-diagnostic .chat-box { position: relative; }
-    .diag-overlay { position:absolute; inset:0; background:rgba(0,0,0,.55); display:none; align-items:center; justify-content:center; z-index: 20; }
-    .diag-overlay .overlay-inner { display:flex; align-items:center; gap:10px; padding:12px 16px; background:#1a1a1a; border:1px solid #333; border-radius:10px; box-shadow:0 4px 16px rgba(0,0,0,.4); }
+    .diag-overlay { position:absolute; inset:0; background:rgba(10,41,82,.15); display:none; align-items:center; justify-content:center; z-index: 20; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+    .diag-overlay .overlay-inner { display:flex; align-items:center; gap:10px; padding:12px 16px; background:#ffffff; border:1px solid #e1e9f6; border-radius:10px; box-shadow:0 4px 16px rgba(0,0,0,.08); }
     .diag-ellipsis::after { content: '…'; animation: dots 1.2s steps(4, end) infinite; }
     @keyframes dots { 0%, 20% { content:''; } 40% { content:'.'; } 60% { content:'..'; } 80%, 100% { content:'...'; } }
   </style>
@@ -836,6 +762,7 @@
           <button class="tab" data-tab="diagnostic" onclick="switchTab('diagnostic')">Diagnostic</button>
           <button class="tab" data-tab="practice" onclick="switchTab('practice')">Practice</button>
           <button class="tab" data-tab="simulate" onclick="switchTab('simulate')">Simulate</button>
+          <button class="tab" data-tab="qstats" onclick="switchTab('qstats')">Question Stats</button>
         </div>
 
         <div class="tab-contents">
@@ -904,6 +831,34 @@
               </div>
             </div>
           </div>
+
+          <!-- Question Stats Tab Content -->
+          <div class="tab-content" id="tab-qstats">
+            <div class="chat-box">
+              <div class="chat-message system-msg">
+                <details id="qstats-info" class="q-card" style="margin-bottom:8px;">
+                  <summary class="section-title" style="cursor:pointer; margin:0;">Field Guide (click to expand)</summary>
+                  <div style="padding:12px 14px; font-size:13px; line-height:1.5;">
+                    <div style="display:grid; grid-template-columns: 200px 1fr; gap:6px 14px; align-items:start;">
+                      <div><strong>Question Id</strong></div><div>Unique ID of the question.</div>
+                      <div><strong>Stem</strong></div><div>The full question text.</div>
+                      <div><strong>Domain</strong></div><div>Watson-Glaser subject (Inference, Interpretation, Assumptions, Evaluation of Arguments, Deduction).</div>
+                      <div><strong>Difficulty</strong></div><div>Declared difficulty from the bank.</div>
+                      <div><strong>Total Attempts</strong></div><div>Number of first attempts recorded (exposures).</div>
+                      <div><strong>Total Correct</strong></div><div>Count of correct first attempts.</div>
+                      <div><strong>Total Incorrect</strong></div><div>Count of incorrect first attempts.</div>
+                      <div><strong>Exposures</strong></div><div>Same as Total Attempts.</div>
+                      <div><strong>Overall Correct Rate</strong></div><div>Total Correct / Exposures.</div>
+                      <div><strong>First‑Try Correct Rate</strong></div><div>Same as Overall Correct Rate (first attempts only).</div>
+                      <div><strong>Avg Latency (ms)</strong></div><div>Average time to first attempt in milliseconds (when available).</div>
+                      <div><strong>Hint Usage Rate</strong></div><div>Share of first attempts where a hint was used.</div>
+                    </div>
+                  </div>
+                </details>
+                <div id="qstats-content">Open this tab to load per-question aggregates.</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -957,7 +912,7 @@
       }
     });
     
-    // Minimal Markdown renderer for headings, bold, lists, line breaks
+    // Minimal Markdown renderer with basic table support
     function renderMarkdown(md) {
       if (!md) return '';
       let text = md.trim();
@@ -967,6 +922,30 @@
       text = text.replace(/\r\n/g, '\n');
       // Escape basic HTML
       text = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      // Parse simple Markdown tables
+      const lines = text.split('\n');
+      let out = [];
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        const next = lines[i+1] || '';
+        const isHeader = /^\s*\|.*\|\s*$/.test(line);
+        const isSep = /^\s*\|\s*[-:\s|]+\|\s*$/.test(next);
+        if (isHeader && isSep) {
+          const headerCells = line.trim().slice(1, -1).split('|').map(s => s.trim());
+          i++;
+          let rows = [];
+          while (i + 1 < lines.length && /^\s*\|.*\|\s*$/.test(lines[i+1])) {
+            const row = lines[i+1].trim().slice(1, -1).split('|').map(s => s.trim());
+            rows.push(row);
+            i++;
+          }
+          let tbl = '<table class="md-table"><thead><tr>' + headerCells.map(h => `<th>${h}</th>`).join('') + '</tr></thead><tbody>';
+          rows.forEach(r => { tbl += '<tr>' + r.map(c => `<td>${c}</td>`).join('') + '</tr>'; });
+          tbl += '</tbody></table>';
+          out.push(tbl);
+        } else { out.push(line); }
+      }
+      text = out.join('\n');
       // Headings: #, ##, ###
       text = text.replace(/^###\s+(.+)$/gm, '<h4>$1</h4>');
       text = text.replace(/^##\s+(.+)$/gm, '<h3>$1</h3>');
@@ -1021,10 +1000,7 @@
           // No settings API call; capture locally with English fallback markdown
           const englishFallbackMd = `# Welcome to the Adaptive Learning System\n\nWelcome to JobTestPrep's AI-powered Adaptive Learning system for preparing for the ${packName}.\n\nOur smart virtual tutor will guide you through a personalized preparation journey. The four key stages are:\n\n1. **Familiarize with the test**\nInitial understanding of the structure and question types.\n\n2. **Diagnostic**\nAdaptive initial simulation to tailor a plan to your level.\n\n3. **Focused practice**\nLearn and practice your weak areas to improve performance.\n\n4. **Full simulations**\nPractice in the real test format to aim for a score in the top 15%.\n\nIn addition to the personalized path, you can jump directly to specific sections of the test.`;
           let result = { welcome_message: englishFallbackMd };
-          
-          // Show success message
-          showNotification('Settings captured successfully!', 'success');
-          
+         
           // Request AI welcome message from backend agent
           try {
             const welcomeRes = await fetch('/api/chat/welcome', {
@@ -1152,7 +1128,25 @@
     });
 
     // Diagnostic logic
-    let diagState = { loaded:false, attempts:{}, correct:{}, completed:{}, first:{}, total:0, done:0, questions:{}, stage:'INTRO' };
+    let diagState = {
+      loaded:false,
+      attempts:{},
+      correct:{},
+      completed:{},
+      first:{},
+      startMs:{},
+      firstAnswerMs:{},
+      firstDurationSec:{},
+      firstChoice:{},
+      correctText:{},
+      order:[],
+      records: [],
+      seenFirst: {},
+      total:0,
+      done:0,
+      questions:{},
+      stage:'INTRO'
+    };
 
     
 
@@ -1165,7 +1159,25 @@
       const titleEl = document.getElementById('diag-progress-title');
       const progWrap = document.getElementById('diag-progress-wrap');
       container.innerHTML = '';
-      diagState = { loaded:true, attempts:{}, correct:{}, completed:{}, first:{}, total:0, done:0, questions:{}, stage:'INTRO' };
+      diagState = {
+        loaded:true,
+        attempts:{},
+        correct:{},
+        completed:{},
+        first:{},
+        startMs:{},
+        firstAnswerMs:{},
+        firstDurationSec:{},
+        firstChoice:{},
+        correctText:{},
+        order:[],
+        records: [],
+        seenFirst: {},
+        total:0,
+        done:0,
+        questions:{},
+        stage:'INTRO'
+      };
       if (continueBtn) continueBtn.style.display = 'none';
       const summaryBtn = document.getElementById('summary-btn');
       if (summaryBtn) summaryBtn.style.display = 'none';
@@ -1252,12 +1264,17 @@
         diagState.correct = {};
         diagState.completed = {};
         diagState.first = {};
+        diagState.startMs = {};
+        diagState.firstAnswerMs = {};
+        diagState.firstDurationSec = {};
+        diagState.firstChoice = {};
+        diagState.correctText = {};
+        diagState.order = [];
         diagState.done = 0;
         diagState.total = all.length || 0;
         diagState.questions = {};
         updateDiagProgress();
         all.forEach(renderQuestionCard);
-        showNotification('Deepen phase loaded. Aim a bit higher now!', 'info');
       } catch (e) {
         showNotification('Network error while loading deepen selection', 'error');
       } finally {
@@ -1283,7 +1300,7 @@
             ${answerBadge}
           </div>
         </div>`;
-      const stim = q.stimuli ? `<div style="font-size:16px;color:#bbb;margin-bottom:6px;">${q.stimuli}</div>` : '';
+      const stim = q.stimuli ? `<div style="font-size:16px;color:#3a4757;margin-bottom:6px;">${q.stimuli}</div>` : '';
       card.innerHTML = `
         <div class="q-header" onclick="toggleQuestionBody('${q.id}')">${titleHTML}</div>
         <div class="q-body" id="q-body-${q.id}">
@@ -1295,6 +1312,12 @@
         </div>
       `;
       container.appendChild(card);
+      // Start timing window for first attempt
+      try {
+        diagState.startMs[q.id] = Date.now();
+        diagState.correctText[q.id] = (q.choices || [])[q.correct_index] || null;
+        diagState.order.push(q.id);
+      } catch (_) {}
 
       // Track per-question metadata for next-phase targeting
       diagState.questions[q.id] = { domain: q.domain, difficulty: q.difficulty };
@@ -1320,12 +1343,40 @@
       // Check answer
       const check = await fetch('/api/chat/intro', {
         method:'POST', headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({ action:'check', payload:{ qid, chosen } })
+        body: JSON.stringify({
+          action:'check',
+          payload:{
+            qid,
+            chosen,
+            attempt: attempts,
+            tester_name: (document.getElementById('tester-name')?.value || 'Unknown'),
+            assessment_date: (document.getElementById('assessment-date')?.value || new Date().toISOString().split('T')[0])
+          }
+        })
       });
       const { is_correct, correct } = await check.json();
 
       if (isFirstAttempt) {
         diagState.first[key] = is_correct ? 'correct' : 'wrong';
+        const start = diagState.startMs[key] || Date.now();
+        diagState.firstAnswerMs[key] = Date.now();
+        const dur = Math.max(0, Math.round((diagState.firstAnswerMs[key] - start) / 1000));
+        diagState.firstDurationSec[key] = dur;
+        diagState.firstChoice[key] = chosen;
+        if (!diagState.seenFirst[key]) {
+          diagState.seenFirst[key] = true;
+          const meta = diagState.questions[key] || {};
+          diagState.records.push({
+            phase: diagState.stage,
+            qid: key,
+            domain: meta.domain || '',
+            difficulty: meta.difficulty || null,
+            first_attempt: diagState.first[key],
+            first_duration_sec: dur,
+            user_answer: chosen,
+            correct_answer: diagState.correctText[key] || correct,
+          });
+        }
       }
 
       if (is_correct) {
@@ -1440,18 +1491,22 @@
       if (overlay) overlay.style.display = 'flex';
       if (loader) loader.style.display = 'flex';
       try {
-        // Build naive per_section stats from correctness
+        // Build per_section stats across both phases (Intro + Deepen)
         const per_section = {};
-        Object.keys(diagState.questions || {}).forEach(qid => {
-          const domain = (diagState.questions[qid]?.domain || '').toString();
+        (diagState.records || []).forEach(r => {
+          const domain = (r.domain || '').toString();
           if (!domain) return;
-          if (!per_section[domain]) per_section[domain] = { correct_first_try: 0, total: 0 };
+          if (!per_section[domain]) per_section[domain] = { correct_first_try: 0, total: 0, total_time_sec: 0 };
           per_section[domain].total += 1;
-          if (diagState.first[qid] === 'correct') per_section[domain].correct_first_try += 1;
+          if (r.first_attempt === 'correct') per_section[domain].correct_first_try += 1;
+          const t = typeof r.first_duration_sec === 'number' ? r.first_duration_sec : 0;
+          per_section[domain].total_time_sec += t;
         });
+        // Also send raw records for both phases (INTRO + DEEPEN)
+        const records = diagState.records || [];
         const res = await fetch('/api/chat/intro', {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ action:'summary', payload:{ per_section, overall_percentile: 50, lang: 'en' } })
+          body: JSON.stringify({ action:'summary', payload:{ per_section, records, overall_percentile: 50, lang: 'en' } })
         });
         if (res.ok) {
           const data = await res.json();
@@ -1619,6 +1674,157 @@
       if (sugg) {
         sugg.style.display = tabName === 'overview' ? 'flex' : 'none';
       }
+
+      // Auto-load question stats every time the tab opens
+      if (tabName === 'qstats') {
+        try { loadQuestionStats(); } catch (e) { /* ignore */ }
+      }
+    }
+
+    // -------------------------
+    // Question Stats helpers
+    // -------------------------
+    function buildQStatHeader(domain, diff, exposures, ftr, ovr, avg, hint) {
+      return '<div class="qstat-header">'
+             + `<span class="badge">Domain ${domain}</span>`
+             + '</div>';
+    }
+
+    function buildQStatMetrics(s, domain, diff, exposures, ftr, ovr, avg, hint, qid, stem) {
+      const totalAttempts = (s.total_attempts ?? exposures ?? 0);
+      const totalCorrect = (s.total_correct ?? (Math.round((ovr || 0) * (exposures || 0))));
+      const totalIncorrect = (s.total_incorrect ?? Math.max(0, (totalAttempts || 0) - (totalCorrect || 0)));
+      return (
+        '<div class="qstat-metrics">'
+        + `<div class=\"qstat-metric\"><div class=\"label\">Question Id</div><div class=\"value\">${qid}</div></div>`
+        + `<div class="qstat-metric"><div class="label">Domain</div><div class="value">${domain}</div></div>`
+        + `<div class="qstat-metric"><div class="label">Difficulty</div><div class="value">${diff}</div></div>`
+        + `<div class="qstat-metric"><div class="label">Exposures</div><div class="value">${exposures}</div></div>`
+        + `<div class=\"qstat-metric\"><div class=\"label\">Total Attempts</div><div class=\"value\">${totalAttempts}</div></div>`
+        + `<div class=\"qstat-metric\"><div class=\"label\">Total Correct</div><div class=\"value\">${totalCorrect}</div></div>`
+        + `<div class=\"qstat-metric\"><div class=\"label\">Total Incorrect</div><div class=\"value\">${totalIncorrect}</div></div>`
+        + `<div class="qstat-metric"><div class="label">First‑Try Correct</div><div class="value">${(ftr*100).toFixed(0)}%</div></div>`
+        + `<div class="qstat-metric"><div class="label">Overall Correct</div><div class="value">${(ovr*100).toFixed(0)}%</div></div>`
+        + (avg!==''?`<div class="qstat-metric"><div class="label">Avg Latency (ms)</div><div class="value">${avg}</div></div>`:'')
+        + `<div class="qstat-metric"><div class="label">Hint Usage Rate</div><div class="value">${(hint*100).toFixed(0)}%</div></div>`
+        + '</div>'
+      );
+    }
+
+    function buildQStatCard(entry) {
+      const [qid, s] = entry;
+      const exposures = s.observed_stats?.exposures ?? 0;
+      const ftr = s.observed_stats?.first_try_correct_rate ?? 0;
+      const ovr = s.observed_stats?.overall_correct_rate ?? 0;
+      const avg = s.observed_stats?.avg_latency_ms ?? '';
+      const hint = s.observed_stats?.hint_usage_rate ?? 0;
+      const stem = (s.stem || '').toString();
+      const domain = (s.domain || '').toString();
+      const diff = s.difficulty ?? '';
+      const header = buildQStatHeader(domain, diff, exposures, ftr, ovr, avg, hint);
+      const metrics = buildQStatMetrics(s, domain, diff, exposures, ftr, ovr, avg, hint, qid, stem);
+      return `<details class="qstat-card"><summary class="qstat-summary">${qid} ${stem}</span><span class="chev">▾</span></summary><div class="qstat-body">${header}${metrics}<div class="qstat-stem">${stem}</div></div></details>`;
+    }
+
+    function buildQStatsGlobalBox(packNameForStats, globalChatId) {
+      return `<div class="qstat-global"><div class="qstat-global-header"><div class="qstat-global-title">Query ${packNameForStats} question stats</div><div class="qstat-global-sub">Tip: prefix with “QID 19” to focus on a single question</div></div><div class="qstat-global-body"><div id="${globalChatId}" class="qstat-chat" dir="auto"></div><div class="suggestion-tags" id="qstats-suggestions" style="margin-top:8px; gap:8px; flex-wrap:wrap;">
+        <span class="suggestion-tag" onclick="askQStatSuggestion('Which domains are hardest by first‑try rate?')">Which domains are hardest by first‑try rate?</span>
+        <span class="suggestion-tag" onclick="askQStatSuggestion('Top 5 QIDs with highest hint usage')">Top 5 QIDs with highest hint usage</span>
+        <span class="suggestion-tag" onclick="askQStatSuggestion('Which questions are most time‑consuming by avg latency?')">Most time‑consuming questions</span>
+        <span class="suggestion-tag" onclick="askQStatSuggestion('Show 5 weakest questions by overall correct rate')">Weakest 5 questions</span>
+        <span class="suggestion-tag" onclick="askQStatSuggestion('Explain QID 1 stats (in simple terms)')">Explain QID 1 stats</span>
+      </div><div class="qstat-input"><input id="qstats-global-input" type="text" dir="auto" placeholder="Ask about the ${packNameForStats} question statistics (prefix with QID to focus)…"><button id="qstats-ask-btn" onclick="sendQStatQA('', 'qstats-global-chat', 'qstats-global-input')">Ask</button></div></div></div>`;
+    }
+
+    async function fetchQStatsJson() {
+      try {
+        const res = await fetch('/data/Watson%20Glaser/Watson%20Glaser_quastions_stat.json');
+        if (!res.ok) return null;
+        return await res.json();
+      } catch (_) { return null; }
+    }
+
+    function attachQStatsEnterHandler() {
+      const gInput = document.getElementById('qstats-global-input');
+      if (gInput) {
+        gInput.addEventListener('keydown', function(ev){
+          if (ev.key === 'Enter') {
+            ev.preventDefault();
+            if (!window.__qstatsBusy) {
+              sendQStatQA('', 'qstats-global-chat', 'qstats-global-input');
+            }
+          }
+        });
+      }
+    }
+
+    async function loadQuestionStats() {
+      const el = document.getElementById('qstats-content');
+      if (!el) return;
+      try {
+        const data = await fetchQStatsJson();
+        if (!data) { el.textContent = 'Failed to load stats'; return; }
+        const stats = data.stats || {};
+        const globalChatId = 'qstats-global-chat';
+        const packNameForStats = document.getElementById('pack-name')?.value || 'this pack';
+        const globalBox = buildQStatsGlobalBox(packNameForStats, globalChatId);
+        const cards = Object.entries(stats).map(buildQStatCard).join('');
+        el.innerHTML = globalBox + (cards || 'No stats available.');
+        attachQStatsEnterHandler();
+      } catch (e) {
+        el.textContent = 'Error parsing stats';
+      }
+    }
+
+    async function sendQStatQA(qid, chatContainerId, inputId) {
+      if (window.__qstatsBusy) return;
+      window.__qstatsBusy = true;
+      try {
+        const input = document.getElementById(inputId);
+        const container = document.getElementById(chatContainerId);
+        const askBtn = document.getElementById('qstats-ask-btn');
+        const sugg = document.getElementById('qstats-suggestions');
+        if (!input || !container) return;
+        const msg = input.value.trim();
+        if (!msg) return;
+        input.disabled = true;
+        if (askBtn) askBtn.disabled = true;
+        if (sugg) { sugg.style.pointerEvents = 'none'; sugg.style.opacity = '0.6'; }
+        container.insertAdjacentHTML('beforeend', `<div class=\"user-msg\"><span class=\"user-bubble\">You</span><div dir=\"auto\">${msg}</div></div>`);
+        input.value = '';
+        // Build payload for qstats-qa with current stats JSON (reload for freshness)
+        let statsJson = {};
+        try { const r = await fetch('/data/Watson%20Glaser/Watson%20Glaser_quastions_stat.json'); if (r.ok) { statsJson = await r.json(); } } catch(_){ }
+        const res = await fetch('/api/chat/qstats-qa', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: (qid ? `[QID ${qid}] ` : '') + msg,
+            qid: qid || null,
+            stats: statsJson
+          })
+        });
+        let reply = '';
+        if (res.ok) { const data = await res.json(); reply = data.reply || ''; }
+        container.insertAdjacentHTML('beforeend', `<div class=\"system-msg\"><span class=\"ai-name-bubble\">JobTestPrep AI:</span><div dir=\"auto\" class=\"markdown-content\">${renderMarkdown(reply)}</div></div>`);
+        container.scrollTop = container.scrollHeight;
+      } catch (e) { /* ignore */ }
+      finally {
+        const input = document.getElementById(inputId);
+        const askBtn = document.getElementById('qstats-ask-btn');
+        const sugg = document.getElementById('qstats-suggestions');
+        if (input) input.disabled = false;
+        if (askBtn) askBtn.disabled = false;
+        if (sugg) { sugg.style.pointerEvents = ''; sugg.style.opacity = ''; }
+        window.__qstatsBusy = false;
+      }
+    }
+
+    function askQStatSuggestion(text, qid) {
+      const input = document.getElementById('qstats-global-input');
+      if (!input) return;
+      input.value = text;
+      sendQStatQA(qid || '', 'qstats-global-chat', 'qstats-global-input');
     }
 
     // Update metadata card with user settings

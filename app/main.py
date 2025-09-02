@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 from datetime import datetime
 import os
 from app.config import settings
@@ -55,6 +56,9 @@ async def log_requests(request: Request, call_next):
 
 # Include routers
 app.include_router(chat_controller.router)
+
+# Serve static files from the data directory so frontend can fetch JSON stats
+app.mount("/data", StaticFiles(directory="data"), name="data")
 
 @app.on_event("startup")
 async def startup_event():

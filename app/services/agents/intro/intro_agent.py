@@ -160,26 +160,47 @@ class IntroAgent:
         return resp, "Common trap: focusing on surface cues instead of the governing rule."
 
     # ---------- Summary & Feedback ----------
-    def summary(self, per_section: Dict[str, Dict[str, float]], overall_percentile: int, lang: str = "en") -> str:
+    def summary(self, per_section: Dict[str, Dict[str, float]], overall_percentile: int, lang: str = "en", records: Optional[List[Dict[str, Any]]] = None) -> str:
         self.logger.info(
             "[SUMMARY] Generating summary | sections=%s overall=%s lang=%s",
             list(per_section.keys()),
             overall_percentile,
             lang,
         )
+        per_question_details = records or []
         messages = [
-            SystemMessage(content=self.system_prompt),
-            HumanMessage(
-                content=(
-                    "Write a warm, encouraging summary in the requested language to help the user reflect on their assessment performance. "
-                    "Begin with a short, enthusiastic sentence celebrating the user's effort and success 🎉. "
-                    "Continue with 1–2 engaging paragraphs that highlight their strengths 🎯, areas for improvement 📚, and reference the overall_percentile 💪. "
-                    "Finally, include a **Markdown**-formatted section with this heading: '### 📊 Assessment Summary', followed by a bullet list in the format: "
-                    "`- Section Name: X correct out of Y`, with emoji icons reflecting performance. "
-                    f"Details: per_section={per_section}, overall_percentile={overall_percentile}, lang={lang}"
-        )
-    ),
-]
+    SystemMessage(content=self.system_prompt),
+    HumanMessage(
+        content=(
+            "Goal: Generate a warm, encouraging summary in the specified language to help the user reflect on their assessment performance with positivity and insight, while also providing a sharp, witty analytical breakdown of results."
+            "Behavior and Tone"
+            "- Primary Tone: Warm, celebratory, and motivational 🎉 (supportive coach).\n"
+            "- Secondary Tone: Sharp, slightly sarcastic, but constructive (bright teenager commentary).\n"
+            "- Persona: Supportive coach mixed with analyst – empathetic, insightful, empowering, yet playfully observant.\n"
+            "- Language: Always respond in the user-specified `lang`.\n"
+            "Output Structure\n"
+            "1. **Opening Sentence (1 line):** Celebrate the user's effort."
+            "2. **Reflective Paragraphs (1–2):** Highlight strengths , areas for improvement , and mention overall_percentile."
+            "3. **Markdown Summary Block** with '###  Assessment Summary' and lines '- Section: X correct out of Y' using emoji legend (✅ ≥80%, ⚠️ 50–79%, ❌ <50%)."
+            "Extended Analytical Add-On (Assessment Analyst AI)"
+            "5. **Raw Results Table:** Display all input data cleanly."
+            "6. **Statistical Summary:**"
+            "   - Overall accuracy (% correct)."
+            "   - Accuracy by domain (Inference, Assumptions, Deduction, Evaluation of Arguments, Interpretation)."
+            "7. **Insights Section:** Provide witty, informal commentary:"
+            "   - Strong areas (domains with high accuracy)."
+            "   - Weak areas (domains with low accuracy)."
+            "   - Notable quirks or paradoxes (e.g., better at harder questions than medium ones)."
+            "   - Keep it concise, witty, and observational."
+            "❗Critical"
+            "- Never be demotivating."
+            "- Always include all Markdown blocks.\n"
+            "- Do not invent details; rely only on provided variables.\n"
+            "- Always respect `lang`.\n\n"
+            f"Variables: per_section={per_section}, overall_percentile={overall_percentile}, per_question_details={per_question_details}, lang={lang}"
+            )
+            ),
+            ]
         resp = self.llm.invoke(messages).content.strip()
         self.logger.debug("[SUMMARY] Summary length=%s chars", len(resp))
         return resp
