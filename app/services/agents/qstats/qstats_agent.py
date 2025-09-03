@@ -31,9 +31,8 @@ class QStatsAgent:
             openai_api_key=settings.OPENAI_API_KEY,
         )
 
-    def answer(self, message: str, qid: Optional[str], stats: Dict[str, Any]) -> Optional[str]:
+    def answer(self, message: str, stats: Dict[str, Any]) -> Optional[str]:
         payload = {
-            "qid": qid,
             "question": message,
             "stats": stats,
         }
