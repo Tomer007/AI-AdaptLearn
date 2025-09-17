@@ -8,119 +8,153 @@
       "is_correct": true,
       "domain": "Inference",
       "difficulty": 3,
-      "is_from_bank": true
+      "is_from_bank": true,
+      "duration_seconds": 17,
+      "hint_usage_percent": 42
     },
     {
       "qid": "1",
       "is_correct": false,
       "domain": "Interpretation",
       "difficulty": 4,
-      "is_from_bank": true
+      "is_from_bank": true,
+      "duration_seconds": 22,
+      "hint_usage_percent": 18
     },
     {
       "qid": "86",
       "is_correct": true,
       "domain": "Assumptions",
       "difficulty": 5,
-      "is_from_bank": true
+      "is_from_bank": true,
+      "duration_seconds": 11,
+      "hint_usage_percent": 61
     },
     {
       "qid": "34",
       "is_correct": false,
       "domain": "Evaluation of Arguments",
       "difficulty": 3,
-      "is_from_bank": true
+      "is_from_bank": true,
+      "duration_seconds": 13,
+      "hint_usage_percent": 39
     },
     {
       "qid": "70",
       "is_correct": false,
       "domain": "Deduction",
       "difficulty": 3,
-      "is_from_bank": true
+      "is_from_bank": true,
+      "duration_seconds": 19,
+      "hint_usage_percent": 77
     },
     {
       "qid": "21",
       "is_correct": false,
       "domain": "Inference",
       "difficulty": 5,
-      "is_from_bank": true
+      "is_from_bank": true,
+      "duration_seconds": 14,
+      "hint_usage_percent": 4
     },
     {
       "qid": "25",
       "is_correct": false,
       "domain": "Inference",
       "difficulty": 4,
-      "is_from_bank": true
+      "is_from_bank": true,
+      "duration_seconds": 18,
+      "hint_usage_percent": 56
     },
     {
       "qid": "30",
       "is_correct": true,
       "domain": "Inference",
       "difficulty": 5,
-      "is_from_bank": true
+      "is_from_bank": true,
+      "duration_seconds": 16,
+      "hint_usage_percent": 9
     },
     {
       "qid": "2",
       "is_correct": true,
       "domain": "Interpretation",
       "difficulty": 5,
-      "is_from_bank": true
+      "is_from_bank": true,
+      "duration_seconds": 9,
+      "hint_usage_percent": 83
     },
     {
       "qid": "3",
       "is_correct": true,
       "domain": "Interpretation",
       "difficulty": 5,
-      "is_from_bank": true
+      "is_from_bank": true,
+      "duration_seconds": 12,
+      "hint_usage_percent": 27
     },
     {
       "qid": "85",
       "is_correct": true,
       "domain": "Assumptions",
       "difficulty": 7,
-      "is_from_bank": true
+      "is_from_bank": true,
+      "duration_seconds": 15,
+      "hint_usage_percent": 35
     },
     {
       "qid": "96",
       "is_correct": true,
       "domain": "Assumptions",
       "difficulty": 6,
-      "is_from_bank": true
+      "is_from_bank": true,
+      "duration_seconds": 24,
+      "hint_usage_percent": 12
     },
     {
       "qid": "101",
       "is_correct": true,
       "domain": "Assumptions",
       "difficulty": 6,
-      "is_from_bank": true
+      "is_from_bank": true,
+      "duration_seconds": 20,
+      "hint_usage_percent": 91
     },
     {
       "qid": "36",
       "is_correct": true,
       "domain": "Evaluation of Arguments",
       "difficulty": 3,
-      "is_from_bank": true
+      "is_from_bank": true,
+      "duration_seconds": 10,
+      "hint_usage_percent": 24
     },
     {
       "qid": "38",
       "is_correct": true,
       "domain": "Evaluation of Arguments",
       "difficulty": 3,
-      "is_from_bank": true
+      "is_from_bank": true,
+      "duration_seconds": 10,
+      "hint_usage_percent": 47
     },
     {
       "qid": "72",
       "is_correct": false,
       "domain": "Deduction",
       "difficulty": 3,
-      "is_from_bank": true
+      "is_from_bank": true,
+      "duration_seconds": 8,
+      "hint_usage_percent": 3
     },
     {
       "qid": "73",
       "is_correct": true,
       "domain": "Deduction",
       "difficulty": 4,
-      "is_from_bank": true
+      "is_from_bank": true,
+      "duration_seconds": 21,
+      "hint_usage_percent": 68
     }
   ]
 }

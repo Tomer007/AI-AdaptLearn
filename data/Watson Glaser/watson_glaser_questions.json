@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "test_name": "Watson-Glaser Simulation Questions",
+    "total_questions": 122,
+    "source": { 
+      "generated": 22,
+      "original": 100,
+      "umbraco": 0
+    },
+    "questions_color_counts": {
+      "Blue": 3,
+      "Yellow": 3,
+      "White": 0
+    }
+  },
+  "questions": [
+    {
+      "questionId": 1,
+      "source": "original",
+      "metadata": {
+        "domain": "Critical Thinking",
+        "category": "Interpretation",
+        "subCategory": "Conclusion Validity",
+        "difficulty": {
+          "scale": 4,
+          "level": "Medium",
+          "color": "Blue, Yellow"
+        },
+        "cognitiveSkill": "Evaluating evidence",
+        "timeLimitSec": 90,
+        "language": "en",
+        "version": "v1.0",
+        "status": "active"
+      },
+      "questionText": "The recycling company does not disapprove of bribing as a way to bring in more clients.",
+      "stimuli": "In a certain recycling company that generously rewarded workers for each new client they brought in...",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correctAnswer": "Conclusion does not follow"
+    },
+    {
+      "questionId": 2,
+      "source": "generated",
+      "metadata": {
+        "domain": "Critical Thinking",
+        "category": "Interpretation",
+        "subCategory": "Numerical Inference",
+        "difficulty": {
+          "scale": 5,
+          "level": "Medium",
+          "color": "Blue, Yellow"
+        },
+        "cognitiveSkill": "Quantitative reasoning",
+        "timeLimitSec": 90,
+        "language": "en",
+        "version": "v1.0",
+        "status": "active"
+      },
+      "questionText": "The generous reward offered by the recycling company for each new client brought in did not prevent 85 percent of the workers from bringing in fewer than three new clients last year.",
+      "stimuli": "In a certain recycling company that generously rewarded workers for each new client they brought in...",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correctAnswer": "Conclusion follows"
+    },
+    {
+      "questionId": 3, 
+      "source": "umbraco",
+      "metadata": {
+        "domain": "Critical Thinking",
+        "category": "Interpretation",
+        "subCategory": "Proportional Reasoning",
+        "difficulty": {
+          "scale": 5,
+          "level": "Medium",
+          "color": "Blue, Yellow"
+        },
+        "cognitiveSkill": "Logical reasoning",
+        "timeLimitSec": 90,
+        "language": "en",
+        "version": "v1.0",
+        "status": "active"
+      },
+      "questionText": "For every worker who brought in three or more new clients last year, more than five workers did not.",
+      "stimuli": "In a certain recycling company that generously rewarded workers for each new client they brought in...",
+      "answers": {
+        "answer_1": "Conclusion follows",
+        "answer_2": "Conclusion does not follow"
+      },
+      "correctAnswer": "Conclusion follows"
+    }
+  ]
+}

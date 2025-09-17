@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adaptive Learning Settings</title>
+  <title>Adaptive Learning Assessment Settings</title>
   <style>
     body {
       margin: 0;
@@ -180,7 +180,56 @@
 
     .tab:hover { background-color: #e6f0ff; }
 
-    .tab.active { background-color: #e6f0ff; color: #0a0a0a; border-color: #1976d2; }
+    .tab.active { background-color: #e6f0ff; color: #0a0a0a; border-color: #1976d2; font-weight: bold; }
+
+    /* Special styling for diagnostic tab */
+    .tab[data-tab="diagnostic"] { background-color: #1976d2; color: #ffffff; border-color: #1565c0; }
+    .tab[data-tab="diagnostic"]:hover { background-color: #1565c0; }
+    .tab[data-tab="diagnostic"].active { background-color: #1976d2; color: #ffffff; border-color: #1565c0; font-weight: bold; }
+
+    /* Special styling for practice tab */
+    .tab[data-tab="practice"] { background-color: #ffc107; color: #000000; border-color: #ffb300; }
+    .tab[data-tab="practice"]:hover { background-color: #ffb300; }
+    .tab[data-tab="practice"].active { background-color: #ffc107; color: #000000; border-color: #ffb300; font-weight: bold; }
+
+    /* Special styling for simulate tab (Drills learning) */
+    .tab[data-tab="simulate"] { background-color: #ffffff; color: #000000; border-color: #d6d6d6; }
+    .tab[data-tab="simulate"]:hover { background-color: #f5f5f5; }
+    .tab[data-tab="simulate"].active { background-color: #ffffff; color: #000000; border-color: #d6d6d6; font-weight: bold; }
+    
+    .tab[data-tab="overview"] { background-color: #4caf50; color: #ffffff; border-color: #45a049; }
+    .tab[data-tab="overview"]:hover { background-color: #45a049; }
+    .tab[data-tab="overview"].active { background-color: #4caf50; color: #ffffff; border-color: #45a049; font-weight: bold; }
+    
+    .tab[data-tab="learningplan"] { background-color: #e1bee7; color: #4a148c; border-color: #ce93d8; }
+    .tab[data-tab="learningplan"]:hover { background-color: #ce93d8; }
+    .tab[data-tab="learningplan"].active { background-color: #e1bee7; color: #4a148c; border-color: #ce93d8; font-weight: bold; }
+    
+    /* Learning Plan Content Styling */
+    .learning-plan-content { margin-top: 20px; }
+    .plan-section { margin-bottom: 25px; padding: 15px; background: #f8f5ff; border-radius: 8px; border-left: 4px solid #e1bee7; }
+    .focus-areas { display: flex; flex-direction: column; gap: 15px; }
+    .focus-item { display: flex; align-items: center; gap: 15px; padding: 10px; background: #ffffff; border-radius: 6px; border: 1px solid #e1bee7; }
+    .focus-tag { background: #e1bee7; color: #4a148c; padding: 4px 12px; border-radius: 12px; font-weight: 600; font-size: 12px; }
+    .focus-tag.challenging { background: #ff9800; color: #ffffff; }
+    .progress-text { font-size: 12px; color: #666; font-weight: 500; }
+    .schedule-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+    .schedule-day { padding: 12px; background: #ffffff; border-radius: 6px; border: 1px solid #e1bee7; display: flex; flex-direction: column; gap: 5px; }
+    .schedule-day strong { color: #4a148c; font-size: 14px; }
+    .schedule-day span { color: #666; font-size: 12px; }
+    .milestones { display: flex; flex-direction: column; gap: 10px; }
+    .milestone { display: flex; align-items: center; gap: 10px; padding: 10px; background: #ffffff; border-radius: 6px; border: 1px solid #e1bee7; }
+    .milestone.completed { border-left: 4px solid #4caf50; }
+    .milestone.current { border-left: 4px solid #ff9800; }
+    .milestone.pending { border-left: 4px solid #e0e0e0; }
+    .milestone-icon { font-size: 16px; }
+    
+    /* Configuration Display Styling */
+    .config-display { margin-top: 10px; }
+    .config-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: #ffffff; border-radius: 6px; border: 1px solid #e1bee7; margin-bottom: 8px; }
+    .config-label { font-weight: 600; color: #4a148c; }
+    .config-value { color: #666; font-size: 14px; }
+    .config-value.highlight { color: #4a148c; font-weight: 600; }
 
     .tab-contents { flex: 1; display: flex; flex-direction: column; min-height: 0; }
 
@@ -241,9 +290,11 @@
     #tab-qstats .qstat-chat .system-msg .markdown-content, 
     #tab-qstats .qstat-chat .system-msg .markdown-content * { color: #0a0a0a !important; }
     #tab-qstats .ai-name-bubble { color:#ffffff !important; }
+    #tab-qstats .qstat-chat .ai-name-bubble { color:#ffffff !important; }
+    #tab-qstats .qstat-chat .system-msg .ai-name-bubble { color:#ffffff !important; }
 
     .chat-message {
-      color: RED;
+      color: #000000;
       font-weight: 100;
       margin-bottom: 15px;
       padding: 8px 0;
@@ -271,7 +322,7 @@
 
     .ai-name-bubble {
       background-color: #1565c0;
-      color: #ffffff;
+      color: #ffffff !important;
       padding: 4px 8px;
       border-radius: 12px;
       font-size: 12px;
@@ -280,9 +331,9 @@
       display: inline-block;
     }
 
-    /* Change the color to white for system-msg */
+    /* Change the color to black for system-msg */
     .system-msg {
-      color: #ffffff;
+      color: #000000;
       font-weight: normal;
       margin-bottom: 15px;
       padding: 8px 0;
@@ -367,7 +418,7 @@
       margin-bottom: 8px;
     }
 
-    .tag { background-color: #1976d2; color: #ffffff; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; display: inline-block; white-space: nowrap; box-shadow: 0 2px 8px rgba(25, 118, 210, 0.25); border: 1px solid #1565c0; }
+    .tag { background-color: #1976d2; color: #ffffff; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; display: inline-block; white-space: nowrap; box-shadow: 0 2px 8px rgba(25, 118, 210, 0.25); border: 1px solid #1565c0; cursor: pointer; user-select: none; }
 
     /* Enhanced question header styling */
     .q-tag { display:inline-block; background:#eef5ff; border:1px solid #d6e1f3; padding:10px 12px; border-radius:12px; box-shadow:0 2px 8px rgba(25,118,210,.15); }
@@ -397,33 +448,131 @@
  
     .ai-input-container {
       display: flex;
-      gap: 10px;
+      gap: 12px;
+      align-items: center;
+      background: #ffffff;
+      border: 2px solid #e1e9f6;
+      border-radius: 12px;
+      padding: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: border-color 0.3s ease;
     }
 
-    .ai-input-container input { flex: 1; padding: 10px; border-radius: 5px; border: 1px solid #c5d3ea; background-color: #ffffff; color: #0a0a0a; }
+    .ai-input-container:focus-within {
+      border-color: #1976d2;
+      box-shadow: 0 2px 12px rgba(25, 118, 210, 0.2);
+    }
+
+    .ai-input-container input { 
+      flex: 1; 
+      padding: 12px 16px; 
+      border: none; 
+      border-radius: 8px; 
+      background-color: transparent; 
+      color: #0a0a0a; 
+      font-size: 16px;
+      outline: none;
+    }
+
+    .ai-input-container input::placeholder {
+      color: #6c757d;
+      font-style: italic;
+    }
 
     .ai-input-container button {
-      background-color: #1565c0;
+      background: linear-gradient(135deg, #1976d2, #1565c0);
       color: #ffffff;
       border: none;
-      padding: 10px 15px;
+      padding: 12px 20px;
       cursor: pointer;
       font-size: 14px;
-      border-radius: 5px;
-      transition: background-color 0.3s;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      min-width: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .ai-input-container button:hover { background-color: #1565c0; }
+    .ai-input-container button:hover { 
+      background: linear-gradient(135deg, #1565c0, #0d47a1);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+    }
+
+    .ai-input-container button:disabled {
+      background: #6c757d;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
 
     /* Suggestion tags under AI input */
     .suggestion-tags {
-      margin-top: 8px;
+      margin-top: 15px;
       display: flex;
-      gap: 8px;
+      gap: 10px;
       flex-wrap: wrap;
+      justify-content: center;
     }
-    .suggestion-tag { background-color: #1976d2; color: #ffffff; border: 1px solid #1565c0; border-radius: 16px; padding: 6px 10px; font-size: 12px; cursor: pointer; user-select: none; }
-    .suggestion-tag:hover { background-color: #1565c0; border-color: #1565c0; }
+    
+    .suggestion-tag { 
+      background: linear-gradient(135deg, #1976d2, #1565c0); 
+      color: #ffffff; 
+      border: none; 
+      border-radius: 20px; 
+      padding: 8px 16px; 
+      font-size: 13px; 
+      font-weight: 500;
+      cursor: pointer; 
+      user-select: none; 
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 6px rgba(25, 118, 210, 0.2);
+      white-space: nowrap;
+    }
+    
+    .suggestion-tag:hover { 
+      background: linear-gradient(135deg, #1565c0, #0d47a1); 
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+    }
+    
+    .suggestion-tag:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 6px rgba(25, 118, 210, 0.2);
+    }
+
+    /* Typing indicator animation */
+    .typing-dots {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: 8px;
+    }
+
+    .typing-dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #1976d2;
+      animation: typing 1.4s infinite ease-in-out;
+    }
+
+    .typing-dots span:nth-child(1) { animation-delay: -0.32s; }
+    .typing-dots span:nth-child(2) { animation-delay: -0.16s; }
+    .typing-dots span:nth-child(3) { animation-delay: 0s; }
+
+    @keyframes typing {
+      0%, 80%, 100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+      40% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
 
     /* Metadata Card Styling */
     .metadata-card {
@@ -454,8 +603,83 @@
 
     .metadata-content { padding: 12px; background-color: #ffffff; transition: all 0.3s ease; }
 
-    /* Make tags inside Assessment Profile slightly smaller */
-    .metadata-card .tag { font-size: 12px; padding: 6px 12px; background-color: #1565c0; border-color: #1565c0; }
+    /* Enhanced Assessment Profile styling */
+    .metadata-card .tag { 
+      font-size: 12px; 
+      padding: 6px 12px; 
+      background-color: #1565c0; 
+      border-color: #1565c0; 
+      margin: 2px;
+      border-radius: 16px;
+      display: inline-block;
+    }
+
+    .assessment-profile {
+      display: grid;
+      gap: 15px;
+    }
+
+    .profile-section {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 15px;
+      border-left: 3px solid #bbdefb;
+    }
+
+    .profile-section h4 {
+      color: #1565c0;
+      margin: 0 0 12px 0;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: none;
+      letter-spacing: 0.3px;
+    }
+
+    .profile-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .profile-tag {
+      background: #e3f2fd;
+      color: #1565c0;
+      padding: 6px 12px;
+      border-radius: 16px;
+      font-size: 12px;
+      font-weight: 500;
+      border: 1px solid #bbdefb;
+      box-shadow: none;
+      transition: all 0.2s ease;
+    }
+
+    .profile-tag:hover {
+      background: #bbdefb;
+      border-color: #90caf9;
+      transform: none;
+    }
+
+    .profile-summary {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-left: 3px solid #bbdefb;
+    }
+
+    .profile-summary h3 {
+      color: #1565c0;
+      margin: 0 0 8px 0;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .profile-summary p {
+      color: #666;
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.4;
+    }
 
     .metadata-content.collapsed {
       padding: 0;
@@ -635,13 +859,16 @@
 
     /* Diagnostic specific */
     .q-card { border: 1px solid #e1e9f6; border-radius: 10px; padding: 12px; margin-bottom: 12px; background:#ffffff; }
+    .q-card.collapsed { background: #f8f9fa; border-color: #dee2e6; }
+    .q-card.collapsed .question-body { display: none; }
+    .question-summary { margin-top: 10px; }
     .choice { border:1px solid #c5d3ea; border-radius:8px; padding:8px; margin:6px 0; cursor:pointer; background:#ffffff; color:#0a0a0a; }
     .choice:hover { border-color:#1565c0; background:#f0f7ff; }
     .choice.correct { border-color:#1db954; }
     .choice.wrong { border-color:#e53935; }
-    .hint { color:#ffffff; background:#1565c0; border:1px solid #0d47a1; padding:8px; border-radius:6px; font-size:14px; margin-top:8px; font-weight:500; }
-    .explanation { color:#ffffff; background:#1976d2; border:1px solid #115293; padding:10px; border-radius:6px; font-size:14px; margin-top:10px; }
-    .explanation * { color:#ffffff; }
+    .hint { color:#000000; background:#1565c0; border:1px solid #0d47a1; padding:8px; border-radius:6px; font-size:14px; margin-top:8px; font-weight:500; }
+    .explanation { color:#000000; background:#1976d2; border:1px solid #115293; padding:10px; border-radius:6px; font-size:14px; margin-top:10px; }
+    .explanation * { color:#000000; }
     .progress-wrap { margin:8px 0 16px; }
     .progress-bar {
       position: relative;
@@ -684,6 +911,13 @@
     /* Disabled grey style for Continue and Summary buttons */
     #continue-btn:disabled { background-color:#555 !important; border-color:#555 !important; color:#ddd; }
     #summary-btn:disabled { background-color:#555 !important; border-color:#555 !important; color:#ddd; }
+    #summary-btn-deepen:disabled { background-color:#555 !important; border-color:#555 !important; color:#ddd; }
+    
+    /* Green styling for Results & Insights buttons */
+    #summary-btn { background-color: #4caf50 !important; border-color: #45a049 !important; color: #ffffff !important; }
+    #summary-btn:hover:not(:disabled) { background-color: #45a049 !important; }
+    #summary-btn-deepen { background-color: #4caf50 !important; border-color: #45a049 !important; color: #ffffff !important; }
+    #summary-btn-deepen:hover:not(:disabled) { background-color: #45a049 !important; }
     .diag-loader { display:none; align-items:center; gap:8px; margin-top:10px; color:#bbb; }
     .spinner { width:16px; height:16px; border:2px solid #c5d3ea; border-top-color:#1976d2; border-radius:50%; animation: spin .8s linear infinite; }
     @keyframes spin { from { transform: rotate(0deg);} to { transform: rotate(360deg);} }
@@ -702,7 +936,7 @@
     <div class="left-panel">
       <div class="settings-bar">
         <div class="settings-header" onclick="toggleCollapse()">
-          <span class="settings-title">Settings</span>
+          <span class="settings-title">Assessment Settings</span>
           <span class="settings-toggle" id="settings-toggle">▼</span>
         </div>
         <div class="settings-content">
@@ -710,7 +944,16 @@
         <label for="tester-name">Name of Tester</label>
         <input type="text" id="tester-name" placeholder="Enter Tester's Name" value="Tomer">
 
-          <label for="pack-name">Pack Name</label>
+          <label for="q-company">Which company/organization?</label>
+          <input type="text" id="q-company" placeholder="e.g., Company name">
+
+          <label for="q-location">Location of the company</label>
+          <input type="text" id="q-location" placeholder="e.g., New York, London, Remote">
+
+          <label for="q-position">Which position are you aiming for?</label>
+          <input type="text" id="q-position" placeholder="e.g., Analyst, Operator, Manager">
+
+          <label for="pack-name">Suggested Pack Name</label>
           <select id="pack-name">
             <option value="Watson Glaser" selected>Watson Glaser</option>
             <option value="EEI Practice Test">EEI Practice Test</option>
@@ -718,20 +961,18 @@
             <option value="Hogan Practice Test">Hogan Practice Test</option>
           </select>
           
-          <label for="assessment-date">Date for the Assessment</label>
+          <label for="assessment-date">Date for the Assessment - Optional</label>
           <input type="date" id="assessment-date">
 
-          <label for="q-position">Which position are you aiming for?</label>
-          <input type="text" id="q-position" placeholder="e.g., Analyst, Operator, Manager">
+          <label for="daily-hours">How many hours per day can you dedicate to test preparation? - Optional</label>
+          <select id="daily-hours">
+            <option value="1" selected>1 hour</option>
+            <option value="3">3 hours</option>
+            <option value="5">5 hours</option>
+            <option value="7">7+ hours</option>
+          </select>
 
-          <label for="q-company">Which company/organization?</label>
-          <input type="text" id="q-company" placeholder="e.g., Company name">
 
-          <label for="q-difficult">Is there a topic from the training material above that you find difficult?</label>
-          <input type="text" id="q-difficult" placeholder="e.g., Logic, Verbal, Numerical, Abstract">
-
-          <label for="q-request">Do you have any question or request before we begin?</label>
-          <input type="text" id="q-request" placeholder="Your question or request">
 
           <button id="submit-settings">Let's start!</button>
         </div>
@@ -740,28 +981,27 @@
 
     <!-- Right Side: Content Area -->
     <div class="right-panel">
-      <!-- Top Right: Learning Settings Metadata Card -->
-      <div class="metadata-card" id="metadata-card" style="display: none;">
+      <!-- Top Right: Assessment Settings Metadata Card -->
+      <div class="metadata-card" id="metadata-card" style="display: block;">
         <div class="metadata-header" onclick="toggleMetadata()">
           <span class="metadata-title">Assessment Profile</span>
           <span class="metadata-toggle" id="metadata-toggle">▼</span>
         </div>
-        <div class="metadata-content" id="metadata-content">
-          <div class="metadata-section">
-            <div class="settings-tags" id="settings-tags-container">
+        <div class="metadata-content collapsed" id="metadata-content">
+          <div class="assessment-profile" id="assessment-profile-container">
+            <!-- Enhanced Assessment Profile will be populated here -->
             </div>
-          </div>
-          
         </div>
       </div>
       
       <!-- Bottom Right: Chat Section -->
       <div class="chat-section">
         <div class="tabs">
-          <button class="tab active" data-tab="overview" onclick="switchTab('overview')">Overview</button>
+          <button class="tab active" data-tab="overview" onclick="switchTab('overview')">Onboarding</button>
+          <button class="tab" data-tab="learningplan" onclick="switchTab('learningplan')">Learning Plan</button>
           <button class="tab" data-tab="diagnostic" onclick="switchTab('diagnostic')">Diagnostic</button>
-          <button class="tab" data-tab="practice" onclick="switchTab('practice')">Practice</button>
-          <button class="tab" data-tab="simulate" onclick="switchTab('simulate')">Simulate</button>
+          <button class="tab" data-tab="practice" onclick="switchTab('practice')">Adaptive</button>
+          <button class="tab" data-tab="simulate" onclick="switchTab('simulate')">Drills</button>
           <button class="tab" data-tab="qstats" onclick="switchTab('qstats')">Question Stats</button>
         </div>
 
@@ -769,42 +1009,52 @@
           <!-- Overview Tab Content -->
           <div class="tab-content active" id="tab-overview">
             <div class="chat-box" id="chat-box">
-              <div class="chat-message system-msg" id="welcome-message"></div>
-            </div>
-            <div class="ai-chat-section" id="ai-chat-section" style="display: none;">
-              <div class="ai-input-container">
-                <input type="text" id="ai-chat-input" placeholder="Ask JobTestPrep AI anything...">
-                <button onclick="sendAIMessage()">Send</button>
-              </div>
-              <div class="suggestion-tags" id="suggestion-tags" style="display:none; margin-top:8px; gap:8px; flex-wrap:wrap;">
-                <span class="suggestion-tag" onclick="askSuggestion('Tell me about the Watson-Glaser test — what is it designed to measure?')">Tell me about the Watson-Glaser test — what is it designed to measure?</span>
-                <span class="suggestion-tag" onclick="askSuggestion('How many sections are in the Watson-Glaser test?')">How many sections are in the Watson-Glaser test?</span>
-                <span class="suggestion-tag" onclick="askSuggestion('How long do you have to answer 40 questions?')">How long do you have to answer 40 questions?</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Diagnostic Tab Content -->
-          <div class="tab-content" id="tab-diagnostic">
-            <div class="chat-box">
-              <div class="chat-message system-msg">
-                <div class="progress-wrap" id="diag-progress-wrap">
-                  <div style="display:flex;justify-content:space-between;align-items:center;">
-                    <span id="diag-progress-title">Warm-up progress</span>
-                    <span id="diag-progress-label">0/3</span>
-                  </div>
-                  <div class="progress-bar">
-                    <div id="diag-progress-bar"></div>
-                    <div id="diag-progress-pct" class="progress-pct">0%</div>
-                  </div>
+              <div class="chat-message system-msg" id="welcome-message">
+                <div style="text-align: center; padding: 20px;">
+                  <h2 style="color: #1976d2; margin-bottom: 15px; font-size: 24px;">👋 Welcome to JobTestPrep AI</h2>
+                  <p style="color: #3a4757; margin-bottom: 20px; font-size: 16px; line-height: 1.5;">
+                    I'm here to help you prepare for your Watson Glaser test.
+                    </p><p>About the test format, 
+                    question types, preparation strategies, or specific concepts you'd like to understand better.
+                  </p>
+                 
                 </div>
-                <button id="start-intro-btn" class="tag" onclick="loadDiagnostic()">Warm-Up Questions</button>
-                <div id="diag-loader" class="diag-loader"><div class="spinner"></div><span>Preparing questions...</span></div>
-                <button id="continue-btn" class="tag" style="display:none; margin-left:8px;" onclick="continueToDeepen()">Level Up Questions</button>
+              </div>
+            </div>
+            <div class="ai-chat-section" id="ai-chat-section" style="display: block;">
+              <div class="ai-input-container">
+                <input type="text" id="ai-chat-input" placeholder="Ask me about the Watson Glaser test...">
+                <button onclick="sendAIMessage()" id="ai-send-btn">
+                  <span id="btn-text">Send</span>
+                  <span id="btn-loading" style="display: none;">⏳</span>
+                </button>
+              </div>
+              <div class="suggestion-tags" id="suggestion-tags" style="display: flex; margin-top: 15px; gap: 10px; flex-wrap: wrap;">
+                <span class="suggestion-tag" onclick="askSuggestion('What is the Watson Glaser test and what does it measure?')">What is the Watson Glaser test?</span>
+                <span class="suggestion-tag" onclick="askSuggestion('What are the different question types in Watson Glaser?')">Question Types</span>
+                <span class="suggestion-tag" onclick="askSuggestion('How should I prepare for the Watson Glaser test?')">Preparation Tips</span>
+                <span class="suggestion-tag" onclick="askSuggestion('What are inference questions and how do I solve them?')">Inference Questions</span>
+                <span class="suggestion-tag" onclick="askSuggestion('How much time do I have for each question?')">Time Management</span>
+                <span class="suggestion-tag" onclick="askSuggestion('What are common mistakes to avoid?')">Common Mistakes</span>
+              </div>
+            </div>
+
+            <!-- Question Intro Sub-section within Welcome -->
+            <div class="intro-subsection" id="intro-subsection" style="margin-top: 30px; border-top: 2px solid #e1e9f6; padding-top: 20px; display: none;">
+              <div class="chat-message system-msg">
+                <h3 style="color: #1976d2; margin-bottom: 15px; font-size: 18px;">Ready to Start Your Assessment Journey?</h3>
+                <p style="margin-bottom: 20px; color: #3a4757;">Begin with our warm-up questions to get familiar with the question format.</p>
+                
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+                  <button id="start-learning-btn" class="tag" onclick="startLearning()" style="background: #28a745; border-color: #28a745;">Start Learning</button>
+                  <button id="start-intro-btn" class="tag" onclick="loadDiagnostic()" style="background: #1976d2; border-color: #1976d2;">Warm up's</button>
+                </div>
+                <div id="diag-loader" class="diag-loader" style="display:none;"><div class="spinner"></div><span>Preparing questions...</span></div>
                 <button id="summary-btn" class="tag" style="display:none; margin-left:8px;" onclick="requestSummary()">Results & Insights</button>
               </div>
+              
               <div id="diag-summary" style="margin:12px 0; display:block;"></div>
-              <div id="diag-overlay" class="diag-overlay" aria-hidden="true">
+              <div id="diag-overlay" class="diag-overlay" aria-hidden="true" style="display:none;">
                 <div class="overlay-inner">
                   <div class="spinner" style="width:20px;height:20px;border-width:3px;"></div>
                   <span>Preparing questions<span class="diag-ellipsis"></span></span>
@@ -814,12 +1064,132 @@
             </div>
           </div>
 
+          <!-- Learning Plan Tab Content -->
+          <div class="tab-content" id="tab-learningplan">
+            <div class="chat-box">
+              <div class="chat-message system-msg">                
+                <div id="learning-loader" class="diag-loader" style="display:none;"><div class="spinner"></div><span>Generating personalized plan...</span></div>
+              </div>
+              <div id="learning-summary" style="margin:12px 0; display:block;"></div>
+              <div id="learning-overlay" class="diag-overlay" aria-hidden="true" style="display:none;">
+                <div class="overlay-inner">
+                  <div class="spinner" style="width:20px;height:20px;border-width:3px;"></div>
+                  <span>Generating learning plan<span class="diag-ellipsis"></span></span>
+                </div>
+              </div>
+              <div id="learning-plan-content">
+                
+                <details id="learning-focus-info" class="q-card" style="margin-bottom:8px; display: none;">
+                  <summary class="section-title" style="cursor:pointer; margin:0;">Focus Areas (click to expand)</summary>
+                  <div style="padding: 12px 14px; background:#ffffff; border:1px solid #e1e9f6; border-radius:8px; margin-top:6px;">
+                    <div id="learning-focus-display">
+                      <!-- Dynamic focus areas content will be inserted here -->
+                    </div>
+                  </div>
+                </details>
+                
+                <details id="learning-schedule-info" class="q-card" style="margin-bottom:8px; display: none;">
+                  <summary class="section-title" style="cursor:pointer; margin:0;">Recommended Schedule (click to expand)</summary>
+                  <div style="padding: 12px 14px; background:#ffffff; border:1px solid #e1e9f6; border-radius:8px; margin-top:6px;">
+                    <div id="learning-schedule-display">
+                      <!-- Dynamic schedule content will be inserted here -->
+                    </div>
+                  </div>
+                </details>
+                
+                <details id="learning-goals-info" class="q-card" style="margin-bottom:8px; display: none;">
+                  <summary class="section-title" style="cursor:pointer; margin:0;">Goals & Milestones (click to expand)</summary>
+                  <div style="padding: 12px 14px; background:#ffffff; border:1px solid #e1e9f6; border-radius:8px; margin-top:6px;">
+                    <div id="learning-goals-display">
+                      <!-- Dynamic goals content will be inserted here -->
+                    </div>
+                  </div>
+                </details>
+                
+                <!-- Generate Learning Plan Button -->
+                  <div style="margin-top: 20px; text-align: left;">
+                    <button id="generate-plan-btn" class="tag" onclick="generateLearningPlan()" style="display: inline-block; background: #28a745; border-color: #28a745;">Generate Learning Plan</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-- Diagnostic Tab Content -->
+          <div class="tab-content" id="tab-diagnostic">
+            <div class="chat-box">
+              <div class="chat-message system-msg">
+                <button id="continue-btn" class="tag" onclick="continueToDeepen()" style="display: inline-block; background: #28a745; border-color: #28a745;">Diagnostic Questions</button>
+                <div class="progress-wrap" id="diag-progress-wrap-deepen" style="display:block; background: #f7faff; border: 1px solid #e1e9f6; border-radius: 8px; padding: 15px; margin: 15px 0;">
+                  <div style="display:flex;justify-content:space-between;align-items:center; margin-bottom: 10px;">
+                    <span id="diag-progress-title-deepen" style="font-weight: bold; color: #0a0a0a;">Diagnostic Questions Progress</span>
+                    <span id="diag-progress-label-deepen" style="font-weight: bold; color: #1976d2;">0/15</span>
+                  </div>
+                  <div class="progress-bar" style="background: #e1e9f6; border-radius: 10px; height: 20px; position: relative; overflow: hidden;">
+                    <div id="diag-progress-bar-deepen" style="background: linear-gradient(90deg, #1976d2, #1565c0); height: 100%; border-radius: 10px; transition: width 0.3s ease; width: 0%;"></div>
+                  </div>
+                </div>
+                <div id="diag-loader-deepen" class="diag-loader" style="display:none;"><div class="spinner"></div><span>Preparing advanced questions...</span></div>
+                <button id="summary-btn-deepen" class="tag" style="display:none; margin-left:8px;" onclick="requestSummary()">Results & Insights</button>
+              </div>
+              <div id="diag-summary-deepen" style="margin:12px 0; display:block;"></div>
+              <div id="diag-overlay-deepen" class="diag-overlay" aria-hidden="true" style="display:none;">
+                <div class="overlay-inner">
+                  <div class="spinner" style="width:20px;height:20px;border-width:3px;"></div>
+                  <span>Preparing advanced questions<span class="diag-ellipsis"></span></span>
+                </div>
+              </div>
+              <div id="diagnostic-questions-deepen"></div>
+            </div>
+          </div>
+
           <!-- Practice Tab Content -->
           <div class="tab-content" id="tab-practice">
             <div class="chat-box">
               <div class="chat-message system-msg">
-                Focused practice content will appear here.
+                <div class="practice-header">
+                  <h3 style="margin-bottom: 15px; color: #0a0a0a;">Adaptive Practice</h3>
+                  <p style="margin-bottom: 20px; color: #3a4757;">Select a category to practice with 5 targeted questions</p>
+                  
+                  <div class="practice-controls">
+                    <label for="category-select" style="display: block; margin-bottom: 8px; font-weight: 500; color: #0a0a0a;">Choose Category:</label>
+                    <select id="category-select" style="width: 250px; padding: 10px; border: 2px solid #e1e9f6; border-radius: 8px; font-size: 14px; background: #ffffff; color: #0a0a0a; margin-bottom: 15px;">
+                      <option value="">-- Select a Category --</option>
+                      <option value="Inference">Inference</option>
+                      <option value="Interpretation">Interpretation</option>
+                      <option value="Assumptions">Assumptions</option>
+                      <option value="Evaluation of Arguments">Evaluation of Arguments</option>
+                      <option value="Deduction">Deduction</option>
+                    </select>
+                    
+                    <button id="start-practice-btn" class="tag" onclick="startPractice()" style="display: none; margin-left: 10px;">Start Practice</button>
               </div>
+                  
+                  <div class="progress-wrap" id="practice-progress-wrap" style="display: none; margin-top: 15px;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                      <span id="practice-progress-title">Practice progress</span>
+                      <span id="practice-progress-label">0/5</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div id="practice-progress-bar"></div>
+                      <div id="practice-progress-pct" class="progress-pct">0%</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div id="practice-loader" class="diag-loader" style="display:none;"><div class="spinner"></div><span>Preparing practice questions...</span></div>
+                <button id="practice-summary-btn" class="tag" style="display:none; margin-top:15px;" onclick="requestPracticeSummary()">Practice Results</button>
+              </div>
+              
+              <div id="practice-summary" style="margin:12px 0; display:block;"></div>
+              <div id="practice-overlay" class="diag-overlay" aria-hidden="true" style="display:none;">
+                <div class="overlay-inner">
+                  <div class="spinner" style="width:20px;height:20px;border-width:3px;"></div>
+                  <span>Loading practice questions<span class="diag-ellipsis"></span></span>
+                </div>
+              </div>
+              <div id="practice-questions"></div>
             </div>
           </div>
 
@@ -827,10 +1197,51 @@
           <div class="tab-content" id="tab-simulate">
             <div class="chat-box">
               <div class="chat-message system-msg">
-                Full-length simulations will appear here.
+                <div class="drills-header">
+                  <h3 style="margin-bottom: 15px; color: #0a0a0a;">Drills Learning</h3>
+                  <p style="margin-bottom: 20px; color: #3a4757;">Select a category for intensive drill practice with 5 focused questions</p>
+                  
+                  <div class="drills-controls">
+                    <label for="drills-category-select" style="display: block; margin-bottom: 8px; font-weight: 500; color: #0a0a0a;">Choose Category:</label>
+                    <select id="drills-category-select" style="width: 250px; padding: 10px; border: 2px solid #e1e9f6; border-radius: 8px; font-size: 14px; background: #ffffff; color: #0a0a0a; margin-bottom: 15px;">
+                      <option value="">-- Select a Category --</option>
+                      <option value="Inference">Inference</option>
+                      <option value="Interpretation">Interpretation</option>
+                      <option value="Assumptions">Assumptions</option>
+                      <option value="Evaluation of Arguments">Evaluation of Arguments</option>
+                      <option value="Deduction">Deduction</option>
+                    </select>
+                    
+                    <button id="start-drills-btn" class="tag" onclick="startDrills()" style="display: none; margin-left: 10px;">Start Drills</button>
               </div>
+                  
+                  <div class="progress-wrap" id="drills-progress-wrap" style="display: none; margin-top: 15px;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                      <span id="drills-progress-title">Drills progress</span>
+                      <span id="drills-progress-label">0/5</span>
+                    </div>
+                    <div class="progress-bar">
+                      <div id="drills-progress-bar"></div>
+                      <div id="drills-progress-pct" class="progress-pct">0%</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div id="drills-loader" class="diag-loader" style="display:none;"><div class="spinner"></div><span>Preparing drill questions...</span></div>
+                <button id="drills-summary-btn" class="tag" style="display:none; margin-top:15px;" onclick="requestDrillsSummary()">Drills Results</button>
+              </div>
+              
+              <div id="drills-summary" style="margin:12px 0; display:block;"></div>
+              <div id="drills-overlay" class="diag-overlay" aria-hidden="true" style="display:none;">
+                <div class="overlay-inner">
+                  <div class="spinner" style="width:20px;height:20px;border-width:3px;"></div>
+                  <span>Loading drill questions<span class="diag-ellipsis"></span></span>
+                </div>
+              </div>
+              <div id="drills-questions"></div>
             </div>
           </div>
+
 
           <!-- Question Stats Tab Content -->
           <div class="tab-content" id="tab-qstats">
@@ -842,7 +1253,7 @@
                     <div style="display:grid; grid-template-columns: 200px 1fr; gap:6px 14px; align-items:start;">
                       <div><strong>Question Id</strong></div><div>Unique ID of the question.</div>
                       <div><strong>Stem</strong></div><div>The full question text.</div>
-                      <div><strong>Domain</strong></div><div>Watson-Glaser subject (Inference, Interpretation, Assumptions, Evaluation of Arguments, Deduction).</div>
+                      <div><strong>Domain</strong></div><div>Inference, Interpretation, Assumptions, Evaluation of Arguments, Deduction).</div>
                       <div><strong>Difficulty</strong></div><div>Declared difficulty from the bank.</div>
                       <div><strong>Total Attempts</strong></div><div>Number of first attempts recorded (exposures).</div>
                       <div><strong>Total Correct</strong></div><div>Count of correct first attempts.</div>
@@ -910,6 +1321,35 @@
           }
         });
       }
+
+      // Category selection handler for practice tab
+      const categorySelect = document.getElementById('category-select');
+      if (categorySelect) {
+        categorySelect.addEventListener('change', function() {
+          const startBtn = document.getElementById('start-practice-btn');
+          if (this.value && startBtn) {
+            startBtn.style.display = 'inline-block';
+          } else if (startBtn) {
+            startBtn.style.display = 'none';
+          }
+        });
+      }
+
+      // Category selection handler for drills tab
+      const drillsCategorySelect = document.getElementById('drills-category-select');
+      if (drillsCategorySelect) {
+        drillsCategorySelect.addEventListener('change', function() {
+          const startBtn = document.getElementById('start-drills-btn');
+          if (this.value && startBtn) {
+            startBtn.style.display = 'inline-block';
+          } else if (startBtn) {
+            startBtn.style.display = 'none';
+          }
+        });
+      }
+      
+      // Initialize Assessment Profile on page load
+      ensureAssessmentProfileVisible();
     });
     
     // Minimal Markdown renderer with basic table support
@@ -973,16 +1413,23 @@
       const packName = document.getElementById('pack-name').value;
       const testerName = document.getElementById('tester-name').value;
       const assessmentDate = document.getElementById('assessment-date').value;
+      const dailyHours = document.getElementById('daily-hours').value;
       const qPosition = document.getElementById('q-position').value;
       const qCompany = document.getElementById('q-company').value;
-      const qDifficult = document.getElementById('q-difficult').value;
-      const qRequest = document.getElementById('q-request').value;
+      const qLocation = document.getElementById('q-location').value;
+      
+      // New learning plan fields with default values
+      const startingProficiency = 'unknown';
+      const targetScore = 80;
+      const timePerItem = 90;
+      const contentBalance = false;
+      const enemySets = [];
 
       if (packName  && testerName && assessmentDate) {
         // Show loading state
         const submitButton = document.getElementById('submit-settings');
         const originalText = submitButton.textContent;
-        submitButton.textContent = 'Start Assessment';
+        submitButton.textContent = 'Start Learning';
         submitButton.disabled = true;
 
         try {
@@ -991,7 +1438,14 @@
             pack_name: packName,
             tester_name: testerName,
             assessment_date: assessmentDate,
-            duration: 60 // Default duration
+            daily_hours: parseFloat(dailyHours),
+            duration: 60, // Default duration
+            // New learning plan fields
+            starting_proficiency: startingProficiency,
+            target_score: targetScore,
+            time_per_item_sec: timePerItem,
+            content_balance: contentBalance,
+            enemy_sets: enemySets
           };
 
           // Debug: log what we're sending
@@ -1012,8 +1466,8 @@
                   session_id: generateSessionId(),
                   position: qPosition || null,
                   company: qCompany || null,
-                  difficult_topic: qDifficult || null,
-                  user_concerns: qRequest || null
+                  user_concerns: null,
+                  daily_hours: parseFloat(dailyHours)
                 },
                 history: []
               })
@@ -1040,7 +1494,7 @@
           if (chatBox) {
             const existingSettings = chatBox.querySelectorAll('.chat-message.system-msg');
             existingSettings.forEach(msg => {
-              if (msg.textContent.includes('Learning Settings:')) {
+              if (msg.textContent.includes('Assessment Settings:')) {
                 msg.remove();
               }
             });
@@ -1059,16 +1513,31 @@
           // Show metadata card and populate it
           document.getElementById('metadata-card').style.display = 'block';
           
-          // Populate consolidated Learning Settings & Assessment Timeline section
-          const consolidatedHTML = `
-            <div>
-              <span class="tag">Pack Name: ${packName}</span>
-              <span class="tag">Assessment Date: ${assessmentDate}</span>
-              <span class="tag">${daysText}</span>
+          // Create enhanced Assessment Profile
+          let profileHTML = `
+            <div class="profile-section">
+              <h4>Personal Details</h4>
+              <div class="profile-tags">
+                <span class="profile-tag">User: ${testerName}</span>    
+                <span class="profile-tag">Company: ${qCompany}</span>              
+                <span class="profile-tag">Location: ${qLocation}</span>              
+                <span class="profile-tag">Position: ${qPosition}</span>
+              </div>
             </div>
+            
+            <div class="profile-section">
+              <h4>Timeline & Schedule</h4>
+              <div class="profile-tags">
+                <span class="profile-tag">Pack name: ${packName}</span>
+                <span class="profile-tag">Assessment: ${daysText}</span>
+                <span class="profile-tag">Assessment date: ${assessmentDate}</span>
+                <span class="profile-tag">Hours in day for practice: ${dailyHours}h daily</span>
+              </div>
+            </div>
+            
           `;
           
-          document.getElementById('settings-tags-container').innerHTML = consolidatedHTML;
+          document.getElementById('assessment-profile-container').innerHTML = profileHTML;
           
           
           // Add system message with welcome at top-right (render Markdown)
@@ -1090,6 +1559,12 @@
               // Keep scroll at top to show welcome
               chatBox.scrollTop = 0;
             }
+            
+            // Show the intro section after form submission
+            const introSection = document.getElementById('intro-subsection');
+            if (introSection) {
+              introSection.style.display = 'block';
+            }
           }, 500);
           
           document.getElementById('ai-chat-section').style.display = 'block';
@@ -1106,6 +1581,11 @@
               sendAIMessage();
             }
           });
+          
+          // Update learning plan if it's currently visible
+          if (document.getElementById('tab-learningplan').classList.contains('active')) {
+            updateLearningPlan();
+          }
 
         } catch (error) {
           console.error('Error saving settings:', error);
@@ -1182,9 +1662,9 @@
       const summaryBtn = document.getElementById('summary-btn');
       if (summaryBtn) summaryBtn.style.display = 'none';
       updateDiagProgress();
-      if (titleEl) titleEl.textContent = 'Warm-up progress';
+      if (titleEl) titleEl.textContent = 'Warm-up Progress';
       if (progWrap) progWrap.style.display = 'block';
-      if (btn) { btn.disabled = true; btn.textContent = 'Loading...'; }
+      if (btn) { btn.disabled = true; btn.textContent = 'Let\'s Start'; }
       if (loader) loader.style.display = 'flex';
       if (overlay) overlay.style.display = 'flex';
       try {
@@ -1208,7 +1688,7 @@
       } finally {
         if (loader) loader.style.display = 'none';
         if (overlay) overlay.style.display = 'none';
-        if (btn) { btn.disabled = false; btn.textContent = 'Start Intro Assessment'; }
+        // Keep button disabled after starting - don't re-enable
       }
     }
 
@@ -1229,67 +1709,15 @@
       return targets;
     }
 
-    async function continueToDeepen() {
-      const container = document.getElementById('diagnostic-questions');
-      const overlay = document.getElementById('diag-overlay');
-      const loader = document.getElementById('diag-loader');
-      const continueBtn = document.getElementById('continue-btn');
-      const startBtn = document.getElementById('start-intro-btn');
-      const titleEl = document.getElementById('diag-progress-title');
-      const chatBox = document.querySelector('#tab-diagnostic .chat-box');
-      const progWrap = document.getElementById('diag-progress-wrap');
-      if (continueBtn) { continueBtn.style.display = 'inline-block'; continueBtn.disabled = true; }
-      if (startBtn) { startBtn.disabled = true; startBtn.style.display = 'inline-block'; }
-      if (titleEl) titleEl.textContent = 'Deepen progress';
-      if (chatBox) chatBox.scrollTop = 0;
-      diagState.stage = 'DEEPEN';
-      if (progWrap) progWrap.style.display = 'block';
-      if (overlay) overlay.style.display = 'flex';
-      if (loader) loader.style.display = 'flex';
-      try {
-        const target_difficulty = computeTargetsFromIntro();
-        const res = await fetch('/api/chat/intro', {
-          method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ action:'select_deepen', payload:{ target_difficulty } })
-        });
-        if (!res.ok) { showNotification('Failed to load deepen selection', 'error'); return; }
-        const data = await res.json();
-        const selection = (data && typeof data === 'object' && data.selection && typeof data.selection === 'object')
-          ? data.selection
-          : (data && typeof data === 'object' ? data : {});
-        const all = Object.values(selection).reduce((acc, arr) => acc.concat(arr || []), []);
-        // Refresh and present only deepen questions
-        container.innerHTML = '';
-        diagState.attempts = {};
-        diagState.correct = {};
-        diagState.completed = {};
-        diagState.first = {};
-        diagState.startMs = {};
-        diagState.firstAnswerMs = {};
-        diagState.firstDurationSec = {};
-        diagState.firstChoice = {};
-        diagState.correctText = {};
-        diagState.order = [];
-        diagState.done = 0;
-        diagState.total = all.length || 0;
-        diagState.questions = {};
-        updateDiagProgress();
-        all.forEach(renderQuestionCard);
-      } catch (e) {
-        showNotification('Network error while loading deepen selection', 'error');
-      } finally {
-        if (overlay) overlay.style.display = 'none';
-        if (loader) loader.style.display = 'none';
-      }
-    }
-
     function renderQuestionCard(q) {
-      const container = document.getElementById('diagnostic-questions');
+      // Use the appropriate container based on the current diagnostic stage
+      const containerId = diagState.stage === 'DEEPEN' ? 'diagnostic-questions-deepen' : 'diagnostic-questions';
+      const container = document.getElementById(containerId);
       const card = document.createElement('div');
       card.className = 'q-card';
       card.id = `q-${q.id}`;
       const answerBadge = (typeof q.correct_index === 'number' && q.correct_index >= 0)
-        ? `<span class=\"badge\">Answer ${q.correct_index + 1}</span>`
+        ? `<span class="badge">Answer ${q.correct_index + 1}</span>`
         : '';
       const titleHTML = `
         <div class="q-tag">
@@ -1335,34 +1763,29 @@
     async function handleChoice(q, elem, chosen) {
       const qid = q.id;
       const key = qid;
-      const attempts = diagState.attempts[key] || 0;
-
-      // Record first attempt outcome for scoring (only once)
-      const isFirstAttempt = attempts === 0 && diagState.first[key] == null;
-
-      // Check answer
-      const check = await fetch('/api/chat/intro', {
-        method:'POST', headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({
-          action:'check',
-          payload:{
-            qid,
-            chosen,
-            attempt: attempts,
-            tester_name: (document.getElementById('tester-name')?.value || 'Unknown'),
-            assessment_date: (document.getElementById('assessment-date')?.value || new Date().toISOString().split('T')[0])
-          }
-        })
+      
+      // Single attempt only - disable all choices immediately
+      const choicesContainer = elem.parentElement;
+      const allChoices = choicesContainer.querySelectorAll('.choice');
+      allChoices.forEach(choice => {
+        choice.style.pointerEvents = 'none';
+        choice.style.opacity = '0.7';
       });
-      const { is_correct, correct } = await check.json();
 
-      if (isFirstAttempt) {
-        diagState.first[key] = is_correct ? 'correct' : 'wrong';
+      // Determine if answer is correct
+      const isCorrect = (chosen === q.choices[q.correct_index]);
+      const correct = q.choices[q.correct_index];
+
+      // Record the single attempt
+      diagState.attempts[key] = 1;
         const start = diagState.startMs[key] || Date.now();
         diagState.firstAnswerMs[key] = Date.now();
         const dur = Math.max(0, Math.round((diagState.firstAnswerMs[key] - start) / 1000));
         diagState.firstDurationSec[key] = dur;
         diagState.firstChoice[key] = chosen;
+      diagState.first[key] = isCorrect ? 'correct' : 'incorrect';
+      
+      // Record for analytics
         if (!diagState.seenFirst[key]) {
           diagState.seenFirst[key] = true;
           const meta = diagState.questions[key] || {};
@@ -1374,60 +1797,16 @@
             first_attempt: diagState.first[key],
             first_duration_sec: dur,
             user_answer: chosen,
-            correct_answer: diagState.correctText[key] || correct,
-          });
-        }
-      }
-
-      if (is_correct) {
-        markChoice(elem, true);
-        diagState.correct[key] = true;
-        // On correct answer, fetch and show explanation
-        try {
-          const expRes = await fetch('/api/chat/intro', {
-            method:'POST', headers:{'Content-Type':'application/json'},
-            body: JSON.stringify({ action:'explain', payload:{ stem:q.stem, choices:q.choices, correct, first_attempt: attempts, second_attempt: attempts, tags:[] } })
-          });
-          if (expRes.ok) {
-            const { explanation, misconception } = await expRes.json();
-            const expEl = document.getElementById(`exp-${qid}`);
-            if (expEl) {
-              expEl.style.display='block';
-              expEl.innerHTML = `${renderMarkdown(explanation)}${misconception ? `<br><em>${misconception}</em>` : ''}`;
-            }
-          }
-        } catch (e) {}
-        finalizeQuestion(qid);
-        return;
-      }
-
-      // first wrong -> request hint
-      if (attempts === 0) {
-        diagState.attempts[key] = 1;
-        const hintRes = await fetch('/api/chat/intro', {
-          method:'POST', headers:{'Content-Type':'application/json'},
-          body: JSON.stringify({ action:'hint', payload:{ stem:q.stem, choices:q.choices, chosen, tags:[] } })
+          correct_answer: correct,
         });
-        const { hint } = await hintRes.json();
-        const hintEl = document.getElementById(`hint-${qid}`);
-        if (hintEl) { hintEl.style.display='block'; hintEl.textContent = `Hint: ${hint}`; }
-        markChoice(elem, false);
-        return;
       }
 
-      // second wrong -> show explanation
-      diagState.attempts[key] = 2;
-      const expRes = await fetch('/api/chat/intro', {
-        method:'POST', headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({ action:'explain', payload:{ stem:q.stem, choices:q.choices, correct, first_attempt:0, second_attempt:1, tags:[] } })
-      });
-      const { explanation, misconception } = await expRes.json();
-      const expEl = document.getElementById(`exp-${qid}`);
-      if (expEl) {
-        expEl.style.display='block';
-        expEl.innerHTML = `${renderMarkdown(explanation)}<br><em>${misconception}</em>`;
-      }
-      markChoice(elem, false);
+      // Mark the selected choice and show correct answer
+      markChoice(elem, isCorrect);
+      
+      // Update progress and finalize
+      diagState.correct[key] = isCorrect;
+      
       finalizeQuestion(qid);
     }
 
@@ -1444,28 +1823,32 @@
     }
 
     function finalizeQuestion(qid) {
-      // Count completion only when answered correctly
-      if (!diagState.completed[qid] && diagState.correct[qid]) {
+      // For Diagnostic Questions (DEEPEN), count every answered question
+      // For Warm-up Questions (INTRO), count only correct answers
+      const shouldCount = (diagState.stage === 'DEEPEN') ? true : diagState.correct[qid];
+      
+      if (!diagState.completed[qid] && shouldCount) {
         diagState.completed[qid] = true;
         diagState.done += 1;
         updateDiagProgress();
-        // Collapse the question body after correct answer
+        // Collapse the question body after answer
         const body = document.getElementById(`q-body-${qid}`);
         const card = document.getElementById(`q-${qid}`);
         if (body) body.style.display = 'none';
         if (card) card.classList.add('collapsed');
       }
       // If all done, reveal continue/summary by stage and disable Start Intro
-      const continueBtn = document.getElementById('continue-btn');
       const summaryBtn = document.getElementById('summary-btn');
+      const summaryBtnDeepen = document.getElementById('summary-btn-deepen');
       const startBtn = document.getElementById('start-intro-btn');
       if (diagState.done >= diagState.total) {
         if (startBtn) startBtn.disabled = true;
         if (diagState.stage === 'INTRO') {
-          if (continueBtn) { continueBtn.style.display = 'inline-block'; continueBtn.disabled = false; }
-        } else if (diagState.stage === 'DEEPEN') {
+          // For intro stage, show the summary button in Question Intro tab
           if (summaryBtn) { summaryBtn.style.display = 'inline-block'; summaryBtn.disabled = false; }
-          if (continueBtn) continueBtn.disabled = true;
+        } else if (diagState.stage === 'DEEPEN') {
+          // For deepen stage, show summary in the diagnostic tab
+          if (summaryBtnDeepen) { summaryBtnDeepen.style.display = 'inline-block'; summaryBtnDeepen.disabled = false; }
         }
       }
     }
@@ -1482,11 +1865,470 @@
       }
     }
 
-    async function requestSummary() {
-      const overlay = document.getElementById('diag-overlay');
-      const loader = document.getElementById('diag-loader');
+    async function continueToDeepen() {
+      const container = document.getElementById('diagnostic-questions-deepen');
+      const overlay = document.getElementById('diag-overlay-deepen');
+      const loader = document.getElementById('diag-loader-deepen');
+      const continueBtn = document.getElementById('continue-btn');
+      const titleEl = document.getElementById('diag-progress-title-deepen');
+      const chatBox = document.querySelector('#tab-diagnostic .chat-box');
+      const progWrap = document.getElementById('diag-progress-wrap-deepen');
+      if (continueBtn) { continueBtn.style.display = 'inline-block'; continueBtn.disabled = true; }
+      if (titleEl) titleEl.textContent = 'Diagnostic Questions';
+      if (chatBox) chatBox.scrollTop = 0;
+      diagState.stage = 'DEEPEN';
+      if (progWrap) {
+        progWrap.style.display = 'block';
+        console.log('Diagnostic Questions: Progress bar shown');
+      } else {
+        console.error('Diagnostic Questions: Progress wrap not found');
+      }
+      if (overlay) overlay.style.display = 'flex';
+      if (loader) loader.style.display = 'flex';
+      try {
+        let target_difficulty = computeTargetsFromIntro();
+        
+        // If no intro data available, use default difficulty targets
+        if (!target_difficulty || Object.keys(target_difficulty).length === 0) {
+          target_difficulty = {
+            'Inference': 3,
+            'Interpretation': 3,
+            'Assumptions': 3,
+            'Evaluation of Arguments': 3,
+            'Deduction': 3
+          };
+        }
+        
+        const res = await fetch('/api/chat/intro', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action:'select_deepen', payload:{ target_difficulty } })
+        });
+        if (!res.ok) { showNotification('Failed to load deepen selection', 'error'); return; }
+        const data = await res.json();
+        const selection = (data && typeof data === 'object' && data.selection && typeof data.selection === 'object')
+          ? data.selection
+          : (data && typeof data === 'object' ? data : {});
+        const all = Object.values(selection).reduce((acc, arr) => acc.concat(arr || []), []);
+            console.log('Diagnostic Questions loaded:', all.length, 'questions');
+        
+        // Refresh and present only deepen questions
+        if (container) {
+        container.innerHTML = '';
+        } else {
+          console.error('diagnostic-questions-deepen container not found');
+        }
+        
+        diagState.attempts = {};
+        diagState.correct = {};
+        diagState.completed = {};
+        diagState.first = {};
+        diagState.startMs = {};
+        diagState.firstAnswerMs = {};
+        diagState.firstDurationSec = {};
+        diagState.firstChoice = {};
+        diagState.correctText = {};
+        diagState.order = [];
+        diagState.done = 0;
+        diagState.total = all.length || 0;
+        diagState.questions = {};
+        
+        // Initialize the deepen progress bar
+        const lblDeepen = document.getElementById('diag-progress-label-deepen');
+        const barDeepen = document.getElementById('diag-progress-bar-deepen');
+        
+        const currentPct = diagState.total ? Math.round(100 * (diagState.done / diagState.total)) : 0;
+        
+        if (lblDeepen) lblDeepen.textContent = `${diagState.done}/${diagState.total}`;
+        if (barDeepen) barDeepen.style.width = currentPct + '%';
+        
+        console.log(`Progress initialized: ${diagState.done}/${diagState.total} (${currentPct}%)`);
+        
+        // Force progress bar to be visible
+        const progressWrapForce = document.getElementById('diag-progress-wrap-deepen');
+        if (progressWrapForce) {
+          progressWrapForce.style.display = 'block';
+          progressWrapForce.style.visibility = 'visible';
+        }
+        
+        updateDiagProgress();
+        
+        if (all.length > 0) {
+        all.forEach(renderQuestionCard);
+          console.log('Questions rendered to container:', container?.id);
+          console.log('Progress bar should be visible. Total questions:', diagState.total);
+          
+          // Ensure progress bar is visible
+          const progressWrap = document.getElementById('diag-progress-wrap-deepen');
+          if (progressWrap) {
+            progressWrap.style.display = 'block';
+            console.log('Progress bar display set to block');
+          } else {
+            console.error('Progress wrap element not found');
+          }
+        } else {
+          console.warn('No questions received from API');
+        }
+      } catch (e) {
+        showNotification('Network error while loading deepen selection', 'error');
+      } finally {
+        if (overlay) overlay.style.display = 'none';
+        if (loader) loader.style.display = 'none';
+      }
+    }
+
+
+    async function handleChoice(q, elem, chosen) {
+      const qid = q.id;
+      const key = qid;
+      
+      // Single attempt only - disable all choices immediately
+      const choicesContainer = elem.parentElement;
+      const allChoices = choicesContainer.querySelectorAll('.choice');
+      allChoices.forEach(choice => {
+        choice.style.pointerEvents = 'none';
+        choice.style.opacity = '0.7';
+      });
+
+      // Determine if answer is correct
+      const isCorrect = (chosen === q.choices[q.correct_index]);
+      const correct = q.choices[q.correct_index];
+
+      // Record the single attempt
+      diagState.attempts[key] = 1;
+        const start = diagState.startMs[key] || Date.now();
+        diagState.firstAnswerMs[key] = Date.now();
+        const dur = Math.max(0, Math.round((diagState.firstAnswerMs[key] - start) / 1000));
+        diagState.firstDurationSec[key] = dur;
+        diagState.firstChoice[key] = chosen;
+      diagState.first[key] = isCorrect ? 'correct' : 'incorrect';
+      
+      // Record for analytics
+        if (!diagState.seenFirst[key]) {
+          diagState.seenFirst[key] = true;
+          const meta = diagState.questions[key] || {};
+          diagState.records.push({
+            phase: diagState.stage,
+            qid: key,
+            domain: meta.domain || '',
+            difficulty: meta.difficulty || null,
+            first_attempt: diagState.first[key],
+            first_duration_sec: dur,
+            user_answer: chosen,
+          correct_answer: correct,
+        });
+      }
+
+
+      // Mark the selected choice and show correct answer
+      markChoice(elem, isCorrect);
+      
+      // Highlight the correct answer if user was wrong (only for INTRO stage)
+      if (!isCorrect && diagState.stage !== 'DEEPEN') {
+        allChoices.forEach((choice, idx) => {
+          if (q.choices[idx] === correct) {
+            choice.classList.add('correct');
+            choice.style.backgroundColor = '#d4edda';
+            choice.style.borderColor = '#c3e6cb';
+          }
+        });
+      }
+
+      // For Diagnostic Questions (DEEPEN stage), skip hints and explanations, just collapse
+      if (diagState.stage === 'DEEPEN') {
+        // Collapse the question immediately - keep it visible but collapsed
+        const questionCard = elem.closest('.q-card');
+        if (questionCard) {
+          // Add collapsed class and hide the question body
+          questionCard.classList.add('collapsed');
+          const questionBody = questionCard.querySelector('.question-body');
+          if (questionBody) {
+            questionBody.style.display = 'none';
+          }
+          // Show a summary that the question was answered
+          const summary = questionCard.querySelector('.question-summary') || document.createElement('div');
+          summary.className = 'question-summary';
+          summary.innerHTML = `<div style="padding: 10px; background: #f8f9fa; border-radius: 5px; margin-top: 10px; font-style: italic; color: #6c757d;">
+            ✓ Answered: ${chosen}
+          </div>`;
+          questionCard.appendChild(summary);
+        }
+      } else {
+        // For other stages (INTRO), show hints and explanations
+        // Always show hint first (educational purpose)
+        try {
+        const hintRes = await fetch('/api/chat/intro', {
+          method:'POST', headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({ action:'hint', payload:{ stem:q.stem, choices:q.choices, chosen, tags:[] } })
+        });
+          if (hintRes.ok) {
+        const { hint } = await hintRes.json();
+        const hintEl = document.getElementById(`hint-${qid}`);
+            if (hintEl && hint) { 
+              hintEl.style.display='block'; 
+              hintEl.innerHTML = `<strong>💡 Hint:</strong> ${hint}`;
+              hintEl.style.background = '#fff3cd';
+              hintEl.style.border = '1px solid #ffeaa7';
+              hintEl.style.color = '#000000';
+              hintEl.style.padding = '10px';
+              hintEl.style.borderRadius = '5px';
+              hintEl.style.marginTop = '10px';
+            }
+          }
+        } catch (e) {
+          console.warn('Failed to load hint:', e);
+        }
+
+        // Always show explanation after hint
+        try {
+      const expRes = await fetch('/api/chat/intro', {
+        method:'POST', headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({ action:'explain', payload:{ stem:q.stem, choices:q.choices, correct, first_attempt: 1, second_attempt: 1, tags:[] } })
+      });
+          if (expRes.ok) {
+      const { explanation, misconception } = await expRes.json();
+      const expEl = document.getElementById(`exp-${qid}`);
+            if (expEl && explanation) {
+        expEl.style.display='block';
+              expEl.innerHTML = `<strong>📚 Explanation:</strong><br>${renderMarkdown(explanation)}${misconception ? `<br><em><strong>Common Misconception:</strong> ${misconception}</em>` : ''}`;
+              expEl.style.background = '#e8f4fd';
+              expEl.style.border = '1px solid #bee5eb';
+              expEl.style.color = '#000000';
+              expEl.style.padding = '10px';
+              expEl.style.borderRadius = '5px';
+              expEl.style.marginTop = '10px';
+            }
+          }
+        } catch (e) {
+          console.warn('Failed to load explanation:', e);
+        }
+      }
+
+      // Update progress and finalize
+      if (isCorrect) {
+        diagState.correct[key] = true;
+      }
+      
+      finalizeQuestion(qid);
+    }
+
+    function markChoice(elem, isCorrect) {
+      if (isCorrect) {
+        elem.classList.add('correct');
+        // Lock entire question when correct
+        Array.from(elem.parentElement.children).forEach(c => (c.onclick = null));
+      } else {
+        elem.classList.add('wrong');
+        // Disable only the selected wrong option; keep others clickable for re-try
+        elem.onclick = null;
+      }
+    }
+
+    function finalizeQuestion(qid) {
+      // For Diagnostic Questions (DEEPEN), count every answered question
+      // For Warm-up Questions (INTRO), count only correct answers
+      const shouldCount = (diagState.stage === 'DEEPEN') ? true : diagState.correct[qid];
+      
+      if (!diagState.completed[qid] && shouldCount) {
+        diagState.completed[qid] = true;
+        diagState.done += 1;
+        updateDiagProgress();
+        // Collapse the question body after answer
+        const body = document.getElementById(`q-body-${qid}`);
+        const card = document.getElementById(`q-${qid}`);
+        if (body) body.style.display = 'none';
+        if (card) card.classList.add('collapsed');
+      }
+      // If all done, reveal continue/summary by stage and disable Start Intro
       const summaryBtn = document.getElementById('summary-btn');
-      const summaryEl = document.getElementById('diag-summary');
+      const summaryBtnDeepen = document.getElementById('summary-btn-deepen');
+      const startBtn = document.getElementById('start-intro-btn');
+      if (diagState.done >= diagState.total) {
+        if (startBtn) startBtn.disabled = true;
+        if (diagState.stage === 'INTRO') {
+          // For intro stage, show the summary button in Question Intro tab
+          if (summaryBtn) { summaryBtn.style.display = 'inline-block'; summaryBtn.disabled = false; }
+        } else if (diagState.stage === 'DEEPEN') {
+          // For deepen stage, show summary in the diagnostic tab
+          if (summaryBtnDeepen) { summaryBtnDeepen.style.display = 'inline-block'; summaryBtnDeepen.disabled = false; }
+        }
+        }
+      }
+      
+      function generateReport(payload) {
+        if (!payload || typeof payload !== 'object') return `<pre>Error: Invalid data format</pre>`;
+        
+        const escapeHtml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        const titleCase = (s) => String(s || '').replace(/_/g,' ').replace(/\b\w/g, (m) => m.toUpperCase());
+        const clampPct = (n) => Math.max(0, Math.min(100, Number(n) || 0));
+        
+        const buildDomainBar = (label, pct) => {
+          const p = clampPct(pct);
+          const percentColor = (p < 50) ? '#e53935' : (p >= 80 ? '#2e7d32' : '#0a0a0a');
+          const gradient = (p < 50)
+            ? 'linear-gradient(90deg,#ef5350,#e53935)'
+            : (p >= 80 ? 'linear-gradient(90deg,#66bb6a,#2e7d32)' : 'linear-gradient(90deg,#64b5f6,#1976d2)');
+          return `
+            <div style="min-width:220px;background:#ffffff;border:1px solid #e1e9f6;border-radius:8px;padding:10px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                <span style="font-size:12px;color:#3a4757;">${escapeHtml(label)}</span>
+                <span style="font-size:12px;color:${percentColor};font-weight:600;">${p}%</span>
+              </div>
+              <div style="background:#eef5ff;height:10px;border-radius:8px;overflow:hidden;border:1px solid #d6e1f3;">
+                <div style="width:${p}%;height:100%;background:${gradient};"></div>
+              </div>
+            </div>`;
+        };
+
+        const meta = payload.metadata || {};
+        const sum = payload.summary || {};
+        const domains = payload.domainScores || {};
+        const insights = payload.insights || {};
+        const bank = meta.questionBank || 'Watson Glaser';
+        const overall = sum.overallScore != null ? Number(sum.overallScore) : null;
+        const avgTime = sum.averageResponseTime != null ? Number(sum.averageResponseTime) : null;
+        const targetTime = sum.targetResponseTime != null ? Number(sum.targetResponseTime) : null;
+
+        const timeNote = (avgTime != null && targetTime != null)
+          ? (avgTime <= targetTime ? `On pace (avg ${avgTime}s ≤ target ${targetTime}s)`
+             : `Above target by ${Math.floor(Math.max(0, avgTime - targetTime))}s`)
+          : '';
+
+        const summaryCards = `
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <div style="flex:1;min-width:220px;background:#f7fbff;border:1px solid #e1e9f6;border-radius:8px;padding:12px;">
+              <div style="font-size:12px;color:#3a4757;">Test Name</div>
+              <div style="font-size:14px;color:#0a0a0a;font-weight:600;">${escapeHtml(bank)}</div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#f7fbff;border:1px solid #e1e9f6;border-radius:8px;padding:12px;">
+              <div style="font-size:12px;color:#3a4757;">Overall Score</div>
+              <div style="font-size:28px;font-weight:700;color:#0a0a0a;">${overall != null ? escapeHtml(String(overall)) + '%' : '-'}</div>
+            </div>
+            <div style="flex:1;min-width:220px;background:#f7fbff;border:1px solid #e1e9f6;border-radius:8px;padding:12px;">
+              <div style="font-size:12px;color:#3a4757;">Timing</div>
+              <div style="font-size:14px;color:#0a0a0a;">${avgTime != null ? escapeHtml(String(avgTime)) + 's' : '-'} · ${targetTime != null ? 'Target ' + escapeHtml(String(targetTime)) + 's' : ''}</div>
+              ${timeNote ? `<div style="font-size:12px;color:#3a4757;margin-top:6px;">${escapeHtml(timeNote)}</div>` : ''}
+            </div>
+            <div style="flex:1;min-width:220px;background:#f7fbff;border:1px solid #e1e9f6;border-radius:8px;padding:12px;">
+              <div style="font-size:12px;color:#3a4757;">Summary</div>
+              <div style="font-size:14px;color:#0a0a0a;font-weight:600;">${(insights && typeof insights.summary === 'string' && insights.summary.trim()) ? escapeHtml(insights.summary) : '-'}</div>
+            </div>
+          </div>`;
+
+        const domainBars = Object.entries(domains).map(([k,v]) => {
+          const label = (k === 'arguments') ? 'Evaluation of Arguments' : titleCase(k);
+          return buildDomainBar(label, v);
+        }).join('');
+
+        // Inline SVG bar chart for domain scores
+        const barSvg = (() => {
+          const entries = Object.entries(domains);
+          if (!entries.length) return '';
+          const width = 560;
+          const height = 220;
+          const margin = { top: 20, right: 16, bottom: 48, left: 24 };
+          const innerW = width - margin.left - margin.right;
+          const innerH = height - margin.top - margin.bottom;
+          const barCount = entries.length;
+          const barGap = 12;
+          const barW = Math.floor((innerW - barGap * (barCount - 1)) / barCount);
+          const maxVal = 100;
+          let svg = `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="Domain scores bar chart">
+            <defs>
+              <linearGradient id="barBlue" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#64b5f6" />
+                <stop offset="100%" stop-color="#1976d2" />
+              </linearGradient>
+              <linearGradient id="barRed" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ef5350" />
+                <stop offset="100%" stop-color="#e53935" />
+              </linearGradient>
+              <linearGradient id="barGreen" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#66bb6a" />
+                <stop offset="100%" stop-color="#2e7d32" />
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="${width}" height="${height}" fill="#ffffff" rx="8" ry="8"/>
+            <g transform="translate(${margin.left},${margin.top})">
+              <rect x="0" y="0" width="${innerW}" height="${innerH}" fill="#fbfdff" stroke="#e1e9f6" rx="8" ry="8"/>
+              <line x1="0" y1="${innerH}" x2="${innerW}" y2="${innerH}" stroke="#d6e1f3"/>
+              <line x1="0" y1="0" x2="0" y2="${innerH}" stroke="#d6e1f3"/>
+          `;
+          entries.forEach(([k, v], i) => {
+            const pct = clampPct(v);
+            const bh = Math.round((pct / maxVal) * innerH);
+            const x = i * (barW + barGap);
+            const y = innerH - bh;
+            const label = (k === 'arguments') ? 'Arguments' : titleCase(k);
+            const gradId = pct < 50 ? 'barRed' : (pct >= 80 ? 'barGreen' : 'barBlue');
+            const stroke = pct < 50 ? '#c62828' : (pct >= 80 ? '#2e7d32' : '#1565c0');
+            const labelColor = pct < 50 ? '#e53935' : (pct >= 80 ? '#2e7d32' : '#0a0a0a');
+            svg += `
+              <rect x="${x}" y="${y}" width="${barW}" height="${bh}" fill="url(#${gradId})" stroke="${stroke}"/>
+              <text x="${x + barW / 2}" y="${y - 6}" text-anchor="middle" font-size="11" fill="${labelColor}">${pct}%</text>
+              <text x="${x + barW / 2}" y="${innerH + 16}" text-anchor="middle" font-size="11" fill="#3a4757">${label}</text>
+            `;
+          });
+          svg += `</g></svg>`;
+          return svg;
+        })();
+
+        const strengths = Array.isArray(insights.strengths) ? insights.strengths : [];
+        const focusAreas = Array.isArray(insights.focusAreas) ? insights.focusAreas : [];
+        const timing = Array.isArray(insights.timing) ? insights.timing : [];
+
+        const insightsHtml = `
+          <div class="section-title" style="margin-top:20px;">Performance Insights</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:15px;margin-top:10px;">
+            ${strengths.length > 0 ? `
+              <div style="background:#f8f9fa;border-radius:8px;padding:15px;">
+                <div style="font-weight:600;color:#333;margin-bottom:10px;">Strengths</div>
+                <ul style="margin:0;padding-left:20px;color:#555;">
+                  ${strengths.map(s => `<li>${escapeHtml(s)}</li>`).join('')}
+                </ul>
+              </div>
+            ` : ''}
+            ${focusAreas.length > 0 ? `
+              <div style="background:#f8f9fa;border-radius:8px;padding:15px;">
+                <div style="font-weight:600;color:#333;margin-bottom:10px;">Focus Areas</div>
+                <ul style="margin:0;padding-left:20px;color:#555;">
+                  ${focusAreas.map(f => `<li>${escapeHtml(f)}</li>`).join('')}
+                </ul>
+              </div>
+            ` : ''}
+            ${timing.length > 0 ? `
+              <div style="background:#f8f9fa;border-radius:8px;padding:15px;">
+                <div style="font-weight:600;color:#333;margin-bottom:10px;">Timing Analysis</div>
+                <ul style="margin:0;padding-left:20px;color:#555;">
+                  ${timing.map(t => `<li>${escapeHtml(t)}</li>`).join('')}
+                </ul>
+              </div>
+            ` : ''}
+          </div>
+        `;
+
+        return `
+          <div class="q-card">
+            <div class="section-title">Diagnostic Report</div>
+            <div style="padding:10px;">
+              ${summaryCards}
+              <div class="section-title" style="margin-top:20px;">Domain Scores</div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;">${domainBars || 'No domain scores available.'}</div>
+              ${barSvg ? `<div class="section-title" style="margin-top:20px;">Assessment Results by Domain</div><div style="overflow:auto">${barSvg}</div>` : ''}
+              ${insightsHtml}
+            </div>
+          </div>
+        `;
+      }
+
+     
+      async function requestSummary() {
+      // Determine which elements to use based on current stage
+      const isDeepen = diagState.stage === 'DEEPEN';
+      const overlay = document.getElementById(isDeepen ? 'diag-overlay-deepen' : 'diag-overlay');
+      const loader = document.getElementById(isDeepen ? 'diag-loader-deepen' : 'diag-loader');
+      const summaryBtn = document.getElementById(isDeepen ? 'summary-btn-deepen' : 'summary-btn');
+      const summaryEl = document.getElementById(isDeepen ? 'diag-summary-deepen' : 'diag-summary');
+      
       if (summaryBtn) summaryBtn.disabled = true;
       if (overlay) overlay.style.display = 'flex';
       if (loader) loader.style.display = 'flex';
@@ -1510,11 +2352,232 @@
         });
         if (res.ok) {
           const data = await res.json();
+          console.log('data', data);
           if (summaryEl) {
-            summaryEl.innerHTML = `<div class=\"q-card\"><div class=\"section-title\">Summary & Diagnosis</div><div style=\"padding:10px;\">${renderMarkdown(data.message || '')}</div></div>`;
+            // Build insightful report from JSON-only backend response
+            const escapeHtml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            const titleCase = (s) => String(s || '').replace(/_/g,' ').replace(/\b\w/g, (m) => m.toUpperCase());
+            const clampPct = (n) => Math.max(0, Math.min(100, Number(n) || 0));
+            const buildDomainBar = (label, pct, correct = null, total = null) => {
+              const p = clampPct(pct);
+              const percentColor = (p < 50) ? '#e53935' : (p >= 80 ? '#2e7d32' : '#0a0a0a');
+              const gradient = (p < 50)
+                ? 'linear-gradient(90deg,#ef5350,#e53935)'
+                : (p >= 80 ? 'linear-gradient(90deg,#66bb6a,#2e7d32)' : 'linear-gradient(90deg,#64b5f6,#1976d2)');
+              
+              const correctTotalText = (correct !== null && total !== null) ? ` (${correct}/${total})` : '';
+              
+              return `
+                <div style="min-width:220px;background:#ffffff;border:1px solid #e1e9f6;border-radius:8px;padding:10px;">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                    <span style="font-size:12px;color:#3a4757;">${escapeHtml(label)}</span>
+                    <span style="font-size:12px;color:${percentColor};font-weight:600;">${p}%${correctTotalText}</span>
+                  </div>
+                  <div style="background:#eef5ff;height:10px;border-radius:8px;overflow:hidden;border:1px solid #d6e1f3;">
+                    <div style="width:${p}%;height:100%;background:${gradient};"></div>
+                  </div>
+                </div>`;
+            };
+            const buildReportHtml = (payload) => {
+              if (!payload || typeof payload !== 'object') return `<pre>${escapeHtml(String(data.message || ''))}</pre>`;
+              const meta = payload.metadata || {};
+              const sum = payload.summary || {};
+              const domains = payload.domainScores || {};
+              const insights = payload.insights || {};
+              const categoryBreakdown = payload.categoryBreakdown || {};
+              const bank = meta.questionBank || 'Watson Glaser';
+              const overall = sum.overallScore != null ? Number(sum.overallScore) : null;
+              const avgTime = sum.averageResponseTime != null ? Number(sum.averageResponseTime) : null;
+              const targetTime = sum.targetResponseTime != null ? Number(sum.targetResponseTime) : null;
+
+              const timeNote = (avgTime != null && targetTime != null)
+                ? (avgTime <= targetTime ? `On pace (avg ${avgTime}s ≤ target ${targetTime}s)`
+                   : `Above target by ${Math.floor(Math.max(0, avgTime - targetTime))}s`)
+                : '';
+
+              const summaryCards = `
+                <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                  <div style="flex:1;min-width:220px;background:#f7fbff;border:1px solid #e1e9f6;border-radius:8px;padding:12px;">
+                    <div style="font-size:12px;color:#3a4757;">Test Name</div>
+                    <div style="font-size:14px;color:#0a0a0a;font-weight:600;">${escapeHtml(bank)}</div>
+                  </div>
+                  <div style="flex:1;min-width:220px;background:#f7fbff;border:1px solid #e1e9f6;border-radius:8px;padding:12px;">
+                    <div style="font-size:12px;color:#3a4757;">Overall Score</div>
+                    <div style="font-size:28px;font-weight:700;color:#0a0a0a;">${overall != null ? escapeHtml(String(overall)) : '-'}</div>
+                  </div>
+                  <div style="flex:1;min-width:220px;background:#f7fbff;border:1px solid #e1e9f6;border-radius:8px;padding:12px;">
+                    <div style="font-size:12px;color:#3a4757;">Timing</div>
+                    <div style="font-size:14px;color:#0a0a0a;">${avgTime != null ? escapeHtml(String(avgTime)) + 's' : '-'} · ${targetTime != null ? 'Target ' + escapeHtml(String(targetTime)) + 's' : ''}</div>
+                    ${timeNote ? `<div style=\"font-size:12px;color:#3a4757;margin-top:6px;\">${escapeHtml(timeNote)}</div>` : ''}
+                  </div>
+                  <div style="flex:1;min-width:220px;background:#f7fbff;border:1px solid #e1e9f6;border-radius:8px;padding:12px;">
+                    <div style="font-size:12px;color:#3a4757;">Summary</div>
+                    <div style="font-size:14px;color:#0a0a0a;font-weight:600;">${(insights && typeof insights.summary === 'string' && insights.summary.trim()) ? escapeHtml(insights.summary) : '-'}</div>
+                  </div>
+                </div>`;
+
+              // Generate category breakdown
+              const categoryBreakdownHtml = Object.keys(categoryBreakdown).length > 0 ? `
+                <div class="section-title" style="margin-top:20px;">Category Breakdown</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:10px;">
+                  ${Object.entries(categoryBreakdown).map(([category, stats]) => `
+                    <div style="background:#ffffff;border:1px solid #e1e9f6;border-radius:8px;padding:15px;text-align:center;">
+                      <div style="font-size:14px;font-weight:600;color:#333;margin-bottom:8px;text-transform:capitalize;">${escapeHtml(category)}</div>
+                      <div style="font-size:24px;font-weight:700;color:#1976d2;">${stats.correct}/${stats.total}</div>
+                    </div>
+                  `).join('')}
+                </div>
+              ` : '';
+
+              const domainBars = Object.entries(domains).map(([k,v]) => {
+                const label = (k === 'arguments') ? 'Evaluation of Arguments' : titleCase(k);
+                // Try to find matching category breakdown data
+                const categoryKey = Object.keys(categoryBreakdown).find(key => 
+                  key.toLowerCase() === k.toLowerCase() || 
+                  (k === 'arguments' && key.toLowerCase().includes('evaluation'))
+                );
+                const breakdownData = categoryKey ? categoryBreakdown[categoryKey] : null;
+                const correct = breakdownData ? breakdownData.correct : null;
+                const total = breakdownData ? breakdownData.total : null;
+                return buildDomainBar(label, v, correct, total);
+              }).join('');
+
+              // Inline SVG bar chart for domain scores
+              const barSvg = (() => {
+                const entries = Object.entries(domains);
+                if (!entries.length) return '';
+                const width = 560;
+                const height = 220;
+                const margin = { top: 20, right: 16, bottom: 48, left: 24 };
+                const innerW = width - margin.left - margin.right;
+                const innerH = height - margin.top - margin.bottom;
+                const barCount = entries.length;
+                const barGap = 12;
+                const barW = Math.floor((innerW - barGap * (barCount - 1)) / barCount);
+                const maxVal = 100;
+                let svg = `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="Domain scores bar chart">
+                  <defs>
+                    <linearGradient id="barBlue" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#64b5f6" />
+                      <stop offset="100%" stop-color="#1976d2" />
+                    </linearGradient>
+                    <linearGradient id="barRed" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#ef5350" />
+                      <stop offset="100%" stop-color="#e53935" />
+                    </linearGradient>
+                    <linearGradient id="barGreen" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#66bb6a" />
+                      <stop offset="100%" stop-color="#2e7d32" />
+                    </linearGradient>
+                  </defs>
+                  <rect x="0" y="0" width="${width}" height="${height}" fill="#ffffff" rx="8" ry="8"/>
+                  <g transform="translate(${margin.left},${margin.top})">
+                    <rect x="0" y="0" width="${innerW}" height="${innerH}" fill="#fbfdff" stroke="#e1e9f6" rx="8" ry="8"/>
+                    <line x1="0" y1="${innerH}" x2="${innerW}" y2="${innerH}" stroke="#d6e1f3"/>
+                    <line x1="0" y1="0" x2="0" y2="${innerH}" stroke="#d6e1f3"/>
+                `;
+                entries.forEach(([k, v], i) => {
+                  const pct = clampPct(v);
+                  const bh = Math.round((pct / maxVal) * innerH);
+                  const x = i * (barW + barGap);
+                  const y = innerH - bh;
+                  const label = (k === 'arguments') ? 'Arguments' : titleCase(k);
+                  const gradId = pct < 50 ? 'barRed' : (pct >= 80 ? 'barGreen' : 'barBlue');
+                  const stroke = pct < 50 ? '#c62828' : (pct >= 80 ? '#2e7d32' : '#1565c0');
+                  const labelColor = pct < 50 ? '#e53935' : (pct >= 80 ? '#2e7d32' : '#0a0a0a');
+                  svg += `
+                    <rect x="${x}" y="${y}" width="${barW}" height="${bh}" fill="url(#${gradId})" stroke="${stroke}"/>
+                    <text x="${x + barW / 2}" y="${y - 6}" text-anchor="middle" font-size="11" fill="${labelColor}">${pct}%</text>
+                    <text x="${x + barW / 2}" y="${innerH + 16}" text-anchor="middle" font-size="11" fill="#3a4757">${label}</text>
+                  `;
+                });
+                svg += `</g></svg>`;
+                return svg;
+              })();
+
+              const strengths = Array.isArray(insights.strengths) ? insights.strengths : [];
+              const focusAreas = Array.isArray(insights.focusAreas) ? insights.focusAreas : [];
+              const timing = Array.isArray(insights.timing) ? insights.timing : [];
+
+              const insightsHtml = `
+                <div class="section-title" style="margin-top:20px;">Performance Insights</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:15px;margin-top:10px;">
+                  ${strengths.length > 0 ? `
+                    <div style="background:#f8f9fa;border-radius:8px;padding:15px;">
+                      <div style="font-weight:600;color:#333;margin-bottom:10px;">Strengths</div>
+                      <ul style="margin:0;padding-left:20px;color:#555;">
+                        ${strengths.map(s => `<li>${escapeHtml(s)}</li>`).join('')}
+                      </ul>
+                    </div>
+                  ` : ''}
+                  ${focusAreas.length > 0 ? `
+                    <div style="background:#f8f9fa;border-radius:8px;padding:15px;">
+                      <div style="font-weight:600;color:#333;margin-bottom:10px;">Focus Areas</div>
+                      <ul style="margin:0;padding-left:20px;color:#555;">
+                        ${focusAreas.map(f => `<li>${escapeHtml(f)}</li>`).join('')}
+                      </ul>
+                    </div>
+                  ` : ''}
+                  ${timing.length > 0 ? `
+                    <div style="background:#f8f9fa;border-radius:8px;padding:15px;">
+                      <div style="font-weight:600;color:#333;margin-bottom:10px;">Timing Analysis</div>
+                      <ul style="margin:0;padding-left:20px;color:#555;">
+                        ${timing.map(t => `<li>${escapeHtml(t)}</li>`).join('')}
+                      </ul>
+                    </div>
+                  ` : ''}
+                </div>
+              `;
+
+              return `
+                <div class="q-card">
+                  <div class="section-title">Results & Insights</div>
+                  <div style="padding:10px;">
+                    ${summaryCards}
+                    ${categoryBreakdownHtml}
+                    <div class="section-title" style="margin-top:10px;">Domain Scores</div>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;">${domainBars || 'No domain scores available.'}</div>
+                    ${barSvg ? `<div class=\"section-title\" style=\"margin-top:10px;\">Assessment Results by Domain</div><div style=\"overflow:auto\">${barSvg}</div>` : ''}
+                    ${insightsHtml}
+                  </div>
+                </div>
+              `;
+            };
+
+            let html;
+            try {
+              const msg = data.message;
+              let obj = null;
+              if (msg && typeof msg === 'object') {
+                obj = msg;
+              } else if (typeof msg === 'string') {
+                let raw = msg.trim();
+                // Strip code fences if present
+                raw = raw.replace(/^```[a-zA-Z]*\s*/, '').replace(/\s*```$/, '');
+                // Extract JSON object bounds (robust)
+                const braceBlock = raw.match(/\{[\s\S]*\}$/);
+                raw = braceBlock ? braceBlock[0] : raw;
+                try {
+                  obj = JSON.parse(raw);
+                } catch (e1) {
+                  // Sanitize smart quotes and trailing commas; retry
+                  let sanitized = raw.replace(/[""]/g, '"').replace(/['']/g, "'");
+                  sanitized = sanitized.replace(/,\s*([}\]])/g, '$1');
+                  obj = JSON.parse(sanitized);
+                }
+              }
+              if (obj) {
+                html = buildReportHtml(obj);
+              } else {
+                html = `<pre>${escapeHtml(String(data.message || ''))}</pre>`;
+              }
+            } catch (_) {
+              html = `<pre>${escapeHtml(String(data.message || ''))}</pre>`;
+            }
+
+            summaryEl.innerHTML = html;
             summaryEl.style.display = 'block';
             summaryEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            console.log('summaryEl.innerHTML', summaryEl.innerHTML);
           }
           const progWrap = document.getElementById('diag-progress-wrap');
           if (progWrap) progWrap.style.display = 'none';
@@ -1531,15 +2594,684 @@
     }
 
     function updateDiagProgress() {
+      // Update intro progress (Question Intro tab)
       const bar = document.getElementById('diag-progress-bar');
       const lbl = document.getElementById('diag-progress-label');
       const pctLbl = document.getElementById('diag-progress-pct');
+      
+      // Update deepen progress (Diagnostic tab)
+      const barDeepen = document.getElementById('diag-progress-bar-deepen');
+      const lblDeepen = document.getElementById('diag-progress-label-deepen');
+      
       const pct = diagState.total ? Math.round(100 * (diagState.done / diagState.total)) : 0;
+      
+      if (diagState.stage === 'INTRO') {
+        // Update intro progress bars
       if (bar) bar.style.width = pct + '%';
       if (lbl) lbl.textContent = `${diagState.done}/${diagState.total}`;
       if (pctLbl) pctLbl.textContent = pct + '%';
+      } else if (diagState.stage === 'DEEPEN') {
+        // Update deepen progress bars
+        if (barDeepen) barDeepen.style.width = pct + '%';
+        if (lblDeepen) lblDeepen.textContent = `${diagState.done}/${diagState.total}`;
+      }
+      
       // Debug: print current diagnostic state
-      try { console.log('diagState:', diagState); } catch (_) {}
+      try { console.log('diagState:', diagState); } catch (_) {      }
+    }
+
+    // Practice state management
+    let practiceState = {
+      loaded: false,
+      category: '',
+      attempts: {},
+      correct: {},
+      completed: {},
+      first: {},
+      startMs: {},
+      firstAnswerMs: {},
+      firstDurationSec: {},
+      firstChoice: {},
+      correctText: {},
+      order: [],
+      done: 0,
+      total: 0,
+      questions: {},
+      records: [],
+      stage: 'PRACTICE'
+    };
+
+    async function startPractice() {
+      const categorySelect = document.getElementById('category-select');
+      const container = document.getElementById('practice-questions');
+      const btn = document.getElementById('start-practice-btn');
+      const loader = document.getElementById('practice-loader');
+      const overlay = document.getElementById('practice-overlay');
+      const progWrap = document.getElementById('practice-progress-wrap');
+      
+      const selectedCategory = categorySelect.value;
+      if (!selectedCategory) {
+        showNotification('Please select a category first', 'error');
+        return;
+      }
+
+      // Reset practice state
+      practiceState.loaded = true;
+      practiceState.category = selectedCategory;
+      practiceState.attempts = {};
+      practiceState.correct = {};
+      practiceState.completed = {};
+      practiceState.first = {};
+      practiceState.startMs = {};
+      practiceState.firstAnswerMs = {};
+      practiceState.firstDurationSec = {};
+      practiceState.firstChoice = {};
+      practiceState.correctText = {};
+      practiceState.order = [];
+      practiceState.done = 0;
+      practiceState.total = 0;
+      practiceState.questions = {};
+      practiceState.records = [];
+      practiceState.stage = 'PRACTICE';
+
+      if (btn) btn.disabled = true;
+      if (progWrap) progWrap.style.display = 'block';
+      if (overlay) overlay.style.display = 'flex';
+      if (loader) loader.style.display = 'flex';
+      
+      try {
+        // Request 5 questions for the selected category using select_deepen
+        const target_difficulty = {};
+        target_difficulty[selectedCategory] = 5; // Medium difficulty for the selected category
+        
+        const res = await fetch('/api/chat/intro', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 
+            action: 'select_deepen', 
+            payload: { 
+              target_difficulty: target_difficulty
+            } 
+          })
+        });
+        
+        if (!res.ok) {
+          showNotification('Failed to load practice questions', 'error');
+          return;
+        }
+        
+        const data = await res.json();
+        console.log('Practice questions loaded:', data);
+        
+        // Handle response - assume it returns questions in data.questions or data.selection
+        const questions = data.questions || data.selection || [];
+        const questionArray = Array.isArray(questions) ? questions : Object.values(questions).flat();
+        
+        if (container) {
+          container.innerHTML = '';
+        }
+        
+        practiceState.total = questionArray.length || 0;
+        practiceState.done = 0;
+        updatePracticeProgress();
+        
+        if (questionArray.length > 0) {
+          questionArray.forEach(renderPracticeQuestionCard);
+          console.log('Practice questions rendered:', questionArray.length);
+        } else {
+          console.warn('No practice questions received from API');
+          showNotification('No questions available for this category', 'warning');
+        }
+        
+      } catch (e) {
+        console.error('Error loading practice questions:', e);
+        showNotification('Network error while loading practice questions', 'error');
+      } finally {
+        if (overlay) overlay.style.display = 'none';
+        if (loader) loader.style.display = 'none';
+        if (btn) btn.disabled = false;
+      }
+    }
+
+
+
+
+
+    function updatePracticeProgress() {
+      const bar = document.getElementById('practice-progress-bar');
+      const lbl = document.getElementById('practice-progress-label');
+      const pctLbl = document.getElementById('practice-progress-pct');
+      
+      const pct = practiceState.total ? Math.round(100 * (practiceState.done / practiceState.total)) : 0;
+      
+      if (bar) bar.style.width = pct + '%';
+      if (lbl) lbl.textContent = `${practiceState.done}/${practiceState.total}`;
+      if (pctLbl) pctLbl.textContent = pct + '%';
+      
+      console.log('Practice progress:', practiceState.done, '/', practiceState.total);
+    }
+
+    function renderPracticeQuestionCard(q) {
+      const container = document.getElementById('practice-questions');
+      if (!container) return;
+      
+      const card = document.createElement('div');
+      card.className = 'q-card';
+      card.id = `practice-q-${q.id}`;
+      
+      const answerBadge = (typeof q.correct_index === 'number' && q.correct_index >= 0)
+        ? `<span class="badge">Answer ${q.correct_index + 1}</span>`
+        : '';
+      
+      const titleHTML = `
+        <div class="q-tag">
+          <div class="q-domain">${q.domain.toUpperCase()}</div>
+          <div class="q-meta">
+            <span class="badge">ID #${q.id}</span>
+            <span class="badge">Diff ${q.difficulty}</span>
+            ${answerBadge}
+          </div>
+        </div>`;
+      
+      const stim = q.stimuli ? `<div style="font-size:16px;color:#3a4757;margin-bottom:6px;">${q.stimuli}</div>` : '';
+      
+      card.innerHTML = `
+        <div class="q-header" onclick="togglePracticeQuestionBody('${q.id}')">${titleHTML}</div>
+        <div class="q-body" id="practice-q-body-${q.id}">
+          ${stim}
+          <div style="margin:6px 0 10px;">${q.stem}</div>
+          <div id="practice-choices-${q.id}"></div>
+          <div class="hint" id="practice-hint-${q.id}" style="display:none;"></div>
+          <div class="explanation" id="practice-exp-${q.id}" style="display:none;"></div>
+        </div>
+      `;
+      
+      container.appendChild(card);
+      
+      // Store question data
+      practiceState.questions[q.id] = q;
+      practiceState.startMs[q.id] = Date.now();
+      
+      // Render choices
+      renderPracticeChoices(q);
+    }
+
+    function renderPracticeChoices(q) {
+      const choicesContainer = document.getElementById(`practice-choices-${q.id}`);
+      if (!choicesContainer || !q.choices) return;
+      
+      choicesContainer.innerHTML = q.choices.map((choice, idx) => 
+        `<div class="choice" onclick="selectPracticeChoice('${q.id}', ${idx})">${choice}</div>`
+      ).join('');
+    }
+
+    function selectPracticeChoice(qid, choiceIdx) {
+      const q = practiceState.questions[qid];
+      if (!q || practiceState.completed[qid]) return;
+      
+      const now = Date.now();
+      const isCorrect = choiceIdx === q.correct_index;
+      
+      // Record the attempt
+      if (!practiceState.attempts[qid]) practiceState.attempts[qid] = 0;
+      practiceState.attempts[qid]++;
+      
+      if (practiceState.attempts[qid] === 1) {
+        practiceState.firstAnswerMs[qid] = now;
+        practiceState.firstDurationSec[qid] = (now - practiceState.startMs[qid]) / 1000;
+        practiceState.firstChoice[qid] = choiceIdx;
+        practiceState.first[qid] = isCorrect ? 'correct' : 'incorrect';
+      }
+      
+      practiceState.correct[qid] = isCorrect;
+      practiceState.correctText[qid] = q.choices[q.correct_index];
+      
+      // Update UI
+      const choicesContainer = document.getElementById(`practice-choices-${qid}`);
+      if (choicesContainer) {
+        const choices = choicesContainer.querySelectorAll('.choice');
+        choices.forEach((choice, idx) => {
+          choice.classList.remove('selected', 'correct', 'incorrect');
+          if (idx === choiceIdx) {
+            choice.classList.add('selected');
+            choice.classList.add(isCorrect ? 'correct' : 'incorrect');
+          }
+          if (idx === q.correct_index) {
+            choice.classList.add('correct');
+          }
+        });
+      }
+      
+      if (isCorrect && !practiceState.completed[qid]) {
+        practiceState.completed[qid] = true;
+        practiceState.done++;
+        updatePracticeProgress();
+        
+        // Add to records
+        practiceState.records.push({
+          qid: qid,
+          domain: q.domain,
+          difficulty: q.difficulty,
+          first_attempt: practiceState.first[qid],
+          first_duration_sec: practiceState.firstDurationSec[qid],
+          attempts: practiceState.attempts[qid]
+        });
+        
+        // Collapse question after correct answer
+        const body = document.getElementById(`practice-q-body-${qid}`);
+        const card = document.getElementById(`practice-q-${qid}`);
+        if (body) body.style.display = 'none';
+        if (card) card.classList.add('collapsed');
+      }
+      
+      // Check if all questions completed
+      if (practiceState.done >= practiceState.total) {
+        const summaryBtn = document.getElementById('practice-summary-btn');
+        if (summaryBtn) {
+          summaryBtn.style.display = 'inline-block';
+          summaryBtn.disabled = false;
+        }
+      }
+    }
+
+    function togglePracticeQuestionBody(qid) {
+      const body = document.getElementById(`practice-q-body-${qid}`);
+      const card = document.getElementById(`practice-q-${qid}`);
+      if (!body || !card) return;
+      
+      const isHidden = body.style.display === 'none';
+      body.style.display = isHidden ? 'block' : 'none';
+      if (isHidden) card.classList.remove('collapsed');
+      else card.classList.add('collapsed');
+    }
+
+    async function requestPracticeSummary() {
+      const overlay = document.getElementById('practice-overlay');
+      const loader = document.getElementById('practice-loader');
+      const summaryBtn = document.getElementById('practice-summary-btn');
+      const summaryEl = document.getElementById('practice-summary');
+      
+      if (summaryBtn) summaryBtn.disabled = true;
+      if (overlay) overlay.style.display = 'flex';
+      if (loader) loader.style.display = 'flex';
+      
+      try {
+        // Build summary data
+        const per_section = {};
+        per_section[practiceState.category] = {
+          correct_first_try: 0,
+          total: practiceState.records.length,
+          total_time_sec: 0
+        };
+        
+        practiceState.records.forEach(r => {
+          if (r.first_attempt === 'correct') per_section[practiceState.category].correct_first_try++;
+          per_section[practiceState.category].total_time_sec += r.first_duration_sec || 0;
+        });
+        
+        // Display basic summary
+        const correctCount = per_section[practiceState.category].correct_first_try;
+        const totalCount = per_section[practiceState.category].total;
+        const avgTime = totalCount > 0 ? (per_section[practiceState.category].total_time_sec / totalCount).toFixed(1) : 0;
+        const accuracy = totalCount > 0 ? Math.round((correctCount / totalCount) * 100) : 0;
+        
+        if (summaryEl) {
+          summaryEl.innerHTML = `
+            <div style="background: #f7faff; border: 1px solid #e1e9f6; border-radius: 8px; padding: 15px; margin-top: 15px;">
+              <h4 style="color: #0a0a0a; margin-bottom: 10px;">${practiceState.category} Practice Results</h4>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px;">
+                <div style="text-align: center;">
+                  <div style="font-size: 24px; font-weight: bold; color: #1976d2;">${correctCount}/${totalCount}</div>
+                  <div style="font-size: 12px; color: #666;">Correct</div>
+                </div>
+                <div style="text-align: center;">
+                  <div style="font-size: 24px; font-weight: bold; color: #1976d2;">${accuracy}%</div>
+                  <div style="font-size: 12px; color: #666;">Accuracy</div>
+                </div>
+                <div style="text-align: center;">
+                  <div style="font-size: 24px; font-weight: bold; color: #1976d2;">${avgTime}s</div>
+                  <div style="font-size: 12px; color: #666;">Avg Time</div>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+        
+      } catch (e) {
+        console.error('Error loading practice summary:', e);
+        showNotification('Error loading practice summary', 'error');
+      } finally {
+        if (overlay) overlay.style.display = 'none';
+        if (loader) loader.style.display = 'none';
+        if (summaryBtn) summaryBtn.disabled = false;
+      }
+    }
+
+    // Drills state management
+    let drillsState = {
+      loaded: false,
+      category: '',
+      attempts: {},
+      correct: {},
+      completed: {},
+      first: {},
+      startMs: {},
+      firstAnswerMs: {},
+      firstDurationSec: {},
+      firstChoice: {},
+      correctText: {},
+      order: [],
+      done: 0,
+      total: 0,
+      questions: {},
+      records: [],
+      stage: 'DRILLS'
+    };
+
+    async function startDrills() {
+      const categorySelect = document.getElementById('drills-category-select');
+      const container = document.getElementById('drills-questions');
+      const btn = document.getElementById('start-drills-btn');
+      const loader = document.getElementById('drills-loader');
+      const overlay = document.getElementById('drills-overlay');
+      const progWrap = document.getElementById('drills-progress-wrap');
+      
+      const selectedCategory = categorySelect.value;
+      if (!selectedCategory) {
+        showNotification('Please select a category first', 'error');
+        return;
+      }
+
+      // Reset drills state
+      drillsState.loaded = true;
+      drillsState.category = selectedCategory;
+      drillsState.attempts = {};
+      drillsState.correct = {};
+      drillsState.completed = {};
+      drillsState.first = {};
+      drillsState.startMs = {};
+      drillsState.firstAnswerMs = {};
+      drillsState.firstDurationSec = {};
+      drillsState.firstChoice = {};
+      drillsState.correctText = {};
+      drillsState.order = [];
+      drillsState.done = 0;
+      drillsState.total = 0;
+      drillsState.questions = {};
+      drillsState.records = [];
+      drillsState.stage = 'DRILLS';
+
+      if (btn) btn.disabled = true;
+      if (progWrap) progWrap.style.display = 'block';
+      if (overlay) overlay.style.display = 'flex';
+      if (loader) loader.style.display = 'flex';
+      
+      try {
+        // Request 5 questions for the selected category using select_deepen
+        const target_difficulty = {};
+        target_difficulty[selectedCategory] = 6; // Slightly higher difficulty for drills
+        
+        const res = await fetch('/api/chat/intro', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 
+            action: 'select_deepen', 
+            payload: { 
+              target_difficulty: target_difficulty
+            } 
+          })
+        });
+        
+        if (!res.ok) {
+          showNotification('Failed to load drill questions', 'error');
+          return;
+        }
+        
+        const data = await res.json();
+        console.log('Drill questions loaded:', data);
+        
+        // Handle response - assume it returns questions in data.questions or data.selection
+        const questions = data.questions || data.selection || [];
+        const questionArray = Array.isArray(questions) ? questions : Object.values(questions).flat();
+        
+        if (container) {
+          container.innerHTML = '';
+        }
+        
+        drillsState.total = questionArray.length || 0;
+        drillsState.done = 0;
+        updateDrillsProgress();
+        
+        if (questionArray.length > 0) {
+          questionArray.forEach(renderDrillsQuestionCard);
+          console.log('Drill questions rendered:', questionArray.length);
+        } else {
+          console.warn('No drill questions received from API');
+          showNotification('No questions available for this category', 'warning');
+        }
+        
+      } catch (e) {
+        console.error('Error loading drill questions:', e);
+        showNotification('Network error while loading drill questions', 'error');
+      } finally {
+        if (overlay) overlay.style.display = 'none';
+        if (loader) loader.style.display = 'none';
+        if (btn) btn.disabled = false;
+      }
+    }
+
+
+
+
+
+    function updateDrillsProgress() {
+      const bar = document.getElementById('drills-progress-bar');
+      const lbl = document.getElementById('drills-progress-label');
+      const pctLbl = document.getElementById('drills-progress-pct');
+      
+      const pct = drillsState.total ? Math.round(100 * (drillsState.done / drillsState.total)) : 0;
+      
+      if (bar) bar.style.width = pct + '%';
+      if (lbl) lbl.textContent = `${drillsState.done}/${drillsState.total}`;
+      if (pctLbl) pctLbl.textContent = pct + '%';
+      
+      console.log('Drills progress:', drillsState.done, '/', drillsState.total);
+    }
+
+    function renderDrillsQuestionCard(q) {
+      const container = document.getElementById('drills-questions');
+      if (!container) return;
+      
+      const card = document.createElement('div');
+      card.className = 'q-card';
+      card.id = `drills-q-${q.id}`;
+      
+      const answerBadge = (typeof q.correct_index === 'number' && q.correct_index >= 0)
+        ? `<span class="badge">Answer ${q.correct_index + 1}</span>`
+        : '';
+      
+      const titleHTML = `
+        <div class="q-tag">
+          <div class="q-domain">${q.domain.toUpperCase()}</div>
+          <div class="q-meta">
+            <span class="badge">ID #${q.id}</span>
+            <span class="badge">Diff ${q.difficulty}</span>
+            ${answerBadge}
+          </div>
+        </div>`;
+      
+      const stim = q.stimuli ? `<div style="font-size:16px;color:#3a4757;margin-bottom:6px;">${q.stimuli}</div>` : '';
+      
+      card.innerHTML = `
+        <div class="q-header" onclick="toggleDrillsQuestionBody('${q.id}')">${titleHTML}</div>
+        <div class="q-body" id="drills-q-body-${q.id}">
+          ${stim}
+          <div style="margin:6px 0 10px;">${q.stem}</div>
+          <div id="drills-choices-${q.id}"></div>
+          <div class="hint" id="drills-hint-${q.id}" style="display:none;"></div>
+          <div class="explanation" id="drills-exp-${q.id}" style="display:none;"></div>
+        </div>
+      `;
+      
+      container.appendChild(card);
+      
+      // Store question data
+      drillsState.questions[q.id] = q;
+      drillsState.startMs[q.id] = Date.now();
+      
+      // Render choices
+      renderDrillsChoices(q);
+    }
+
+    function renderDrillsChoices(q) {
+      const choicesContainer = document.getElementById(`drills-choices-${q.id}`);
+      if (!choicesContainer || !q.choices) return;
+      
+      choicesContainer.innerHTML = q.choices.map((choice, idx) => 
+        `<div class="choice" onclick="selectDrillsChoice('${q.id}', ${idx})">${choice}</div>`
+      ).join('');
+    }
+
+    function selectDrillsChoice(qid, choiceIdx) {
+      const q = drillsState.questions[qid];
+      if (!q || drillsState.completed[qid]) return;
+      
+      const now = Date.now();
+      const isCorrect = choiceIdx === q.correct_index;
+      
+      // Record the attempt
+      if (!drillsState.attempts[qid]) drillsState.attempts[qid] = 0;
+      drillsState.attempts[qid]++;
+      
+      if (drillsState.attempts[qid] === 1) {
+        drillsState.firstAnswerMs[qid] = now;
+        drillsState.firstDurationSec[qid] = (now - drillsState.startMs[qid]) / 1000;
+        drillsState.firstChoice[qid] = choiceIdx;
+        drillsState.first[qid] = isCorrect ? 'correct' : 'incorrect';
+      }
+      
+      drillsState.correct[qid] = isCorrect;
+      drillsState.correctText[qid] = q.choices[q.correct_index];
+      
+      // Update UI
+      const choicesContainer = document.getElementById(`drills-choices-${qid}`);
+      if (choicesContainer) {
+        const choices = choicesContainer.querySelectorAll('.choice');
+        choices.forEach((choice, idx) => {
+          choice.classList.remove('selected', 'correct', 'incorrect');
+          if (idx === choiceIdx) {
+            choice.classList.add('selected');
+            choice.classList.add(isCorrect ? 'correct' : 'incorrect');
+          }
+          if (idx === q.correct_index) {
+            choice.classList.add('correct');
+          }
+        });
+      }
+      
+      if (isCorrect && !drillsState.completed[qid]) {
+        drillsState.completed[qid] = true;
+        drillsState.done++;
+        updateDrillsProgress();
+        
+        // Add to records
+        drillsState.records.push({
+          qid: qid,
+          domain: q.domain,
+          difficulty: q.difficulty,
+          first_attempt: drillsState.first[qid],
+          first_duration_sec: drillsState.firstDurationSec[qid],
+          attempts: drillsState.attempts[qid]
+        });
+        
+        // Collapse question after correct answer
+        const body = document.getElementById(`drills-q-body-${qid}`);
+        const card = document.getElementById(`drills-q-${qid}`);
+        if (body) body.style.display = 'none';
+        if (card) card.classList.add('collapsed');
+      }
+      
+      // Check if all questions completed
+      if (drillsState.done >= drillsState.total) {
+        const summaryBtn = document.getElementById('drills-summary-btn');
+        if (summaryBtn) {
+          summaryBtn.style.display = 'inline-block';
+          summaryBtn.disabled = false;
+        }
+      }
+    }
+
+    function toggleDrillsQuestionBody(qid) {
+      const body = document.getElementById(`drills-q-body-${qid}`);
+      const card = document.getElementById(`drills-q-${qid}`);
+      if (!body || !card) return;
+      
+      const isHidden = body.style.display === 'none';
+      body.style.display = isHidden ? 'block' : 'none';
+      if (isHidden) card.classList.remove('collapsed');
+      else card.classList.add('collapsed');
+    }
+
+    async function requestDrillsSummary() {
+      const overlay = document.getElementById('drills-overlay');
+      const loader = document.getElementById('drills-loader');
+      const summaryBtn = document.getElementById('drills-summary-btn');
+      const summaryEl = document.getElementById('drills-summary');
+      
+      if (summaryBtn) summaryBtn.disabled = true;
+      if (overlay) overlay.style.display = 'flex';
+      if (loader) loader.style.display = 'flex';
+      
+      try {
+        // Build summary data
+        const per_section = {};
+        per_section[drillsState.category] = {
+          correct_first_try: 0,
+          total: drillsState.records.length,
+          total_time_sec: 0
+        };
+        
+        drillsState.records.forEach(r => {
+          if (r.first_attempt === 'correct') per_section[drillsState.category].correct_first_try++;
+          per_section[drillsState.category].total_time_sec += r.first_duration_sec || 0;
+        });
+        
+        // Display basic summary
+        const correctCount = per_section[drillsState.category].correct_first_try;
+        const totalCount = per_section[drillsState.category].total;
+        const avgTime = totalCount > 0 ? (per_section[drillsState.category].total_time_sec / totalCount).toFixed(1) : 0;
+        const accuracy = totalCount > 0 ? Math.round((correctCount / totalCount) * 100) : 0;
+        
+        if (summaryEl) {
+          summaryEl.innerHTML = `
+            <div style="background: #f7faff; border: 1px solid #e1e9f6; border-radius: 8px; padding: 15px; margin-top: 15px;">
+              <h4 style="color: #0a0a0a; margin-bottom: 10px;">${drillsState.category} Drills Results</h4>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px;">
+                <div style="text-align: center;">
+                  <div style="font-size: 24px; font-weight: bold; color: #1976d2;">${correctCount}/${totalCount}</div>
+                  <div style="font-size: 12px; color: #666;">Correct</div>
+                </div>
+                <div style="text-align: center;">
+                  <div style="font-size: 24px; font-weight: bold; color: #1976d2;">${accuracy}%</div>
+                  <div style="font-size: 12px; color: #666;">Accuracy</div>
+                </div>
+                <div style="text-align: center;">
+                  <div style="font-size: 24px; font-weight: bold; color: #1976d2;">${avgTime}s</div>
+                  <div style="font-size: 12px; color: #666;">Avg Time</div>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+        
+      } catch (e) {
+        console.error('Error loading drills summary:', e);
+        showNotification('Error loading drills summary', 'error');
+      } finally {
+        if (overlay) overlay.style.display = 'none';
+        if (loader) loader.style.display = 'none';
+        if (summaryBtn) summaryBtn.disabled = false;
+      }
     }
 
     
@@ -1566,10 +3298,57 @@
 
     async function sendAIMessage() {
       const input = document.getElementById('ai-chat-input');
-      const message = input.value;
+      const sendButton = document.getElementById('ai-send-btn');
+      const btnText = document.getElementById('btn-text');
+      const btnLoading = document.getElementById('btn-loading');
+      const suggestionTags = document.getElementById('suggestion-tags');
+      const message = input.value.trim();
+      
       if (message) {
+        // Disable input and button while waiting for response
+        input.disabled = true;
+        input.placeholder = 'AI is thinking...';
+        if (sendButton) {
+          sendButton.disabled = true;
+          btnText.style.display = 'none';
+          btnLoading.style.display = 'inline';
+        }
+        
+        // Disable suggestion tags
+        if (suggestionTags) {
+          suggestionTags.style.pointerEvents = 'none';
+          suggestionTags.style.opacity = '0.5';
+        }
+        
+        // Add typing indicator
         const chatBox = document.getElementById('chat-box');
-        if (!chatBox) return;
+        const typingHtml = `
+          <div class="chat-message system-msg" id="typing-indicator">
+            <span class="ai-name-bubble">JobTestPrep AI</span>
+            <div class="typing-dots">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        `;
+        chatBox.insertAdjacentHTML('beforeend', typingHtml);
+        chatBox.scrollTop = chatBox.scrollHeight;
+        
+        if (!chatBox) {
+          // Re-enable if no chat box
+          input.disabled = false;
+          input.placeholder = 'Ask me about the Watson Glaser test...';
+          if (sendButton) {
+            sendButton.disabled = false;
+            btnText.style.display = 'inline';
+            btnLoading.style.display = 'none';
+          }
+          // Re-enable suggestion tags
+          if (suggestionTags) {
+            suggestionTags.style.pointerEvents = 'auto';
+            suggestionTags.style.opacity = '1';
+          }
+          return;
+        }
         const testerName = document.getElementById('tester-name').value || 'User';
         console.log("sssss");
         // Append user message at bottom
@@ -1594,8 +3373,8 @@
                 duration: 60,
                 position: document.getElementById('q-position').value || null,
                 company: document.getElementById('q-company').value || null,
-                difficult_topic: document.getElementById('q-difficult').value || null,
-                user_concerns: document.getElementById('q-request').value || null
+                location: document.getElementById('q-location').value || null,
+                user_concerns: null
               }
             })
           });
@@ -1615,13 +3394,34 @@
         
         const aiMessage = `
           <div class="chat-message system-msg">
-            <span class="ai-name-bubble">JobTestPrep AI:</span>
+            <span class="ai-name-bubble">JobTestPrep AI</span>
             <div dir="auto" class="markdown-content">${formattedReply}</div>
           </div>
         `;
         
         chatBox.insertAdjacentHTML('beforeend', aiMessage);
         chatBox.scrollTop = chatBox.scrollHeight;
+        
+        // Remove typing indicator
+        const typingElement = document.getElementById('typing-indicator');
+        if (typingElement) {
+          typingElement.remove();
+        }
+        
+        // Re-enable input and button after response
+        input.disabled = false;
+        input.placeholder = 'Ask me about the Watson Glaser test...';
+        if (sendButton) {
+          sendButton.disabled = false;
+          btnText.style.display = 'inline';
+          btnLoading.style.display = 'none';
+        }
+        
+        // Re-enable suggestion tags
+        if (suggestionTags) {
+          suggestionTags.style.pointerEvents = 'auto';
+          suggestionTags.style.opacity = '1';
+        }
       }
     }
 
@@ -1632,6 +3432,349 @@
       input.value = text;
       sendAIMessage();
     }
+
+    // Start Learning function - redirect to learning plan and generate plan
+    async function startLearning() {
+      // Switch to learning plan tab
+      switchTab('learningplan');
+      
+      // Show loading state
+      const learningLoader = document.getElementById('learning-loader');
+      const learningOverlay = document.getElementById('learning-overlay');
+      const learningContent = document.getElementById('learning-plan-content');
+      
+      if (learningLoader) learningLoader.style.display = 'block';
+      if (learningOverlay) learningOverlay.style.display = 'block';
+      if (learningContent) learningContent.style.display = 'none';
+      
+      try {
+        // Get user settings from form or localStorage
+        let userSettings = JSON.parse(localStorage.getItem('lastSavedSettings') || '{}');
+        
+        // If no saved settings, get from form
+        if (!userSettings.pack_name) {
+          const packName = document.getElementById('pack-name')?.value;
+          const testerName = document.getElementById('tester-name')?.value;
+          const assessmentDate = document.getElementById('assessment-date')?.value;
+          const dailyHours = document.getElementById('daily-hours')?.value;
+          const qPosition = document.getElementById('q-position')?.value;
+          const qCompany = document.getElementById('q-company')?.value;
+          const qLocation = document.getElementById('q-location')?.value;
+          
+          if (packName && testerName && assessmentDate) {
+            userSettings = {
+              pack_name: packName,
+              tester_name: testerName,
+              assessment_date: assessmentDate,
+              daily_hours: parseFloat(dailyHours) || 2,
+              position: qPosition || null,
+              company: qCompany || null,
+              location: qLocation || null,
+              starting_proficiency: 'unknown',
+              target_score: 80,
+              time_per_item_sec: 90,
+              content_balance: false,
+              enemy_sets: []
+            };
+          }
+        }
+        
+        // Generate learning plan
+        await generateLearningPlan();
+        
+        // Ensure content is visible
+        const learningContent = document.getElementById('learning-plan-content');
+        if (learningContent) {
+          learningContent.style.display = 'block';
+        }
+        
+      } catch (error) {
+        console.error('Error starting learning:', error);
+        // Show error message
+        const learningContent = document.getElementById('learning-plan-content');
+        if (learningContent) {
+          learningContent.innerHTML = `
+            <div class="chat-message system-msg">
+              <h3 style="color: #d32f2f; margin-bottom: 15px;">Error Generating Learning Plan</h3>
+              <p style="color: #3a4757;">There was an error generating your personalized learning plan. Please try again.</p>
+              <button onclick="startLearning()" class="tag" style="background: #1976d2; border-color: #1976d2;">Try Again</button>
+            </div>
+          `;
+          learningContent.style.display = 'block';
+        }
+      } finally {
+        // Hide loading states
+        if (learningLoader) learningLoader.style.display = 'none';
+        if (learningOverlay) learningOverlay.style.display = 'none';
+      }
+    }
+    // Continue to next step - redirect to diagnostic tab
+    function continueToNextStep() {
+      // Switch to diagnostic tab to start the assessment
+      switchTab('diagnostic');
+      
+      // Show a notification
+      showNotification('Great! Let\'s start with some diagnostic questions to assess your current level.', 'success');
+    }
+
+    // Update learning plan - show chat interface for user requests
+    function updateLearningPlan() {
+      console.log('updateLearningPlan function called');
+      alert('Update Plan button clicked!'); // Temporary debug alert
+      
+      // Simple test to see if function is working
+      console.log('Function is executing properly');
+      
+      // Check if chat interface already exists
+      let updateChatContainer = document.getElementById('update-plan-chat');
+      
+      if (updateChatContainer) {
+        console.log('Chat container already exists, toggling visibility');
+        // Toggle visibility if already exists
+        updateChatContainer.style.display = updateChatContainer.style.display === 'none' ? 'block' : 'none';
+        return;
+      }
+      
+      console.log('Creating new chat container');
+      
+      // Create chat interface container
+      updateChatContainer = document.createElement('div');
+      updateChatContainer.id = 'update-plan-chat';
+      updateChatContainer.style.cssText = `
+        margin-top: 20px;
+        background: #ffffff;
+        border: 3px solid #1976d2;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+        position: relative;
+        z-index: 1000;
+      `;
+      
+      updateChatContainer.innerHTML = `
+        <div style="margin-bottom: 15px;">
+          <h4 style="color: #1976d2; margin: 0 0 10px 0; font-size: 16px;">💬 Update Your Learning Plan</h4>
+          <p style="color: #666; margin: 0; font-size: 14px;">Tell me what you'd like to change about your learning plan. For example:</p>
+          <ul style="color: #666; margin: 8px 0 0 0; padding-left: 20px; font-size: 14px;">
+            <li>Change study hours per day</li>
+            <li>Focus more on specific question types</li>
+            <li>Adjust the timeline</li>
+            <li>Add or remove topics</li>
+          </ul>
+        </div>
+        
+        <div id="update-plan-chat-messages" style="max-height: 300px; overflow-y: auto; margin-bottom: 15px; border: 1px solid #e1e9f6; border-radius: 8px; padding: 10px; background: #f8f9fa;">
+          <div class="chat-message system-msg">
+            <span class="ai-name-bubble">JobTestPrep AI</span>
+            <div style="color: #333; margin-top: 5px;">Hi! I'm here to help you update your learning plan. What changes would you like to make?</div>
+          </div>
+        </div>
+        
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <input type="text" id="update-plan-input" placeholder="Describe what you'd like to change..." 
+                 style="flex: 1; padding: 10px; border: 1px solid #c5d3ea; border-radius: 6px; font-size: 14px; outline: none;">
+          <button onclick="sendUpdateRequest()" id="update-plan-send-btn" 
+                  style="background: #1976d2; color: white; border: none; padding: 10px 15px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600;">
+            Send
+          </button>
+          <button onclick="closeUpdateChat()" 
+                  style="background: #6c757d; color: white; border: none; padding: 10px 15px; border-radius: 6px; cursor: pointer; font-size: 14px;">
+            Close
+          </button>
+        </div>
+      `;
+      
+      // Insert after the learning plan content
+      const learningContent = document.getElementById('learning-plan-content');
+      console.log('Learning content element:', learningContent);
+      
+      if (learningContent) {
+        learningContent.appendChild(updateChatContainer);
+        console.log('Chat container appended to learning content');
+        console.log('Chat container should now be visible');
+      } else {
+        console.error('learning-plan-content element not found! Trying fallback...');
+        // Fallback: append to the learning plan tab content
+        const learningPlanTab = document.getElementById('tab-learningplan');
+        console.log('Learning plan tab element:', learningPlanTab);
+        if (learningPlanTab) {
+          learningPlanTab.appendChild(updateChatContainer);
+          console.log('Chat container appended to learning plan tab');
+        } else {
+          console.error('Learning plan tab not found either!');
+          // Final fallback: append to body
+          document.body.appendChild(updateChatContainer);
+          console.log('Chat container appended to body as final fallback');
+        }
+      }
+      
+      // Make sure the chat container is visible
+      updateChatContainer.style.display = 'block';
+      console.log('Chat container display set to block');
+      
+      // Focus on input
+      setTimeout(() => {
+        const input = document.getElementById('update-plan-input');
+        if (input) input.focus();
+      }, 100);
+      
+      // Add Enter key support
+      const input = document.getElementById('update-plan-input');
+      if (input) {
+        input.addEventListener('keypress', function(event) {
+          if (event.key === 'Enter') {
+            sendUpdateRequest();
+          }
+        });
+      }
+    }
+
+    // Send update request to AI
+    async function sendUpdateRequest() {
+      const input = document.getElementById('update-plan-input');
+      const sendBtn = document.getElementById('update-plan-send-btn');
+      const messagesContainer = document.getElementById('update-plan-chat-messages');
+      const message = input.value.trim();
+      
+      if (!message) return;
+      
+      // Disable input and button
+      input.disabled = true;
+      sendBtn.disabled = true;
+      sendBtn.textContent = 'Sending...';
+      
+      // Add user message
+      const userMessage = document.createElement('div');
+      userMessage.className = 'chat-message user-msg';
+      userMessage.innerHTML = `
+        <span class="user-bubble">You</span>
+        <div style="color: #333; margin-top: 5px;">${message}</div>
+      `;
+      messagesContainer.appendChild(userMessage);
+      
+      // Add typing indicator
+      const typingIndicator = document.createElement('div');
+      typingIndicator.className = 'chat-message system-msg';
+      typingIndicator.id = 'update-typing-indicator';
+      typingIndicator.innerHTML = `
+        <span class="ai-name-bubble">JobTestPrep AI</span>
+        <div class="typing-dots">
+          <span></span><span></span><span></span>
+        </div>
+      `;
+      messagesContainer.appendChild(typingIndicator);
+      
+      // Scroll to bottom
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      
+      // Clear input
+      input.value = '';
+      
+      try {
+        // Get user settings
+        const savedSettings = localStorage.getItem('lastSavedSettings');
+        let userSettings = {};
+        
+        if (savedSettings) {
+          try {
+            userSettings = JSON.parse(savedSettings);
+          } catch (e) {
+            console.error('Error parsing saved settings:', e);
+          }
+        }
+        
+        // Call learning plan API with update request
+        const response = await fetch('/api/chat/learning-plan', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            settings: {
+              testName: userSettings.pack_name || 'Watson Glaser',
+              planDurationDays: 14,
+              hoursPerDay: userSettings.daily_hours || 1,
+              startingProficiency: userSettings.starting_proficiency || 'unknown',
+              targetScore: userSettings.target_score || 80,
+              timing: {
+                timePerItemSec: userSettings.time_per_item_sec || 90
+              },
+              skills: userSettings.enemy_sets && userSettings.enemy_sets.length > 0 ? 
+                userSettings.enemy_sets : 
+                ['Inference', 'Recognition of Assumptions', 'Deduction', 'Interpretation', 'Evaluation of Arguments'],
+              constraints: {
+                contentBalance: userSettings.content_balance || false,
+                enemySets: userSettings.enemy_sets || []
+              },
+              updateRequest: message
+            },
+            session_id: generateSessionId(),
+            history: []
+          })
+        });
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const result = await response.json();
+        
+        // Remove typing indicator
+        const typingEl = document.getElementById('update-typing-indicator');
+        if (typingEl) typingEl.remove();
+        
+        // Add AI response
+        const aiMessage = document.createElement('div');
+        aiMessage.className = 'chat-message system-msg';
+        aiMessage.innerHTML = `
+          <span class="ai-name-bubble">JobTestPrep AI</span>
+          <div class="markdown-content" style="color: #333; margin-top: 5px;">${renderMarkdown(result.learning_plan || result.response || 'I understand your request. Let me update your learning plan accordingly.')}</div>
+        `;
+        messagesContainer.appendChild(aiMessage);
+        
+        // Scroll to bottom
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        
+        // If the response contains an updated plan, regenerate the main plan
+        if (result.learning_plan || result.response) {
+          setTimeout(() => {
+            generateLearningPlan();
+          }, 1000);
+        }
+        
+      } catch (error) {
+        console.error('Error sending update request:', error);
+        
+        // Remove typing indicator
+        const typingEl = document.getElementById('update-typing-indicator');
+        if (typingEl) typingEl.remove();
+        
+        // Add error message
+        const errorMessage = document.createElement('div');
+        errorMessage.className = 'chat-message system-msg';
+        errorMessage.innerHTML = `
+          <span class="ai-name-bubble">JobTestPrep AI</span>
+          <div style="color: #d32f2f; margin-top: 5px;">Sorry, I encountered an error processing your request. Please try again.</div>
+        `;
+        messagesContainer.appendChild(errorMessage);
+        
+        // Scroll to bottom
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      } finally {
+        // Re-enable input and button
+        input.disabled = false;
+        sendBtn.disabled = false;
+        sendBtn.textContent = 'Send';
+        input.focus();
+      }
+    }
+    
+    // Close update chat
+    function closeUpdateChat() {
+      const updateChatContainer = document.getElementById('update-plan-chat');
+      if (updateChatContainer) {
+        updateChatContainer.style.display = 'none';
+      }
+    }
+
     function generateSessionId() {
       return 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
     }
@@ -1675,11 +3818,450 @@
         sugg.style.display = tabName === 'overview' ? 'flex' : 'none';
       }
 
+      // Ensure Diagnostic Questions button is visible on Diagnostic tab
+      if (tabName === 'diagnostic') {
+        const continueBtn = document.getElementById('continue-btn');
+        if (continueBtn) {
+          continueBtn.style.display = 'inline-block';
+        }
+      }
+
       // Auto-load question stats every time the tab opens
       if (tabName === 'qstats') {
         try { loadQuestionStats(); } catch (e) { /* ignore */ }
       }
+      
+      // Auto-load learning plan every time the tab opens
+      if (tabName === 'learningplan') {
+        try { updateLearningPlan(); } catch (e) { /* ignore */ }
+      }
+      
+      // Ensure Assessment Profile is always visible and populated
+      ensureAssessmentProfileVisible();
     }
+
+    // -------------------------
+    // Assessment Profile helpers
+    // -------------------------
+    
+    function ensureAssessmentProfileVisible() {
+      const metadataCard = document.getElementById('metadata-card');
+      const profileContainer = document.getElementById('assessment-profile-container');
+      
+      // Ensure the metadata card is visible
+      if (metadataCard) {
+        metadataCard.style.display = 'block';
+      }
+      
+      // If profile container is empty, try to populate it with saved settings
+      if (profileContainer && (!profileContainer.innerHTML || profileContainer.innerHTML.trim() === '')) {
+        const savedSettings = localStorage.getItem('lastSavedSettings');
+        if (savedSettings) {
+          try {
+            const userSettings = JSON.parse(savedSettings);
+            updateMetadataCard(userSettings);
+          } catch (e) {
+            console.warn('Failed to parse saved settings:', e);
+          }
+        }
+      }
+    }
+
+    // -------------------------
+    // Learning Plan helpers
+    // -------------------------
+    
+    function updateLearningPlan() {
+      // Get user settings from localStorage or form
+      const savedSettings = localStorage.getItem('lastSavedSettings');
+      let userSettings = {};
+      
+      if (savedSettings) {
+        try {
+          userSettings = JSON.parse(savedSettings);
+        } catch (e) {
+          console.error('Error parsing saved settings:', e);
+        }
+      }
+      
+      // If no saved settings, try to get from form
+      if (!userSettings.pack_name) {
+        const packName = document.getElementById('pack-name')?.value;
+        const testerName = document.getElementById('tester-name')?.value;
+        const assessmentDate = document.getElementById('assessment-date')?.value;
+        const dailyHours = document.getElementById('daily-hours')?.value;
+        const startingProficiency = 'unknown';
+        const targetScore = 80;
+        const timePerItem = 90;
+        const contentBalance = false;
+        const enemySets = [];
+        
+        if (packName && testerName && assessmentDate) {
+          userSettings = {
+            pack_name: packName,
+            tester_name: testerName,
+            assessment_date: assessmentDate,
+            daily_hours: parseFloat(dailyHours),
+            starting_proficiency: startingProficiency,
+            target_score: parseInt(targetScore),
+            time_per_item_sec: parseInt(timePerItem),
+            content_balance: contentBalance,
+            enemy_sets: enemySets
+          };
+        }
+      }
+      
+      
+      // Show generate button if we have settings
+      const generateBtn = document.getElementById('generate-plan-btn');
+      if (generateBtn) {
+        if (userSettings.pack_name) {
+          generateBtn.style.display = 'inline-block';
+        } else {
+          generateBtn.style.display = 'none';
+        }
+      }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    async function generateLearningPlan() {
+      // Get user settings
+      const savedSettings = localStorage.getItem('lastSavedSettings');
+      let userSettings = {};
+      
+      if (savedSettings) {
+        try {
+          userSettings = JSON.parse(savedSettings);
+        } catch (e) {
+          console.error('Error parsing saved settings:', e);
+        }
+      }
+      
+      // If no saved settings, try to get from form
+      if (!userSettings.pack_name) {
+        const packName = document.getElementById('pack-name')?.value;
+        const assessmentDate = document.getElementById('assessment-date')?.value;
+        const dailyHours = document.getElementById('daily-hours')?.value;
+        const startingProficiency = 'unknown';
+        const targetScore = 80;
+        const timePerItem = 90;
+        const contentBalance = false;
+        const enemySets = [];
+        
+        if (packName && assessmentDate) {
+          userSettings = {
+            pack_name: packName,
+            assessment_date: assessmentDate,
+            daily_hours: parseFloat(dailyHours),
+            starting_proficiency: startingProficiency,
+            target_score: parseInt(targetScore),
+            time_per_item_sec: parseInt(timePerItem),
+            content_balance: contentBalance,
+            enemy_sets: enemySets
+          };
+        }
+      }
+      
+      if (!userSettings.pack_name) {
+        showNotification('Please complete the Assessment Settings first', 'error');
+        return;
+      }
+      
+      // Show loading state
+      const generateBtn = document.getElementById('generate-plan-btn');
+      const loader = document.getElementById('learning-loader');
+      const overlay = document.getElementById('learning-overlay');
+      
+      generateBtn.style.display = 'none';
+      loader.style.display = 'flex';
+      overlay.style.display = 'flex';
+      
+      try {
+        // Calculate plan duration in days
+        const assessmentDate = new Date(userSettings.assessment_date);
+        const today = new Date();
+        const timeDiff = assessmentDate.getTime() - today.getTime();
+        const planDurationDays = Math.max(1, Math.ceil(timeDiff / (1000 * 3600 * 24)));
+        
+        // Prepare request payload
+        const requestPayload = {
+          testName: userSettings.pack_name,
+          planDurationDays: planDurationDays,
+          hoursPerDay: userSettings.daily_hours || 1,
+          startingProficiency: userSettings.starting_proficiency || 'unknown',
+          targetScore: userSettings.target_score || 80,
+          timing: {
+            timePerItemSec: userSettings.time_per_item_sec || 90
+          },
+          skills: userSettings.enemy_sets && userSettings.enemy_sets.length > 0 ? 
+            userSettings.enemy_sets : 
+            ['Inference', 'Recognition of Assumptions', 'Deduction', 'Interpretation', 'Evaluation of Arguments'],
+          constraints: {
+            contentBalance: userSettings.content_balance || false,
+            enemySets: userSettings.enemy_sets || []
+          }
+        };
+        
+        console.log('Sending learning plan request:', requestPayload);
+        
+        // Call backend API
+        const response = await fetch('/api/chat/learning-plan', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            settings: requestPayload,
+            session_id: generateSessionId(),
+            history: []
+          })
+        });
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const result = await response.json();
+        
+        console.log('Learning plan response:', result);
+        console.log('Learning plan content:', result.learning_plan || result.response);
+        
+        // Display the learning plan
+        displayLearningPlan(result.learning_plan || result.response || 'No learning plan generated');
+        
+        
+        
+      } catch (error) {
+        console.error('Error generating learning plan:', error);
+        showNotification('Error generating learning plan. Please try again.', 'error');
+      } finally {
+        // Hide loading state
+        generateBtn.style.display = 'inline-block';
+        loader.style.display = 'none';
+        overlay.style.display = 'none';
+      }
+    }
+    
+    function displayLearningPlan(planContent) {
+      console.log('displayLearningPlan called with:', planContent);
+      const contentDiv = document.getElementById('learning-plan-content');
+      console.log('contentDiv found:', contentDiv);
+      
+      // Clear existing content
+      contentDiv.innerHTML = '';
+      
+      // Try to parse as JSON, fallback to markdown if it fails
+      let planData;
+      try {
+        planData = JSON.parse(planContent);
+        console.log('Parsed as JSON:', planData);
+      } catch (e) {
+        console.log('Not JSON, treating as markdown:', e.message);
+        // If not JSON, display as markdown
+        const planMessage = document.createElement('div');
+        planMessage.className = 'chat-message system-msg';
+        planMessage.innerHTML = `
+          <div class="q-card">
+            <div class="section-title">Your Personalized Learning Plan</div>
+            <div class="markdown-content" style="padding: 15px;">${renderMarkdown(planContent)}</div>
+            <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #e1e9f6; display: flex; gap: 12px; justify-content: flex-start; flex-wrap: wrap; position: relative; z-index: 10;">
+              <button onclick="console.log('Continue button clicked'); continueToNextStep();" class="tag" style="background: #28a745; border-color: #28a745; padding: 10px 20px; font-size: 14px; font-weight: 600; cursor: pointer; position: relative; z-index: 11;">Continue</button>
+              <button id="update-plan-btn" class="tag" style="background: #1976d2; border-color: #1976d2; padding: 10px 20px; font-size: 14px; font-weight: 600; cursor: pointer; position: relative; z-index: 11;">Update Plan</button>
+            </div>
+          </div>
+        `;
+        contentDiv.appendChild(planMessage);
+        contentDiv.style.display = 'block';
+        console.log('Markdown content added to DOM');
+        
+        // Add event listener for Update Plan button
+        setTimeout(() => {
+          const updateBtn = document.getElementById('update-plan-btn');
+          if (updateBtn) {
+            console.log('Update Plan button found, adding event listener');
+            updateBtn.addEventListener('click', function() {
+              console.log('Update Plan button clicked via event listener');
+              updateLearningPlan();
+            });
+          } else {
+            console.log('Update Plan button not found');
+          }
+        }, 100);
+        return;
+      }
+      
+      // Create structured learning plan display
+      const planMessage = document.createElement('div');
+      planMessage.className = 'chat-message system-msg';
+      
+      // Build overview section
+      const overviewHTML = `
+        <div class="q-card" style="margin-bottom: 15px;">
+          <div class="section-title">Your Personalized Learning Plan</div>
+          <div style="padding: 15px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">
+              <div class="config-item">
+                <span class="config-label">Test:</span>
+                <span class="config-value highlight">${planData.overview.testName}</span>
+              </div>
+              <div class="config-item">
+                <span class="config-label">Duration:</span>
+                <span class="config-value highlight">${planData.overview.totalDays} days</span>
+              </div>
+              <div class="config-item">
+                <span class="config-label">Total Hours:</span>
+                <span class="config-value highlight">${planData.overview.totalHours} hours</span>
+              </div>
+              <div class="config-item">
+                <span class="config-label">Target Score:</span>
+                <span class="config-value highlight">${planData.overview.targetScore}%</span>
+              </div>
+            </div>
+            <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #1976d2;">
+              <h4 style="color: #1976d2; margin: 0 0 10px 0;">Strategy</h4>
+              <p style="margin: 0; color: #333;">${planData.overview.strategy}</p>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      // Build phases section
+      const phasesHTML = `
+        <div class="q-card" style="margin-bottom: 15px;">
+          <div class="section-title">Study Phases</div>
+          <div style="padding: 15px;">
+            <div style="display: grid; gap: 15px;">
+              ${planData.phases.map(phase => `
+                <div style="background: #ffffff; border: 1px solid #e1e9f6; border-radius: 8px; padding: 15px; border-left: 4px solid #1976d2;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <h4 style="color: #1976d2; margin: 0;">${phase.phase}</h4>
+                    <span style="background: #e3f2fd; color: #1976d2; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600;">${phase.days}</span>
+                  </div>
+                  <p style="color: #666; margin: 0 0 8px 0; font-weight: 600;">${phase.focus}</p>
+                  <p style="color: #333; margin: 0 0 8px 0; font-size: 14px;">${phase.description}</p>
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="color: #666; font-size: 12px;">${phase.hours} hours</span>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+      
+      // Build daily plan section
+      const dailyPlanHTML = `
+        <div class="q-card" style="margin-bottom: 15px;">
+          <div class="section-title">Daily Plan</div>
+          <div style="padding: 15px;">
+            <div style="display: grid; gap: 15px;">
+              ${planData.dailyPlan.map(day => `
+                <div style="background: #ffffff; border: 1px solid #e1e9f6; border-radius: 8px; padding: 15px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <h4 style="color: #1976d2; margin: 0;">Day ${day.day}</h4>
+                    <div style="display: flex; gap: 8px;">
+                      ${day.focus.map(skill => `<span style="background: #e3f2fd; color: #1976d2; padding: 4px 8px; border-radius: 8px; font-size: 11px; font-weight: 600;">${skill}</span>`).join('')}
+                    </div>
+                  </div>
+                  <div style="margin-bottom: 10px;">
+                    <h5 style="color: #333; margin: 0 0 8px 0; font-size: 14px;">Tasks:</h5>
+                    <ul style="margin: 0; padding-left: 20px;">
+                      ${day.tasks.map(task => `<li style="color: #333; margin-bottom: 4px; font-size: 14px;">${task}</li>`).join('')}
+                    </ul>
+                  </div>
+                  <div style="background: #f8f9fa; padding: 10px; border-radius: 6px; border-left: 3px solid #1976d2;">
+                    <p style="margin: 0; color: #333; font-style: italic; font-size: 14px;">${day.coachingNote}</p>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+      
+      // Build milestones section
+      const milestonesHTML = `
+        <div class="q-card" style="margin-bottom: 15px;">
+          <div class="section-title">Milestones</div>
+          <div style="padding: 15px;">
+            <div style="display: grid; gap: 10px;">
+              ${planData.milestones.map(milestone => `
+                <div style="display: flex; align-items: center; gap: 15px; padding: 12px; background: #ffffff; border-radius: 8px; border: 1px solid #e1e9f6; border-left: 4px solid #1976d2;">
+                  <div style="background: #1976d2; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px;">${milestone.day}</div>
+                  <div>
+                    <h4 style="color: #1976d2; margin: 0 0 4px 0; font-size: 16px;">${milestone.title}</h4>
+                    <p style="color: #666; margin: 0; font-size: 14px;">${milestone.description}</p>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+      
+      // Build tips section
+      const tipsHTML = `
+        <div class="q-card" style="margin-bottom: 15px;">
+          <div class="section-title">Study Tips</div>
+          <div style="padding: 15px;">
+            <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #1976d2;">
+              <ul style="margin: 0; padding-left: 20px;">
+                ${planData.tips.map(tip => `<li style="color: #333; margin-bottom: 8px; font-size: 14px;">${tip}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      // Add action buttons
+      const actionButtonsHTML = `
+        <div class="q-card" style="margin-bottom: 15px;">
+          <div style="padding: 15px; text-align: left; border-top: 1px solid #e1e9f6; margin-top: 20px;">
+            <div style="display: flex; gap: 12px; justify-content: flex-start; flex-wrap: wrap; position: relative; z-index: 10;">
+              <button onclick="console.log('Continue button clicked'); continueToNextStep();" class="tag" style="background: #28a745; border-color: #28a745; padding: 10px 20px; font-size: 14px; font-weight: 600; cursor: pointer; position: relative; z-index: 11;">Continue</button>
+              <button id="update-plan-btn" class="tag" style="background: #1976d2; border-color: #1976d2; padding: 10px 20px; font-size: 14px; font-weight: 600; cursor: pointer; position: relative; z-index: 11;">Update Plan</button>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      // Combine all sections
+      planMessage.innerHTML = overviewHTML + phasesHTML + dailyPlanHTML + milestonesHTML + tipsHTML + actionButtonsHTML;
+      
+      // Insert after the Generate Learning Plan button
+      const generateButton = document.getElementById('generate-plan-btn');
+      if (generateButton && generateButton.parentNode) {
+        generateButton.parentNode.insertBefore(planMessage, generateButton.nextSibling);
+      } else {
+        // Fallback: append to content div
+        contentDiv.appendChild(planMessage);
+      }
+      
+      // Add event listener for Update Plan button (JSON structured)
+      setTimeout(() => {
+        const updateBtn = document.getElementById('update-plan-btn');
+        if (updateBtn) {
+          console.log('Update Plan button found (JSON), adding event listener');
+          updateBtn.addEventListener('click', function() {
+            console.log('Update Plan button clicked via event listener (JSON)');
+            updateLearningPlan();
+          });
+        } else {
+          console.log('Update Plan button not found (JSON)');
+        }
+      }, 100);
+    }
+    
+    
 
     // -------------------------
     // Question Stats helpers
@@ -1711,6 +4293,34 @@
       );
     }
 
+
+    function buildQStatHeader(domain, diff, exposures, ftr, ovr, avg, hint) {
+      return '<div class="qstat-header">'
+             + `<span class="badge">Domain ${domain}</span>`
+             + '</div>';
+    }
+
+    function buildQStatMetrics(s, domain, diff, exposures, ftr, ovr, avg, hint, qid, stem) {
+      const totalAttempts = (s.total_attempts ?? exposures ?? 0);
+      const totalCorrect = (s.total_correct ?? (Math.round((ovr || 0) * (exposures || 0))));
+      const totalIncorrect = (s.total_incorrect ?? Math.max(0, (totalAttempts || 0) - (totalCorrect || 0)));
+      return (
+        '<div class="qstat-metrics">'
+        + `<div class="qstat-metric"><div class="label">Question Id</div><div class="value">${qid}</div></div>`
+        + `<div class="qstat-metric"><div class="label">Domain</div><div class="value">${domain}</div></div>`
+        + `<div class="qstat-metric"><div class="label">Difficulty</div><div class="value">${diff}</div></div>`
+        + `<div class="qstat-metric"><div class="label">Exposures</div><div class="value">${exposures}</div></div>`
+        + `<div class="qstat-metric"><div class="label">Total Attempts</div><div class="value">${totalAttempts}</div></div>`
+        + `<div class="qstat-metric"><div class="label">Total Correct</div><div class="value">${totalCorrect}</div></div>`
+        + `<div class="qstat-metric"><div class="label">Total Incorrect</div><div class="value">${totalIncorrect}</div></div>`
+        + `<div class="qstat-metric"><div class="label">First‑Try Correct</div><div class="value">${(ftr*100).toFixed(0)}%</div></div>`
+        + `<div class="qstat-metric"><div class="label">Overall Correct</div><div class="value">${(ovr*100).toFixed(0)}%</div></div>`
+        + (avg!==''?`<div class="qstat-metric"><div class="label">Avg Latency (ms)</div><div class="value">${avg}</div></div>`:'')
+        + `<div class="qstat-metric"><div class="label">Hint Usage Rate</div><div class="value">${(hint*100).toFixed(0)}%</div></div>`
+        + '</div>'
+      );
+    }
+
     function buildQStatCard(entry) {
       const [qid, s] = entry;
       const exposures = s.observed_stats?.exposures ?? 0;
@@ -1727,7 +4337,7 @@
     }
 
     function buildQStatsGlobalBox(packNameForStats, globalChatId) {
-      return `<div class="qstat-global"><div class="qstat-global-header"><div class="qstat-global-title">Query ${packNameForStats} question stats</div><div class="qstat-global-sub">Tip: prefix with “QID 19” to focus on a single question</div></div><div class="qstat-global-body"><div id="${globalChatId}" class="qstat-chat" dir="auto"></div><div class="suggestion-tags" id="qstats-suggestions" style="margin-top:8px; gap:8px; flex-wrap:wrap;">
+      return `<div class="qstat-global"><div class="qstat-global-header"><div class="qstat-global-title">Query ${packNameForStats} question stats</div><div class="qstat-global-sub">Tip: prefix with "QID 19" to focus on a single question</div></div><div class="qstat-global-body"><div id="${globalChatId}" class="qstat-chat" dir="auto"></div><div class="suggestion-tags" id="qstats-suggestions" style="margin-top:8px; gap:8px; flex-wrap:wrap;">
         <span class="suggestion-tag" onclick="askQStatSuggestion('Which domains are hardest by first‑try rate?')">Which domains are hardest by first‑try rate?</span>
         <span class="suggestion-tag" onclick="askQStatSuggestion('Top 5 QIDs with highest hint usage')">Top 5 QIDs with highest hint usage</span>
         <span class="suggestion-tag" onclick="askQStatSuggestion('Which questions are most time‑consuming by avg latency?')">Most time‑consuming questions</span>
@@ -1790,7 +4400,8 @@
         input.disabled = true;
         if (askBtn) askBtn.disabled = true;
         if (sugg) { sugg.style.pointerEvents = 'none'; sugg.style.opacity = '0.6'; }
-        container.insertAdjacentHTML('beforeend', `<div class=\"user-msg\"><span class=\"user-bubble\">You</span><div dir=\"auto\">${msg}</div></div>`);
+        const testerName = document.getElementById('tester-name').value || 'Your';
+        container.insertAdjacentHTML('beforeend', `<div class=\"user-msg\"><span class=\"user-bubble\">${testerName}</span><div dir=\"auto\">${msg}</div></div>`);
         input.value = '';
         // Build payload for qstats-qa with current stats JSON (reload for freshness)
         let statsJson = {};
@@ -1806,7 +4417,7 @@
         });
         let reply = '';
         if (res.ok) { const data = await res.json(); reply = data.reply || ''; }
-        container.insertAdjacentHTML('beforeend', `<div class=\"system-msg\"><span class=\"ai-name-bubble\">JobTestPrep AI:</span><div dir=\"auto\" class=\"markdown-content\">${renderMarkdown(reply)}</div></div>`);
+        container.insertAdjacentHTML('beforeend', `<div class=\"system-msg\"><span class=\"ai-name-bubble\">JobTestPrep AI</span><div dir=\"auto\" class=\"markdown-content\">${renderMarkdown(reply)}</div></div>`);
         container.scrollTop = container.scrollHeight;
       } catch (e) { /* ignore */ }
       finally {
@@ -1834,27 +4445,54 @@
       
       // Calculate days until assessment
       let daysText = '';
+      let daysDiff = 0;
       if (userSettings.assessment_date) {
         const assessmentDateObj = new Date(userSettings.assessment_date);
         const today = new Date();
         const timeDiff = assessmentDateObj.getTime() - today.getTime();
-        const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+        daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
         
         daysText = daysDiff > 0 ? `${daysDiff} days until assessment` : 
                    daysDiff === 0 ? 'Assessment is today' : 
                    `${Math.abs(daysDiff)} days since assessment`;
       }
       
-      // Populate consolidated Learning Settings & Assessment Timeline section
-      const consolidatedHTML = `
-        <div>
-          <span class="tag">Pack Name: ${userSettings.pack_name || 'Not set'}</span>
-          ${daysText ? `<span class=\"tag\">${daysText}</span>` : ''}
-          <span class="tag">Assessment Date: ${userSettings.assessment_date || 'Not set'}</span>
+      // Create enhanced Assessment Profile
+      let profileHTML = `  
+        <div class="profile-section">
+          <h4>User</h4>
+          <div class="profile-tags">
+            <span class="profile-tag">User: ${userSettings.tester_name || 'User'}</span>
+          </div>
         </div>
+        
+        <div class="profile-section">
+          <h4>Timeline & Schedule</h4>
+          <div class="profile-tags">
+            <span class="profile-tag">Pack name: ${userSettings.pack_name || 'Watson-Glaser'}</span>
+            ${daysText ? `<span class="profile-tag">Assessment: ${daysText}</span>` : ''}
+            <span class="profile-tag">Assessment date: ${userSettings.assessment_date || 'Not set'}</span>
+            <span class="profile-tag">Hours in day for practice: ${userSettings.hours_per_day || 2}h daily</span>
+          </div>
+        </div>
+        
       `;
       
-      document.getElementById('settings-tags-container').innerHTML = consolidatedHTML;
+      // Add additional fields if they exist
+      if (userSettings.position || userSettings.company || userSettings.difficult_topic) {
+        profileHTML += `
+          <div class="profile-section">
+            <h4>👤 Personal Details</h4>
+            <div class="profile-tags">
+              ${userSettings.position ? `<span class="profile-tag">${userSettings.position}</span>` : ''}
+              ${userSettings.company ? `<span class="profile-tag">${userSettings.company}</span>` : ''}
+              ${userSettings.difficult_topic ? `<span class="profile-tag">Challenging: ${userSettings.difficult_topic}</span>` : ''}
+            </div>
+          </div>
+        `;
+      }
+      
+      document.getElementById('assessment-profile-container').innerHTML = profileHTML;
     }
 
     // Notification system
@@ -1887,3 +4525,4 @@
 
 </body>
 </html>
+

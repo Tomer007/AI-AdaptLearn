@@ -8,101 +8,101 @@
       "stem": "The recycling company does not disapprove of bribing as a way to bring in more clients.",
       "domain": "Interpretation",
       "difficulty": 4,
-      "total_attempts": 3,
-      "total_correct": 1,
-      "total_incorrect": 2,
+      "total_attempts": 33,
+      "total_correct": 24,
+      "total_incorrect": 9,
       "hint_usage_count": 2,
       "observed_stats": {
-        "exposures": 3,
-        "overall_correct_rate": 0.3333,
-        "first_try_correct_rate": 0.3333,
+        "exposures": 33,
+        "overall_correct_rate": 0.7273,
+        "first_try_correct_rate": 0.7273,
         "avg_latency_ms": 4027,
-        "hint_usage_rate": 0.6667
+        "hint_usage_rate": 0.0606
       }
     },
     "2": {
       "question_id": "2",
-      "stem": "The recycling company does not disapprove of bribing as a way to bring in more clients.",
-      "domain": "Assumptions",
+      "stem": "The generous reward offered by the recycling company for each new client brought in did not prevent 85 percent of the workers from bringing in fewer than three new clients last year.",
+      "domain": "Interpretation",
       "difficulty": 5,
-      "total_attempts": 8,
-      "total_correct": 0,
-      "total_incorrect": 8,
+      "total_attempts": 22,
+      "total_correct": 12,
+      "total_incorrect": 10,
       "hint_usage_count": 4,
       "observed_stats": {
-        "exposures": 9,
-        "overall_correct_rate": 0.0,
-        "first_try_correct_rate": 0.27,
+        "exposures": 22,
+        "overall_correct_rate": 0.5455,
+        "first_try_correct_rate": 0.5455,
         "avg_latency_ms": null,
-        "hint_usage_rate": 0.5
+        "hint_usage_rate": 0.1818
       }
     },
     "3": {
       "question_id": "3",
-      "stem": "Proposed Assumption: This holiday will be more expensive than our previous holiday.",
+      "stem": "For every worker who brought in three or more new clients last year, more than five workers did not.",
       "domain": "Interpretation",
-      "difficulty": 1,
-      "total_attempts": 9,
-      "total_correct": 1,
-      "total_incorrect": 8,
+      "difficulty": 5,
+      "total_attempts": 22,
+      "total_correct": 9,
+      "total_incorrect": 13,
       "hint_usage_count": 4,
       "observed_stats": {
-        "exposures": 5,
-        "overall_correct_rate": 0.1111111111111111,
-        "first_try_correct_rate": 0.83,
+        "exposures": 22,
+        "overall_correct_rate": 0.4091,
+        "first_try_correct_rate": 0.4091,
         "avg_latency_ms": 4933,
-        "hint_usage_rate": 0.4444444444444444
+        "hint_usage_rate": 0.1818
       }
     },
     "4": {
       "question_id": "4",
-      "stem": "Nowadays, occupational psychologists use cognitive ability tests more often than in the past.",
+      "stem": "My baby’s difficulty is mostly physiological—her grandparents give her chocolates to eat and the sugar in them makes her hyperactive.",
       "domain": "Interpretation",
-      "difficulty": 2,
-      "total_attempts": 3,
-      "total_correct": 2,
-      "total_incorrect": 1,
+      "difficulty": 4,
+      "total_attempts": 10,
+      "total_correct": 7,
+      "total_incorrect": 3,
       "hint_usage_count": 3,
       "observed_stats": {
-        "exposures": 2,
-        "overall_correct_rate": 0.6666666666666666,
-        "first_try_correct_rate": 0.22,
+        "exposures": 10,
+        "overall_correct_rate": 0.7,
+        "first_try_correct_rate": 0.7,
         "avg_latency_ms": 860,
-        "hint_usage_rate": 1.0
+        "hint_usage_rate": 0.3
       }
     },
     "5": {
       "question_id": "5",
-      "stem": "Proposed Assumption: This holiday will be more expensive than our previous holiday.",
-      "domain": "Inference",
-      "difficulty": 4,
-      "total_attempts": 6,
-      "total_correct": 3,
-      "total_incorrect": 3,
+      "stem": "My baby reacts to some changes in routine by refusing to go to sleep quietly.",
+      "domain": "Interpretation",
+      "difficulty": 6,
+      "total_attempts": 20,
+      "total_correct": 10,
+      "total_incorrect": 10,
       "hint_usage_count": 5,
       "observed_stats": {
-        "exposures": 8,
+        "exposures": 20,
         "overall_correct_rate": 0.5,
-        "first_try_correct_rate": 0.56,
+        "first_try_correct_rate": 0.5,
         "avg_latency_ms": 2915,
-        "hint_usage_rate": 0.8333333333333334
+        "hint_usage_rate": 0.25
       }
     },
     "6": {
       "question_id": "6",
-      "stem": "The recycling company does not disapprove of bribing as a way to bring in more clients.",
+      "stem": "The baby has trouble sleeping only when her grandparents are present.",
       "domain": "Interpretation",
-      "difficulty": 5,
-      "total_attempts": 7,
-      "total_correct": 0,
-      "total_incorrect": 7,
+      "difficulty": 3,
+      "total_attempts": 14,
+      "total_correct": 5,
+      "total_incorrect": 9,
       "hint_usage_count": 3,
       "observed_stats": {
-        "exposures": 5,
-        "overall_correct_rate": 0.0,
-        "first_try_correct_rate": 0.45,
+        "exposures": 14,
+        "overall_correct_rate": 0.3571,
+        "first_try_correct_rate": 0.3571,
         "avg_latency_ms": null,
-        "hint_usage_rate": 0.42857142857142855
+        "hint_usage_rate": 0.2143
       }
     },
     "7": {
@@ -314,33 +314,33 @@
       "stem": "Nowadays, occupational psychologists use cognitive ability tests more often than in the past.",
       "domain": "Inference",
       "difficulty": 3,
-      "total_attempts": 10,
-      "total_correct": 6,
-      "total_incorrect": 4,
+      "total_attempts": 48,
+      "total_correct": 32,
+      "total_incorrect": 16,
       "hint_usage_count": 4,
       "observed_stats": {
-        "exposures": 10,
-        "overall_correct_rate": 0.6,
-        "first_try_correct_rate": 0.6,
+        "exposures": 48,
+        "overall_correct_rate": 0.6667,
+        "first_try_correct_rate": 0.6667,
         "avg_latency_ms": null,
-        "hint_usage_rate": 0.4
+        "hint_usage_rate": 0.0833
       }
     },
     "20": {
       "question_id": "20",
-      "stem": "If it rains tomorrow, the picnic will be canceled.",
+      "stem": "Some work places in the civilian and military sectors use cognitive ability tests to predict applicants’ future success on the job.",
       "domain": "Inference",
-      "difficulty": 4,
-      "total_attempts": 5,
-      "total_correct": 2,
-      "total_incorrect": 3,
+      "difficulty": 3,
+      "total_attempts": 17,
+      "total_correct": 10,
+      "total_incorrect": 7,
       "hint_usage_count": 1,
       "observed_stats": {
-        "exposures": 6,
-        "overall_correct_rate": 0.4,
-        "first_try_correct_rate": 0.23,
+        "exposures": 17,
+        "overall_correct_rate": 0.5882,
+        "first_try_correct_rate": 0.5882,
         "avg_latency_ms": null,
-        "hint_usage_rate": 0.2
+        "hint_usage_rate": 0.0587
       }
     },
     "21": {
@@ -348,33 +348,33 @@
       "stem": "The tests can predict future performance by evaluating learning and thinking skills, but they cannot predict how employees will perform until they acquire these skills.",
       "domain": "Inference",
       "difficulty": 5,
-      "total_attempts": 6,
-      "total_correct": 3,
-      "total_incorrect": 3,
+      "total_attempts": 15,
+      "total_correct": 6,
+      "total_incorrect": 9,
       "hint_usage_count": 4,
       "observed_stats": {
-        "exposures": 6,
-        "overall_correct_rate": 0.5,
-        "first_try_correct_rate": 0.5,
+        "exposures": 15,
+        "overall_correct_rate": 0.4,
+        "first_try_correct_rate": 0.4,
         "avg_latency_ms": 2461,
-        "hint_usage_rate": 0.6667
+        "hint_usage_rate": 0.2667
       }
     },
     "22": {
       "question_id": "22",
-      "stem": "The committee agreed unanimously to approve the budget proposal.",
-      "domain": "Interpretation",
-      "difficulty": 4,
-      "total_attempts": 8,
-      "total_correct": 8,
-      "total_incorrect": 0,
+      "stem": "Tony saw the report prior to banning it.",
+      "domain": "Inference",
+      "difficulty": 3,
+      "total_attempts": 20,
+      "total_correct": 14,
+      "total_incorrect": 6,
       "hint_usage_count": 5,
       "observed_stats": {
-        "exposures": 9,
-        "overall_correct_rate": 1.0,
-        "first_try_correct_rate": 0.49,
+        "exposures": 20,
+        "overall_correct_rate": 0.7,
+        "first_try_correct_rate": 0.7,
         "avg_latency_ms": 4767,
-        "hint_usage_rate": 0.625
+        "hint_usage_rate": 0.25
       }
     },
     "23": {
@@ -413,19 +413,19 @@
     },
     "25": {
       "question_id": "25",
-      "stem": "Proposed Assumption: This holiday will be more expensive than our previous holiday.",
+      "stem": "Last year's annual rate of increase in the number of virtual workers was greater than the annual rate of increase in the number of virtual workers five years ago.",
       "domain": "Inference",
-      "difficulty": 2,
-      "total_attempts": 2,
-      "total_correct": 0,
-      "total_incorrect": 2,
+      "difficulty": 4,
+      "total_attempts": 13,
+      "total_correct": 6,
+      "total_incorrect": 7,
       "hint_usage_count": 1,
       "observed_stats": {
-        "exposures": 1,
-        "overall_correct_rate": 0.0,
-        "first_try_correct_rate": 0.95,
+        "exposures": 13,
+        "overall_correct_rate": 0.4615,
+        "first_try_correct_rate": 0.4615,
         "avg_latency_ms": 814,
-        "hint_usage_rate": 0.5
+        "hint_usage_rate": 0.0769
       }
     },
     "26": {
@@ -501,14 +501,14 @@
       "stem": "The fans cannot afford to invest more of their money into the team besides purchasing tickets and merchandise.",
       "domain": "Inference",
       "difficulty": 5,
-      "total_attempts": 1,
-      "total_correct": 0,
-      "total_incorrect": 1,
+      "total_attempts": 10,
+      "total_correct": 5,
+      "total_incorrect": 5,
       "hint_usage_count": 0,
       "observed_stats": {
-        "exposures": 1,
-        "overall_correct_rate": 0.0,
-        "first_try_correct_rate": 0.0,
+        "exposures": 10,
+        "overall_correct_rate": 0.5,
+        "first_try_correct_rate": 0.5,
         "avg_latency_ms": null,
         "hint_usage_rate": 0.0
       }
@@ -569,99 +569,99 @@
       "stem": "Yes—people are their most creative and original when they are freed from obligatory tasks and strict deadlines, which this free time will allow them to be. Creative and original thinking yields the most lucrative products and processes.",
       "domain": "Evaluation of Arguments",
       "difficulty": 3,
-      "total_attempts": 8,
-      "total_correct": 6,
-      "total_incorrect": 2,
+      "total_attempts": 43,
+      "total_correct": 32,
+      "total_incorrect": 11,
       "hint_usage_count": 5,
       "observed_stats": {
-        "exposures": 8,
-        "overall_correct_rate": 0.75,
-        "first_try_correct_rate": 0.75,
+        "exposures": 43,
+        "overall_correct_rate": 0.7442,
+        "first_try_correct_rate": 0.7442,
         "avg_latency_ms": null,
-        "hint_usage_rate": 0.625
+        "hint_usage_rate": 0.1162
       }
     },
     "35": {
       "question_id": "35",
-      "stem": "If it rains tomorrow, the picnic will be canceled.",
-      "domain": "Inference",
-      "difficulty": 2,
-      "total_attempts": 4,
-      "total_correct": 1,
-      "total_incorrect": 3,
+      "stem": "Yes—all work and no play means that employees will not be well rounded, and therefore they will not be the kind of employee the company wants to produce, or be proud of.",
+      "domain": "Evaluation of Arguments",
+      "difficulty": 5,
+      "total_attempts": 15,
+      "total_correct": 8,
+      "total_incorrect": 7,
       "hint_usage_count": 2,
       "observed_stats": {
-        "exposures": 6,
-        "overall_correct_rate": 0.25,
-        "first_try_correct_rate": 0.64,
+        "exposures": 15,
+        "overall_correct_rate": 0.5333,
+        "first_try_correct_rate": 0.5333,
         "avg_latency_ms": null,
-        "hint_usage_rate": 0.5
+        "hint_usage_rate": 0.1333
       }
     },
     "36": {
       "question_id": "36",
-      "stem": "The committee agreed unanimously to approve the budget proposal.",
+      "stem": "No; a strong government recycling ministry would ban free plastic bags at stores which would be very inconvenient for the public.",
       "domain": "Evaluation of Arguments",
-      "difficulty": 1,
-      "total_attempts": 4,
-      "total_correct": 4,
-      "total_incorrect": 0,
+      "difficulty": 3,
+      "total_attempts": 16,
+      "total_correct": 13,
+      "total_incorrect": 3,
       "hint_usage_count": 0,
       "observed_stats": {
-        "exposures": 3,
-        "overall_correct_rate": 1.0,
-        "first_try_correct_rate": 0.34,
+        "exposures": 16,
+        "overall_correct_rate": 0.8125,
+        "first_try_correct_rate": 0.8125,
         "avg_latency_ms": null,
         "hint_usage_rate": 0.0
       }
     },
     "37": {
       "question_id": "37",
-      "stem": "The recycling company does not disapprove of bribing as a way to bring in more clients.",
-      "domain": "Deduction",
-      "difficulty": 3,
-      "total_attempts": 3,
-      "total_correct": 3,
-      "total_incorrect": 0,
+      "stem": "Yes; keeping the environment clean and ensuring that all waste is disposed of or reutilized in the best possible way raises the quality of living of the people, and a strong government recycling ministry would do that.",
+      "domain": "Evaluation of Arguments",
+      "difficulty": 5,
+      "total_attempts": 13,
+      "total_correct": 10,
+      "total_incorrect": 3,
       "hint_usage_count": 1,
       "observed_stats": {
-        "exposures": 2,
-        "overall_correct_rate": 1.0,
-        "first_try_correct_rate": 0.43,
+        "exposures": 13,
+        "overall_correct_rate": 0.7692,
+        "first_try_correct_rate": 0.7692,
         "avg_latency_ms": 2360,
-        "hint_usage_rate": 0.3333333333333333
+        "hint_usage_rate": 0.0769
       }
     },
     "38": {
       "question_id": "38",
-      "stem": "Proposed Assumption: This holiday will be more expensive than our previous holiday.",
+      "stem": "No—it is not the responsibility of the business community to provide work for people with disabilities.",
       "domain": "Evaluation of Arguments",
-      "difficulty": 5,
-      "total_attempts": 1,
-      "total_correct": 1,
-      "total_incorrect": 0,
+      "difficulty": 3,
+      "total_attempts": 13,
+      "total_correct": 8,
+      "total_incorrect": 5,
       "hint_usage_count": 1,
       "observed_stats": {
-        "exposures": 1,
-        "overall_correct_rate": 1.0,
-        "first_try_correct_rate": 0.17,
+        "exposures": 13,
+        "overall_correct_rate": 0.6154,
+        "first_try_correct_rate": 0.6154,
         "avg_latency_ms": 2689,
-        "hint_usage_rate": 1.0
+        "hint_usage_rate": 0.0769
       }
     },
     "39": {
       "question_id": "39",
-      "stem": "Proposed Assumption: This holiday will be more expensive than our previous holiday.",
-      "domain": "Interpretation",
-      "difficulty": 1,
-      "total_attempts": 8,
-      "total_correct": 4,
-      "total_incorrect": 4,
+      "stem": "No; the overriding aim of a business is to increase its profit, and providing hiring programs for the disabled and at the expense of the business is not the job of a business.",
+      "domain": "Evaluation of Arguments",
+      "difficulty": 6,
+      "total_attempts": 18,
+      "total_correct": 12,
+      "total_incorrect": 6,
       "hint_usage_count": 0,
       "observed_stats": {
-        "exposures": 7,
-        "overall_correct_rate": 0.5,
-        "first_try_correct_rate": 0.27,
+        "exposures": 18,
+        "overall_correct_rate": 0.6667,
+        "first_try_correct_rate": 0.6667,
         "avg_latency_ms": null,
         "hint_usage_rate": 0.0
       }
@@ -1181,67 +1181,67 @@
       "stem": "Neither its location nor the nature of the mayor's wish are favourable for building a nuclear plant in West Harbour.",
       "domain": "Deduction",
       "difficulty": 3,
-      "total_attempts": 2,
-      "total_correct": 2,
-      "total_incorrect": 0,
+      "total_attempts": 32,
+      "total_correct": 26,
+      "total_incorrect": 6,
       "hint_usage_count": 0,
       "observed_stats": {
-        "exposures": 2,
-        "overall_correct_rate": 1.0,
-        "first_try_correct_rate": 1.0,
+        "exposures": 32,
+        "overall_correct_rate": 0.8125,
+        "first_try_correct_rate": 0.8125,
         "avg_latency_ms": 3702,
         "hint_usage_rate": 0.0
       }
     },
     "71": {
       "question_id": "71",
-      "stem": "The recycling company does not disapprove of bribing as a way to bring in more clients.",
+      "stem": "Given the city's location and his preferences, the mayor of West Harbour will probably establish a solar power-plant over nuclear, fossil-fuel, and biomass-fuelled power plants.",
       "domain": "Deduction",
-      "difficulty": 5,
-      "total_attempts": 7,
-      "total_correct": 4,
-      "total_incorrect": 3,
+      "difficulty": 6,
+      "total_attempts": 18,
+      "total_correct": 14,
+      "total_incorrect": 4,
       "hint_usage_count": 6,
       "observed_stats": {
-        "exposures": 4,
-        "overall_correct_rate": 0.5714285714285714,
-        "first_try_correct_rate": 0.69,
+        "exposures": 18,
+        "overall_correct_rate": 0.7778,
+        "first_try_correct_rate": 0.7778,
         "avg_latency_ms": null,
-        "hint_usage_rate": 0.8571428571428571
+        "hint_usage_rate": 0.3332
       }
     },
     "72": {
       "question_id": "72",
-      "stem": "The committee agreed unanimously to approve the budget proposal.",
-      "domain": "Inference",
-      "difficulty": 1,
-      "total_attempts": 10,
-      "total_correct": 0,
-      "total_incorrect": 10,
+      "stem": "West Harbour's location is neither favourable for building a fossil-fuelled nor a biomass fuelled power plant.",
+      "domain": "Deduction",
+      "difficulty": 3,
+      "total_attempts": 19,
+      "total_correct": 4,
+      "total_incorrect": 15,
       "hint_usage_count": 9,
       "observed_stats": {
-        "exposures": 8,
-        "overall_correct_rate": 0.0,
-        "first_try_correct_rate": 0.94,
+        "exposures": 19,
+        "overall_correct_rate": 0.2105,
+        "first_try_correct_rate": 0.2105,
         "avg_latency_ms": 2498,
-        "hint_usage_rate": 0.9
+        "hint_usage_rate": 0.4737
       }
     },
     "73": {
       "question_id": "73",
-      "stem": "The recycling company does not disapprove of bribing as a way to bring in more clients.",
-      "domain": "Interpretation",
-      "difficulty": 5,
-      "total_attempts": 2,
-      "total_correct": 1,
-      "total_incorrect": 1,
+      "stem": "Ergfort has some millionaires.",
+      "domain": "Deduction",
+      "difficulty": 4,
+      "total_attempts": 25,
+      "total_correct": 16,
+      "total_incorrect": 9,
       "hint_usage_count": 2,
       "observed_stats": {
-        "exposures": 5,
-        "overall_correct_rate": 0.5,
-        "first_try_correct_rate": 0.27,
+        "exposures": 25,
+        "overall_correct_rate": 0.64,
+        "first_try_correct_rate": 0.64,
         "avg_latency_ms": 2443,
-        "hint_usage_rate": 1.0
+        "hint_usage_rate": 0.08
       }
     },
     "74": {
@@ -1280,19 +1280,19 @@
     },
     "76": {
       "question_id": "76",
-      "stem": "Nowadays, occupational psychologists use cognitive ability tests more often than in the past.",
-      "domain": "Assumptions",
-      "difficulty": 1,
-      "total_attempts": 7,
-      "total_correct": 6,
-      "total_incorrect": 1,
+      "stem": "Some engineers who do not have knowledge in physics do not apply scientific knowledge to develop technical solutions",
+      "domain": "Deduction",
+      "difficulty": 6,
+      "total_attempts": 18,
+      "total_correct": 15,
+      "total_incorrect": 3,
       "hint_usage_count": 6,
       "observed_stats": {
-        "exposures": 1,
-        "overall_correct_rate": 0.8571428571428571,
-        "first_try_correct_rate": 0.28,
+        "exposures": 18,
+        "overall_correct_rate": 0.8333,
+        "first_try_correct_rate": 0.8333,
         "avg_latency_ms": null,
-        "hint_usage_rate": 0.8571428571428571
+        "hint_usage_rate": 0.3332
       }
     },
     "77": {
@@ -1433,19 +1433,19 @@
     },
     "85": {
       "question_id": "85",
-      "stem": "The recycling company does not disapprove of bribing as a way to bring in more clients.",
-      "domain": "Deduction",
-      "difficulty": 3,
-      "total_attempts": 4,
-      "total_correct": 2,
-      "total_incorrect": 2,
+      "stem": "Proposed Assumption:Normally, we eat out at least once a week.",
+      "domain": "Assumptions",
+      "difficulty": 7,
+      "total_attempts": 15,
+      "total_correct": 10,
+      "total_incorrect": 5,
       "hint_usage_count": 1,
       "observed_stats": {
-        "exposures": 2,
-        "overall_correct_rate": 0.5,
-        "first_try_correct_rate": 0.38,
+        "exposures": 15,
+        "overall_correct_rate": 0.6667,
+        "first_try_correct_rate": 0.6667,
         "avg_latency_ms": null,
-        "hint_usage_rate": 0.25
+        "hint_usage_rate": 0.0666
       }
     },
     "86": {
@@ -1453,65 +1453,65 @@
       "stem": "Proposed Assumption:This holiday will be more expensive than our previous holiday.",
       "domain": "Assumptions",
       "difficulty": 5,
-      "total_attempts": 2,
-      "total_correct": 2,
-      "total_incorrect": 0,
+      "total_attempts": 25,
+      "total_correct": 21,
+      "total_incorrect": 4,
       "hint_usage_count": 0,
       "observed_stats": {
-        "exposures": 2,
-        "overall_correct_rate": 1.0,
-        "first_try_correct_rate": 1.0,
+        "exposures": 25,
+        "overall_correct_rate": 0.84,
+        "first_try_correct_rate": 0.84,
         "avg_latency_ms": null,
         "hint_usage_rate": 0.0
       }
     },
     "87": {
       "question_id": "87",
-      "stem": "If it rains tomorrow, the picnic will be canceled.",
-      "domain": "Deduction",
-      "difficulty": 4,
-      "total_attempts": 3,
-      "total_correct": 2,
+      "stem": "Proposed Assumption:In deciding on how to navigate a career, it is fundamental to avoid workplace instability.",
+      "domain": "Assumptions",
+      "difficulty": 3,
+      "total_attempts": 10,
+      "total_correct": 9,
       "total_incorrect": 1,
       "hint_usage_count": 1,
       "observed_stats": {
-        "exposures": 1,
-        "overall_correct_rate": 0.6666666666666666,
-        "first_try_correct_rate": 0.51,
+        "exposures": 10,
+        "overall_correct_rate": 0.9,
+        "first_try_correct_rate": 0.9,
         "avg_latency_ms": 3754,
-        "hint_usage_rate": 0.3333333333333333
+        "hint_usage_rate": 0.1
       }
     },
     "88": {
       "question_id": "88",
-      "stem": "The recycling company does not disapprove of bribing as a way to bring in more clients.",
-      "domain": "Inference",
-      "difficulty": 1,
-      "total_attempts": 5,
-      "total_correct": 2,
-      "total_incorrect": 3,
+      "stem": "Proposed Assumption:Workplace stability implies long-term contracts.",
+      "domain": "Assumptions",
+      "difficulty": 2,
+      "total_attempts": 13,
+      "total_correct": 9,
+      "total_incorrect": 4,
       "hint_usage_count": 4,
       "observed_stats": {
-        "exposures": 4,
-        "overall_correct_rate": 0.4,
-        "first_try_correct_rate": 0.93,
+        "exposures": 13,
+        "overall_correct_rate": 0.6923,
+        "first_try_correct_rate": 0.6923,
         "avg_latency_ms": 1686,
-        "hint_usage_rate": 0.8
+        "hint_usage_rate": 0.3077
       }
     },
     "89": {
       "question_id": "89",
-      "stem": "If it rains tomorrow, the picnic will be canceled.",
-      "domain": "Inference",
-      "difficulty": 4,
-      "total_attempts": 1,
-      "total_correct": 1,
-      "total_incorrect": 0,
+      "stem": "Proposed Assumption:The number of highly trained employees is declining.",
+      "domain": "Assumptions",
+      "difficulty": 2,
+      "total_attempts": 8,
+      "total_correct": 7,
+      "total_incorrect": 1,
       "hint_usage_count": 0,
       "observed_stats": {
-        "exposures": 6,
-        "overall_correct_rate": 1.0,
-        "first_try_correct_rate": 0.5,
+        "exposures": 8,
+        "overall_correct_rate": 0.875,
+        "first_try_correct_rate": 0.875,
         "avg_latency_ms": null,
         "hint_usage_rate": 0.0
       }
@@ -1535,19 +1535,19 @@
     },
     "91": {
       "question_id": "91",
-      "stem": "If it rains tomorrow, the picnic will be canceled.",
+      "stem": "Proposed Assumption:We can't help but forsake longstanding proven traditions.",
       "domain": "Assumptions",
-      "difficulty": 1,
-      "total_attempts": 10,
-      "total_correct": 7,
-      "total_incorrect": 3,
+      "difficulty": 4,
+      "total_attempts": 12,
+      "total_correct": 8,
+      "total_incorrect": 4,
       "hint_usage_count": 8,
       "observed_stats": {
-        "exposures": 7,
-        "overall_correct_rate": 0.7,
-        "first_try_correct_rate": 0.27,
+        "exposures": 12,
+        "overall_correct_rate": 0.6667,
+        "first_try_correct_rate": 0.6667,
         "avg_latency_ms": null,
-        "hint_usage_rate": 0.8
+        "hint_usage_rate": 0.6667
       }
     },
     "92": {
@@ -1620,19 +1620,19 @@
     },
     "96": {
       "question_id": "96",
-      "stem": "If it rains tomorrow, the picnic will be canceled.",
-      "domain": "Interpretation",
-      "difficulty": 1,
-      "total_attempts": 6,
-      "total_correct": 0,
-      "total_incorrect": 6,
+      "stem": "Proposed Assumption:The global population now is half of what it will be one decade from now.",
+      "domain": "Assumptions",
+      "difficulty": 6,
+      "total_attempts": 20,
+      "total_correct": 11,
+      "total_incorrect": 9,
       "hint_usage_count": 3,
       "observed_stats": {
-        "exposures": 8,
-        "overall_correct_rate": 0.0,
-        "first_try_correct_rate": 0.56,
+        "exposures": 20,
+        "overall_correct_rate": 0.55,
+        "first_try_correct_rate": 0.55,
         "avg_latency_ms": null,
-        "hint_usage_rate": 0.5
+        "hint_usage_rate": 0.15
       }
     },
     "97": {
@@ -1701,6 +1701,23 @@
         "first_try_correct_rate": 0.53,
         "avg_latency_ms": 1449,
         "hint_usage_rate": 0.3333333333333333
+      }
+    },
+    "101": {
+      "question_id": "101",
+      "stem": "Proposed Assumption:The bedroom does not need to be cleaned.",
+      "domain": "Assumptions",
+      "difficulty": 6,
+      "total_attempts": 11,
+      "total_correct": 6,
+      "total_incorrect": 5,
+      "hint_usage_count": 0,
+      "observed_stats": {
+        "exposures": 11,
+        "overall_correct_rate": 0.5455,
+        "first_try_correct_rate": 0.5455,
+        "avg_latency_ms": null,
+        "hint_usage_rate": 0.0
       }
     }
   }

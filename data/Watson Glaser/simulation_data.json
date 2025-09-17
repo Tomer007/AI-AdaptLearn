@@ -1,7 +1,12 @@
 {
   "metadata": {
-    "total_questions": 122,
-    "name": "Watson-Glaser Simulation Questions"
+    "total_questions": 120,
+    "name": "Watson-Glaser Simulation Questions",
+    "color_counts": {
+      "Blue": 3,
+      "Yellow": 3,
+      "White": 0
+    }
   },
   "questions": [
     {
@@ -18,8 +23,23 @@
         "answer_2": "Conclusion does not follow"
       },
       "correct_answer": "Conclusion does not follow",
-      "explanation": "Conclusion does not follow.The passage does not provide you with enough information to reach this conclusion, as it says nothing about it. It might sound reasonable, seeing how many workers felt comfortable enough to do it, but that does not mean anything as far as the company’s ethics. It is possible that the bribers’ employers did not even know such bribing was happening, or that they did know, and disapproved.",
-      "difficulty_level": "4"
+      "explanation": "Conclusion does not follow.The passage does not provide you with enough information to reach this conclusion, as it says nothing about it. It might sound reasonable, seeing how many workers felt comfortable enough to do it, but that does not mean anything as far as the company's ethics. It is possible that the bribers' employers did not even know such bribing was happening, or that they did know, and disapproved.",
+      "difficulty_level": "4",
+      "metadata": {
+        "domain": "Critical Thinking",
+        "category": "Interpretation",
+        "subCategory": "Conclusion Validity",
+        "difficulty": {
+          "scale": 4,
+          "level": "Medium",
+          "color": "Blue, Yellow"
+        },
+        "cognitiveSkill": "Evaluating evidence",
+        "timeLimitSec": 90,
+        "language": "en",
+        "version": "v1.0",
+        "status": "active"
+      }
     },
     {
       "id": 2,
@@ -36,7 +56,22 @@
       },
       "correct_answer": "Conclusion follows",
       "explanation": "Conclusion follows.If 15 percent of the employees had brought three or more new clients, then it follows that the other 85 percent had brought less than three new clients.",
-      "difficulty_level": "5"
+      "difficulty_level": "5",
+      "metadata": {
+        "domain": "Critical Thinking",
+        "category": "Interpretation",
+        "subCategory": "Numerical Inference",
+        "difficulty": {
+          "scale": 5,
+          "level": "Medium",
+          "color": "Blue, Yellow"
+        },
+        "cognitiveSkill": "Quantitative reasoning",
+        "timeLimitSec": 90,
+        "language": "en",
+        "version": "v1.0",
+        "status": "active"
+      }
     },
     {
       "id": 3,
@@ -53,7 +88,22 @@
       },
       "correct_answer": "Conclusion follows",
       "explanation": "Conclusion follows.This statement mathematically follows from the text.15% brought in three or more new clients.Therefore, 85% brought in fewer than three new clients. 85/15 = 5.67; hence, there are more than 5 people on average who brought in fewer than three new clients for every worker who brought at least three.",
-      "difficulty_level": "5"
+      "difficulty_level": "5",
+      "metadata": {
+        "domain": "Critical Thinking",
+        "category": "Interpretation",
+        "subCategory": "Proportional Reasoning",
+        "difficulty": {
+          "scale": 5,
+          "level": "Medium",
+          "color": "Blue, Yellow"
+        },
+        "cognitiveSkill": "Logical reasoning",
+        "timeLimitSec": 90,
+        "language": "en",
+        "version": "v1.0",
+        "status": "active"
+      }
     },
     {
       "id": 4,
@@ -2088,54 +2138,25 @@
       "correct_answer": "Assumption Not Made",
       "explanation": "Assumption is not made. Although it is a possible assumption from the statement that if there is not enough food, then it is more than reasonable that not all food will taste good. However, that assumption is not connected to the statement directly, and is a leap that we cannot make as the speaker did not mention taste at all.",
       "difficulty_level": "4"
-    },
-    {
-      "id": 121,
-      "test_code": "",
-      "question_id": "",
-      "question_code": "",
-      "subject": "",
-      "question_instructions": "",
-      "question_content": "",
-      "question_stimuli": "",
-      "answers": {},
-      "correct_answer": "",
-      "explanation": "",
-      "difficulty_level": "2"
-    },
-    {
-      "id": 122,
-      "test_code": "",
-      "question_id": "",
-      "question_code": "",
-      "subject": "",
-      "question_instructions": "",
-      "question_content": "",
-      "question_stimuli": "",
-      "answers": {},
-      "correct_answer": "",
-      "explanation": "",
-      "difficulty_level": "5"
     }
   ],
   "statistics": {
     "by_test_code": {
-      "": 122
+      "": 120
     },
     "by_subject": {
       "Interpretation": 18,
       "Inference": 15,
       "Evaluation of Arguments": 36,
       "Deduction": 15,
-      "Assumptions": 36,
-      "": 2
+      "Assumptions": 36
     },
     "by_difficulty": {
       "4": 18,
       "5": 18,
       "6": 7,
       "3": 39,
-      "2": 27,
+      "2": 25,
       "8": 5,
       "10": 2,
       "7": 6

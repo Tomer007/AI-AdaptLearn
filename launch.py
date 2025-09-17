@@ -48,15 +48,20 @@ def main():
         
         print("✅ Application imported successfully!")
         print("🌟 Starting server...")
-        print("📍 Server will be available at: http://localhost:8000")
-        print("📚 API Documentation: http://localhost:8000/api/docs")
-        print("🔍 Health Check: http://localhost:8000/health")
+        
+        # Get port from environment variable (for Render deployment) or default to 8000
+        port = int(os.environ.get("PORT", 8000))
+        host = "0.0.0.0"
+        
+        print(f"📍 Server will be available at: http://{host}:{port}")
+        print(f"📚 API Documentation: http://{host}:{port}/api/docs")
+        print(f"🔍 Health Check: http://{host}:{port}/health")
         print("")
         print("Press Ctrl+C to stop the server")
         print("")
         
         # Run the app
-        uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
+        uvicorn.run("app.main:app", host=host, port=port, reload=False)
         
     except ImportError as e:
         print(f"❌ Import error: {e}")

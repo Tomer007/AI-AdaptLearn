@@ -10,7 +10,7 @@ from app.utils.question_stats import update_question_stat
 import os
 import json
 from app.services.agents.qstats.qstats_agent import QStatsAgent
-
+from app.services.agents.learning_plan.learning_plan_agent import LearningPlanAgent
 router = APIRouter(prefix="/api/chat", tags=["chat"])
 
 class QARequest(BaseModel):
@@ -266,7 +266,6 @@ async def intro_endpoint(req: IntroRequest) -> Dict[str, Any]:
                         "is_correct": bool(is_correct),
                         "domain": getattr(getattr(q, "domain", None), "value", str(getattr(q, "domain", ""))),
                         "difficulty": getattr(q, "difficulty", None),
-                        "is_from_bank": True,
                     }
                     # Append to file object with metadata { metadata:{question_bank}, answers:[...] }
                     file_obj: Dict[str, Any] = {"metadata": {"question_bank": "Watson Glaser"}, "answers": []}
@@ -324,4 +323,51 @@ async def intro_endpoint(req: IntroRequest) -> Dict[str, Any]:
         raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Intro endpoint error: {str(e)}")
+
+
+class LearningPlanRequest(BaseModel):
+    """Request model for generating a learning plan."""
+    settings: Dict[str, Any] = Field(..., description="Learning plan parameters")
+    session_id: str = Field(..., description="Session identifier")
+    history: Optional[List[Dict[str, str]]] = Field(None, description="Optional conversation history")
+
+
+class LearningPlanResponse(BaseModel):
+    """Response model containing the generated learning plan."""
+    learning_plan: str = Field(..., description="Generated learning plan")
+    session_id: str = Field(..., description="Session identifier")
+
+
+@router.post("/learning-plan", response_model=LearningPlanResponse)
+async def generate_learning_plan(request: LearningPlanRequest):
+    """
+    Generate a personalized learning plan based on user parameters.
+    
+    Expected settings format:
+    {
+        "testName": "Watson-Glaser",
+        "planDurationDays": 14,
+        "hoursPerDay": 2,
+        "startingProficiency": "unknown",
+        "targetScore": 80,
+        "timing": {"timePerItemSec": 90},
+        "skills": ["Inference", "Recognition of Assumptions", "Deduction", "Interpretation", "Evaluation of Arguments"],
+        "constraints": {
+            "contentBalance": true,
+            "enemySets": []
+        }
+    }
+    """
+    try:
+        # Generate new learning plan
+        agent = LearningPlanAgent()
+        learning_plan = await agent.generate_learning_plan(request.settings)
+        
+        return LearningPlanResponse(
+            learning_plan=learning_plan,
+            session_id=request.session_id
+        )
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Learning plan generation error: {str(e)}")
 

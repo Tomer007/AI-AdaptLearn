@@ -177,6 +177,42 @@
       "domain": "Assumptions",
       "difficulty": 4,
       "is_from_bank": true
+    },
+    {
+      "qid": "72",
+      "is_correct": true,
+      "domain": "Deduction",
+      "difficulty": 3
+    },
+    {
+      "qid": "4",
+      "is_correct": true,
+      "domain": "Interpretation",
+      "difficulty": 4
+    },
+    {
+      "qid": "87",
+      "is_correct": true,
+      "domain": "Assumptions",
+      "difficulty": 3
+    },
+    {
+      "qid": "88",
+      "is_correct": true,
+      "domain": "Assumptions",
+      "difficulty": 2
+    },
+    {
+      "qid": "6",
+      "is_correct": true,
+      "domain": "Interpretation",
+      "difficulty": 3
+    },
+    {
+      "qid": "89",
+      "is_correct": true,
+      "domain": "Assumptions",
+      "difficulty": 2
     }
   ]
 }
