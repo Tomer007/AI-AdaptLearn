@@ -3479,8 +3479,10 @@
           }
         }
         
-        // Generate learning plan
-        await generateLearningPlan();
+        // Generate learning plan with a small delay to ensure DOM is ready
+        setTimeout(async () => {
+          await generateLearningPlan();
+        }, 100);
         
         // Ensure content is visible
         const learningContent = document.getElementById('learning-plan-content');
@@ -3516,28 +3518,16 @@
       // Show a notification
       showNotification('Great! Let\'s start with some diagnostic questions to assess your current level.', 'success');
     }
-
-    // Update learning plan - show chat interface for user requests
-    function updateLearningPlan() {
-      console.log('updateLearningPlan function called');
-      alert('Update Plan button clicked!'); // Temporary debug alert
-      
-      // Simple test to see if function is working
-      console.log('Function is executing properly');
-      
-      // Check if chat interface already exists
-      let updateChatContainer = document.getElementById('update-plan-chat');
-      
+    
+    // Close update chat
+    function closeUpdateChat() {
+      const updateChatContainer = document.getElementById('update-plan-chat');
       if (updateChatContainer) {
-        console.log('Chat container already exists, toggling visibility');
-        // Toggle visibility if already exists
-        updateChatContainer.style.display = updateChatContainer.style.display === 'none' ? 'block' : 'none';
-        return;
+        updateChatContainer.style.display = 'none';
       }
-      
-      console.log('Creating new chat container');
-      
-      // Create chat interface container
+    }
+    
+    // Remove orphaned code below
       updateChatContainer = document.createElement('div');
       updateChatContainer.id = 'update-plan-chat';
       updateChatContainer.style.cssText = `
@@ -3995,9 +3985,16 @@
       const loader = document.getElementById('learning-loader');
       const overlay = document.getElementById('learning-overlay');
       
-      generateBtn.style.display = 'none';
-      loader.style.display = 'flex';
-      overlay.style.display = 'flex';
+      // Add null checks for all elements
+      if (generateBtn) {
+        generateBtn.style.display = 'none';
+      }
+      if (loader) {
+        loader.style.display = 'flex';
+      }
+      if (overlay) {
+        overlay.style.display = 'flex';
+      }
       
       try {
         // Calculate plan duration in days
@@ -4057,9 +4054,15 @@
         showNotification('Error generating learning plan. Please try again.', 'error');
       } finally {
         // Hide loading state
-        generateBtn.style.display = 'inline-block';
-        loader.style.display = 'none';
-        overlay.style.display = 'none';
+        if (generateBtn) {
+          generateBtn.style.display = 'inline-block';
+        }
+        if (loader) {
+          loader.style.display = 'none';
+        }
+        if (overlay) {
+          overlay.style.display = 'none';
+        }
       }
     }
     
