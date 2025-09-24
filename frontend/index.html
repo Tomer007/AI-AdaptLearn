@@ -3612,10 +3612,22 @@
       updateChatContainer.style.display = 'block';
       console.log('Chat container display set to block');
       
-      // Focus on input
+      // Temporary alert to confirm chat interface is created
+      alert('Chat interface created! Check below the learning plan for the blue-bordered chat box.');
+      
+      // Scroll to the chat container to make it visible
       setTimeout(() => {
+        updateChatContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        console.log('Scrolled to chat container');
+        
+        // Focus on input
         const input = document.getElementById('update-plan-input');
-        if (input) input.focus();
+        if (input) {
+          input.focus();
+          console.log('Input focused');
+        } else {
+          console.log('Input not found');
+        }
       }, 100);
       
       // Add Enter key support
