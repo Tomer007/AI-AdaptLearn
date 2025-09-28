@@ -3527,108 +3527,6 @@
       }
     }
     
-    // Remove orphaned code below
-      updateChatContainer = document.createElement('div');
-      updateChatContainer.id = 'update-plan-chat';
-      updateChatContainer.style.cssText = `
-        margin-top: 20px;
-        background: #ffffff;
-        border: 3px solid #1976d2;
-        border-radius: 8px;
-        padding: 15px;
-        box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
-        position: relative;
-        z-index: 1000;
-      `;
-      
-      updateChatContainer.innerHTML = `
-        <div style="margin-bottom: 15px;">
-          <h4 style="color: #1976d2; margin: 0 0 10px 0; font-size: 16px;">💬 Update Your Learning Plan</h4>
-          <p style="color: #666; margin: 0; font-size: 14px;">Tell me what you'd like to change about your learning plan. For example:</p>
-          <ul style="color: #666; margin: 8px 0 0 0; padding-left: 20px; font-size: 14px;">
-            <li>Change study hours per day</li>
-            <li>Focus more on specific question types</li>
-            <li>Adjust the timeline</li>
-            <li>Add or remove topics</li>
-          </ul>
-        </div>
-        
-        <div id="update-plan-chat-messages" style="max-height: 300px; overflow-y: auto; margin-bottom: 15px; border: 1px solid #e1e9f6; border-radius: 8px; padding: 10px; background: #f8f9fa;">
-          <div class="chat-message system-msg">
-            <span class="ai-name-bubble">JobTestPrep AI</span>
-            <div style="color: #333; margin-top: 5px;">Hi! I'm here to help you update your learning plan. What changes would you like to make?</div>
-          </div>
-        </div>
-        
-        <div style="display: flex; gap: 10px; align-items: center;">
-          <input type="text" id="update-plan-input" placeholder="Describe what you'd like to change..." 
-                 style="flex: 1; padding: 10px; border: 1px solid #c5d3ea; border-radius: 6px; font-size: 14px; outline: none;">
-          <button onclick="sendUpdateRequest()" id="update-plan-send-btn" 
-                  style="background: #1976d2; color: white; border: none; padding: 10px 15px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600;">
-            Send
-          </button>
-          <button onclick="closeUpdateChat()" 
-                  style="background: #6c757d; color: white; border: none; padding: 10px 15px; border-radius: 6px; cursor: pointer; font-size: 14px;">
-            Close
-          </button>
-        </div>
-      `;
-      
-      // Insert after the learning plan content
-      const learningContent = document.getElementById('learning-plan-content');
-      console.log('Learning content element:', learningContent);
-      
-      if (learningContent) {
-        learningContent.appendChild(updateChatContainer);
-        console.log('Chat container appended to learning content');
-        console.log('Chat container should now be visible');
-      } else {
-        console.error('learning-plan-content element not found! Trying fallback...');
-        // Fallback: append to the learning plan tab content
-        const learningPlanTab = document.getElementById('tab-learningplan');
-        console.log('Learning plan tab element:', learningPlanTab);
-        if (learningPlanTab) {
-          learningPlanTab.appendChild(updateChatContainer);
-          console.log('Chat container appended to learning plan tab');
-        } else {
-          console.error('Learning plan tab not found either!');
-          // Final fallback: append to body
-          document.body.appendChild(updateChatContainer);
-          console.log('Chat container appended to body as final fallback');
-        }
-      }
-      
-      // Make sure the chat container is visible
-      updateChatContainer.style.display = 'block';
-      console.log('Chat container display set to block');
-      
-      // Temporary alert to confirm chat interface is created
-      alert('Chat interface created! Check below the learning plan for the blue-bordered chat box.');
-      
-      // Scroll to the chat container to make it visible
-      setTimeout(() => {
-        updateChatContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        console.log('Scrolled to chat container');
-        
-        // Focus on input
-        const input = document.getElementById('update-plan-input');
-        if (input) {
-          input.focus();
-          console.log('Input focused');
-        } else {
-          console.log('Input not found');
-        }
-      }, 100);
-      
-      // Add Enter key support
-      const input = document.getElementById('update-plan-input');
-      if (input) {
-        input.addEventListener('keypress', function(event) {
-          if (event.key === 'Enter') {
-            sendUpdateRequest();
-          }
-        });
-      }
     
 
     // Send update request to AI
@@ -3737,6 +3635,68 @@
         
         // If the response contains an updated plan, regenerate the main plan
         if (result.learning_plan || result.response) {
+          // Try to extract and update settings from the AI response
+          try {
+            const responseText = result.learning_plan || result.response || '';
+            
+            // Look for common setting changes in the response
+            const hoursMatch = responseText.match(/(\d+)\s*hour[s]?\s*per\s*day/i);
+            const daysMatch = responseText.match(/(\d+)\s*day[s]?/i);
+            const scoreMatch = responseText.match(/(\d+)%/i);
+            
+            // Get current settings
+            const savedSettings = localStorage.getItem('lastSavedSettings');
+            let userSettings = {};
+            
+            if (savedSettings) {
+              try {
+                userSettings = JSON.parse(savedSettings);
+              } catch (e) {
+                console.error('Error parsing saved settings:', e);
+              }
+            }
+            
+            // Update settings based on AI response
+            let settingsUpdated = false;
+            
+            if (hoursMatch) {
+              const newHours = parseInt(hoursMatch[1]);
+              if (newHours !== userSettings.daily_hours) {
+                userSettings.daily_hours = newHours;
+                settingsUpdated = true;
+                console.log(`Updated daily hours to: ${newHours}`);
+              }
+            }
+            
+            if (daysMatch) {
+              const newDays = parseInt(daysMatch[1]);
+              // Calculate new assessment date based on new duration
+              const today = new Date();
+              const newAssessmentDate = new Date(today.getTime() + (newDays * 24 * 60 * 60 * 1000));
+              userSettings.assessment_date = newAssessmentDate.toISOString().split('T')[0];
+              settingsUpdated = true;
+              console.log(`Updated assessment date to: ${userSettings.assessment_date}`);
+            }
+            
+            if (scoreMatch) {
+              const newScore = parseInt(scoreMatch[1]);
+              if (newScore !== userSettings.target_score) {
+                userSettings.target_score = newScore;
+                settingsUpdated = true;
+                console.log(`Updated target score to: ${newScore}%`);
+              }
+            }
+            
+            // Save updated settings if any changes were made
+            if (settingsUpdated) {
+              localStorage.setItem('lastSavedSettings', JSON.stringify(userSettings));
+              console.log('Settings updated in localStorage:', userSettings);
+            }
+            
+          } catch (error) {
+            console.error('Error updating settings from AI response:', error);
+          }
+          
           setTimeout(() => {
             generateLearningPlan();
           }, 1000);
@@ -3925,6 +3885,101 @@
       }
     }
     
+    // Open the update chat interface
+    function openUpdateChat() {
+      // Check if chat already exists and remove it
+      const existingChat = document.getElementById('update-plan-chat');
+      if (existingChat) {
+        existingChat.remove();
+      }
+      
+      // Create the update chat container
+      const updateChatContainer = document.createElement('div');
+      updateChatContainer.id = 'update-plan-chat';
+      updateChatContainer.style.cssText = `
+        margin-top: 20px;
+        background: #ffffff;
+        border: 3px solid #1976d2;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+        position: relative;
+        z-index: 1000;
+      `;
+      
+      updateChatContainer.innerHTML = `
+        <div style="margin-bottom: 15px;">
+          <h4 style="color: #1976d2; margin: 0 0 10px 0; font-size: 16px;">💬 Update Your Learning Plan</h4>
+          <p style="color: #666; margin: 0; font-size: 14px;">Tell me what you'd like to change about your learning plan. For example:</p>
+          <ul style="color: #666; margin: 8px 0 0 0; padding-left: 20px; font-size: 14px;">
+            <li>Change study hours per day</li>
+            <li>Focus more on specific question types</li>
+            <li>Adjust the timeline</li>
+            <li>Add or remove topics</li>
+          </ul>
+        </div>
+        
+        <div id="update-plan-chat-messages" style="max-height: 300px; overflow-y: auto; margin-bottom: 15px; border: 1px solid #e1e9f6; border-radius: 8px; padding: 10px; background: #f8f9fa;">
+          <div class="chat-message system-msg">
+            <span class="ai-name-bubble">JobTestPrep AI</span>
+            <div style="color: #333; margin-top: 5px;">Hi! I'm here to help you update your learning plan. What changes would you like to make?</div>
+          </div>
+        </div>
+        
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <input type="text" id="update-plan-input" placeholder="Describe what you'd like to change..." 
+                 style="flex: 1; padding: 10px; border: 1px solid #c5d3ea; border-radius: 6px; font-size: 14px; outline: none;">
+          <button onclick="sendUpdateRequest()" id="update-plan-send-btn" 
+                  style="background: #1976d2; color: white; border: none; padding: 10px 15px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600;">
+            Send
+          </button>
+          <button onclick="closeUpdateChat()" 
+                  style="background: #6c757d; color: white; border: none; padding: 10px 15px; border-radius: 6px; cursor: pointer; font-size: 14px;">
+            Close
+          </button>
+        </div>
+      `;
+      
+      // Insert after the learning plan content
+      const learningContent = document.getElementById('learning-plan-content');
+      if (learningContent) {
+        learningContent.appendChild(updateChatContainer);
+      } else {
+        // Fallback: append to the learning plan tab content
+        const learningPlanTab = document.getElementById('tab-learningplan');
+        if (learningPlanTab) {
+          learningPlanTab.appendChild(updateChatContainer);
+        } else {
+          // Final fallback: append to body
+          document.body.appendChild(updateChatContainer);
+        }
+      }
+      
+      // Make sure the chat container is visible
+      updateChatContainer.style.display = 'block';
+      
+      // Scroll to the chat container to make it visible
+      setTimeout(() => {
+        updateChatContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        
+        // Focus on input
+        const input = document.getElementById('update-plan-input');
+        if (input) {
+          input.focus();
+        }
+      }, 100);
+      
+      // Add Enter key support
+      const input = document.getElementById('update-plan-input');
+      if (input) {
+        input.addEventListener('keypress', function(event) {
+          if (event.key === 'Enter') {
+            sendUpdateRequest();
+          }
+        });
+      }
+    }
+    
     
     
     
@@ -4105,7 +4160,7 @@
             console.log('Update Plan button found, adding event listener');
             updateBtn.addEventListener('click', function() {
               console.log('Update Plan button clicked via event listener');
-              updateLearningPlan();
+              openUpdateChat();
             });
           } else {
             console.log('Update Plan button not found');
@@ -4268,7 +4323,7 @@
           console.log('Update Plan button found (JSON), adding event listener');
           updateBtn.addEventListener('click', function() {
             console.log('Update Plan button clicked via event listener (JSON)');
-            updateLearningPlan();
+            openUpdateChat();
           });
         } else {
           console.log('Update Plan button not found (JSON)');
