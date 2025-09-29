@@ -16,23 +16,3 @@ class UserSettings(BaseModel):
             datetime: lambda v: v.isoformat()
         }
 
-class UserSettingsResponse(BaseModel):
-    """Response model for user settings submission."""
-    
-    status: str = "OK"
-    message: str = "Settings received successfully"
-    welcome_message: str
-    settings: UserSettings
-
-class User(BaseModel):
-    """User model for database storage."""
-    
-    id: Optional[int] = None
-    tester_name: str
-    created_at: datetime = Field(default_factory=datetime.utcnow)
-    last_active: datetime = Field(default_factory=datetime.utcnow)
-    
-    class Config:
-        json_encoders = {
-            datetime: lambda v: v.isoformat()
-        }

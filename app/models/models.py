@@ -31,20 +31,3 @@ class Question(BaseModel):
     difficulty: int  # 1..10
 
 
-class Session(BaseModel):
-    id: str
-    user_id: str
-    stage: Stage = Stage.INIT
-    plan: Dict[str, Dict[Domain, List[str]]] = {}  # qids per stage per domain
-    retries: Dict[str, int] = {}  # qid -> retry count
-    history: List[Dict] = []  # events
-    scores: Dict[Domain, List[float]] = {
-        Domain.Inference: [],
-        Domain.Interpretation: [],
-        Domain.Assumptions: [],
-        Domain.Evaluation_of_Arguments: [],
-        Domain.Deduction: [],
-    }
-    wrong_ids: List[str] = []
-
-
