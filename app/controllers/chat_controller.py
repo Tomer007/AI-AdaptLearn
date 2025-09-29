@@ -11,6 +11,10 @@ import os
 import json
 from app.services.agents.qstats.qstats_agent import QStatsAgent
 from app.services.agents.learning_plan.learning_plan_agent import LearningPlanAgent
+from app.models.adaptive_learning import DiagnosticScore
+from app.logging.logging_config import get_logger
+
+logger = get_logger(__name__)
 router = APIRouter(prefix="/api/chat", tags=["chat"])
 
 class QARequest(BaseModel):
@@ -325,49 +329,53 @@ async def intro_endpoint(req: IntroRequest) -> Dict[str, Any]:
         raise HTTPException(status_code=500, detail=f"Intro endpoint error: {str(e)}")
 
 
-class LearningPlanRequest(BaseModel):
-    """Request model for generating a learning plan."""
-    settings: Dict[str, Any] = Field(..., description="Learning plan parameters")
-    session_id: str = Field(..., description="Session identifier")
-    history: Optional[List[Dict[str, str]]] = Field(None, description="Optional conversation history")
 
 
-class LearningPlanResponse(BaseModel):
-    """Response model containing the generated learning plan."""
-    learning_plan: str = Field(..., description="Generated learning plan")
-    session_id: str = Field(..., description="Session identifier")
+class LearningPlanJsonRequest(BaseModel):
+    """Request model for generating a learning plan from JSON input with diagnostic scores."""
+    assessment_name: str = Field(..., description="Name of the assessment")
+    user_id: str = Field(..., description="Unique user identifier")
+    plan_version: str = Field(default="v1.0", description="Version of the plan")
+    total_available_time_minutes: int = Field(..., description="Total time available for preparation")
+    timestamp: str = Field(..., description="When the request was made")
+    category_weights: List[Dict[str, Any]] = Field(..., description="Categories with their importance weights")
+    initial_diagnostic_scores: List[Dict[str, Any]] = Field(..., description="Categories with current skill levels")
 
 
-@router.post("/learning-plan", response_model=LearningPlanResponse)
-async def generate_learning_plan(request: LearningPlanRequest):
-    """
-    Generate a personalized learning plan based on user parameters.
-    
-    Expected settings format:
-    {
-        "testName": "Watson-Glaser",
-        "planDurationDays": 14,
-        "hoursPerDay": 2,
-        "startingProficiency": "unknown",
-        "targetScore": 80,
-        "timing": {"timePerItemSec": 90},
-        "skills": ["Inference", "Recognition of Assumptions", "Deduction", "Interpretation", "Evaluation of Arguments"],
-        "constraints": {
-            "contentBalance": true,
-            "enemySets": []
-        }
-    }
-    """
+class LearningPlanJsonResponse(BaseModel):
+    """Response model containing the generated learning plan as JSON."""
+    assessment_name: str = Field(..., description="Name of the assessment")
+    user_id: str = Field(..., description="Unique user identifier")
+    plan_version: str = Field(..., description="Version of the plan")
+    remaining_time_minutes: int = Field(..., description="Time remaining for preparation")
+    total_time_allocated: int = Field(..., description="Original total time allocated")
+    timestamp: str = Field(..., description="When the plan was generated")
+    plan: List[Dict[str, Any]] = Field(..., description="Time allocation results per category")
+
+
+@router.post("/learning-plan", response_model=LearningPlanJsonResponse)
+async def generate_learning_plan(request: LearningPlanJsonRequest):
     try:
-        # Generate new learning plan
+        # Generate learning plan using JSON input
         agent = LearningPlanAgent()
-        learning_plan = await agent.generate_learning_plan(request.settings)
         
-        return LearningPlanResponse(
-            learning_plan=learning_plan,
-            session_id=request.session_id
-        )
+        # Convert request to dictionary
+        json_input = request.model_dump()
         
+        # Generate adaptive learning plan
+        result = await agent.generate_learning_plan_from_json(json_input)
+        
+        # Check if result contains an error
+        if "error" in result:
+            logger.error(f"Learning plan generation failed: {result['error']}")
+            raise HTTPException(status_code=500, detail=result['error'])
+        
+        return LearningPlanJsonResponse(**result)
+        
+    except HTTPException:
+        # Re-raise HTTP exceptions
+        raise
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Learning plan generation error: {str(e)}")
+        logger.error(f"Error generating learning plan from JSON: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Error generating learning plan: {str(e)}")
 

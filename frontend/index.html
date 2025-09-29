@@ -1350,6 +1350,20 @@
       
       // Initialize Assessment Profile on page load
       ensureAssessmentProfileVisible();
+      
+      // Force update Assessment Profile after a short delay to ensure settings are loaded
+      setTimeout(() => {
+        const savedSettings = localStorage.getItem('lastSavedSettings');
+        if (savedSettings) {
+          try {
+            const userSettings = JSON.parse(savedSettings);
+            updateMetadataCard(userSettings);
+          } catch (e) {
+            console.error('Error in forced update:', e);
+          }
+        }
+      }, 1000);
+      
     });
     
     // Minimal Markdown renderer with basic table support
@@ -1500,44 +1514,11 @@
             });
           }
           
-          // Create tags view for settings
-          const assessmentDateObj = new Date(assessmentDate);
-          const today = new Date();
-          const timeDiff = assessmentDateObj.getTime() - today.getTime();
-          const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
-          
-          const daysText = daysDiff > 0 ? `${daysDiff} days until assessment` : 
-                          daysDiff === 0 ? 'Assessment is today' : 
-                          `${Math.abs(daysDiff)} days since assessment`;
-          
           // Show metadata card and populate it
           document.getElementById('metadata-card').style.display = 'block';
           
-          // Create enhanced Assessment Profile
-          let profileHTML = `
-            <div class="profile-section">
-              <h4>Personal Details</h4>
-              <div class="profile-tags">
-                <span class="profile-tag">User: ${testerName}</span>    
-                <span class="profile-tag">Company: ${qCompany}</span>              
-                <span class="profile-tag">Location: ${qLocation}</span>              
-                <span class="profile-tag">Position: ${qPosition}</span>
-              </div>
-            </div>
-            
-            <div class="profile-section">
-              <h4>Timeline & Schedule</h4>
-              <div class="profile-tags">
-                <span class="profile-tag">Pack name: ${packName}</span>
-                <span class="profile-tag">Assessment: ${daysText}</span>
-                <span class="profile-tag">Assessment date: ${assessmentDate}</span>
-                <span class="profile-tag">Hours in day for practice: ${dailyHours}h daily</span>
-              </div>
-            </div>
-            
-          `;
-          
-          document.getElementById('assessment-profile-container').innerHTML = profileHTML;
+          // Update the Assessment Profile with the new settings
+          updateMetadataCard(userSettings);
           
           
           // Add system message with welcome at top-right (render Markdown)
@@ -3806,28 +3787,29 @@
     // Assessment Profile helpers
     // -------------------------
     
-    function ensureAssessmentProfileVisible() {
-      const metadataCard = document.getElementById('metadata-card');
-      const profileContainer = document.getElementById('assessment-profile-container');
-      
-      // Ensure the metadata card is visible
-      if (metadataCard) {
-        metadataCard.style.display = 'block';
-      }
-      
-      // If profile container is empty, try to populate it with saved settings
-      if (profileContainer && (!profileContainer.innerHTML || profileContainer.innerHTML.trim() === '')) {
-        const savedSettings = localStorage.getItem('lastSavedSettings');
-        if (savedSettings) {
-          try {
-            const userSettings = JSON.parse(savedSettings);
-            updateMetadataCard(userSettings);
-          } catch (e) {
-            console.warn('Failed to parse saved settings:', e);
-          }
-        }
-      }
-    }
+     function ensureAssessmentProfileVisible() {
+       const metadataCard = document.getElementById('metadata-card');
+       const profileContainer = document.getElementById('assessment-profile-container');
+       
+       // Ensure the metadata card is visible
+       if (metadataCard) {
+         metadataCard.style.display = 'block';
+       }
+       
+       // Always try to populate with saved settings
+       const savedSettings = localStorage.getItem('lastSavedSettings');
+       if (savedSettings) {
+         try {
+           const userSettings = JSON.parse(savedSettings);
+           console.log('ensureAssessmentProfileVisible - calling updateMetadataCard with:', userSettings);
+           updateMetadataCard(userSettings);
+         } catch (e) {
+           console.warn('Failed to parse saved settings:', e);
+         }
+       } else {
+         console.log('No saved settings found in localStorage');
+       }
+     }
 
     // -------------------------
     // Learning Plan helpers
@@ -4527,42 +4509,106 @@
                    `${Math.abs(daysDiff)} days since assessment`;
       }
       
-      // Create enhanced Assessment Profile
-      let profileHTML = `  
-        <div class="profile-section">
-          <h4>User</h4>
-          <div class="profile-tags">
-            <span class="profile-tag">User: ${userSettings.tester_name || 'User'}</span>
-          </div>
-        </div>
-        
-        <div class="profile-section">
-          <h4>Timeline & Schedule</h4>
-          <div class="profile-tags">
-            <span class="profile-tag">Pack name: ${userSettings.pack_name || 'Watson-Glaser'}</span>
-            ${daysText ? `<span class="profile-tag">Assessment: ${daysText}</span>` : ''}
-            <span class="profile-tag">Assessment date: ${userSettings.assessment_date || 'Not set'}</span>
-            <span class="profile-tag">Hours in day for practice: ${userSettings.hours_per_day || 2}h daily</span>
-          </div>
-        </div>
-        
-      `;
-      
-      // Add additional fields if they exist
-      if (userSettings.position || userSettings.company || userSettings.difficult_topic) {
-        profileHTML += `
-          <div class="profile-section">
-            <h4>👤 Personal Details</h4>
-            <div class="profile-tags">
-              ${userSettings.position ? `<span class="profile-tag">${userSettings.position}</span>` : ''}
-              ${userSettings.company ? `<span class="profile-tag">${userSettings.company}</span>` : ''}
-              ${userSettings.difficult_topic ? `<span class="profile-tag">Challenging: ${userSettings.difficult_topic}</span>` : ''}
-            </div>
-          </div>
-        `;
+       // Create enhanced Assessment Profile - only show tags with values
+       let profileHTML = '';
+       
+       // User section - only show if we have a tester name
+       if (userSettings.tester_name) {
+         profileHTML += `
+           <div class="profile-section">
+             <h4>User</h4>
+             <div class="profile-tags">
+               <span class="profile-tag">User: ${userSettings.tester_name}</span>
+             </div>
+           </div>
+         `;
+       }
+       
+       // Timeline & Schedule section - only show tags with values
+       const timelineTags = [];
+       if (userSettings.pack_name) timelineTags.push(`Pack name: ${userSettings.pack_name}`);
+       if (userSettings.assessment_date) timelineTags.push(`Assessment date: ${userSettings.assessment_date}`);
+       // Get hours per day from either field name
+       if (daysText) timelineTags.push(`Assessment: ${daysText}`);
+       const hoursPerDay = userSettings.hours_per_day || userSettings.daily_hours;
+       if (hoursPerDay) timelineTags.push(`Hours in day for practice: ${hoursPerDay}h daily`);
+       
+      // Calculate total learning time
+      let totalLearningTime = '';
+       
+       // Method 1: Extract days from daysText
+       if (hoursPerDay && daysText) {
+        const daysMatch = daysText.match(/(\d+)/);
+        if (daysMatch) {
+          const days = parseInt(daysMatch[1]);
+          const totalHours = hoursPerDay * days;
+          totalLearningTime = `Total learning time: ${totalHours}h (${totalHours * 60} minutes)`;
+        }
+       }
+       
+       // Method 2: Calculate from assessment date if daysText method failed
+       if (!totalLearningTime && hoursPerDay && userSettings.assessment_date) {
+         const assessmentDate = new Date(userSettings.assessment_date);
+         const today = new Date();
+         const timeDiff = assessmentDate.getTime() - today.getTime();
+         const days = Math.max(1, Math.ceil(timeDiff / (1000 * 3600 * 24)));
+        const totalHours = hoursPerDay * days;
+        totalLearningTime = `Total learning time: ${totalHours}h (${totalHours * 60} minutes)`;
+       }
+       
+       // Method 3: Use plan_duration_days as fallback
+       if (!totalLearningTime && hoursPerDay && userSettings.plan_duration_days) {
+        const totalHours = hoursPerDay * userSettings.plan_duration_days;
+        totalLearningTime = `Total learning time: ${totalHours}h (${totalHours * 60} minutes)`;
+       }
+       
+       // Method 4: Force calculation with 14 days if nothing else works
+       if (!totalLearningTime && hoursPerDay) {
+        const totalHours = hoursPerDay * 14; // Default to 14 days
+        totalLearningTime = `Total learning time: ${totalHours}h (${totalHours * 60} minutes)`;
+       }
+       
+      if (totalLearningTime) {
+        timelineTags.push(totalLearningTime);
+      } else {
+        // Force add a fallback calculation
+        if (hoursPerDay) {
+          const fallbackHours = hoursPerDay * 14;
+          const fallbackTime = `Total learning time: ${fallbackHours}h (${fallbackHours * 60} minutes)`;
+          timelineTags.push(fallbackTime);
+        }
       }
+       
+       if (timelineTags.length > 0) {
+         profileHTML += `
+           <div class="profile-section">
+             <h4>Timeline & Schedule</h4>
+             <div class="profile-tags">
+               ${timelineTags.map(tag => `<span class="profile-tag">${tag}</span>`).join('')}
+             </div>
+           </div>
+         `;
+       }
+       
+       // Personal Details section - only show if we have personal details
+       const personalTags = [];
+       if (userSettings.position) personalTags.push(userSettings.position);
+       if (userSettings.company) personalTags.push(userSettings.company);
+       if (userSettings.difficult_topic) personalTags.push(`Challenging: ${userSettings.difficult_topic}`);
+       
+       if (personalTags.length > 0) {
+         profileHTML += `
+           <div class="profile-section">
+             <h4>Personal Details</h4>
+             <div class="profile-tags">
+               ${personalTags.map(tag => `<span class="profile-tag">${tag}</span>`).join('')}
+             </div>
+           </div>
+         `;
+       }
       
-      document.getElementById('assessment-profile-container').innerHTML = profileHTML;
+      const container = document.getElementById('assessment-profile-container');
+      container.innerHTML = profileHTML;
     }
 
     // Notification system
